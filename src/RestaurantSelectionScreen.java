@@ -96,7 +96,7 @@ public class RestaurantSelectionScreen extends JFrame {
 		financeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Popup popup = new Popup();
-				popup.showSuccessMessage("Purchase Successful");
+				popup.showSuccessMessage("Seating plan");
 				System.out.println("return to page here");
 			}
 		});
