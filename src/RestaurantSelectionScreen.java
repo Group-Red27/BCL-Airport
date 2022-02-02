@@ -19,8 +19,11 @@ import javax.swing.JSeparator;
 import javax.swing.JSplitPane;
 import java.awt.SystemColor;
 import javax.swing.JTextField;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.border.LineBorder;
 
-public class SelectionScreen extends JFrame {
+public class RestaurantSelectionScreen extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -43,7 +46,7 @@ public class SelectionScreen extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SelectionScreen frame = new SelectionScreen();
+					RestaurantSelectionScreen frame = new RestaurantSelectionScreen();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -55,7 +58,7 @@ public class SelectionScreen extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SelectionScreen() {
+	public RestaurantSelectionScreen() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 850, 650);
 		contentPane = new JPanel();
@@ -71,33 +74,62 @@ public class SelectionScreen extends JFrame {
 		button_panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		JButton flightsButton = new JButton("Flights");
+		flightsButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
 		button_panel.add(flightsButton);
 		flightsButton.setForeground(Color.BLACK);
-		flightsButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		flightsButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		flightsButton.setBackground(new Color(255, 255, 255));
 		
 		JButton restuarantButton = new JButton("Restuarant");
+		restuarantButton.setEnabled(false);
 		button_panel.add(restuarantButton);
 		restuarantButton.setForeground(new Color(255, 255, 255));
 		restuarantButton.setBackground(new Color(0, 0, 128));
-		restuarantButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		restuarantButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		
 		JButton financeButton = new JButton("Finance");
+		financeButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Popup popup = new Popup();
+				popup.showSuccessMessage("Purchase Successful");
+				System.out.println("return to page here");
+			}
+		});
+		financeButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		button_panel.add(financeButton);
 		financeButton.setBackground(new Color(255, 255, 255));
-		financeButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		financeButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		
 		JButton departureButton = new JButton("Departures");
+		departureButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		departureButton.setHorizontalAlignment(SwingConstants.RIGHT);
 		button_panel.add(departureButton);
 		departureButton.setBackground(new Color(255, 255, 255));
-		departureButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		departureButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		
 		JButton arrivalButton = new JButton("Arrivals");
+		arrivalButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		arrivalButton.setHorizontalAlignment(SwingConstants.RIGHT);
 		button_panel.add(arrivalButton);
 		arrivalButton.setBackground(new Color(255, 255, 255));
-		arrivalButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		arrivalButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		
 		JPanel main_panel = new JPanel();
 		main_panel.setBackground(Color.WHITE);
@@ -308,7 +340,7 @@ public class SelectionScreen extends JFrame {
 		
 		JPanel info_panel = new JPanel();
 		info_panel.setBackground(SystemColor.menu);
-		info_panel.setBounds(641, 25, 150, 477);
+		info_panel.setBounds(641, 25, 151, 477);
 		main_panel.add(info_panel);
 		info_panel.setLayout(null);
 		
@@ -325,13 +357,17 @@ public class SelectionScreen extends JFrame {
 		info_panel.add(lblNewLabel_2_1_1);
 		
 		JButton purchaseButton = new JButton("Purchase");
-		purchaseButton.setBounds(10, 425, 130, 33);
+		purchaseButton.setBounds(20, 424, 109, 29);
 		info_panel.add(purchaseButton);
 		purchaseButton.setForeground(new Color(255, 255, 255));
 		purchaseButton.setBackground(new Color(0, 0, 128));
-		purchaseButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		purchaseButton.setFont(new Font("Tahoma", Font.BOLD, 16));
 		purchaseButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// move screens
+				RestaurantConfirmationScreen confirmationScreen = new RestaurantConfirmationScreen();
+				setVisible(false);
+				confirmationScreen.setVisible(true);
 			}
 		});
 		
@@ -341,19 +377,19 @@ public class SelectionScreen extends JFrame {
 		title_panel.setLayout(null);
 		
 		JLabel meal_Label = new JLabel("Meals");
-		meal_Label.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		meal_Label.setFont(new Font("Tahoma", Font.BOLD, 20));
 		meal_Label.setForeground(new Color(0, 0, 128));
 		meal_Label.setBounds(66, 14, 62, 19);
 		title_panel.add(meal_Label);
 		
 		JLabel snack_Label = new JLabel("Snacks");
 		snack_Label.setForeground(new Color(0, 0, 128));
-		snack_Label.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		snack_Label.setBounds(263, 14, 62, 19);
+		snack_Label.setFont(new Font("Tahoma", Font.BOLD, 20));
+		snack_Label.setBounds(263, 14, 79, 19);
 		title_panel.add(snack_Label);
 		
 		JLabel drinks_Label = new JLabel("Drinks");
-		drinks_Label.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		drinks_Label.setFont(new Font("Tahoma", Font.BOLD, 20));
 		drinks_Label.setForeground(new Color(0, 0, 128));
 		drinks_Label.setBounds(456, 14, 72, 19);
 		title_panel.add(drinks_Label);
