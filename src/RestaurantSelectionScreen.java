@@ -29,19 +29,19 @@ import javax.swing.JTextPane;
 public class RestaurantSelectionScreen extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
+	private JTextField entry1;
+	private JTextField entry2;
+	private JTextField entry3;
+	private JTextField entry5;
+	private JTextField entry6;
+	private JTextField entry7;
+	private JTextField entry9;
+	private JTextField entry10;
+	private JTextField entry11;
 	private JTextField textField_9;
-	private JTextField textField_10;
-	private JTextField textField_11;
-	private JTextField textField_12;
+	private JTextField entry8;
+	private JTextField entry12;
+	private JTextField entry4;
 
 	/**
 	 * Launch the application.
@@ -151,25 +151,25 @@ public class RestaurantSelectionScreen extends JFrame {
 		itemsPanel.add(mealPanel);
 		mealPanel.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(118, 86, 68, 19);
-		mealPanel.add(textField);
-		textField.setColumns(10);
+		entry1 = new JTextField();
+		entry1.setBounds(118, 86, 68, 19);
+		mealPanel.add(entry1);
+		entry1.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(118, 200, 68, 19);
-		mealPanel.add(textField_1);
-		textField_1.setColumns(10);
+		entry2 = new JTextField();
+		entry2.setBounds(118, 200, 68, 19);
+		mealPanel.add(entry2);
+		entry2.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(118, 326, 68, 19);
-		mealPanel.add(textField_2);
-		textField_2.setColumns(10);
+		entry3 = new JTextField();
+		entry3.setBounds(118, 326, 68, 19);
+		mealPanel.add(entry3);
+		entry3.setColumns(10);
 		
-		textField_12 = new JTextField();
-		textField_12.setColumns(10);
-		textField_12.setBounds(118, 439, 68, 19);
-		mealPanel.add(textField_12);
+		entry4 = new JTextField();
+		entry4.setColumns(10);
+		entry4.setBounds(118, 439, 68, 19);
+		mealPanel.add(entry4);
 		
 		JLabel label1 = new JLabel("Chicken Noodles");
 		label1.setForeground(new Color(255, 255, 255));
@@ -261,26 +261,25 @@ public class RestaurantSelectionScreen extends JFrame {
 		itemsPanel.add(snacksPanel);
 		snacksPanel.setLayout(null);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(118, 86, 68, 19);
-		snacksPanel.add(textField_3);
-		textField_3.setColumns(10);
+		entry5 = new JTextField();
+		entry5.setBounds(118, 86, 68, 19);
+		snacksPanel.add(entry5);
+		entry5.setColumns(10);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(118, 200, 68, 19);
-		snacksPanel.add(textField_4);
-		textField_4.setColumns(10);
+		entry6 = new JTextField();
+		entry6.setBounds(118, 200, 68, 19);
+		snacksPanel.add(entry6);
+		entry6.setColumns(10);
 		
-		textField_5 = new JTextField();
-		textField_5.setText("");
-		textField_5.setBounds(118, 326, 68, 19);
-		snacksPanel.add(textField_5);
-		textField_5.setColumns(10);
+		entry7 = new JTextField();
+		entry7.setBounds(118, 326, 68, 19);
+		snacksPanel.add(entry7);
+		entry7.setColumns(10);
 		
-		textField_10 = new JTextField();
-		textField_10.setColumns(10);
-		textField_10.setBounds(118, 441, 68, 19);
-		snacksPanel.add(textField_10);
+		entry8 = new JTextField();
+		entry8.setColumns(10);
+		entry8.setBounds(118, 441, 68, 19);
+		snacksPanel.add(entry8);
 		
 		JLabel label5 = new JLabel("Crisps");
 		label5.setBackground(new Color(0, 0, 128));
@@ -373,25 +372,25 @@ public class RestaurantSelectionScreen extends JFrame {
 		drinksPanel.setLayout(null);
 		
 		
-		textField_6 = new JTextField();
-		textField_6.setBounds(118, 86, 68, 19);
-		drinksPanel.add(textField_6);
-		textField_6.setColumns(10);
+		entry9 = new JTextField();
+		entry9.setBounds(118, 86, 68, 19);
+		drinksPanel.add(entry9);
+		entry9.setColumns(10);
 		
-		textField_7 = new JTextField();
-		textField_7.setBounds(118, 200, 68, 19);
-		drinksPanel.add(textField_7);
-		textField_7.setColumns(10);
+		entry10 = new JTextField();
+		entry10.setBounds(118, 200, 68, 19);
+		drinksPanel.add(entry10);
+		entry10.setColumns(10);
 		
-		textField_8 = new JTextField();
-		textField_8.setBounds(118, 326, 68, 19);
-		drinksPanel.add(textField_8);
-		textField_8.setColumns(10);
+		entry11 = new JTextField();
+		entry11.setBounds(118, 326, 68, 19);
+		drinksPanel.add(entry11);
+		entry11.setColumns(10);
 		
-		textField_11 = new JTextField();
-		textField_11.setColumns(10);
-		textField_11.setBounds(118, 441, 68, 19);
-		drinksPanel.add(textField_11);
+		entry12 = new JTextField();
+		entry12.setColumns(10);
+		entry12.setBounds(118, 441, 68, 19);
+		drinksPanel.add(entry12);
 
 		
 		JLabel label9 = new JLabel("Bottled Water");
@@ -488,6 +487,10 @@ public class RestaurantSelectionScreen extends JFrame {
 			priceLabels[i].setText(String.format("£%.2f", prices[i]));
 		}
 		
+		// entry test
+		JTextField[] entryList = {entry1,entry2,entry3,entry4,entry5,entry6,entry7,entry8,entry9,entry10,entry11,entry12};
+		
+		
 		
 		JPanel infoPanel = new JPanel();
 		infoPanel.setBackground(SystemColor.menu);
@@ -524,15 +527,21 @@ public class RestaurantSelectionScreen extends JFrame {
 		purchaseButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// move screens
+				FoodOrder order = new FoodOrder();
+				boolean moveFrame = order.selectItems(entryList);
+				
 				Object[][] data = {
 			            { "Noodles", 1.99, 1, 1.99 },
 			            { "Noodles", 1.99, 1, 1.99 },
 			            { "Noodles", 1.99, 1, 1.99 },
-			            { "Noodles", 1.99, 1, 1.99 }  
-			        };
-				RestaurantConfirmationScreen confirmationScreen = new RestaurantConfirmationScreen(data);
-				setVisible(false);
-				confirmationScreen.setVisible(true);
+			            { "Noodles", 1.99, 1, 1.99 }  };
+				
+				if (moveFrame == true) {
+					RestaurantConfirmationScreen confirmationScreen = new RestaurantConfirmationScreen(order,data);
+					setVisible(false);
+					confirmationScreen.setVisible(true);
+				}
+				
 			}
 		});
 		

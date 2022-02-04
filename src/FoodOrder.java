@@ -1,6 +1,8 @@
 import java.time.LocalTime;
 import java.util.ArrayList;
 
+import javax.swing.JTextField;
+
 public class FoodOrder {
 	Ticket ticket; 
 	Data data;
@@ -50,12 +52,18 @@ public class FoodOrder {
 	//////////////////////////
 	
 	////////////////// select items
-	public void selectItems(ArrayList<Object> entryList) {
+	public boolean selectItems(JTextField[] entryList) {
+		boolean moveFrame = true;
 		ArrayList<String> quantity = new ArrayList<String>();
 		ArrayList<Boolean> amended = new ArrayList<Boolean>();
-		for (int i = 0; i < entryList.size(); i++) {
-			//quantity.add(entryList.get(i)); // getvalueinentry
-		}
+		for (int i = 0; i < 12; i ++) {
+			if (entryList[i].getText().equals("")) {
+				quantity.add("0");
+			} else {
+				quantity.add(entryList[i].getText());
+			}
+		}	// get the values entered in the entry list
+			
 		boolean valid = validateQuantity(quantity);
 		if (valid == true) {
 			ArrayList<Integer> quantityInt = convertQuantityToInt(quantity);
@@ -68,23 +76,31 @@ public class FoodOrder {
 				}
 			}
 			setQuantity(quantityInt);
-			ArrayList<Double> netPrices = new ArrayList<Double>();
-			netPrices = calcNetPrice(data.itemsAvailable,quantityInt);
-			double total = calcTotalCost(netPrices);
-			//display confirmation screen
+		// validate the quantites entered and set items selected and quantity attribute of object
+			
+					// from here probably want to move this to actual confirmationScreen with foodOrer Object to call the other methods
+							ArrayList<Double> netPrices = new ArrayList<Double>();
+							netPrices = calcNetPrice(data.itemsAvailable,quantityInt);
+							double total = calcTotalCost(netPrices);
+							//display confirmation screen
 		} else {
-			//display error pop up
+			Popup popup = new Popup();
+			popup.showErrorMessage("Invalid quantity, you will be returned to the SELECTION menu");
+			moveFrame = false;
 		}
+		return moveFrame;
 	}
+	
+	
+	
 	////////////////// confirm order
-	public void confirmOrder(Object ticketEntry, Object nameEntry, ArrayList<Integer> quantityInt, double totalCost) {
+	public void confirmOrder(JTextField ticketEntry, JTextField nameEntry, ArrayList<Integer> quantityInt, double totalCost) {
 		Popup popup = new Popup();
-		String ticketNumber = ticketEntry.toString(); // getvalueinENTRY
+		String ticketNumber = ticketEntry.getText(); 
 		setTicket(ticketNumber);
-		String passengerName = nameEntry.toString();
+		String passengerName = nameEntry.getText();
 		String errorString = validateDetails(passengerName);
 		if (errorString != "") {
-			//display error popup
 			popup.showErrorMessage(errorString);
 		} else {
 			for (int i = 0; i < 12; i++) {
@@ -96,7 +112,7 @@ public class FoodOrder {
 			}
 			Ticket ticket = getTicket();
 			setTotalCost(totalCost);
-			//addCostToTicket(ticket, totalCost);
+			addCostToTicket(ticket, totalCost);
 			popup.showSuccessMessage("Purchase Successful, you will be returned to the SELECTION menu");
 		}
 	}
@@ -135,10 +151,10 @@ public class FoodOrder {
 			errorString = "Invalid ticket number, you will be returned to the CONFIRMATION menu";
 		} else if (validName == false) {
 			errorString = "Invalid name, you will be returned to the CONFIRMATION menu";
-		} /* else 
+		} else 
 			if (passengerName != ticket.getPassengerName()) {
 			errorString = "Details don’t match, you will be returned to the CONFIRMATION menu";
-		} */
+		} 
 		return errorString;
 	}
 	

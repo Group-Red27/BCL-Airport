@@ -23,8 +23,8 @@ public class RestaurantConfirmationScreen extends JFrame {
 
 	
 	private JPanel contentPane;
-	private JTextField passengerNameEntry;
-	private JTextField ticketNumberEntry;
+	private JTextField nameEntry;
+	private JTextField ticketEntry;
 	private JTable table;
 
 
@@ -47,7 +47,7 @@ public class RestaurantConfirmationScreen extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public RestaurantConfirmationScreen(Object[][] data) {
+	public RestaurantConfirmationScreen(FoodOrder foodOrder, Object[][] data) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 850, 500);
 		contentPane = new JPanel();
@@ -63,10 +63,10 @@ public class RestaurantConfirmationScreen extends JFrame {
 		titleLabel.setBounds(56, 59, 293, 40);
 		contentPane.add(titleLabel);
 		
-		passengerNameEntry = new JTextField();
-		passengerNameEntry.setBounds(191, 363, 215, 29);
-		contentPane.add(passengerNameEntry);
-		passengerNameEntry.setColumns(10);
+		nameEntry = new JTextField();
+		nameEntry.setBounds(191, 363, 215, 29);
+		contentPane.add(nameEntry);
+		nameEntry.setColumns(10);
 		
 		JButton confirmButton = new JButton("Confirm");
 		confirmButton.setBackground(new Color(0, 0, 128));
@@ -79,12 +79,19 @@ public class RestaurantConfirmationScreen extends JFrame {
 		confirmButton.setBounds(626, 393, 137, 29);
 		contentPane.add(confirmButton);
 		
-		ticketNumberEntry = new JTextField();
-		ticketNumberEntry.setColumns(10);
-		ticketNumberEntry.setBounds(191, 393, 215, 29);
-		contentPane.add(ticketNumberEntry);
+		ticketEntry = new JTextField();
+		ticketEntry.setColumns(10);
+		ticketEntry.setBounds(191, 393, 215, 29);
+		contentPane.add(ticketEntry);
 		
 		JButton backButton = new JButton("Back");
+		backButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RestaurantSelectionScreen selectionScreen = new RestaurantSelectionScreen();
+				setVisible(false);
+				selectionScreen.setVisible(true);
+			}
+		});
 		backButton.setBackground(new Color(255, 255, 255));
 		backButton.setForeground(new Color(0, 0, 128));
 		backButton.setFont(new Font("Tahoma", Font.BOLD, 15));
