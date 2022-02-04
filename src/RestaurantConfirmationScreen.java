@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.JScrollPane;
+import javax.swing.JTextPane;
 
 public class RestaurantConfirmationScreen extends JFrame {
 
@@ -46,7 +47,7 @@ public class RestaurantConfirmationScreen extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public RestaurantConfirmationScreen(String[][] data) {
+	public RestaurantConfirmationScreen(Object[][] data) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 850, 500);
 		contentPane = new JPanel();
@@ -56,21 +57,14 @@ public class RestaurantConfirmationScreen extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Order Confirmation");
-		lblNewLabel.setForeground(new Color(0, 0, 128));
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 25));
-		lblNewLabel.setBounds(43, 58, 293, 40);
-		contentPane.add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel("User update here!");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblNewLabel_1.setVerticalAlignment(SwingConstants.TOP);
-		lblNewLabel_1.setBackground(SystemColor.menu);
-		lblNewLabel_1.setBounds(43, 284, 383, 54);
-		contentPane.add(lblNewLabel_1);
+		JLabel titleLabel = new JLabel("Order Confirmation");
+		titleLabel.setForeground(new Color(0, 0, 128));
+		titleLabel.setFont(new Font("Tahoma", Font.BOLD, 25));
+		titleLabel.setBounds(56, 59, 293, 40);
+		contentPane.add(titleLabel);
 		
 		passengerNameEntry = new JTextField();
-		passengerNameEntry.setBounds(178, 363, 208, 29);
+		passengerNameEntry.setBounds(191, 363, 215, 29);
 		contentPane.add(passengerNameEntry);
 		passengerNameEntry.setColumns(10);
 		
@@ -87,7 +81,7 @@ public class RestaurantConfirmationScreen extends JFrame {
 		
 		ticketNumberEntry = new JTextField();
 		ticketNumberEntry.setColumns(10);
-		ticketNumberEntry.setBounds(178, 393, 208, 29);
+		ticketNumberEntry.setBounds(191, 393, 215, 29);
 		contentPane.add(ticketNumberEntry);
 		
 		JButton backButton = new JButton("Back");
@@ -97,25 +91,36 @@ public class RestaurantConfirmationScreen extends JFrame {
 		backButton.setBounds(463, 393, 137, 29);
 		contentPane.add(backButton);
 		
-		JLabel lblNewLabel_2 = new JLabel("Full Name");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2.setBounds(43, 363, 125, 29);
-		contentPane.add(lblNewLabel_2);
+		JLabel fullNameLabel = new JLabel(" Full Name");
+		fullNameLabel.setForeground(new Color(255, 255, 255));
+		fullNameLabel.setBackground(new Color(0, 0, 128));
+		fullNameLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		fullNameLabel.setBounds(56, 363, 134, 27);
+		fullNameLabel.setOpaque(true);
+		contentPane.add(fullNameLabel);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("Ticket Number");
-		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2_1.setBounds(43, 393, 125, 29);
-		contentPane.add(lblNewLabel_2_1);
+		JLabel ticketNoLabel = new JLabel(" Ticket Number");
+		ticketNoLabel.setForeground(new Color(255, 255, 255));
+		ticketNoLabel.setBackground(new Color(0, 0, 128));
+		ticketNoLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		ticketNoLabel.setBounds(56, 393, 134, 27);
+		ticketNoLabel.setOpaque(true);
+		contentPane.add(ticketNoLabel);
 		
-		JLabel lblNewLabel_2_2 = new JLabel("Total");
-		lblNewLabel_2_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2_2.setBounds(526, 276, 74, 29);
-		contentPane.add(lblNewLabel_2_2);
+		JLabel totalLabel = new JLabel(" Total");
+		totalLabel.setForeground(new Color(255, 255, 255));
+		totalLabel.setBackground(new Color(0, 0, 128));
+		totalLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		totalLabel.setBounds(500, 276, 91, 29);
+		totalLabel.setOpaque(true);
+		contentPane.add(totalLabel);
 		
-		JLabel lblNewLabel_2_3 = new JLabel("PRICE HERE");
-		lblNewLabel_2_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2_3.setBounds(610, 276, 125, 29);
-		contentPane.add(lblNewLabel_2_3);
+		JLabel totalCostLabel = new JLabel(" PRICE HERE");
+		totalCostLabel.setBackground(SystemColor.controlHighlight);
+		totalCostLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		totalCostLabel.setBounds(591, 276, 137, 29);
+		totalCostLabel.setOpaque(true);
+		contentPane.add(totalCostLabel);
 		
 
 		
@@ -125,15 +130,24 @@ public class RestaurantConfirmationScreen extends JFrame {
 		String[] columnNames = {"Item Name", "Price", "Quantiy", "Net Price"};
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(52, 120, 711, 141);
+		scrollPane.setBounds(56, 119, 715, 141);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		contentPane.add(scrollPane);
 		
 
 		table = new JTable();
+		table.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		table.setEnabled(false);
 		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(data, columnNames));
+		
+		JTextPane txtpnUserMessageHere = new JTextPane();
+		txtpnUserMessageHere.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		txtpnUserMessageHere.setBackground(SystemColor.menu);
+		txtpnUserMessageHere.setText("user message here!\r\n");
+		txtpnUserMessageHere.setEditable(false);
+		txtpnUserMessageHere.setBounds(56, 276, 417, 68);
+		contentPane.add(txtpnUserMessageHere);
 		
 		/*
 		JScrollBar scrollBar = new JScrollBar();
