@@ -8,6 +8,7 @@ public class FoodOrder {
 	ArrayList<Boolean> itemsSelected;
 	double totalCost;
 
+	
 	public void setTicket(String ticketNumber) {
 		if (validateTicketNumber(ticketNumber) == true) {
 			this.ticket = data.findTicket(ticketNumber);

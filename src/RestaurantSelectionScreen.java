@@ -365,7 +365,16 @@ public class RestaurantSelectionScreen extends JFrame {
 		purchaseButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// move screens
-				RestaurantConfirmationScreen confirmationScreen = new RestaurantConfirmationScreen();
+				String[][] data = {
+			            { "Noodles", "£1.99", "1", "£1.99" },
+			            { "Noodles", "£1.99", "1", "£1.99" },
+			            { "Noodles", "£1.99", "1", "£1.99" },
+			            { "Noodles", "£1.99", "1", "£1.99" },
+			            { "Noodles", "£1.99", "1", "£1.99" },
+			            { "Noodles", "£1.99", "1", "£1.99" }
+			           
+			        };
+				RestaurantConfirmationScreen confirmationScreen = new RestaurantConfirmationScreen(data);
 				setVisible(false);
 				confirmationScreen.setVisible(true);
 			}

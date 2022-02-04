@@ -1,47 +1,52 @@
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import javax.swing.JTable;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.SystemColor;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
-import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 
 public class RestaurantConfirmationScreen extends JFrame {
 
+	
 	private JPanel contentPane;
 	private JTextField passengerNameEntry;
 	private JTextField ticketNumberEntry;
+	private JTable table;
+
 
 	/**
 	 * Launch the application.
-	 */
+	 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					RestaurantConfirmationScreen frame = new RestaurantConfirmationScreen();
+					RestaurantConfirmationScreen frame = new RestaurantConfirmationScreen(data);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
-	}
+	} */
 
 	/**
 	 * Create the frame.
 	 */
-	public RestaurantConfirmationScreen() {
+	public RestaurantConfirmationScreen(String[][] data) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 850, 500);
 		contentPane = new JPanel();
@@ -61,7 +66,7 @@ public class RestaurantConfirmationScreen extends JFrame {
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblNewLabel_1.setVerticalAlignment(SwingConstants.TOP);
 		lblNewLabel_1.setBackground(SystemColor.menu);
-		lblNewLabel_1.setBounds(43, 298, 383, 40);
+		lblNewLabel_1.setBounds(43, 284, 383, 54);
 		contentPane.add(lblNewLabel_1);
 		
 		passengerNameEntry = new JTextField();
@@ -92,10 +97,6 @@ public class RestaurantConfirmationScreen extends JFrame {
 		backButton.setBounds(463, 393, 137, 29);
 		contentPane.add(backButton);
 		
-		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setBounds(772, 125, 17, 112);
-		contentPane.add(scrollBar);
-		
 		JLabel lblNewLabel_2 = new JLabel("Full Name");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel_2.setBounds(43, 363, 125, 29);
@@ -108,12 +109,41 @@ public class RestaurantConfirmationScreen extends JFrame {
 		
 		JLabel lblNewLabel_2_2 = new JLabel("Total");
 		lblNewLabel_2_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2_2.setBounds(506, 269, 74, 29);
+		lblNewLabel_2_2.setBounds(526, 276, 74, 29);
 		contentPane.add(lblNewLabel_2_2);
 		
 		JLabel lblNewLabel_2_3 = new JLabel("PRICE HERE");
 		lblNewLabel_2_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2_3.setBounds(590, 269, 173, 29);
+		lblNewLabel_2_3.setBounds(610, 276, 125, 29);
 		contentPane.add(lblNewLabel_2_3);
+		
+
+		
+		
+		
+		
+		String[] columnNames = {"Item Name", "Price", "Quantiy", "Net Price"};
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(52, 120, 711, 141);
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		contentPane.add(scrollPane);
+		
+
+		table = new JTable();
+		table.setEnabled(false);
+		scrollPane.setViewportView(table);
+		table.setModel(new DefaultTableModel(data, columnNames));
+		
+		/*
+		JScrollBar scrollBar = new JScrollBar();
+		scrollBar.setBounds(746, 108, 17, 133);
+		contentPane.add(scrollBar);
+		*/
+
+		TableColumn column1= table.getColumn("Item Name");
+        column1.setMinWidth(350);
+        column1.setMaxWidth(350);
+
 	}
 }
