@@ -142,7 +142,7 @@ public class AirbusA318 extends JFrame {
 		fiveBButton.setBounds(234, 208, 51, 21);
 		contentPane.add(fiveBButton);
 		
-		JButton oneBButton_1 = new JButton("1B");
+		JButton oneBButton_1 = new JButton("6D");
 		oneBButton_1.setForeground(Color.WHITE);
 		oneBButton_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
 		oneBButton_1.setBackground(new Color(126, 192, 236));
@@ -177,7 +177,7 @@ public class AirbusA318 extends JFrame {
 		fiveBButton_1.setBounds(234, 353, 51, 21);
 		contentPane.add(fiveBButton_1);
 		
-		JButton oneBButton_1_1 = new JButton("1B");
+		JButton oneBButton_1_1 = new JButton("6E");
 		oneBButton_1_1.setForeground(Color.WHITE);
 		oneBButton_1_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
 		oneBButton_1_1.setBackground(new Color(126, 192, 236));
@@ -212,7 +212,7 @@ public class AirbusA318 extends JFrame {
 		fiveBButton_1_1.setBounds(282, 353, 51, 21);
 		contentPane.add(fiveBButton_1_1);
 		
-		JButton oneBButton_1_1_1 = new JButton("1B");
+		JButton oneBButton_1_1_1 = new JButton("6F");
 		oneBButton_1_1_1.setForeground(Color.WHITE);
 		oneBButton_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
 		oneBButton_1_1_1.setBackground(new Color(126, 192, 236));
@@ -268,91 +268,49 @@ public class AirbusA318 extends JFrame {
 		fiveBButton_1_1_1_1.setBounds(332, 373, 51, 21);
 		contentPane.add(fiveBButton_1_1_1_1);
 		
-		JButton fiveBButton_1_2_1 = new JButton("5B");
-		fiveBButton_1_2_1.setForeground(Color.WHITE);
-		fiveBButton_1_2_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
-		fiveBButton_1_2_1.setBackground(new Color(126, 192, 236));
-		fiveBButton_1_2_1.setBounds(234, 396, 51, 21);
-		contentPane.add(fiveBButton_1_2_1);
-		
-		JButton fiveBButton_1_1_2_1 = new JButton("5B");
-		fiveBButton_1_1_2_1.setForeground(Color.WHITE);
-		fiveBButton_1_1_2_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
-		fiveBButton_1_1_2_1.setBackground(new Color(126, 192, 236));
-		fiveBButton_1_1_2_1.setBounds(282, 396, 51, 21);
-		contentPane.add(fiveBButton_1_1_2_1);
-		
-		JButton fiveBButton_1_1_1_1_1 = new JButton("5B");
-		fiveBButton_1_1_1_1_1.setForeground(Color.WHITE);
-		fiveBButton_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
-		fiveBButton_1_1_1_1_1.setBackground(new Color(126, 192, 236));
-		fiveBButton_1_1_1_1_1.setBounds(332, 396, 51, 21);
-		contentPane.add(fiveBButton_1_1_1_1_1);
-		
-		JButton fiveBButton_1_2_1_1 = new JButton("5B");
-		fiveBButton_1_2_1_1.setForeground(Color.WHITE);
-		fiveBButton_1_2_1_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
-		fiveBButton_1_2_1_1.setBackground(new Color(126, 192, 236));
-		fiveBButton_1_2_1_1.setBounds(234, 415, 51, 21);
-		contentPane.add(fiveBButton_1_2_1_1);
-		
-		JButton fiveBButton_1_1_2_1_1 = new JButton("5B");
-		fiveBButton_1_1_2_1_1.setForeground(Color.WHITE);
-		fiveBButton_1_1_2_1_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
-		fiveBButton_1_1_2_1_1.setBackground(new Color(126, 192, 236));
-		fiveBButton_1_1_2_1_1.setBounds(282, 415, 51, 21);
-		contentPane.add(fiveBButton_1_1_2_1_1);
-		
-		JButton fiveBButton_1_1_1_1_1_1 = new JButton("5B");
-		fiveBButton_1_1_1_1_1_1.setForeground(Color.WHITE);
-		fiveBButton_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
-		fiveBButton_1_1_1_1_1_1.setBackground(new Color(126, 192, 236));
-		fiveBButton_1_1_1_1_1_1.setBounds(332, 415, 51, 21);
-		contentPane.add(fiveBButton_1_1_1_1_1_1);
-		
-		JButton oneBButton_1_2 = new JButton("1B");
+		JButton oneBButton_1_2 = new JButton("6A");
 		oneBButton_1_2.setForeground(Color.WHITE);
 		oneBButton_1_2.setFont(new Font("Tahoma", Font.PLAIN, 9));
 		oneBButton_1_2.setBackground(new Color(126, 192, 236));
 		oneBButton_1_2.setBounds(63, 271, 51, 21);
 		contentPane.add(oneBButton_1_2);
 		
-		JButton oneBButton_1_1_2 = new JButton("1B");
+		JButton oneBButton_1_1_2 = new JButton("6B");
 		oneBButton_1_1_2.setForeground(Color.WHITE);
 		oneBButton_1_1_2.setFont(new Font("Tahoma", Font.PLAIN, 9));
 		oneBButton_1_1_2.setBackground(new Color(126, 192, 236));
 		oneBButton_1_1_2.setBounds(111, 271, 51, 21);
 		contentPane.add(oneBButton_1_1_2);
 		
-		JButton oneBButton_1_1_1_1 = new JButton("1B");
+		JButton oneBButton_1_1_1_1 = new JButton("6C");
 		oneBButton_1_1_1_1.setForeground(Color.WHITE);
 		oneBButton_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
 		oneBButton_1_1_1_1.setBackground(new Color(126, 192, 236));
 		oneBButton_1_1_1_1.setBounds(161, 271, 51, 21);
 		contentPane.add(oneBButton_1_1_1_1);
 		
-		JButton twoBButton_1_2 = new JButton("2B");
+		JButton twoBButton_1_2 = new JButton("7A");
 		twoBButton_1_2.setForeground(Color.WHITE);
 		twoBButton_1_2.setFont(new Font("Tahoma", Font.PLAIN, 9));
 		twoBButton_1_2.setBackground(new Color(126, 192, 236));
 		twoBButton_1_2.setBounds(63, 291, 51, 21);
 		contentPane.add(twoBButton_1_2);
 		
-		JButton twoBButton_1_1_2 = new JButton("2B");
+		JButton twoBButton_1_1_2 = new JButton("7B");
 		twoBButton_1_1_2.setForeground(Color.WHITE);
 		twoBButton_1_1_2.setFont(new Font("Tahoma", Font.PLAIN, 9));
 		twoBButton_1_1_2.setBackground(new Color(126, 192, 236));
 		twoBButton_1_1_2.setBounds(111, 291, 51, 21);
 		contentPane.add(twoBButton_1_1_2);
 		
-		JButton twoBButton_1_1_1_1 = new JButton("2B");
+		JButton twoBButton_1_1_1_1 = new JButton("7C");
 		twoBButton_1_1_1_1.setForeground(Color.WHITE);
 		twoBButton_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
 		twoBButton_1_1_1_1.setBackground(new Color(126, 192, 236));
 		twoBButton_1_1_1_1.setBounds(161, 291, 51, 21);
 		contentPane.add(twoBButton_1_1_1_1);
 		
-		JButton threeBButton_1_2 = new JButton("3B");
+		JButton threeBButton_1_2 = new JButton("8A");
 		threeBButton_1_2.setForeground(Color.WHITE);
 		threeBButton_1_2.setFont(new Font("Tahoma", Font.PLAIN, 9));
 		threeBButton_1_2.setBackground(new Color(126, 192, 236));
@@ -373,7 +331,7 @@ public class AirbusA318 extends JFrame {
 		threeBButton_1_1_1_1.setBounds(161, 312, 51, 21);
 		contentPane.add(threeBButton_1_1_1_1);
 		
-		JButton fourBButton_1_2 = new JButton("4B");
+		JButton fourBButton_1_2 = new JButton("9A");
 		fourBButton_1_2.setForeground(Color.WHITE);
 		fourBButton_1_2.setFont(new Font("Tahoma", Font.PLAIN, 9));
 		fourBButton_1_2.setBackground(new Color(126, 192, 236));
@@ -394,7 +352,7 @@ public class AirbusA318 extends JFrame {
 		fourBButton_1_1_1_1.setBounds(161, 333, 51, 21);
 		contentPane.add(fourBButton_1_1_1_1);
 		
-		JButton fiveBButton_1_3 = new JButton("5B");
+		JButton fiveBButton_1_3 = new JButton("10A");
 		fiveBButton_1_3.setForeground(Color.WHITE);
 		fiveBButton_1_3.setFont(new Font("Tahoma", Font.PLAIN, 9));
 		fiveBButton_1_3.setBackground(new Color(126, 192, 236));
@@ -415,7 +373,7 @@ public class AirbusA318 extends JFrame {
 		fiveBButton_1_1_1_2.setBounds(161, 353, 51, 21);
 		contentPane.add(fiveBButton_1_1_1_2);
 		
-		JButton fiveBButton_1_2_2 = new JButton("5B");
+		JButton fiveBButton_1_2_2 = new JButton("11A");
 		fiveBButton_1_2_2.setForeground(Color.WHITE);
 		fiveBButton_1_2_2.setFont(new Font("Tahoma", Font.PLAIN, 9));
 		fiveBButton_1_2_2.setBackground(new Color(126, 192, 236));
@@ -429,53 +387,95 @@ public class AirbusA318 extends JFrame {
 		fiveBButton_1_1_2_2.setBounds(111, 373, 51, 21);
 		contentPane.add(fiveBButton_1_1_2_2);
 		
-		JButton fiveBButton_1_1_1_1_2 = new JButton("5B");
+		JButton fiveBButton_1_1_1_1_2 = new JButton("12A");
 		fiveBButton_1_1_1_1_2.setForeground(Color.WHITE);
 		fiveBButton_1_1_1_1_2.setFont(new Font("Tahoma", Font.PLAIN, 9));
 		fiveBButton_1_1_1_1_2.setBackground(new Color(126, 192, 236));
 		fiveBButton_1_1_1_1_2.setBounds(161, 373, 51, 21);
 		contentPane.add(fiveBButton_1_1_1_1_2);
 		
-		JButton fiveBButton_1_2_1_2 = new JButton("5B");
-		fiveBButton_1_2_1_2.setForeground(Color.WHITE);
-		fiveBButton_1_2_1_2.setFont(new Font("Tahoma", Font.PLAIN, 9));
-		fiveBButton_1_2_1_2.setBackground(new Color(126, 192, 236));
-		fiveBButton_1_2_1_2.setBounds(63, 396, 51, 21);
-		contentPane.add(fiveBButton_1_2_1_2);
+		JButton fiveBButton_1_2_2_1 = new JButton("13A");
+		fiveBButton_1_2_2_1.setForeground(Color.WHITE);
+		fiveBButton_1_2_2_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		fiveBButton_1_2_2_1.setBackground(new Color(126, 192, 236));
+		fiveBButton_1_2_2_1.setBounds(63, 412, 51, 21);
+		contentPane.add(fiveBButton_1_2_2_1);
 		
-		JButton fiveBButton_1_1_2_1_2 = new JButton("5B");
-		fiveBButton_1_1_2_1_2.setForeground(Color.WHITE);
-		fiveBButton_1_1_2_1_2.setFont(new Font("Tahoma", Font.PLAIN, 9));
-		fiveBButton_1_1_2_1_2.setBackground(new Color(126, 192, 236));
-		fiveBButton_1_1_2_1_2.setBounds(111, 396, 51, 21);
-		contentPane.add(fiveBButton_1_1_2_1_2);
+		JButton fiveBButton_1_3_1 = new JButton("12A");
+		fiveBButton_1_3_1.setForeground(Color.WHITE);
+		fiveBButton_1_3_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		fiveBButton_1_3_1.setBackground(new Color(126, 192, 236));
+		fiveBButton_1_3_1.setBounds(63, 392, 51, 21);
+		contentPane.add(fiveBButton_1_3_1);
 		
-		JButton fiveBButton_1_1_1_1_1_2 = new JButton("5B");
-		fiveBButton_1_1_1_1_1_2.setForeground(Color.WHITE);
-		fiveBButton_1_1_1_1_1_2.setFont(new Font("Tahoma", Font.PLAIN, 9));
-		fiveBButton_1_1_1_1_1_2.setBackground(new Color(126, 192, 236));
-		fiveBButton_1_1_1_1_1_2.setBounds(161, 396, 51, 21);
-		contentPane.add(fiveBButton_1_1_1_1_1_2);
+		JButton fiveBButton_1_1_3_1 = new JButton("5B");
+		fiveBButton_1_1_3_1.setForeground(Color.WHITE);
+		fiveBButton_1_1_3_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		fiveBButton_1_1_3_1.setBackground(new Color(126, 192, 236));
+		fiveBButton_1_1_3_1.setBounds(111, 392, 51, 21);
+		contentPane.add(fiveBButton_1_1_3_1);
 		
-		JButton fiveBButton_1_2_1_1_1 = new JButton("5B");
-		fiveBButton_1_2_1_1_1.setForeground(Color.WHITE);
-		fiveBButton_1_2_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
-		fiveBButton_1_2_1_1_1.setBackground(new Color(126, 192, 236));
-		fiveBButton_1_2_1_1_1.setBounds(63, 415, 51, 21);
-		contentPane.add(fiveBButton_1_2_1_1_1);
+		JButton fiveBButton_1_1_2_2_1 = new JButton("5B");
+		fiveBButton_1_1_2_2_1.setForeground(Color.WHITE);
+		fiveBButton_1_1_2_2_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		fiveBButton_1_1_2_2_1.setBackground(new Color(126, 192, 236));
+		fiveBButton_1_1_2_2_1.setBounds(111, 412, 51, 21);
+		contentPane.add(fiveBButton_1_1_2_2_1);
 		
-		JButton fiveBButton_1_1_2_1_1_1 = new JButton("5B");
-		fiveBButton_1_1_2_1_1_1.setForeground(Color.WHITE);
-		fiveBButton_1_1_2_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
-		fiveBButton_1_1_2_1_1_1.setBackground(new Color(126, 192, 236));
-		fiveBButton_1_1_2_1_1_1.setBounds(111, 415, 51, 21);
-		contentPane.add(fiveBButton_1_1_2_1_1_1);
+		JButton fiveBButton_1_1_1_2_1 = new JButton("5B");
+		fiveBButton_1_1_1_2_1.setForeground(Color.WHITE);
+		fiveBButton_1_1_1_2_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		fiveBButton_1_1_1_2_1.setBackground(new Color(126, 192, 236));
+		fiveBButton_1_1_1_2_1.setBounds(161, 392, 51, 21);
+		contentPane.add(fiveBButton_1_1_1_2_1);
 		
-		JButton fiveBButton_1_1_1_1_1_1_1 = new JButton("5B");
-		fiveBButton_1_1_1_1_1_1_1.setForeground(Color.WHITE);
-		fiveBButton_1_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
-		fiveBButton_1_1_1_1_1_1_1.setBackground(new Color(126, 192, 236));
-		fiveBButton_1_1_1_1_1_1_1.setBounds(161, 415, 51, 21);
-		contentPane.add(fiveBButton_1_1_1_1_1_1_1);
+		JButton fiveBButton_1_1_1_1_2_1 = new JButton("5B");
+		fiveBButton_1_1_1_1_2_1.setForeground(Color.WHITE);
+		fiveBButton_1_1_1_1_2_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		fiveBButton_1_1_1_1_2_1.setBackground(new Color(126, 192, 236));
+		fiveBButton_1_1_1_1_2_1.setBounds(161, 412, 51, 21);
+		contentPane.add(fiveBButton_1_1_1_1_2_1);
+		
+		JButton fiveBButton_1_3_1_1 = new JButton("5B");
+		fiveBButton_1_3_1_1.setForeground(Color.WHITE);
+		fiveBButton_1_3_1_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		fiveBButton_1_3_1_1.setBackground(new Color(126, 192, 236));
+		fiveBButton_1_3_1_1.setBounds(234, 392, 51, 21);
+		contentPane.add(fiveBButton_1_3_1_1);
+		
+		JButton fiveBButton_1_1_3_1_1 = new JButton("5B");
+		fiveBButton_1_1_3_1_1.setForeground(Color.WHITE);
+		fiveBButton_1_1_3_1_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		fiveBButton_1_1_3_1_1.setBackground(new Color(126, 192, 236));
+		fiveBButton_1_1_3_1_1.setBounds(282, 392, 51, 21);
+		contentPane.add(fiveBButton_1_1_3_1_1);
+		
+		JButton fiveBButton_1_1_1_2_1_1 = new JButton("5B");
+		fiveBButton_1_1_1_2_1_1.setForeground(Color.WHITE);
+		fiveBButton_1_1_1_2_1_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		fiveBButton_1_1_1_2_1_1.setBackground(new Color(126, 192, 236));
+		fiveBButton_1_1_1_2_1_1.setBounds(332, 392, 51, 21);
+		contentPane.add(fiveBButton_1_1_1_2_1_1);
+		
+		JButton fiveBButton_1_2_2_1_1 = new JButton("5B");
+		fiveBButton_1_2_2_1_1.setForeground(Color.WHITE);
+		fiveBButton_1_2_2_1_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		fiveBButton_1_2_2_1_1.setBackground(new Color(126, 192, 236));
+		fiveBButton_1_2_2_1_1.setBounds(234, 412, 51, 21);
+		contentPane.add(fiveBButton_1_2_2_1_1);
+		
+		JButton fiveBButton_1_1_2_2_1_1 = new JButton("5B");
+		fiveBButton_1_1_2_2_1_1.setForeground(Color.WHITE);
+		fiveBButton_1_1_2_2_1_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		fiveBButton_1_1_2_2_1_1.setBackground(new Color(126, 192, 236));
+		fiveBButton_1_1_2_2_1_1.setBounds(282, 412, 51, 21);
+		contentPane.add(fiveBButton_1_1_2_2_1_1);
+		
+		JButton fiveBButton_1_1_1_1_2_1_1 = new JButton("5B");
+		fiveBButton_1_1_1_1_2_1_1.setForeground(Color.WHITE);
+		fiveBButton_1_1_1_1_2_1_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		fiveBButton_1_1_1_1_2_1_1.setBackground(new Color(126, 192, 236));
+		fiveBButton_1_1_1_1_2_1_1.setBounds(332, 412, 51, 21);
+		contentPane.add(fiveBButton_1_1_1_1_2_1_1);
 	}
 }
