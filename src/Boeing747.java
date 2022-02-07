@@ -62,6 +62,9 @@ public class Boeing747 extends JFrame {
 		firstClassLabel.setFont(new Font("Tahoma", Font.BOLD, 10));
 		contentPane.add(firstClassLabel);
 		
+		
+		//SeatClass Buttons
+		
 		JButton oneAButton = new JButton("1A");
 		oneAButton.setBounds(175, 134, 51, 21);
 		oneAButton.setForeground(Color.WHITE);

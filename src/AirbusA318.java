@@ -73,7 +73,6 @@ public class AirbusA318 extends JFrame {
 		JButton[] seatNumber = new JButton[58];
 
 		
-
 		//Bussiness class
 		seatNumber[0] = new JButton("1A");
 		seatNumber[0].setBackground(new Color(126, 192, 236));
