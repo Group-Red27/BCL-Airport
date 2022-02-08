@@ -1,13 +1,32 @@
 import java.time.LocalTime;    
 
 public class FoodItem {
-	String itemCode;
 	String itemName;
 	String description;
 	int stockLevel;
 	double price;
-	LocalTime timePrompt;
+	LocalTime timePrompt = null;
 	
+	 public FoodItem(String newItemName, String newDescription, int newStock, double newPrice) {
+			// TODO Auto-generated constructor stub
+			 setItemName(newItemName);
+			 setDescription(newDescription);
+			 setPrice(newPrice);
+			 setStockLevel(newStock);
+			 
+	 }
+		 
+	 public void setItemName(String newItemName) {
+		 this.itemName = newItemName;
+	 }
+		 
+	 public void setDescription(String newDescription) {
+		 this.description = newDescription;
+	 }
+		 
+	 public void setPrice(double newPrice) {
+		 this.price = newPrice;
+	 }
 	
 	 public void setStockLevel(int newStockLevel) {
 		this.stockLevel = newStockLevel;

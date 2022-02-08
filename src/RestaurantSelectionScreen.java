@@ -536,17 +536,20 @@ public class RestaurantSelectionScreen extends JFrame {
 				boolean moveFrame = order.selectItems(entryList);
 				if (moveFrame == true) {
 					int rows = 0;
+					ArrayList<Integer> index = new ArrayList<Integer>();
 					for (int i = 0; i < 12; i++) {
 						if (order.itemsSelected[i] == true) {
 							rows += 1;
+							index.add(i);
 						}
 					} // calc num of rows needed based on items selected
+					
 					Object[][] data = new Object[rows][4];
 					for (int i = 0; i < rows; i++ ) {
-						/* data[i][0] = order.data.itemsAvailable;
-						data[i][1] = order.data.itemsAvailable;
-						data[i][2] = order.data.itemsAvailable;
-						data[i][3] = order.data.itemsAvailable; */
+						/* data[i][0] = order.data.itemsAvailable[index[i]].getname;
+						data[i][1] = order.data.itemsAvailable[index[i]].getprice;
+						data[i][2] = order.getquantity[index[i]];
+						data[i][3] = order.netPrices[index[i]]; */
 					} // create data for table
 					
 					
@@ -555,6 +558,7 @@ public class RestaurantSelectionScreen extends JFrame {
 							netPrices = calcNetPrice(data.itemsAvailable,quantityInt);
 							double total = calcTotalCost(netPrices);
 							//display confirmation screen */
+					// add this to the main of confirmation screen- set total cost???
 					
 					RestaurantConfirmationScreen confirmationScreen = new RestaurantConfirmationScreen(order,data);
 					setVisible(false);

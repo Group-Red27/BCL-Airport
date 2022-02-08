@@ -6,8 +6,9 @@ import javax.swing.JTextField;
 public class FoodOrder {
 	Ticket ticket; 
 	Data data;
-	ArrayList<Integer> quantity;
+	int[] quantity;
 	boolean[] itemsSelected;
+	double[] netPrices;
 	double totalCost;
 
 	
@@ -24,11 +25,11 @@ public class FoodOrder {
 		return this.ticket;
 	}
 
-	public void setQuantity(ArrayList<Integer> newQuantity) {
+	public void setQuantity(int[] newQuantity) {
 		this.quantity = newQuantity;
 	}
 	
-	public ArrayList<Integer> getQuantity() {
+	public int[] getQuantity() {
 		return this.quantity;
 	}
 	
@@ -54,13 +55,13 @@ public class FoodOrder {
 	////////////////// select items
 	public boolean selectItems(JTextField[] entryList) {
 		boolean moveFrame = true;
-		ArrayList<String> quantity = new ArrayList<String>();
-		ArrayList<Boolean> amended = new ArrayList<Boolean>();
+		String[] quantity = new String[12];
+		boolean[] amended = new boolean[12];
 		for (int i = 0; i < 12; i ++) {
 			if (entryList[i].getText().equals("")) {
-				quantity.add("0");
+				quantity[i] = "0";
 			} else {
-				quantity.add(entryList[i].getText());
+				quantity[i] = entryList[i].getText();
 			}
 		}	// get the values entered in the entry list
 			
@@ -68,16 +69,16 @@ public class FoodOrder {
 		if (valid == true) {
 			// if to check if quantities are valid and not all 0s
 			boolean[] selected = {false,false,false,false,false,false,false,false,false,false,false,false};
-			ArrayList<Integer> quantityInt = convertQuantityToInt(quantity);
+			int[] quantityInt = convertQuantityToInt(quantity);
 			for (int i = 0; i < 12; i++) {
-				if (quantityInt.get(i) > 0) {
+				if (quantityInt[i] > 0) {
 					// if to check if item selected
 					selected[i] = true;
 					int stockLevel = data.itemsAvailable.get(i).getStockLevel();
-					if (quantityInt.get(i) > stockLevel) {
+					if (quantityInt[i] > stockLevel) {
 						// if statement to adjust selected according to stock level
-						quantityInt.set(i,stockLevel);
-						amended.set(i, true);
+						quantityInt[i] = stockLevel;
+						amended[i] = true;
 					}
 				}
 			}
@@ -95,7 +96,7 @@ public class FoodOrder {
 	
 	
 	////////////////// confirm order
-	public void confirmOrder(JTextField ticketEntry, JTextField nameEntry, ArrayList<Integer> quantityInt, double totalCost) {
+	public void confirmOrder(JTextField ticketEntry, JTextField nameEntry, int[] quantityInt, double totalCost) {
 		Popup popup = new Popup();
 		String ticketNumber = ticketEntry.getText(); 
 		setTicket(ticketNumber);
@@ -106,7 +107,7 @@ public class FoodOrder {
 		} else {
 			for (int i = 0; i < 12; i++) {
 				int currentStock = data.itemsAvailable.get(i).getStockLevel();
-				int newStock = currentStock - quantity.get(i);
+				int newStock = currentStock - quantity[i];
 				if (newStock == 0) {
 					data.itemsAvailable.get(i).markOutOfStock();
 				}
@@ -119,33 +120,33 @@ public class FoodOrder {
 	}
 	
 	//////////// validate quantity
-	public boolean validateQuantity(ArrayList<String> quantity) {
+	public boolean validateQuantity(String[] quantity) {
 		boolean valid = true;
 		int count = 0;
 		try {
 			for (int i = 0; i<12; i++) {
-				int value = Integer.parseInt(quantity.get(i));
+				
+				int value = Integer.parseInt(quantity[i]);
 				if (value > 100 || value < 0) {
-					if (value > 0) {
-						count += 1;
-					}
 					valid = false;
+				} else if (value > 0) {
+					count += 1;
 				}
 			}
+			if (count == 0) {
+				valid = false;
+			}
 		} catch (NumberFormatException e) {
-			valid = false;
-		}
-		if (count == 0) {
 			valid = false;
 		}
 		return valid;
 	}
 	
 	///////////// convert quantity to int
-	public ArrayList<Integer> convertQuantityToInt(ArrayList<String> quantity) {
-		ArrayList<Integer> intQuantity = new ArrayList<Integer>();
+	public int[] convertQuantityToInt(String[] quantity) {
+		int[] intQuantity = new int[12];
 		for (int i = 0; i<12; i++) {
-			intQuantity.add(Integer.parseInt(quantity.get(i)));
+			intQuantity[i] = Integer.parseInt(quantity[i]);
 		}
 		return intQuantity;
 	}
@@ -191,20 +192,20 @@ public class FoodOrder {
 		return valid;
 	}
 	
-	public ArrayList<Double> calcNetPrice(ArrayList<FoodItem> items, ArrayList<Integer> quantity) {
-		ArrayList<Double> netPrices = new ArrayList<Double>();
-		double netPrice = 0;
+	public double[] calcNetPrice(ArrayList<FoodItem> items, int[] quantity) {
+		double[] netPrices = new double[12];
 		for (int i = 0; i < 12; i++) {
-			netPrice = (items.get(i)).getPrice();
-			netPrices.add(netPrice);
+			double netPrice = 0;
+			netPrice = (items.get(i)).getPrice() * quantity[i];
+			netPrices[i] = netPrice;
 		}
 		return netPrices;
 	}
 	
-	public double calcTotalCost(ArrayList<Double> netPrices) {
+	public double calcTotalCost(double[] netPrices) {
 		double total = 0;
-		for (int i = 0; i<netPrices.size(); i++) {
-			total += netPrices.get(i);
+		for (int i = 0; i<12; i++) {
+			total += netPrices[i];
 		}
 		return total;
 	}
