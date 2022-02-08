@@ -7,7 +7,7 @@ public class FoodOrder {
 	Ticket ticket; 
 	Data data;
 	ArrayList<Integer> quantity;
-	ArrayList<Boolean> itemsSelected;
+	boolean[] itemsSelected;
 	double totalCost;
 
 	
@@ -32,11 +32,11 @@ public class FoodOrder {
 		return this.quantity;
 	}
 	
-	public void setItemsSelected(ArrayList<Boolean> newItemsSelected) {
-		this.itemsSelected = newItemsSelected;
+	public void setItemsSelected(boolean[] selected) {
+		this.itemsSelected = selected;
 	}
 	
-	public ArrayList<Boolean> getItemsSelected() {
+	public boolean[] getItemsSelected() {
 		return this.itemsSelected;
 	}
 	
@@ -66,29 +66,30 @@ public class FoodOrder {
 			
 		boolean valid = validateQuantity(quantity);
 		if (valid == true) {
+			// if to check if quantities are valid and not all 0s
+			boolean[] selected = {false,false,false,false,false,false,false,false,false,false,false,false};
 			ArrayList<Integer> quantityInt = convertQuantityToInt(quantity);
 			for (int i = 0; i < 12; i++) {
-				this.itemsSelected.set(i,true);
-				int stockLevel = data.itemsAvailable.get(i).getStockLevel();
-				if (quantityInt.get(i) > stockLevel) {
-					quantityInt.set(i,stockLevel);
-					amended.set(i, true);
+				if (quantityInt.get(i) > 0) {
+					// if to check if item selected
+					selected[i] = true;
+					int stockLevel = data.itemsAvailable.get(i).getStockLevel();
+					if (quantityInt.get(i) > stockLevel) {
+						// if statement to adjust selected according to stock level
+						quantityInt.set(i,stockLevel);
+						amended.set(i, true);
+					}
 				}
 			}
 			setQuantity(quantityInt);
+			setItemsSelected(selected);
 		// validate the quantites entered and set items selected and quantity attribute of object
-			
-					// from here probably want to move this to actual confirmationScreen with foodOrer Object to call the other methods
-							ArrayList<Double> netPrices = new ArrayList<Double>();
-							netPrices = calcNetPrice(data.itemsAvailable,quantityInt);
-							double total = calcTotalCost(netPrices);
-							//display confirmation screen
 		} else {
 			Popup popup = new Popup();
 			popup.showErrorMessage("Invalid quantity, you will be returned to the SELECTION menu");
 			moveFrame = false;
-		}
-		return moveFrame;
+		} 
+		return moveFrame; 
 	}
 	
 	
@@ -120,14 +121,21 @@ public class FoodOrder {
 	//////////// validate quantity
 	public boolean validateQuantity(ArrayList<String> quantity) {
 		boolean valid = true;
+		int count = 0;
 		try {
 			for (int i = 0; i<12; i++) {
 				int value = Integer.parseInt(quantity.get(i));
 				if (value > 100 || value < 0) {
+					if (value > 0) {
+						count += 1;
+					}
 					valid = false;
 				}
 			}
 		} catch (NumberFormatException e) {
+			valid = false;
+		}
+		if (count == 0) {
 			valid = false;
 		}
 		return valid;

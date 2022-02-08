@@ -227,33 +227,33 @@ public class RestaurantSelectionScreen extends JFrame {
 		price4.setBounds(17, 439, 53, 19);
 		mealPanel.add(price4);
 		
-		JTextPane txtpnMarinatedChickenWith = new JTextPane();
-		txtpnMarinatedChickenWith.setEditable(false);
-		txtpnMarinatedChickenWith.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		txtpnMarinatedChickenWith.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
-		txtpnMarinatedChickenWith.setBounds(10, 31, 176, 50);
-		mealPanel.add(txtpnMarinatedChickenWith);
+		JTextPane description1 = new JTextPane();
+		description1.setEditable(false);
+		description1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		description1.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
+		description1.setBounds(10, 31, 176, 50);
+		mealPanel.add(description1);
 		
-		JTextPane txtpnMarinatedChickenWith_1 = new JTextPane();
-		txtpnMarinatedChickenWith_1.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
-		txtpnMarinatedChickenWith_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		txtpnMarinatedChickenWith_1.setEditable(false);
-		txtpnMarinatedChickenWith_1.setBounds(10, 144, 176, 50);
-		mealPanel.add(txtpnMarinatedChickenWith_1);
+		JTextPane description2 = new JTextPane();
+		description2.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
+		description2.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		description2.setEditable(false);
+		description2.setBounds(10, 144, 176, 50);
+		mealPanel.add(description2);
 		
-		JTextPane txtpnMarinatedChickenWith_2 = new JTextPane();
-		txtpnMarinatedChickenWith_2.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
-		txtpnMarinatedChickenWith_2.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		txtpnMarinatedChickenWith_2.setEditable(false);
-		txtpnMarinatedChickenWith_2.setBounds(10, 258, 176, 50);
-		mealPanel.add(txtpnMarinatedChickenWith_2);
+		JTextPane description3 = new JTextPane();
+		description3.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
+		description3.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		description3.setEditable(false);
+		description3.setBounds(10, 258, 176, 50);
+		mealPanel.add(description3);
 		
-		JTextPane txtpnMarinatedChickenWith_3 = new JTextPane();
-		txtpnMarinatedChickenWith_3.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
-		txtpnMarinatedChickenWith_3.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		txtpnMarinatedChickenWith_3.setEditable(false);
-		txtpnMarinatedChickenWith_3.setBounds(10, 384, 176, 50);
-		mealPanel.add(txtpnMarinatedChickenWith_3);
+		JTextPane description4 = new JTextPane();
+		description4.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
+		description4.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		description4.setEditable(false);
+		description4.setBounds(10, 384, 176, 50);
+		mealPanel.add(description4);
 		
 		
 		JPanel snacksPanel = new JPanel();
@@ -338,33 +338,33 @@ public class RestaurantSelectionScreen extends JFrame {
 		price8.setBounds(17, 439, 53, 19);
 		snacksPanel.add(price8);
 		
-		JTextPane txtpnMarinatedChickenWith_4 = new JTextPane();
-		txtpnMarinatedChickenWith_4.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
-		txtpnMarinatedChickenWith_4.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		txtpnMarinatedChickenWith_4.setEditable(false);
-		txtpnMarinatedChickenWith_4.setBounds(10, 144, 176, 50);
-		snacksPanel.add(txtpnMarinatedChickenWith_4);
+		JTextPane description5 = new JTextPane();
+		description5.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
+		description5.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		description5.setEditable(false);
+		description5.setBounds(10, 144, 176, 50);
+		snacksPanel.add(description5);
 		
-		JTextPane txtpnMarinatedChickenWith_5 = new JTextPane();
-		txtpnMarinatedChickenWith_5.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
-		txtpnMarinatedChickenWith_5.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		txtpnMarinatedChickenWith_5.setEditable(false);
-		txtpnMarinatedChickenWith_5.setBounds(10, 258, 176, 50);
-		snacksPanel.add(txtpnMarinatedChickenWith_5);
+		JTextPane description6 = new JTextPane();
+		description6.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
+		description6.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		description6.setEditable(false);
+		description6.setBounds(10, 258, 176, 50);
+		snacksPanel.add(description6);
 		
-		JTextPane txtpnMarinatedChickenWith_7 = new JTextPane();
-		txtpnMarinatedChickenWith_7.setBounds(10, 32, 176, 50);
-		snacksPanel.add(txtpnMarinatedChickenWith_7);
-		txtpnMarinatedChickenWith_7.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
-		txtpnMarinatedChickenWith_7.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		txtpnMarinatedChickenWith_7.setEditable(false);
+		JTextPane description7 = new JTextPane();
+		description7.setBounds(10, 32, 176, 50);
+		snacksPanel.add(description7);
+		description7.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
+		description7.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		description7.setEditable(false);
 		
-		JTextPane txtpnMarinatedChickenWith_7_5 = new JTextPane();
-		txtpnMarinatedChickenWith_7_5.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
-		txtpnMarinatedChickenWith_7_5.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		txtpnMarinatedChickenWith_7_5.setEditable(false);
-		txtpnMarinatedChickenWith_7_5.setBounds(10, 386, 176, 50);
-		snacksPanel.add(txtpnMarinatedChickenWith_7_5);
+		JTextPane description8 = new JTextPane();
+		description8.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
+		description8.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		description8.setEditable(false);
+		description8.setBounds(10, 386, 176, 50);
+		snacksPanel.add(description8);
 		
 		JPanel drinksPanel = new JPanel();
 		drinksPanel.setBorder(new LineBorder(new Color(0, 0, 128)));
@@ -449,42 +449,47 @@ public class RestaurantSelectionScreen extends JFrame {
 		price12.setBounds(17, 439, 53, 19);
 		drinksPanel.add(price12);
 		
-		JTextPane txtpnMarinatedChickenWith_7_1 = new JTextPane();
-		txtpnMarinatedChickenWith_7_1.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
-		txtpnMarinatedChickenWith_7_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		txtpnMarinatedChickenWith_7_1.setEditable(false);
-		txtpnMarinatedChickenWith_7_1.setBounds(10, 31, 176, 50);
-		drinksPanel.add(txtpnMarinatedChickenWith_7_1);
+		JTextPane description9 = new JTextPane();
+		description9.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
+		description9.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		description9.setEditable(false);
+		description9.setBounds(10, 31, 176, 50);
+		drinksPanel.add(description9);
 		
-		JTextPane txtpnMarinatedChickenWith_7_2 = new JTextPane();
-		txtpnMarinatedChickenWith_7_2.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
-		txtpnMarinatedChickenWith_7_2.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		txtpnMarinatedChickenWith_7_2.setEditable(false);
-		txtpnMarinatedChickenWith_7_2.setBounds(10, 143, 176, 50);
-		drinksPanel.add(txtpnMarinatedChickenWith_7_2);
+		JTextPane description10 = new JTextPane();
+		description10.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
+		description10.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		description10.setEditable(false);
+		description10.setBounds(10, 143, 176, 50);
+		drinksPanel.add(description10);
 		
-		JTextPane txtpnMarinatedChickenWith_7_3 = new JTextPane();
-		txtpnMarinatedChickenWith_7_3.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
-		txtpnMarinatedChickenWith_7_3.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		txtpnMarinatedChickenWith_7_3.setEditable(false);
-		txtpnMarinatedChickenWith_7_3.setBounds(10, 258, 176, 50);
-		drinksPanel.add(txtpnMarinatedChickenWith_7_3);
+		JTextPane description11 = new JTextPane();
+		description11.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
+		description11.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		description11.setEditable(false);
+		description11.setBounds(10, 258, 176, 50);
+		drinksPanel.add(description11);
 		
-		JTextPane txtpnMarinatedChickenWith_7_4 = new JTextPane();
-		txtpnMarinatedChickenWith_7_4.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
-		txtpnMarinatedChickenWith_7_4.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		txtpnMarinatedChickenWith_7_4.setEditable(false);
-		txtpnMarinatedChickenWith_7_4.setBounds(10, 384, 176, 50);
-		drinksPanel.add(txtpnMarinatedChickenWith_7_4);
+		JTextPane description12 = new JTextPane();
+		description12.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
+		description12.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		description12.setEditable(false);
+		description12.setBounds(10, 384, 176, 50);
+		drinksPanel.add(description12);
 
 		
 		// price test
 		// using a loop to assign the prices from foodItem rather than setting them constant
 		// instead of prices, do FoodItem[], foodItem.getPrice
 		JLabel[] priceLabels = {price1,price2,price3,price4,price5,price6,price7,price8,price9,price10,price11,price12};
-		double[] prices = {1.,2,3,4,5,6,7,8,9,10,11,12};
+		JTextPane[] descriptionText = {description1,description2,description3,description4,description5,description6,description7,description8,description9,description10,description11,description12};
+
+		double[] prices = {1,2,3,4,5,6,7,8,9,10,11,12};
+		String[] descriptions = {"1","2","3","4","5","6","7","8","9","10","11","12"};
 		for (int i = 0; i < 12; i ++) {
 			priceLabels[i].setText(String.format("£%.2f", prices[i]));
+			//descriptionText[i].setText(descriptions[i]);
+			// could i do this as setText(data.itemsAvailable[i].description) rather than as a for loop?
 		}
 		
 		// entry test
@@ -529,19 +534,33 @@ public class RestaurantSelectionScreen extends JFrame {
 				// move screens
 				FoodOrder order = new FoodOrder();
 				boolean moveFrame = order.selectItems(entryList);
-				
-				Object[][] data = {
-			            { "Noodles", 1.99, 1, 1.99 },
-			            { "Noodles", 1.99, 1, 1.99 },
-			            { "Noodles", 1.99, 1, 1.99 },
-			            { "Noodles", 1.99, 1, 1.99 }  };
-				
 				if (moveFrame == true) {
+					int rows = 0;
+					for (int i = 0; i < 12; i++) {
+						if (order.itemsSelected[i] == true) {
+							rows += 1;
+						}
+					} // calc num of rows needed based on items selected
+					Object[][] data = new Object[rows][4];
+					for (int i = 0; i < rows; i++ ) {
+						/* data[i][0] = order.data.itemsAvailable;
+						data[i][1] = order.data.itemsAvailable;
+						data[i][2] = order.data.itemsAvailable;
+						data[i][3] = order.data.itemsAvailable; */
+					} // create data for table
+					
+					
+					/* from here probably want to move this to actual confirmationScreen with foodOrer Object to call the other methods
+							ArrayList<Double> netPrices = new ArrayList<Double>();
+							netPrices = calcNetPrice(data.itemsAvailable,quantityInt);
+							double total = calcTotalCost(netPrices);
+							//display confirmation screen */
+					
 					RestaurantConfirmationScreen confirmationScreen = new RestaurantConfirmationScreen(order,data);
 					setVisible(false);
 					confirmationScreen.setVisible(true);
 				}
-				
+	
 			}
 		});
 		
