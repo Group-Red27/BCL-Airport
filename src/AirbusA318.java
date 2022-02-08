@@ -73,19 +73,19 @@ public class AirbusA318 extends JFrame {
 		//Button Array
 		
 		JButton[] seatNumber = new JButton[58];
-		
-		
-		seatNumber[0].addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				seatNumber[0].setBackground(Color.GREEN);//roll over button
-				
-			}
-		});
 			
 		
 		//Bussiness class
 		seatNumber[0] = new JButton("1A");
+		seatNumber[0].addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				seatNumber[0].setBackground(Color.WHITE);
+				seatNumber[0].setForeground(Color.BLACK);
+
+
+			}
+		});
 		seatNumber[0].setBackground(new Color(126, 192, 236));
 		seatNumber[0].setForeground(new Color(255, 255, 255));
 		seatNumber[0].setFont(new Font("Tahoma", Font.PLAIN, 9));
@@ -496,3 +496,4 @@ public class AirbusA318 extends JFrame {
 		
 	}
 }
+
