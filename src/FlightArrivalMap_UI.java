@@ -38,6 +38,7 @@ public class FlightArrivalMap_UI extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
+		contentPane.add(lblNewLabel);
 		setContentPane(contentPane);
 	}
 
