@@ -5,7 +5,7 @@ import javax.swing.JTextField;
 
 public class FoodOrder {
 	Ticket ticket; 
-	Data data;
+	Data data = new Data();
 	int[] quantity;
 	boolean[] itemsSelected;
 	double[] netPrices;
@@ -19,7 +19,6 @@ public class FoodOrder {
 			this.ticket = null;
 		}
 	}
-
 
 	public Ticket getTicket() {
 		return this.ticket;
@@ -41,6 +40,14 @@ public class FoodOrder {
 		return this.itemsSelected;
 	}
 	
+	public void setNetPrices(double[] newNetPrices) {
+		this.netPrices = newNetPrices;
+	}
+	
+	public double[] getNetPrices() {
+		return this.netPrices;
+	}
+	
 	public void setTotalCost(double total) {
 		this.totalCost = total;
 	}
@@ -48,9 +55,6 @@ public class FoodOrder {
 	public double getTotalCost() {
 		return totalCost;
 	}
-	
-	//////// from the bottom up 
-	//////////////////////////
 	
 	////////////////// select items
 	public boolean selectItems(JTextField[] entryList) {
@@ -81,10 +85,14 @@ public class FoodOrder {
 						amended[i] = true;
 					}
 				}
-			}
+			}// validate the quantites entered
+			double[] netPrices = calcNetPrices(data.itemsAvailable, quantityInt);
+			double totalCost = calcTotalCost(netPrices);
 			setQuantity(quantityInt);
+			setNetPrices(netPrices);
+			setTotalCost(totalCost);
 			setItemsSelected(selected);
-		// validate the quantites entered and set items selected and quantity attribute of object
+			// set items selected, quantity, full prices attribute of object
 		} else {
 			Popup popup = new Popup();
 			popup.showErrorMessage("Invalid quantity, you will be returned to the SELECTION menu");
@@ -93,8 +101,8 @@ public class FoodOrder {
 		return moveFrame; 
 	}
 	
-	
-	
+
+
 	////////////////// confirm order
 	public void confirmOrder(JTextField ticketEntry, JTextField nameEntry, int[] quantityInt, double totalCost) {
 		Popup popup = new Popup();
@@ -192,7 +200,7 @@ public class FoodOrder {
 		return valid;
 	}
 	
-	public double[] calcNetPrice(ArrayList<FoodItem> items, int[] quantity) {
+	public double[] calcNetPrices(ArrayList<FoodItem> items, int[] quantity) {
 		double[] netPrices = new double[12];
 		for (int i = 0; i < 12; i++) {
 			double netPrice = 0;

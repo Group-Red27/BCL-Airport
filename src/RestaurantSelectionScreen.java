@@ -99,9 +99,7 @@ public class RestaurantSelectionScreen extends JFrame {
 		JButton financeButton = new JButton("Finance");
 		financeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Popup popup = new Popup();
-				popup.showSuccessMessage("Seating plan");
-				System.out.println("return to page here");
+				
 			}
 		});
 		financeButton.addMouseListener(new MouseAdapter() {
@@ -128,6 +126,9 @@ public class RestaurantSelectionScreen extends JFrame {
 		arrivalButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				FlightArrivalMap_UI arrivalMap = new FlightArrivalMap_UI();
+				setVisible(false);
+				arrivalMap.setVisible(true);
 			}
 		});
 		arrivalButton.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -529,6 +530,7 @@ public class RestaurantSelectionScreen extends JFrame {
 		txtpnInvalidTicketNumber.setText("\r\nPlease enter the quantity of a desired product into the entry box before pressing 'Purchase'\r\n\r\nYou will be prompted to enter your NAME and TICKET NUMBER to complete a purchase");
 		txtpnInvalidTicketNumber.setBounds(20, 116, 108, 272);
 		infoPanel.add(txtpnInvalidTicketNumber);
+		
 		purchaseButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// move screens
@@ -542,29 +544,20 @@ public class RestaurantSelectionScreen extends JFrame {
 							rows += 1;
 							index.add(i);
 						}
-					} // calc num of rows needed based on items selected
+					} // calc num of rows needed based on items selected and the index of selected items
 					
 					Object[][] data = new Object[rows][4];
 					for (int i = 0; i < rows; i++ ) {
-						/* data[i][0] = order.data.itemsAvailable[index[i]].getname;
-						data[i][1] = order.data.itemsAvailable[index[i]].getprice;
-						data[i][2] = order.getquantity[index[i]];
-						data[i][3] = order.netPrices[index[i]]; */
-					} // create data for table
+						data[i][0] = order.data.itemsAvailable.get(index.get(i)).getItemName();
+						data[i][1] = order.data.itemsAvailable.get(index.get(i)).getPrice();
+						data[i][2] = order.getQuantity()[index.get(i)];
+						data[i][3] = order.getNetPrices()[index.get(i)]; 
+					}  //create data for table 
 					
-					
-					/* from here probably want to move this to actual confirmationScreen with foodOrer Object to call the other methods
-							ArrayList<Double> netPrices = new ArrayList<Double>();
-							netPrices = calcNetPrice(data.itemsAvailable,quantityInt);
-							double total = calcTotalCost(netPrices);
-							//display confirmation screen */
-					// add this to the main of confirmation screen- set total cost???
-					
-					RestaurantConfirmationScreen confirmationScreen = new RestaurantConfirmationScreen(order,data);
+					RestaurantConfirmationScreen confirmationScreen = new RestaurantConfirmationScreen(null,null);
 					setVisible(false);
 					confirmationScreen.setVisible(true);
-				}
-	
+				} // end of if statement, if false, do nothing 
 			}
 		});
 		
