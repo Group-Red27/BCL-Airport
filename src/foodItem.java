@@ -1,6 +1,6 @@
 import java.time.LocalTime;    
 
-public class FoodItem {
+public class foodItem {
 	String itemCode;
 	String itemName;
 	String description;
