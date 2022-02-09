@@ -1,39 +1,43 @@
 import java.time.LocalTime;
 import java.util.ArrayList;
 
+import javax.swing.JTextField;
+
 public class FoodOrder {
-	Object ticket; // change this to ticket object once it has been created
-	ArrayList<Integer> quantity;
-	ArrayList<FoodItem> itemsAvailable;
-	ArrayList<Boolean> itemsSelected;
+	Ticket ticket; 
+	Data data;
+	int[] quantity;
+	boolean[] itemsSelected;
+	double[] netPrices;
 	double totalCost;
 
+	
 	public void setTicket(String ticketNumber) {
 		if (validateTicketNumber(ticketNumber) == true) {
-			this.ticket = findTicket(ticketNumber);
+			this.ticket = data.findTicket(ticketNumber);
 		} else {
 			this.ticket = null;
 		}
 	}
 
 
-	public Object getTicket() {
+	public Ticket getTicket() {
 		return this.ticket;
 	}
 
-	public void setQuantity(ArrayList<Integer> newQuantity) {
+	public void setQuantity(int[] newQuantity) {
 		this.quantity = newQuantity;
 	}
 	
-	public ArrayList<Integer> getQuantity() {
+	public int[] getQuantity() {
 		return this.quantity;
 	}
 	
-	public void setItemsSelected(ArrayList<Boolean> newItemsSelected) {
-		this.itemsSelected = newItemsSelected;
+	public void setItemsSelected(boolean[] selected) {
+		this.itemsSelected = selected;
 	}
 	
-	public ArrayList<Boolean> getItemsSelected() {
+	public boolean[] getItemsSelected() {
 		return this.itemsSelected;
 	}
 	
@@ -49,64 +53,88 @@ public class FoodOrder {
 	//////////////////////////
 	
 	////////////////// select items
-	public void selectItems(ArrayList<Object> entryList) {
-		ArrayList<String> quantity = new ArrayList<String>();
-		ArrayList<Boolean> amended = new ArrayList<Boolean>();
-		for (int i = 0; i < entryList.size(); i++) {
-			//quantity.add(entryList.get(i)); // getvalueinentry
-		}
+	public boolean selectItems(JTextField[] entryList) {
+		boolean moveFrame = true;
+		String[] quantity = new String[12];
+		boolean[] amended = new boolean[12];
+		for (int i = 0; i < 12; i ++) {
+			if (entryList[i].getText().equals("")) {
+				quantity[i] = "0";
+			} else {
+				quantity[i] = entryList[i].getText();
+			}
+		}	// get the values entered in the entry list
+			
 		boolean valid = validateQuantity(quantity);
 		if (valid == true) {
-			ArrayList<Integer> quantityInt = convertQuantityToInt(quantity);
+			// if to check if quantities are valid and not all 0s
+			boolean[] selected = {false,false,false,false,false,false,false,false,false,false,false,false};
+			int[] quantityInt = convertQuantityToInt(quantity);
 			for (int i = 0; i < 12; i++) {
-				this.itemsSelected.set(i,true);
-				int stockLevel = this.itemsAvailable.get(i).getStockLevel();
-				if (quantityInt.get(i) > stockLevel) {
-					quantityInt.set(i,stockLevel);
-					amended.set(i, true);
+				if (quantityInt[i] > 0) {
+					// if to check if item selected
+					selected[i] = true;
+					int stockLevel = data.itemsAvailable.get(i).getStockLevel();
+					if (quantityInt[i] > stockLevel) {
+						// if statement to adjust selected according to stock level
+						quantityInt[i] = stockLevel;
+						amended[i] = true;
+					}
 				}
 			}
 			setQuantity(quantityInt);
-			ArrayList<Double> netPrices = new ArrayList<Double>();
-			netPrices = calcNetPrice(this.itemsAvailable,quantityInt);
-			double total = calcTotalCost(netPrices);
-			//display confirmation screen
+			setItemsSelected(selected);
+		// validate the quantites entered and set items selected and quantity attribute of object
 		} else {
-			//display error pop up
-		}
+			Popup popup = new Popup();
+			popup.showErrorMessage("Invalid quantity, you will be returned to the SELECTION menu");
+			moveFrame = false;
+		} 
+		return moveFrame; 
 	}
+	
+	
+	
 	////////////////// confirm order
-	public void confirmOrder(Object ticketEntry, Object nameEntry, ArrayList<Integer> quantityInt, double totalCost) {
-		String ticketNumber = ticketEntry.toString(); // getvalueinENTRY
+	public void confirmOrder(JTextField ticketEntry, JTextField nameEntry, int[] quantityInt, double totalCost) {
+		Popup popup = new Popup();
+		String ticketNumber = ticketEntry.getText(); 
 		setTicket(ticketNumber);
-		String passengerName = nameEntry.toString();
+		String passengerName = nameEntry.getText();
 		String errorString = validateDetails(passengerName);
-		if (errorString == "") {
-			//display error popup
+		if (errorString != "") {
+			popup.showErrorMessage(errorString);
 		} else {
 			for (int i = 0; i < 12; i++) {
-				int currentStock = this.itemsAvailable.get(i).getStockLevel();
-				int newStock = currentStock - quantity.get(i);
+				int currentStock = data.itemsAvailable.get(i).getStockLevel();
+				int newStock = currentStock - quantity[i];
 				if (newStock == 0) {
-					this.itemsAvailable.get(i).markOutOfStock();
+					data.itemsAvailable.get(i).markOutOfStock();
 				}
 			}
-			Object ticket = getTicket();
+			Ticket ticket = getTicket();
 			setTotalCost(totalCost);
-			//addCostToTicket(ticket, totalCost);
-			// display success popup
+			addCostToTicket(ticket, totalCost);
+			popup.showSuccessMessage("Purchase Successful, you will be returned to the SELECTION menu");
 		}
 	}
 	
 	//////////// validate quantity
-	public boolean validateQuantity(ArrayList<String> quantity) {
+	public boolean validateQuantity(String[] quantity) {
 		boolean valid = true;
+		int count = 0;
 		try {
 			for (int i = 0; i<12; i++) {
-				int value = Integer.parseInt(quantity.get(i));
+				
+				int value = Integer.parseInt(quantity[i]);
 				if (value > 100 || value < 0) {
 					valid = false;
+				} else if (value > 0) {
+					count += 1;
 				}
+			}
+			if (count == 0) {
+				valid = false;
 			}
 		} catch (NumberFormatException e) {
 			valid = false;
@@ -115,10 +143,10 @@ public class FoodOrder {
 	}
 	
 	///////////// convert quantity to int
-	public ArrayList<Integer> convertQuantityToInt(ArrayList<String> quantity) {
-		ArrayList<Integer> intQuantity = new ArrayList<Integer>();
+	public int[] convertQuantityToInt(String[] quantity) {
+		int[] intQuantity = new int[12];
 		for (int i = 0; i<12; i++) {
-			intQuantity.add(Integer.parseInt(quantity.get(i)));
+			intQuantity[i] = Integer.parseInt(quantity[i]);
 		}
 		return intQuantity;
 	}
@@ -126,16 +154,16 @@ public class FoodOrder {
 	//////////// validate details
 	public String validateDetails(String passengerName) {
 		String errorString = "";
-		Object ticket = getTicket();
+		Ticket ticket = getTicket();
 		boolean validName = validatePassengerName(passengerName);
 		if (ticket == null) {
 			errorString = "Invalid ticket number, you will be returned to the CONFIRMATION menu";
 		} else if (validName == false) {
 			errorString = "Invalid name, you will be returned to the CONFIRMATION menu";
-		} /* else 
+		} else 
 			if (passengerName != ticket.getPassengerName()) {
 			errorString = "Details don’t match, you will be returned to the CONFIRMATION menu";
-		} */
+		} 
 		return errorString;
 	}
 	
@@ -164,32 +192,32 @@ public class FoodOrder {
 		return valid;
 	}
 	
-	public ArrayList<Double> calcNetPrice(ArrayList<FoodItem> items, ArrayList<Integer> quantity) {
-		ArrayList<Double> netPrices = new ArrayList<Double>();
-		double netPrice = 0;
+	public double[] calcNetPrice(ArrayList<FoodItem> items, int[] quantity) {
+		double[] netPrices = new double[12];
 		for (int i = 0; i < 12; i++) {
-			netPrice = (items.get(i)).getPrice();
-			netPrices.add(netPrice);
+			double netPrice = 0;
+			netPrice = (items.get(i)).getPrice() * quantity[i];
+			netPrices[i] = netPrice;
 		}
 		return netPrices;
 	}
 	
-	public double calcTotalCost(ArrayList<Double> netPrices) {
+	public double calcTotalCost(double[] netPrices) {
 		double total = 0;
-		for (int i = 0; i<netPrices.size(); i++) {
-			total += netPrices.get(i);
+		for (int i = 0; i<12; i++) {
+			total += netPrices[i];
 		}
 		return total;
 	}
 	
-	
-	private Object findTicket(String ticketNumber) {
-		// TODO Auto-generated method stub
-		return null;
+	public void checkForRestock() {
+		for (int i = 0; i < 12; i++) {
+			int stockLevel = data.itemsAvailable.get(i).getStockLevel();
+			if (stockLevel == 0) {
+				restock(data.itemsAvailable.get(i));
+			}
+		}
 	}
-	
-	
-	/////////// check for restock
 	
 	public void restock(FoodItem item) {
 		LocalTime currentTime = java.time.LocalTime.now();
@@ -199,5 +227,15 @@ public class FoodOrder {
 			item.markInStock();
 		}
 	}
+	
+	public void addCostToTicket(Ticket ticket, double totalCost) {
+		double foodCost = ticket.getFoodCost();
+		foodCost += totalCost;
+		ticket.setFoodCost(foodCost);
+	}
+	
+
+	
+
 	
 }
