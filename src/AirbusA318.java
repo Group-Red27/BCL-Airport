@@ -7,6 +7,9 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
 
 public class AirbusA318 extends JFrame {
@@ -68,6 +71,17 @@ public class AirbusA318 extends JFrame {
 		//Button Array
 		
 		JButton[] seatNumber = new JButton[58];
+		
+		MouseListener ml = new MouseAdapter()
+		{
+		    @Override
+		    public void mousePressed(MouseEvent e)
+		    {
+		        JPanel panel = (JPanel)e.getSource();
+		        panel.setBorder(...);
+		    }
+		};
+		
 		String[] BusinessLabel= {"1A","2A","3A","4A","5A","1B","2B","3B","4B","5B"};
 		String[] Economy= {"6A","7A","8A","9A","10A","11A","12A","13A",
 				"6B","7B","8B","9B","10B","11B","12B","13B",
@@ -91,6 +105,12 @@ public class AirbusA318 extends JFrame {
 	//Business Class
 		for(int i=0;i<5;i++) { //For loop for array of JButton [0] to [4]
 			seatNumber[i]= new JButton(BusinessLabel[i]);
+			seatNumber[i].addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					
+				}
+			});
 			seatNumber[i].setBackground(new Color(126, 192, 236));
 			seatNumber[i].setForeground(new Color(255, 255, 255));
 			seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
