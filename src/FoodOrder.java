@@ -78,7 +78,7 @@ public class FoodOrder {
 				if (quantityInt[i] > 0) {
 					// if to check if item selected
 					selected[i] = true;
-					int stockLevel = data.itemsAvailable.get(i).getStockLevel();
+					int stockLevel = data.itemsAvailable[i].getStockLevel();
 					if (quantityInt[i] > stockLevel) {
 						// if statement to adjust selected according to stock level
 						quantityInt[i] = stockLevel;
@@ -114,10 +114,10 @@ public class FoodOrder {
 			popup.showErrorMessage(errorString);
 		} else {
 			for (int i = 0; i < 12; i++) {
-				int currentStock = data.itemsAvailable.get(i).getStockLevel();
+				int currentStock = data.itemsAvailable[i].getStockLevel();
 				int newStock = currentStock - quantity[i];
 				if (newStock == 0) {
-					data.itemsAvailable.get(i).markOutOfStock();
+					data.itemsAvailable[i].markOutOfStock();
 				}
 			}
 			Ticket ticket = getTicket();
@@ -200,11 +200,11 @@ public class FoodOrder {
 		return valid;
 	}
 	
-	public double[] calcNetPrices(ArrayList<FoodItem> items, int[] quantity) {
+	public double[] calcNetPrices(FoodItem[] itemsAvailable, int[] quantity) {
 		double[] netPrices = new double[12];
 		for (int i = 0; i < 12; i++) {
 			double netPrice = 0;
-			netPrice = (items.get(i)).getPrice() * quantity[i];
+			netPrice = (itemsAvailable[i]).getPrice() * quantity[i];
 			netPrices[i] = netPrice;
 		}
 		return netPrices;
@@ -220,9 +220,9 @@ public class FoodOrder {
 	
 	public void checkForRestock() {
 		for (int i = 0; i < 12; i++) {
-			int stockLevel = data.itemsAvailable.get(i).getStockLevel();
+			int stockLevel = data.itemsAvailable[i].getStockLevel();
 			if (stockLevel == 0) {
-				restock(data.itemsAvailable.get(i));
+				restock(data.itemsAvailable[i]);
 			}
 		}
 	}

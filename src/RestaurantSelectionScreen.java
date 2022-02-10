@@ -548,13 +548,13 @@ public class RestaurantSelectionScreen extends JFrame {
 					
 					Object[][] data = new Object[rows][4];
 					for (int i = 0; i < rows; i++ ) {
-						data[i][0] = order.data.itemsAvailable.get(index.get(i)).getItemName();
-						data[i][1] = order.data.itemsAvailable.get(index.get(i)).getPrice();
+						data[i][0] = order.data.itemsAvailable[index.get(i)].getItemName();
+						data[i][1] = order.data.itemsAvailable[index.get(i)].getPrice();
 						data[i][2] = order.getQuantity()[index.get(i)];
 						data[i][3] = order.getNetPrices()[index.get(i)]; 
 					}  //create data for table 
 					
-					RestaurantConfirmationScreen confirmationScreen = new RestaurantConfirmationScreen(null,null);
+					RestaurantConfirmationScreen confirmationScreen = new RestaurantConfirmationScreen(order,data);
 					setVisible(false);
 					confirmationScreen.setVisible(true);
 				} // end of if statement, if false, do nothing 

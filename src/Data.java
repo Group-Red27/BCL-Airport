@@ -4,7 +4,7 @@ public class Data {
 	ArrayList<Object> flights;
 	ArrayList<Ticket> tickets; 
 	ArrayList<Object> users;
-	ArrayList<FoodItem> itemsAvailable; // for restaurant component
+	FoodItem[] itemsAvailable; // for restaurant component
 	
 	
 	public Ticket findTicket(String ticketNumber) {
