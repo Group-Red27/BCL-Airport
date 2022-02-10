@@ -1,17 +1,12 @@
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 
 public class AirbusA318 extends JFrame {
@@ -120,12 +115,6 @@ public class AirbusA318 extends JFrame {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(50,yCounter3+=20, 51, 21);
-				seatNumber[i].addMouseListener(new MouseAdapter() {
-	                @Override
-	                public void mousePressed(MouseEvent e) {
-	                	System.out.println("HI");
-	                }           
-	            });
 				contentPane.add(seatNumber[i]);
 			}
 			
@@ -174,7 +163,9 @@ public class AirbusA318 extends JFrame {
 				contentPane.add(seatNumber[i]);
 			}
 			
-			
+	}
+}
+
 
 		//Bussiness class
 //		seatNumber[0] = new JButton("1A");
@@ -586,7 +577,7 @@ public class AirbusA318 extends JFrame {
 //		contentPane.add(seatNumber[57]);
 //		
 		
-	}
-}
+
+
 
 
