@@ -5,7 +5,7 @@ import javax.swing.JTextField;
 
 public class FoodOrder {
 	Ticket ticket; 
-	Data data = new Data();
+	Data data = Data.getInstance();
 	int[] quantity;
 	boolean[] itemsSelected;
 	double[] netPrices;
@@ -117,7 +117,7 @@ public class FoodOrder {
 				int currentStock = data.itemsAvailable[i].getStockLevel();
 				int newStock = currentStock - quantity[i];
 				if (newStock == 0) {
-					data.itemsAvailable[i].markOutOfStock();
+					data.itemsAvailable[i].setStockLevel(0);;
 				}
 			}
 			Ticket ticket = getTicket();
@@ -232,7 +232,6 @@ public class FoodOrder {
 		LocalTime restockTime = item.getTimePrompt();
 		if (currentTime.compareTo(restockTime) >= 0) {
 			item.setStockLevel(100);
-			item.markInStock();
 		}
 	}
 	

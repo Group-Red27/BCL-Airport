@@ -49,16 +49,6 @@ public class FoodItem {
 		 return this.price;
 	 }
 	 
-	 ///////////////////////
-	 public void markInStock() {
-		 
-	 }
-	 
-	 public void markOutOfStock() {
-		 
-	 }
-	 /////////////////////////
-	 
 	 public LocalTime getTimePrompt() {
 		 return this.timePrompt;
 	 }
