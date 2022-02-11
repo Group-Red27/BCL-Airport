@@ -8,6 +8,7 @@ public class FoodOrder {
 	Data data = Data.getInstance();
 	int[] quantity;
 	boolean[] itemsSelected;
+	boolean[] itemsAmended;
 	double[] netPrices;
 	double totalCost;
 
@@ -40,6 +41,14 @@ public class FoodOrder {
 		return this.itemsSelected;
 	}
 	
+	public void setItemsAmended(boolean[] amended) {
+		this.itemsAmended = amended;
+	}
+	
+	public boolean[] getItemsAmended() {
+		return this.itemsAmended;
+	}
+	
 	public void setNetPrices(double[] newNetPrices) {
 		this.netPrices = newNetPrices;
 	}
@@ -60,6 +69,7 @@ public class FoodOrder {
 	public boolean selectItems(JTextField[] entryList) {
 		boolean moveFrame = true;
 		String[] quantity = new String[12];
+		boolean[] selected = new boolean[12];
 		boolean[] amended = new boolean[12];
 		for (int i = 0; i < 12; i ++) {
 			if (entryList[i].getText().equals("")) {
@@ -72,7 +82,6 @@ public class FoodOrder {
 		boolean valid = validateQuantity(quantity);
 		if (valid == true) {
 			// if to check if quantities are valid and not all 0s
-			boolean[] selected = {false,false,false,false,false,false,false,false,false,false,false,false};
 			int[] quantityInt = convertQuantityToInt(quantity);
 			for (int i = 0; i < 12; i++) {
 				if (quantityInt[i] > 0) {
@@ -83,7 +92,11 @@ public class FoodOrder {
 						// if statement to adjust selected according to stock level
 						quantityInt[i] = stockLevel;
 						amended[i] = true;
+					} else {
+						amended[i] = false;
 					}
+				} else {
+					selected[i] = false;
 				}
 			}// validate the quantites entered
 			double[] netPrices = calcNetPrices(data.itemsAvailable, quantityInt);
@@ -92,6 +105,7 @@ public class FoodOrder {
 			setNetPrices(netPrices);
 			setTotalCost(totalCost);
 			setItemsSelected(selected);
+			setItemsAmended(amended);
 			// set items selected, quantity, full prices attribute of object
 		} else {
 			Popup popup = new Popup();

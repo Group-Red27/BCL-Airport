@@ -8,8 +8,8 @@ public class Data {
 	static FoodItem[] itemsAvailable; // for restaurant component
 	
 	private Data() {
-		FoodItem item1 = new FoodItem("Chicken Noodles","Marinated chicken with seasonal greens, menma, spring onion, rich chicken broth with miso",0,1);
-		FoodItem item2 = new FoodItem("Rice & Beef","Beef brisket in teriyaki sauce shredded carrots. seasonal greens spring onion sesame seeds with rice",0,2);
+		FoodItem item1 = new FoodItem("Chicken Noodles","Marinated chicken with seasonal greens, menma, spring onion, rich chicken broth with miso",1,1);
+		FoodItem item2 = new FoodItem("Rice & Beef","Beef brisket in teriyaki sauce shredded carrots. seasonal greens spring onion sesame seeds with rice",1,2);
 		FoodItem item3 = new FoodItem("Tofu Stir Fry","Bold + fiery tofu, mangetout, red + green peppers, onion, hot red chillies, sesame seeds stir fry",100,3);
 		FoodItem item4 = new FoodItem("Vegetable Dumpling","Yasai steamed dumplings served grilled with a dipping sauce and filled with vegtables",100,4);
 		FoodItem item5 = new FoodItem("Crisps","Description",100,5);
