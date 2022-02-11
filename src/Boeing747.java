@@ -80,8 +80,10 @@ public class Boeing747 extends JFrame {
 		economyClassLabel.setFont(new Font("Tahoma", Font.BOLD, 10));
 		contentPane.add(economyClassLabel);
 		
-		JButton[] seatNumber = new JButton[84];
+		//Buttons
 		
+		JButton[] seatNumber = new JButton[84];
+				
 		String[] FirstClassLabel= {"1A","2A","3A","4A","5A","1B","2B","3B","4B","5B"};
 		
 		String[] BusinessClassLabel= {"6A","7A","8A","9A","10A",
@@ -104,6 +106,7 @@ public class Boeing747 extends JFrame {
 
 
 
+		Handling h = new Handling();
 
 	//First Class
 		for(int i=0;i<5;i++) { //For loop for array of JButton [0] to [4]
@@ -112,6 +115,7 @@ public class Boeing747 extends JFrame {
 			seatNumber[i].setForeground(new Color(255, 255, 255));
 			seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 			seatNumber[i].setBounds(139,yCounter+=20, 51, 21);
+			seatNumber[i].addActionListener(h);
 			contentPane.add(seatNumber[i]);
 		}
 		
@@ -121,6 +125,7 @@ public class Boeing747 extends JFrame {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(234,yCounter2+=20, 51, 21);
+				seatNumber[i].addActionListener(h);
 				contentPane.add(seatNumber[i]);
 			}
 			
@@ -132,6 +137,7 @@ public class Boeing747 extends JFrame {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(110,yCounter3+=20, 51, 21);
+				seatNumber[i].addActionListener(h);
 				contentPane.add(seatNumber[i]);
 			}
 			
@@ -141,6 +147,7 @@ public class Boeing747 extends JFrame {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(170,yCounter4+=20, 51, 21);
+				seatNumber[i].addActionListener(h);
 				contentPane.add(seatNumber[i]);
 			}
 			
@@ -150,6 +157,7 @@ public class Boeing747 extends JFrame {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(230,yCounter5+=20, 51, 21);
+				seatNumber[i].addActionListener(h);
 				contentPane.add(seatNumber[i]);
 			}
 			
@@ -159,6 +167,7 @@ public class Boeing747 extends JFrame {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(290,yCounter6+=20, 51, 21);
+				seatNumber[i].addActionListener(h);
 				contentPane.add(seatNumber[i]);
 			}
 			
@@ -169,6 +178,7 @@ public class Boeing747 extends JFrame {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(80,yCounter7+=20, 51, 21);
+				seatNumber[i].addActionListener(h);
 				contentPane.add(seatNumber[i]);
 			}
 			
@@ -178,6 +188,7 @@ public class Boeing747 extends JFrame {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(131,yCounter8+=20, 51, 21);
+				seatNumber[i].addActionListener(h);
 				contentPane.add(seatNumber[i]);
 			}
 		
@@ -187,6 +198,7 @@ public class Boeing747 extends JFrame {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(182,yCounter9+=20, 51, 21);
+				seatNumber[i].addActionListener(h);
 				contentPane.add(seatNumber[i]);
 			}
 			
@@ -196,6 +208,7 @@ public class Boeing747 extends JFrame {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(254,yCounter10+=20, 51, 21);
+				seatNumber[i].addActionListener(h);
 				contentPane.add(seatNumber[i]);
 			}
 			
@@ -205,6 +218,7 @@ public class Boeing747 extends JFrame {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(305,yCounter11+=20, 51, 21);
+				seatNumber[i].addActionListener(h);
 				contentPane.add(seatNumber[i]);
 			}
 			
@@ -214,6 +228,7 @@ public class Boeing747 extends JFrame {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(356,yCounter12+=20, 51, 21);
+				seatNumber[i].addActionListener(h);
 				contentPane.add(seatNumber[i]);
 			}
 			
