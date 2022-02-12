@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class Data {
 	private static Data instance = new Data();
-	ArrayList<Object> flights;
-	ArrayList<Ticket> tickets; 
-	ArrayList<Object> users;
+	ArrayList<Object> flights = new ArrayList<Object>();
+	ArrayList<Ticket> tickets = new ArrayList<Ticket>(); 
+	ArrayList<Object> users = new ArrayList<Object>();
 	static FoodItem[] itemsAvailable; // for restaurant component
 	
 	private Data() {
@@ -21,24 +21,24 @@ public class Data {
 		FoodItem item11 = new FoodItem("Juice","Description",100,11);
 		FoodItem item12 = new FoodItem("Beer","Description",100,12);
 		FoodItem[] items = {item1,item2,item3,item4,item5,item6,item7,item8,item9,item10,item11,item12};
-		this.itemsAvailable = items;
+		itemsAvailable = items;
 	} // the constructor, setting the itemsAvailable array since this will be fixed
 
 	public static Data getInstance() {
 		return instance;
-    }
+    } // used when calling the Data class from other classes instead of creating a new instance
 	
 	public Ticket findTicket(String ticketNumber) {
-		ArrayList<Ticket> allTickets = this.tickets;
 		Ticket ticket = null;
 		long ticketNo = Long.parseLong(ticketNumber);
-		for (int i = 0; i < allTickets.size(); i++) {
-			if (ticketNo == allTickets.get(i).getTicketNumber()) {
-				ticket = allTickets.get(i);
+		if (tickets.size() > 0) { 
+			for (int i = 0; i < tickets.size(); i++) {
+				if (ticketNo == tickets.get(i).getTicketNumber()) {
+					ticket = tickets.get(i);
+				}
 			}
-			
-		}
+		} // if statement in case tickets array has no tickets in it yet.
 		return ticket;
-	}
+	} // finds a specific ticket object given a ticket number
 	
 }

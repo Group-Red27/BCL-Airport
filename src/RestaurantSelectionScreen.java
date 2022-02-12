@@ -535,9 +535,9 @@ public class RestaurantSelectionScreen extends JFrame {
 					Object[][] tableData = new Object[rows][4];
 					for (int i = 0; i < rows; i++ ) {
 						tableData[i][0] = data.itemsAvailable[index.get(i)].getItemName();
-						tableData[i][1] = data.itemsAvailable[index.get(i)].getPrice();
+						tableData[i][1] = String.format("£%.2f",data.itemsAvailable[index.get(i)].getPrice());
 						tableData[i][2] = order.getQuantity()[index.get(i)];
-						tableData[i][3] = order.getNetPrices()[index.get(i)]; 
+						tableData[i][3] = String.format("£%.2f",order.getNetPrices()[index.get(i)]); 
 					}  //create data for table 
 					
 					RestaurantConfirmationScreen confirmationScreen = new RestaurantConfirmationScreen(order,tableData);

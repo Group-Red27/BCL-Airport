@@ -75,6 +75,7 @@ public class RestaurantConfirmationScreen extends JFrame {
 		confirmButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		confirmButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				order.confirmOrder(ticketEntry, nameEntry);
 			}
 		});
 		confirmButton.setBounds(626, 393, 137, 29);
@@ -103,7 +104,7 @@ public class RestaurantConfirmationScreen extends JFrame {
 		fullNameLabel.setForeground(new Color(255, 255, 255));
 		fullNameLabel.setBackground(new Color(0, 0, 128));
 		fullNameLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
-		fullNameLabel.setBounds(56, 363, 134, 27);
+		fullNameLabel.setBounds(56, 363, 134, 29);
 		fullNameLabel.setOpaque(true);
 		contentPane.add(fullNameLabel);
 		
@@ -140,11 +141,16 @@ public class RestaurantConfirmationScreen extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(56, 119, 715, 141);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setBackground(Color.decode("#000080"));
 		contentPane.add(scrollPane);
 		
 
 		table = new JTable();
 		table.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		table.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 12));
+		table.getTableHeader().setOpaque(false);
+		table.getTableHeader().setBackground(Color.decode("#000080"));
+		table.getTableHeader().setForeground(Color.WHITE);
 		table.setEnabled(false);
 		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(tableData, columnNames));
