@@ -1,11 +1,12 @@
 
 public class SeatingPlan {
 
-		private int numOfTickets;
-		private String planeType;
-		private String[] seatNumber;
-		private boolean[] seatAvailability;
-		private String[][] seatClass;
+		 Flightclass flight = Flightclass.getFlightInstance();
+		 int numOfTickets;
+		 String planeType;
+		 String[] seatNumber;
+		 boolean[] seatAvailability;
+		 String[][] seatClass;
 		
 		
 		public int getNumOfTickets() {
@@ -45,6 +46,17 @@ public class SeatingPlan {
 		
 		public void setSeatClass(String[][] seatClass) {
 			this.seatClass = seatClass;
+		}
+		
+		
+		//Which seating plan
+		
+		public boolean isSeatingPlan() {
+			boolean 
+			if(flight.flightduration<=120) {
+				
+			}
+			
 		}
 		
 
