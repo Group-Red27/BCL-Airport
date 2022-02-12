@@ -52,11 +52,21 @@ public class SeatingPlan {
 		//Which seating plan
 		
 		public boolean isSeatingPlan() {
-			boolean 
-			if(flight.flightduration<=120) {
-				
-			}
+			return false;
 			
+//			boolean boeing =false;
+//			boolean airbus=true;
+//			
+//			if(flight.flightduration<=120) { //NEED TO COMPLETE
+//				
+//				return true;
+//			}
+//			return boeing;
+//			 
+//			return false;
+//			
+//			return boeing;
+
 		}
 		
 
