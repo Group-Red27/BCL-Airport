@@ -5,9 +5,10 @@ import javax.swing.JTextField;
 
 public class FoodOrder {
 	Ticket ticket; 
-	Data data;
+	Data data = Data.getInstance();
 	int[] quantity;
 	boolean[] itemsSelected;
+	boolean[] itemsAmended;
 	double[] netPrices;
 	double totalCost;
 
@@ -19,7 +20,6 @@ public class FoodOrder {
 			this.ticket = null;
 		}
 	}
-
 
 	public Ticket getTicket() {
 		return this.ticket;
@@ -41,6 +41,22 @@ public class FoodOrder {
 		return this.itemsSelected;
 	}
 	
+	public void setItemsAmended(boolean[] amended) {
+		this.itemsAmended = amended;
+	}
+	
+	public boolean[] getItemsAmended() {
+		return this.itemsAmended;
+	}
+	
+	public void setNetPrices(double[] newNetPrices) {
+		this.netPrices = newNetPrices;
+	}
+	
+	public double[] getNetPrices() {
+		return this.netPrices;
+	}
+	
 	public void setTotalCost(double total) {
 		this.totalCost = total;
 	}
@@ -49,13 +65,11 @@ public class FoodOrder {
 		return totalCost;
 	}
 	
-	//////// from the bottom up 
-	//////////////////////////
-	
 	////////////////// select items
 	public boolean selectItems(JTextField[] entryList) {
 		boolean moveFrame = true;
 		String[] quantity = new String[12];
+		boolean[] selected = new boolean[12];
 		boolean[] amended = new boolean[12];
 		for (int i = 0; i < 12; i ++) {
 			if (entryList[i].getText().equals("")) {
@@ -68,23 +82,31 @@ public class FoodOrder {
 		boolean valid = validateQuantity(quantity);
 		if (valid == true) {
 			// if to check if quantities are valid and not all 0s
-			boolean[] selected = {false,false,false,false,false,false,false,false,false,false,false,false};
 			int[] quantityInt = convertQuantityToInt(quantity);
 			for (int i = 0; i < 12; i++) {
 				if (quantityInt[i] > 0) {
 					// if to check if item selected
 					selected[i] = true;
-					int stockLevel = data.itemsAvailable.get(i).getStockLevel();
+					int stockLevel = data.itemsAvailable[i].getStockLevel();
 					if (quantityInt[i] > stockLevel) {
 						// if statement to adjust selected according to stock level
 						quantityInt[i] = stockLevel;
 						amended[i] = true;
+					} else {
+						amended[i] = false;
 					}
+				} else {
+					selected[i] = false;
 				}
-			}
+			}// validate the quantites entered
+			double[] netPrices = calcNetPrices(data.itemsAvailable, quantityInt);
+			double totalCost = calcTotalCost(netPrices);
 			setQuantity(quantityInt);
+			setNetPrices(netPrices);
+			setTotalCost(totalCost);
 			setItemsSelected(selected);
-		// validate the quantites entered and set items selected and quantity attribute of object
+			setItemsAmended(amended);
+			// set items selected, quantity, full prices attribute of object
 		} else {
 			Popup popup = new Popup();
 			popup.showErrorMessage("Invalid quantity, you will be returned to the SELECTION menu");
@@ -93,10 +115,10 @@ public class FoodOrder {
 		return moveFrame; 
 	}
 	
-	
-	
+
+
 	////////////////// confirm order
-	public void confirmOrder(JTextField ticketEntry, JTextField nameEntry, int[] quantityInt, double totalCost) {
+	public void confirmOrder(JTextField ticketEntry, JTextField nameEntry) {
 		Popup popup = new Popup();
 		String ticketNumber = ticketEntry.getText(); 
 		setTicket(ticketNumber);
@@ -106,10 +128,10 @@ public class FoodOrder {
 			popup.showErrorMessage(errorString);
 		} else {
 			for (int i = 0; i < 12; i++) {
-				int currentStock = data.itemsAvailable.get(i).getStockLevel();
+				int currentStock = data.itemsAvailable[i].getStockLevel();
 				int newStock = currentStock - quantity[i];
 				if (newStock == 0) {
-					data.itemsAvailable.get(i).markOutOfStock();
+					data.itemsAvailable[i].setStockLevel(0);
 				}
 			}
 			Ticket ticket = getTicket();
@@ -156,10 +178,10 @@ public class FoodOrder {
 		String errorString = "";
 		Ticket ticket = getTicket();
 		boolean validName = validatePassengerName(passengerName);
-		if (ticket == null) {
-			errorString = "Invalid ticket number, you will be returned to the CONFIRMATION menu";
-		} else if (validName == false) {
+		if (validName == false) {
 			errorString = "Invalid name, you will be returned to the CONFIRMATION menu";
+		} else if (ticket == null) {
+			errorString = "Invalid ticket number, you will be returned to the CONFIRMATION menu";
 		} else 
 			if (passengerName != ticket.getPassengerName()) {
 			errorString = "Details don’t match, you will be returned to the CONFIRMATION menu";
@@ -192,11 +214,11 @@ public class FoodOrder {
 		return valid;
 	}
 	
-	public double[] calcNetPrice(ArrayList<FoodItem> items, int[] quantity) {
+	public double[] calcNetPrices(FoodItem[] itemsAvailable, int[] quantity) {
 		double[] netPrices = new double[12];
 		for (int i = 0; i < 12; i++) {
 			double netPrice = 0;
-			netPrice = (items.get(i)).getPrice() * quantity[i];
+			netPrice = (itemsAvailable[i]).getPrice() * quantity[i];
 			netPrices[i] = netPrice;
 		}
 		return netPrices;
@@ -212,9 +234,9 @@ public class FoodOrder {
 	
 	public void checkForRestock() {
 		for (int i = 0; i < 12; i++) {
-			int stockLevel = data.itemsAvailable.get(i).getStockLevel();
+			int stockLevel = data.itemsAvailable[i].getStockLevel();
 			if (stockLevel == 0) {
-				restock(data.itemsAvailable.get(i));
+				restock(data.itemsAvailable[i]);
 			}
 		}
 	}
@@ -224,7 +246,6 @@ public class FoodOrder {
 		LocalTime restockTime = item.getTimePrompt();
 		if (currentTime.compareTo(restockTime) >= 0) {
 			item.setStockLevel(100);
-			item.markInStock();
 		}
 	}
 	

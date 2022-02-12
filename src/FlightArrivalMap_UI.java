@@ -34,7 +34,7 @@ public class FlightArrivalMap_UI extends JFrame {
 	 */
 	public FlightArrivalMap_UI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 1000, 650);
 		ImageIcon Image= new ImageIcon(this.getClass().getResource("map.png"));
 		JLabel lblNewLabel=new JLabel(Image);
 		lblNewLabel.setBackground(Color.BLUE);

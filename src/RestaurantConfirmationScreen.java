@@ -14,6 +14,7 @@ import java.awt.SystemColor;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.JScrollPane;
@@ -47,7 +48,7 @@ public class RestaurantConfirmationScreen extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public RestaurantConfirmationScreen(FoodOrder foodOrder, Object[][] data) {
+	public RestaurantConfirmationScreen(FoodOrder order, Object[][] tableData) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 850, 500);
 		contentPane = new JPanel();
@@ -74,6 +75,7 @@ public class RestaurantConfirmationScreen extends JFrame {
 		confirmButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		confirmButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				order.confirmOrder(ticketEntry, nameEntry);
 			}
 		});
 		confirmButton.setBounds(626, 393, 137, 29);
@@ -102,7 +104,7 @@ public class RestaurantConfirmationScreen extends JFrame {
 		fullNameLabel.setForeground(new Color(255, 255, 255));
 		fullNameLabel.setBackground(new Color(0, 0, 128));
 		fullNameLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
-		fullNameLabel.setBounds(56, 363, 134, 27);
+		fullNameLabel.setBounds(56, 363, 134, 29);
 		fullNameLabel.setOpaque(true);
 		contentPane.add(fullNameLabel);
 		
@@ -122,13 +124,13 @@ public class RestaurantConfirmationScreen extends JFrame {
 		totalLabel.setOpaque(true);
 		contentPane.add(totalLabel);
 		
-		JLabel totalCostLabel = new JLabel(" PRICE HERE");
+		JLabel totalCostLabel = new JLabel();
 		totalCostLabel.setBackground(SystemColor.controlHighlight);
 		totalCostLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		totalCostLabel.setBounds(591, 276, 137, 29);
 		totalCostLabel.setOpaque(true);
+		totalCostLabel.setText(String.format("  "+"£%.2f", order.getTotalCost()));
 		contentPane.add(totalCostLabel);
-		
 
 		
 		
@@ -139,28 +141,47 @@ public class RestaurantConfirmationScreen extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(56, 119, 715, 141);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setBackground(Color.decode("#000080"));
 		contentPane.add(scrollPane);
 		
 
 		table = new JTable();
 		table.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		table.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 12));
+		table.getTableHeader().setOpaque(false);
+		table.getTableHeader().setBackground(Color.decode("#000080"));
+		table.getTableHeader().setForeground(Color.WHITE);
 		table.setEnabled(false);
 		scrollPane.setViewportView(table);
-		table.setModel(new DefaultTableModel(data, columnNames));
+		table.setModel(new DefaultTableModel(tableData, columnNames));
 		
-		JTextPane txtpnUserMessageHere = new JTextPane();
-		txtpnUserMessageHere.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		txtpnUserMessageHere.setBackground(SystemColor.menu);
-		txtpnUserMessageHere.setText("user message here!\r\n");
-		txtpnUserMessageHere.setEditable(false);
-		txtpnUserMessageHere.setBounds(56, 276, 417, 68);
-		contentPane.add(txtpnUserMessageHere);
+		JTextPane userMessageLabel = new JTextPane();
+		userMessageLabel.setForeground(new Color(0, 0, 128));
+		userMessageLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
+		userMessageLabel.setBackground(SystemColor.menu);
+		userMessageLabel.setEditable(false);
+		userMessageLabel.setBounds(56, 276, 417, 68);
+		// adding user message for any items that were amended
+		Data data = Data.getInstance();
+		boolean[] amended = order.getItemsAmended();
+		ArrayList<String> amendedNames = new ArrayList<String>();
+		for (int i = 0; i < 12; i ++) {
+			if (amended[i] == true) {
+				amendedNames.add(data.itemsAvailable[i].getItemName());
+			}
+		}
+		String message = "";
+		if (amendedNames.size() != 0) {
+			for (int i = 0; i < amendedNames.size(); i++ ) {
+				message = message + amendedNames.get(i) + ", ";
+			}
+			message += " do not have enough stock to meet your order. Your bill has been amended + the amended items will be restocked in 3 minutes";
+		} else {
+			message = "All items selected are in stock";
+		}
+		userMessageLabel.setText(message);
+		contentPane.add(userMessageLabel);
 		
-		/*
-		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setBounds(746, 108, 17, 133);
-		contentPane.add(scrollBar);
-		*/
 
 		TableColumn column1= table.getColumn("Item Name");
         column1.setMinWidth(350);
