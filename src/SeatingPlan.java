@@ -1,7 +1,6 @@
 
 public class SeatingPlan {
 
-		 Flightclass flight = Flightclass.getFlightInstance();
 		 int numOfTickets;
 		 String planeType;
 		 String[] seatNumber;
@@ -47,30 +46,8 @@ public class SeatingPlan {
 		public void setSeatClass(String[][] seatClass) {
 			this.seatClass = seatClass;
 		}
+}
 		
-		
-		//Which seating plan
-		
-		public boolean isSeatingPlan() {
-			return false;
-			
-//			boolean boeing =false;
-//			boolean airbus=true;
-//			
-//			if(flight.flightduration<=120) { //NEED TO COMPLETE
-//				
-//				return true;
-//			}
-//			return boeing;
-//			 
-//			return false;
-//			
-//			return boeing;
-
-		}
-		
-
-	}
 
 	
 

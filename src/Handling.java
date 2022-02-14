@@ -6,6 +6,7 @@ import javax.swing.JButton;
 
 public class Handling implements ActionListener{
 	
+	Flightclass flight = Flightclass.getFlightInstance();
 	boolean clicked = false;
 			
 		    public void actionPerformed(ActionEvent e){
@@ -20,4 +21,18 @@ public class Handling implements ActionListener{
 
 		    	}
 		}
+		    
+			public void Duration () {
+				if(flight.flightduration<=120) {
+						AirbusA318_JDiolog A = new AirbusA318_JDiolog();
+						A.setVisible(true);
+				
+				}
+				else {
+					Boeing747 B = new Boeing747();
+					B.setVisible(true);
+
+				}
+			}
+				
 }

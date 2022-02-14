@@ -68,17 +68,19 @@ public class SeatingPlanDesign extends JFrame {
 		contentPane.add(numOfTicketsLabel);
 		
 		JButton viewSeatingPlanButton = new JButton("View Seating Plan");
+		viewSeatingPlanButton.setFont(new Font("Tahoma", Font.BOLD, 11));
+		viewSeatingPlanButton.setBackground(new Color(0, 0, 128));
+		viewSeatingPlanButton.setForeground(new Color(255, 255, 255));
+		viewSeatingPlanButton.setBounds(40, 252, 138, 23);
+		contentPane.add(viewSeatingPlanButton);
+		
 		viewSeatingPlanButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AirbusA318_JDiolog A = new AirbusA318_JDiolog();
 				A.setVisible(true);
 			}	
 			});
-		viewSeatingPlanButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		viewSeatingPlanButton.setBackground(new Color(0, 0, 128));
-		viewSeatingPlanButton.setForeground(new Color(255, 255, 255));
-		viewSeatingPlanButton.setBounds(40, 252, 138, 23);
-		contentPane.add(viewSeatingPlanButton);
+		
 		
 		JLabel departureSeatsLabel = new JLabel("Departure Seats: ");
 		departureSeatsLabel.setFont(new Font("Tahoma", Font.BOLD, 11));

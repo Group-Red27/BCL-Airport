@@ -178,6 +178,8 @@ public class AirbusA318 extends JFrame {
 				contentPane.add(seatNumber[i]);
 			}
 			
+			//
+			
 	}
 }
 
