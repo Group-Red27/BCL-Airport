@@ -1,5 +1,7 @@
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.swing.JTextField;
 
@@ -118,7 +120,7 @@ public class FoodOrder {
 
 
 	////////////////// confirm order
-	public void confirmOrder(JTextField ticketEntry, JTextField nameEntry) {
+	public void confirmOrder(JTextField ticketEntry, JTextField nameEntry, JTextField[] entryList) {
 		Popup popup = new Popup();
 		String ticketNumber = ticketEntry.getText(); 
 		setTicket(ticketNumber);
@@ -131,8 +133,10 @@ public class FoodOrder {
 				int currentStock = data.itemsAvailable[i].getStockLevel();
 				int newStock = currentStock - quantity[i];
 				if (newStock == 0) {
-					data.itemsAvailable[i].setStockLevel(0);
-				}
+					restockTimer(data.itemsAvailable[i],entryList[i]);
+					// if statement when an item gets put out of stock, restock with timer
+				} 
+				data.itemsAvailable[i].setStockLevel(newStock);
 			}
 			Ticket ticket = getTicket();
 			addCostToTicket(ticket, totalCost);
@@ -231,21 +235,16 @@ public class FoodOrder {
 		return total;
 	}
 	
-	public void checkForRestock() {
-		for (int i = 0; i < 12; i++) {
-			int stockLevel = data.itemsAvailable[i].getStockLevel();
-			if (stockLevel == 0) {
-				restock(data.itemsAvailable[i]);
-			}
-		}
-	}
 	
-	public void restock(Fooditem item) {
-		LocalTime currentTime = java.time.LocalTime.now();
-		LocalTime restockTime = item.getTimePrompt();
-		if (currentTime.compareTo(restockTime) >= 0) {
-			item.setStockLevel(100);
-		}
+	public static void restockTimer(Fooditem item, JTextField entry) {
+		Timer timer = new Timer();
+		TimerTask restock = new TimerTask() {
+			public void run() {
+				item.setStockLevel(100);
+				entry.enable(true);
+				System.out.println("restock this item");
+			}
+		}; timer.schedule(restock,180000);
 	}
 	
 	public void addCostToTicket(Ticket ticket, double totalCost) {

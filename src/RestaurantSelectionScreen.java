@@ -480,7 +480,7 @@ public class RestaurantSelectionScreen extends JFrame {
 			priceLabels[i].setText(String.format("£%.2f", data.itemsAvailable[i].getPrice()));
 			descriptionText[i].setText(data.itemsAvailable[i].getDescription());
 			itemNames[i].setText(data.itemsAvailable[i].getItemName());
-			// entry markOutOfStock test
+			// entry markOutOfStock test, restock not run from here
 			if (data.itemsAvailable[i].getStockLevel() == 0) {
 				entryList[i].enable(false);
 				entryList[i].setBackground(Color.GRAY);
@@ -543,7 +543,7 @@ public class RestaurantSelectionScreen extends JFrame {
 						tableData[i][3] = String.format("£%.2f",order.getNetPrices()[index.get(i)]); 
 					}  //create data for table 
 					
-					RestaurantConfirmationScreen confirmationScreen = new RestaurantConfirmationScreen(order,tableData);
+					RestaurantConfirmationScreen confirmationScreen = new RestaurantConfirmationScreen(order,tableData,entryList);
 					setVisible(false);
 					confirmationScreen.setVisible(true);
 				} // end of if statement, if false, do nothing 
