@@ -99,7 +99,10 @@ public class RestaurantSelectionScreen extends JFrame {
 		JButton financeButton = new JButton("Finance");
 		financeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				Finance_GUI financeScreen = new Finance_GUI();
+				setVisible(false);
+				financeScreen.main(null);
+				// might need to delete main after this 
 			}
 		});
 		financeButton.addMouseListener(new MouseAdapter() {
