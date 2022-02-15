@@ -5,6 +5,10 @@ public class Ticket {
 	String firstName;
 	String lastName;
 	
+	public Ticket() {
+		// constructor
+	}
+	
 	public long getTicketNumber() {
 		return this.ticketNumber;
 	}
@@ -21,6 +25,12 @@ public class Ticket {
 	public String getPassengerName() {
 		// TODO Auto-generated method stub
 		return firstName+" "+lastName;
+	}
+	
+	public void addTicketToData() {
+		Data data = Data.getInstance();
+		data.addTicketToData(this);
+		
 	}
 
 }

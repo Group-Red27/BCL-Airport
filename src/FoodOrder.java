@@ -135,7 +135,6 @@ public class FoodOrder {
 				}
 			}
 			Ticket ticket = getTicket();
-			setTotalCost(totalCost);
 			addCostToTicket(ticket, totalCost);
 			popup.showSuccessMessage("Purchase Successful, you will be returned to the SELECTION menu");
 		}
@@ -214,7 +213,7 @@ public class FoodOrder {
 		return valid;
 	}
 	
-	public double[] calcNetPrices(FoodItem[] itemsAvailable, int[] quantity) {
+	public double[] calcNetPrices(Fooditem[] itemsAvailable, int[] quantity) {
 		double[] netPrices = new double[12];
 		for (int i = 0; i < 12; i++) {
 			double netPrice = 0;
@@ -241,7 +240,7 @@ public class FoodOrder {
 		}
 	}
 	
-	public void restock(FoodItem item) {
+	public void restock(Fooditem item) {
 		LocalTime currentTime = java.time.LocalTime.now();
 		LocalTime restockTime = item.getTimePrompt();
 		if (currentTime.compareTo(restockTime) >= 0) {
