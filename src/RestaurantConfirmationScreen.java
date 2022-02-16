@@ -48,7 +48,7 @@ public class RestaurantConfirmationScreen extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public RestaurantConfirmationScreen(FoodOrder order, Object[][] tableData) {
+	public RestaurantConfirmationScreen(FoodOrder order, Object[][] tableData, JTextField[] entryList) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 850, 500);
 		contentPane = new JPanel();
@@ -75,7 +75,7 @@ public class RestaurantConfirmationScreen extends JFrame {
 		confirmButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		confirmButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				order.confirmOrder(ticketEntry, nameEntry);
+				order.confirmOrder(ticketEntry, nameEntry, entryList);
 			}
 		});
 		confirmButton.setBounds(626, 393, 137, 29);

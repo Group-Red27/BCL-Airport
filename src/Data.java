@@ -5,25 +5,29 @@ import java.util.Scanner;
 
 public class Data {
 	private static Data instance = new Data();
-	ArrayList<Object> flights = new ArrayList<Object>();
-	ArrayList<Ticket> tickets = new ArrayList<Ticket>(); 
-	ArrayList<Object> users = new ArrayList<Object>();
-	static FoodItem[] itemsAvailable; // for restaurant component
+	ArrayList<Object> flights;
+	ArrayList<Ticket> tickets; 
+	ArrayList<Object> users;
+	static Fooditem[] itemsAvailable; // for restaurant component
 	
 	private Data() {
-		FoodItem item1 = new FoodItem("Chicken Noodles","Marinated chicken with seasonal greens, menma, spring onion, rich chicken broth with miso",1,1);
-		FoodItem item2 = new FoodItem("Rice & Beef","Beef brisket in teriyaki sauce shredded carrots. seasonal greens spring onion sesame seeds with rice",1,2);
-		FoodItem item3 = new FoodItem("Tofu Stir Fry","Bold + fiery tofu, mangetout, red + green peppers, onion, hot red chillies, sesame seeds stir fry",100,3);
-		FoodItem item4 = new FoodItem("Vegetable Dumpling","Yasai steamed dumplings served grilled with a dipping sauce and filled with vegtables",100,4);
-		FoodItem item5 = new FoodItem("Crisps","Description",100,5);
-		FoodItem item6 = new FoodItem("Peanuts","Description",100,6);
-		FoodItem item7 = new FoodItem("Sweets","Description",100,7);
-		FoodItem item8 = new FoodItem("Ice Cream","Description",100,8);
-		FoodItem item9 = new FoodItem("Bottled Water","Description",100,9);
-		FoodItem item10 = new FoodItem("Fizzy Drink","Description",100,10);
-		FoodItem item11 = new FoodItem("Juice","Description",100,11);
-		FoodItem item12 = new FoodItem("Beer","Description",100,12);
-		FoodItem[] items = {item1,item2,item3,item4,item5,item6,item7,item8,item9,item10,item11,item12};
+		flights = new ArrayList<Object>();
+		tickets = new ArrayList<Ticket>();
+		users = new ArrayList<Object>();
+		
+		Fooditem item1 = new Fooditem("Chicken Noodles","Marinated chicken with seasonal greens, menma, spring onion, rich chicken broth with miso",100,10.99);
+		Fooditem item2 = new Fooditem("Rice & Beef","Beef brisket in teriyaki sauce shredded carrots. seasonal greens spring onion sesame seeds",100,8.99);
+		Fooditem item3 = new Fooditem("Tofu Stir Fry","Bold + fiery tofu, mangetout, red + green peppers, onion, hot red chillies, sesame seeds stir fry",100,9.99);
+		Fooditem item4 = new Fooditem("Vegetable Dumpling","Yasai steamed dumplings served grilled with a dipping sauce and filled with vegtables",100,8.99);
+		Fooditem item5 = new Fooditem("Crisps","Hand Cooked Potato Chips, Lightly Salted",100,1.15);
+		Fooditem item6 = new Fooditem("Peanuts","Mixed Nuts (49%) Bar with Peanut Butter (3%) and Dark Chocolate (18%).",100,2.45);
+		Fooditem item7 = new Fooditem("Sweets","Assorted fruit flavour gums. CHEWY & JUICY Inspired by a traditional sweet shop recipe ",100,1.15);
+		Fooditem item8 = new Fooditem("Ice Cream","Vanilla ice cream choc-full of chocolatey cookie swirl, chocolatey cookie sandwiches",100,3.99);
+		Fooditem item9 = new Fooditem("Bottled Water","Still Spring Water",100,1.50);
+		Fooditem item10 = new Fooditem("Fizzy Drink","Low Calorie Cola Flavoured Soft Drink with Sweeteners",100,1.55);
+		Fooditem item11 = new Fooditem("Juice","Apple and mango juice not from concentrate",100,1.50);
+		Fooditem item12 = new Fooditem("Beer","American Lager, ABV: 4.5%. Light bodied lager with clean, crisp, dry finish",100,3.45);
+		Fooditem[] items = {item1,item2,item3,item4,item5,item6,item7,item8,item9,item10,item11,item12};
 		itemsAvailable = items;
 	} // the constructor, setting the itemsAvailable array since this will be fixed
 
@@ -44,6 +48,7 @@ public class Data {
 		return ticket;
 	} // finds a specific ticket object given a ticket number
 	
+<<<<<<< HEAD
 	public class ReadCSV {
 	static ArrayList<Flightclass> allFlights = new ArrayList<Flightclass>();
 	  public void main(String[] args) throws Exception {
@@ -66,5 +71,14 @@ public class Data {
 	    }
 	  }
 	} 
+=======
+	public void addTicketToData(Ticket ticket) {
+		tickets.add(ticket);
+	}
+	
+	public void addTicketToData(Object user) {
+		users.add(user);
+	}
+>>>>>>> e6cf5f79c8a83538ae9e9cd947307bee0c16c005
 	
 }
