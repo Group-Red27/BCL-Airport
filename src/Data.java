@@ -1,4 +1,7 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Data {
 	private static Data instance = new Data();
@@ -40,5 +43,28 @@ public class Data {
 		} // if statement in case tickets array has no tickets in it yet.
 		return ticket;
 	} // finds a specific ticket object given a ticket number
+	
+	public class ReadCSV {
+	static ArrayList<Flightclass> allFlights = new ArrayList<Flightclass>();
+	  public void main(String[] args) throws Exception {
+	    try {
+	      File myObj = new File("Flights.csv");
+	      Scanner myReader = new Scanner(myObj);
+	      
+	      while (myReader.hasNextLine()) {
+	        String[] data = myReader.nextLine().split(",");
+	        Flightclass flight = new Flightclass();
+	        //flight.set(data[10]); Waiting for the Flightclass setter and getters......
+	        
+	        allFlights.add(flight); 
+	        
+	      }
+	      myReader.close();
+	    } catch (FileNotFoundException e) {
+	      System.out.println("An error occurred.");
+	      e.printStackTrace();
+	    }
+	  }
+	} 
 	
 }
