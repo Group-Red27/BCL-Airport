@@ -232,7 +232,12 @@ public class Boeing747 extends JFrame {
 				contentPane.add(seatNumber[i]);
 			}
 			
-			
+			JButton btnBook = new JButton("Book Seats");
+			btnBook.setFont(new Font("Tahoma", Font.BOLD, 11));
+			btnBook.setBounds(183, 650, 107, 36);
+			btnBook.setBackground(new Color(0, 0, 128));
+			btnBook.setForeground(new Color(255, 255, 255));
+			contentPane.add(btnBook);
 			
 
 //		//SeatClass Buttons

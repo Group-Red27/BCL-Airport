@@ -20,6 +20,7 @@ import java.awt.event.MouseEvent;
 public class SeatingPlanDesign extends JFrame {
 
 	private JPanel contentPane;
+	public static SeatingPlanDesign Instance;
 
 	/**
 	 * Launch the application.
@@ -73,6 +74,7 @@ public class SeatingPlanDesign extends JFrame {
 		viewSeatingPlanButton.setForeground(new Color(255, 255, 255));
 		viewSeatingPlanButton.setBounds(40, 252, 138, 23);
 		contentPane.add(viewSeatingPlanButton);
+		
 		
 		viewSeatingPlanButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

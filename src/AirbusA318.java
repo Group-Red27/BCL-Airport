@@ -37,7 +37,7 @@ public class AirbusA318 extends JFrame {
 	 */
 	public AirbusA318() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 515);
+		setBounds(100, 100, 450, 600);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new LineBorder(new Color(0, 0, 128), 6));
@@ -68,8 +68,12 @@ public class AirbusA318 extends JFrame {
 		economyClassLabel.setBounds(22, 241, 86, 28);
 		contentPane.add(economyClassLabel);
 		
-		
-		Handling h = new Handling();
+		JButton btnBook = new JButton("Book Seats");
+		btnBook.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnBook.setBounds(155, 500, 107, 36);
+		btnBook.setBackground(new Color(0, 0, 128));
+		btnBook.setForeground(new Color(255, 255, 255));
+		contentPane.add(btnBook);
 		
 		//Button Array
 		
@@ -92,8 +96,26 @@ public class AirbusA318 extends JFrame {
 		int yCounter7 =280;
 		int yCounter8 =280;
 
+		
+		ActionListener listener = new ActionListener() {
+			boolean clicked = false;
 
+	        @Override
+	        public void actionPerformed(ActionEvent e) {
+	        	if(! clicked) {
+			    	((JButton) e.getSource()).setBackground(Color.LIGHT_GRAY);
+			    	clicked =true;
+			    }
+			    	else {
+				    ((JButton) e.getSource()).setBackground(new Color(126, 192, 236));
+			    	clicked =false;
 
+			    	}
+	        }
+	    };
+
+	    
+	    
 	//Business Class
 		for(int i=0;i<5;i++) { //For loop for array of JButton [0] to [4]
 			seatNumber[i]= new JButton(BusinessLabel[i]);
@@ -101,7 +123,7 @@ public class AirbusA318 extends JFrame {
 			seatNumber[i].setForeground(new Color(255, 255, 255));
 			seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 			seatNumber[i].setBounds(139,yCounter+=20, 51, 21);
-			seatNumber[i].addActionListener(h);
+			seatNumber[i].addActionListener(listener);
 			contentPane.add(seatNumber[i]);
 		}
 		
@@ -111,7 +133,7 @@ public class AirbusA318 extends JFrame {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(234,yCounter2+=20, 51, 21);
-				seatNumber[i].addActionListener(h);
+				seatNumber[i].addActionListener(listener);
 				contentPane.add(seatNumber[i]);
 			}
 			
@@ -123,7 +145,7 @@ public class AirbusA318 extends JFrame {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(50,yCounter3+=20, 51, 21);
-				seatNumber[i].addActionListener(h);
+				seatNumber[i].addActionListener(listener);
 				contentPane.add(seatNumber[i]);
 			}
 			
@@ -133,7 +155,7 @@ public class AirbusA318 extends JFrame {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(101,yCounter4+=20, 51, 21);
-				seatNumber[i].addActionListener(h);
+				seatNumber[i].addActionListener(listener);
 				contentPane.add(seatNumber[i]);
 			}
 			
@@ -143,7 +165,7 @@ public class AirbusA318 extends JFrame {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(152,yCounter5+=20, 51, 21);
-				seatNumber[i].addActionListener(h);
+				seatNumber[i].addActionListener(listener);
 				contentPane.add(seatNumber[i]);
 			}
 			
@@ -153,7 +175,7 @@ public class AirbusA318 extends JFrame {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(230,yCounter6+=20, 51, 21);
-				seatNumber[i].addActionListener(h);
+				seatNumber[i].addActionListener(listener);
 				contentPane.add(seatNumber[i]);
 			}
 			
@@ -163,7 +185,7 @@ public class AirbusA318 extends JFrame {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(281,yCounter7+=20, 51, 21);
-				seatNumber[i].addActionListener(h);
+				seatNumber[i].addActionListener(listener);
 				contentPane.add(seatNumber[i]);
 			}
 			
@@ -174,14 +196,35 @@ public class AirbusA318 extends JFrame {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(332,yCounter8+=20, 51, 21);
-				seatNumber[i].addActionListener(h);
+				seatNumber[i].addActionListener(listener);
 				contentPane.add(seatNumber[i]);
 			}
 			
-			//
 			
-	}
+//			ActionListener listener2 = new ActionListener() {
+//				boolean clicked = false;
+//
+//		        @Override
+//		        public void actionPerformed(ActionEvent e) {
+//		        	if(! clicked) {
+//				    	clicked =true;
+//				    	SeatingPlanDesign.Instance.
+//				    	
+//				    }
+//		        }
+//		    };
+		    
+			JButton btnBooking = new JButton("Book Seats");
+			btnBooking.setFont(new Font("Tahoma", Font.BOLD, 11));
+			btnBooking.setBounds(183, 650, 107, 36);
+			btnBooking.setBackground(new Color(0, 0, 128));
+			btnBooking.setForeground(new Color(255, 255, 255));
+			contentPane.add(btnBooking);
+		          
+		  }
+			
 }
+
 
 
 		//Bussiness class
