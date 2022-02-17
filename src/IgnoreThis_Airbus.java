@@ -37,6 +37,7 @@ public class IgnoreThis_Airbus extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	
 	public IgnoreThis_Airbus() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 600);
@@ -78,6 +79,7 @@ public class IgnoreThis_Airbus extends JFrame {
 		contentPane.add(btnBook);
 		
 		JButton[] seatNumber = new JButton[58];
+		
 
 		ActionListener listener = new ActionListener() {
 			boolean clicked = false;
@@ -520,20 +522,6 @@ public class IgnoreThis_Airbus extends JFrame {
 		contentPane.add(btnBooking);
 		
 		
-		SeatingPlanDesign design = new SeatingPlanDesign();
-		
-		ActionListener listener2 = new ActionListener() {			
-			boolean clicked = false;
-
-	        @Override
-	        public void actionPerformed(ActionEvent e) {
-	        	if(! clicked && seatNumber[i]) {
-			    	clicked =true;
-			    	
-			    	
-			    }
-	        }
-	    };
 	}
 
 }
