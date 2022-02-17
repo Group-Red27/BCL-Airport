@@ -18,9 +18,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class SeatingPlanDesign extends JFrame {
-
+	
 	private JPanel contentPane;
-	public static SeatingPlanDesign Instance;
+	private static SeatingPlanDesign Instance = new SeatingPlanDesign();
 
 	/**
 	 * Launch the application.

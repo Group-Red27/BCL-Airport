@@ -48,9 +48,8 @@ public class Data {
 		return ticket;
 	} // finds a specific ticket object given a ticket number
 	
-<<<<<<< HEAD
-	public class ReadCSV {
-	static ArrayList<Flightclass> allFlights = new ArrayList<Flightclass>();
+
+//Read CSV	
 	  public void main(String[] args) throws Exception {
 	    try {
 	      File myObj = new File("Flights.csv");
@@ -58,10 +57,10 @@ public class Data {
 	      
 	      while (myReader.hasNextLine()) {
 	        String[] data = myReader.nextLine().split(",");
-	        Flightclass flight = new Flightclass();
+	        Flightclass flightC = new Flightclass();
 	        //flight.set(data[10]); Waiting for the Flightclass setter and getters......
 	        
-	        allFlights.add(flight); 
+	        flights.add(flightC); 
 	        
 	      }
 	      myReader.close();
@@ -70,8 +69,8 @@ public class Data {
 	      e.printStackTrace();
 	    }
 	  }
-	} 
-=======
+	 
+
 	public void addTicketToData(Ticket ticket) {
 		tickets.add(ticket);
 	}
@@ -79,6 +78,5 @@ public class Data {
 	public void addTicketToData(Object user) {
 		users.add(user);
 	}
->>>>>>> e6cf5f79c8a83538ae9e9cd947307bee0c16c005
 	
 }
