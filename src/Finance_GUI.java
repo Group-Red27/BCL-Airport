@@ -114,6 +114,6 @@ public class Finance_GUI {
 		txtrAllPaymentsAre.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtrAllPaymentsAre.setBounds(26, 333, 678, 44);
 		mainpage.add(txtrAllPaymentsAre);
-		txtrAllPaymentsAre.setText("    All payments are calculated based on your selections. If you find any discripencies, please visit flight & restaurant \r\n     pages to check your details. No changes can be made on this page.");
+		txtrAllPaymentsAre.setText(" test type ");
 	}
 }
