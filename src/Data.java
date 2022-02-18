@@ -58,7 +58,19 @@ public class Data {
 	      while (myReader.hasNextLine()) {
 	        String[] data = myReader.nextLine().split(",");
 	        Flightclass flightC = new Flightclass();
-	        //flight.set(data[10]); Waiting for the Flightclass setter and getters......
+	        
+	        flightC.setdateofflight(Integer.parseInt(data[0]));
+	        flightC.setDeparturetime(Integer.parseInt(data[1]));
+	        flightC.setArrivaltime(Integer.parseInt(data[2]));
+	        flightC.setFlightduration(Integer.parseInt(data[3]));
+	        flightC.setDistance(Integer.parseInt(data[4]));
+	        flightC.setDelay(Integer.parseInt(data[5]));
+	        flightC.setDepartureairport(data[6]);
+	        flightC.setDeparturecity(data[7]);
+	        flightC.setArivalairport(data[8]);
+	        flightC.setArrivalcity(data[9]);
+	        flightC.setFlightnumber(data[10]);
+	        flightC.setAirline(data[11]);
 	        
 	        flights.add(flightC); 
 	        

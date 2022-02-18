@@ -121,7 +121,7 @@ public class Flightclass {
 	public void setDepartureflight(String[] departureflight) {
 		this.departureflight = departureflight;
 	}
-	
+
 	
 	
 	
