@@ -21,6 +21,7 @@ public class SeatingPlanDesign extends JFrame {
 	
 	private JPanel contentPane;
 	private static SeatingPlanDesign Instance = new SeatingPlanDesign();
+	private JComboBox numOfTicketsComboBox;
 
 	/**
 	 * Launch the application.

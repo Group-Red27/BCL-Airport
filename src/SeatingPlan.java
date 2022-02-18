@@ -1,13 +1,14 @@
-import java.io.File;
-import java.util.Scanner;
 
 public class SeatingPlan {
 
-		 Flightclass flight=new Flightclass();
+	     Flightclass flight = Flightclass.getinstance();
 		 int numOfTickets;
 		 String planeType;
 		 String[] seatNumber;
 		 String[] selectedSeats;
+		 AirbusA318 airbus = AirbusA318.getinstance();
+		 Boeing747 boeing = Boeing747.getinstance();
+
 		 
 		 public String[] getSelectedSeats() {
 			return selectedSeats;
@@ -61,63 +62,61 @@ public class SeatingPlan {
 			this.seatClass = seatClass;
 		}
 		
-		//Importing CSV file
-		public void File() {
-		String fileName= "Flights.csv";
-		File file = new File(fileName);//reads file
-		try {
-			Scanner scanner=new Scanner(file);
-		}
-		
-		}
 		
 		//PlaneType
-		public boolean planeSeatingPlan() {
+		public boolean planeSeatingPlan() {//Which one it displays, either airbus or boeing. 
 			
-			boolean valid;
-			if(flight.flightduration<=120)
+			boolean valid=true;
+			if(flight.getFlightduration()<=120)
 			{
-				valid=true; 
+				valid=true;//frame change to airbus
+				
+				
 			}
-			else
+			if(flight.getFlightduration()>120)
 			{
-				valid=false;
+				valid=false;//frame change to boeing
 			}
 			
 			return valid;
 		}
 		
-		//isNumberOfSeats
-		public boolean numberOfTickets() {
+		
+		public boolean numberOfSeats() { //validate number of seats compared to number of ticktes.
+			
 			boolean valid;
-
-			if (seatNumber.length!=numOfTickets)
+			
+		if (seatNumber.length!=numOfTickets)
+		{
+			valid=false;
+		}
+		else
+		{
+			valid=true; 
+		}
+		return valid;
+}
+		
+		public void Index() //Index for Selected seats and seatNumber. 
+		{
+			int index=0;
+			for(int i=0;i<=seatNumber.length;i++)
 			{
-				valid=false;
+				if(selectedSeats[i]==seatNumber[i])
+				{
+					index=i;
+				}
 			}
-			else
-			{
-				valid=true;
-			}
-			return valid;
+			
 		}
 		
-		//Index
-		
-//		public void Index() {
-//			int index=0;
-//			
-//			 for (int i=0; index<=seatNumber.length;i++)
-//			 {
-//				 if(selectedSeats=seatNumber[i])
-//				 {
-//					 index=i;
-//				 }
-//			 }
-//			
-//		}
-		
-		
+		public static void selectSeats()
+		{
+			for(int i=0;i<=selectedSeats;i++)
+			{
+				
+			}
+		}
 }
 		
 

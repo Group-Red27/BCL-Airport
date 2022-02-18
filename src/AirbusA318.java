@@ -15,6 +15,9 @@ import java.awt.event.ActionEvent;
 public class AirbusA318 extends JFrame {
 
 	private JPanel contentPane;
+	private JButton[] seatNumber;
+	private static AirbusA318 instance = new AirbusA318();
+
 
 	/**
 	 * Launch the application.
@@ -222,6 +225,11 @@ public class AirbusA318 extends JFrame {
 			contentPane.add(btnBooking);
 		          
 		  }
+
+	public static AirbusA318 getinstance() {
+		// TODO Auto-generated method stub
+		return instance;
+	}
 			
 }
 

@@ -17,6 +17,9 @@ import javax.swing.SwingConstants;
 public class Boeing747 extends JFrame {
 
 	private JPanel contentPane;
+	private JButton[] seatNumber;
+	private static Boeing747 instance = new Boeing747();
+
 
 	/**
 	 * Launch the application.
@@ -843,6 +846,12 @@ public class Boeing747 extends JFrame {
 //		fourAButton_1_4_1_1_1_1.setBackground(new Color(126, 192, 236));
 //		fourAButton_1_4_1_1_1_1.setBounds(374, 654, 51, 21);
 //		contentPane.add(fourAButton_1_4_1_1_1_1);
+	}
+
+
+	public static Boeing747 getinstance() {
+		// TODO Auto-generated method stub
+		return instance;
 	}
 }
 
