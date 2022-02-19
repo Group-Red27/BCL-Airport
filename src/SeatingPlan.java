@@ -2,10 +2,12 @@
 public class SeatingPlan {
 
 	     Flightclass flight = Flightclass.getinstance();
-		 int numOfTickets;
-		 String planeType;
-		 String[] seatNumber;
-		 String[] selectedSeats;
+	     private int numOfTickets;
+		 private String planeType;
+		 private String[] seatNumber;
+		 private String[] selectedSeats;
+		 private boolean[] seatAvailability;
+		 private String[][] seatClass;
 		 AirbusA318 airbus = AirbusA318.getinstance();
 		 Boeing747 boeing = Boeing747.getinstance();
 
@@ -18,8 +20,6 @@ public class SeatingPlan {
 			this.selectedSeats = selectedSeats;
 		}
 
-		boolean[] seatAvailability;
-		 String[][] seatClass;
 		 
 		
 		
@@ -62,6 +62,7 @@ public class SeatingPlan {
 			this.seatClass = seatClass;
 		}
 		
+	
 		
 		//PlaneType
 		public boolean planeSeatingPlan() {//Which one it displays, either airbus or boeing. 
@@ -97,23 +98,24 @@ public class SeatingPlan {
 		return valid;
 }
 		
-		public void Index() //Index for Selected seats and seatNumber. 
+		public int Index(String selectedSeats,String[] seatNumber ) //Index for Selected seats and seatNumber. 
 		{
 			int index=0;
 			for(int i=0;i<=seatNumber.length;i++)
 			{
-				if(selectedSeats[i]==seatNumber[i])
-				{
+				if(seatNumber[i]==selectedSeats)
 					index=i;
-				}
+				
 			}
-			
+			return index;
 		}
 		
-		public static void selectSeats()
+		
+		public boolean selectSeats(String selectedSeats)
 		{
-			for(int i=0;i<=selectedSeats;i++)
+			for(int i=0;i<=selectedSeats.length();i++)
 			{
+				Index = getIndex(seatNumber,selectedSeats[i]);
 				
 			}
 		}
