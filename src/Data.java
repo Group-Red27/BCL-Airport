@@ -8,8 +8,8 @@ public class Data {
 	ArrayList<Object> flights;
 	ArrayList<Ticket> tickets; 
 	ArrayList<Object> users;
-	static Fooditem[] itemsAvailable;
-	Seat SeatClasses;// for restaurant component
+	static Fooditem[] itemsAvailable;// for restaurant component
+	Seat SeatClasses;// for seat component
 	
 	
 	private Data() {

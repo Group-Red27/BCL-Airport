@@ -6,7 +6,7 @@ import javax.swing.JButton;
 
 public class Handling implements ActionListener{
 	
-	Flightclass flight = Flightclass.getFlightInstance();
+	Flightclass flight = Flightclass.getinstance();
 	boolean clicked = false;
 			
 		    public void actionPerformed(ActionEvent e){

@@ -20,8 +20,11 @@ import java.awt.event.MouseEvent;
 public class SeatingPlanDesign extends JFrame {
 	
 	private JPanel contentPane;
-	private static SeatingPlanDesign Instance = new SeatingPlanDesign();
+	public static SeatingPlanDesign instance;
 	private JComboBox numOfTicketsComboBox;
+	public JLabel returnSeatNumbersLabel;
+	public JLabel departureSeatNumbersLabel;
+
 
 	/**
 	 * Launch the application.
@@ -43,6 +46,8 @@ public class SeatingPlanDesign extends JFrame {
 	 * Create the frame.
 	 */
 	public SeatingPlanDesign() {
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 550, 387);
 		contentPane = new JPanel();
@@ -99,10 +104,13 @@ public class SeatingPlanDesign extends JFrame {
 		returnSeatsLabel.setBounds(290, 256, 100, 14);
 		contentPane.add(returnSeatsLabel);
 		
+		
+		
 		JLabel departureSeatNumbersLabel = new JLabel("..............");
 		departureSeatNumbersLabel.setForeground(new Color(0, 0, 255));
 		departureSeatNumbersLabel.setBounds(416, 219, 46, 14);
 		contentPane.add(departureSeatNumbersLabel);
+	
 		
 		JLabel returnSeatNumbersLabel = new JLabel("..............");
 		returnSeatNumbersLabel.setForeground(new Color(0, 0, 255));
@@ -115,5 +123,9 @@ public class SeatingPlanDesign extends JFrame {
 		completeTicketDetailsPlanButton.setBackground(new Color(0, 0, 128));
 		completeTicketDetailsPlanButton.setBounds(159, 302, 179, 23);
 		contentPane.add(completeTicketDetailsPlanButton);
-	}
+		
+		
+	instance=this;}
+	
+
 }

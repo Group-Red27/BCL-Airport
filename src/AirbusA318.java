@@ -14,9 +14,11 @@ import java.awt.event.ActionEvent;
 
 public class AirbusA318 extends JFrame {
 
+	SeatingPlanDesign p;
 	private JPanel contentPane;
-	private JButton[] seatNumber;
-	private static AirbusA318 instance = new AirbusA318();
+	public JButton[] seatNumber;
+	public static AirbusA318 instance;
+	
 
 
 	/**
@@ -204,32 +206,37 @@ public class AirbusA318 extends JFrame {
 			}
 			
 			
-//			ActionListener listener2 = new ActionListener() {
-//				boolean clicked = false;
-//
-//		        @Override
-//		        public void actionPerformed(ActionEvent e) {
-//		        	if(! clicked) {
-//				    	clicked =true;
-//				    	SeatingPlanDesign.Instance.
-//				    	
-//				    }
-//		        }
-//		    };
+			ActionListener listener2 = new ActionListener() {
+				
+		        @Override
+		        public void actionPerformed(ActionEvent e) {
+					SeatingPlanDesign S = new SeatingPlanDesign();
+					boolean clicked = false;
+					
+					for(int i=0;i<seatNumber.length;i++)
+						if(listener != null) {
+							SeatingPlanDesign.instance.departureSeatNumbersLabel.setText("Departure Seats: "+seatNumber[i]);
+							S.setVisible(true);
+					    	
+					    } 
+					
+		        		
+				    
+		        }
+		    };
+
 		    
 			JButton btnBooking = new JButton("Book Seats");
 			btnBooking.setFont(new Font("Tahoma", Font.BOLD, 11));
 			btnBooking.setBounds(183, 650, 107, 36);
 			btnBooking.setBackground(new Color(0, 0, 128));
 			btnBooking.setForeground(new Color(255, 255, 255));
+			btnBooking.addActionListener(listener2);
 			contentPane.add(btnBooking);
-		          
-		  }
+		
+			
+			instance = this;}
 
-	public static AirbusA318 getinstance() {
-		// TODO Auto-generated method stub
-		return instance;
-	}
 			
 }
 
