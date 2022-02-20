@@ -237,6 +237,10 @@ public class AirbusA318 extends JFrame {
 			
 			instance = this;}
 
+	public static AirbusA318 getinstance() {
+		return instance ;
+	}
+
 			
 }
 

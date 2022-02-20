@@ -3,7 +3,7 @@ public class SeatingPlan {
 
 	     Flightclass flight = Flightclass.getinstance();
 	     private int numOfTickets;
-		 private String planeType;
+		 public String planeType;
 		 private String[] seatNumber;
 		 private String[] selectedSeats;
 		 private boolean[] seatAvailability;
@@ -111,12 +111,39 @@ public class SeatingPlan {
 		}
 		
 		
-		public boolean selectSeats(String selectedSeats)
+//		public boolean selectSeats(String selectedSeats)
+//		{
+//			for(int i=0;i<=selectedSeats.length();i++)
+//			{
+//				Index = getIndex(seatNumber,selectedSeats[i]);
+//				
+//			}
+//		}
+		
+		public void AssignSeatToClass(String[][] seatingClass, String PlaneType, String[] seatNumber, String planeType)
 		{
-			for(int i=0;i<=selectedSeats.length();i++)
+			seatingClass =this.seatClass;
+			if (this.planeType=' ')
 			{
-				Index = getIndex(seatNumber,selectedSeats[i]);
-				
+			
+				String[] Classes={"Business class","Economy"};
+			}
+			else
+			{
+				String[] Classes={"First Class", "Business Class","Economy"};
+			}
+			
+			for (int i=0;i<Classes.length;i++)
+			{
+				for(int j=0;j<this.seatClass[i].length;j++)
+				{
+					if (seatNumber = Classes[i][j])
+					{
+						seatingClass=Classes[i];
+						newSeat = Seat(seatNumber, seatClass,planeType)
+					}
+					
+				}
 			}
 		}
 }
