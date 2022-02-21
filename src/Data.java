@@ -1,5 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -68,11 +70,11 @@ public class Data {
 	        String[] data = myReader.nextLine().split(",");
 	        Flightclass flightC = new Flightclass();
 	        
-	        flightC.setdateofflight(Integer.parseInt(data[0]));
-	        flightC.setDeparturetime(Integer.parseInt(data[1]));
-	        flightC.setArrivaltime(Integer.parseInt(data[2]));
+	        flightC.setDateofflight(LocalDate.parse(data[0]));
+	        flightC.setDeparturetime(LocalTime.parse(data[1]));
+	        flightC.setArrivaltime(LocalTime.parse(data[2]));
 	        flightC.setFlightduration(Integer.parseInt(data[3]));
-	        flightC.setDistance(Integer.parseInt(data[4]));
+	        flightC.setDistance(Double.parseDouble(data[4]));
 	        flightC.setDelay(Integer.parseInt(data[5]));
 	        flightC.setDepartureairport(data[6]);
 	        flightC.setDeparturecity(data[7]);

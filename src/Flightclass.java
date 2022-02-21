@@ -1,13 +1,16 @@
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class Flightclass {
 
-	private int dateofflight;
-	private int departuretime;
-	private int arrivaltime;
+	private LocalDate dateofflight;
+	private LocalTime departuretime;
+	private LocalTime arrivaltime;
 	private int flightduration;
 	private double distance;
 	private int delay;
-	private int departdate;
-	private int returndate;
+	private LocalDate departdate;
+	private LocalDate returndate;
 	private String departureairport;
 	private String departurecity;
 	private String arivalairport;
@@ -18,29 +21,23 @@ public class Flightclass {
 	private String departureflight[];
 	
 	
- public int getdateofflight() {
-	 return dateofflight;
-	 
- }
-	public void setdateofflight(int dateofflight) {
-		this.dateofflight = dateofflight;
-	}
-	public int getDateofflight() {
+ 
+	public LocalDate getDateofflight() {
 		return dateofflight;
 	}
-	public void setDateofflight(int dateofflight) {
+	public void setDateofflight(LocalDate dateofflight) {
 		this.dateofflight = dateofflight;
 	}
-	public int getDeparturetime() {
+	public LocalTime getDeparturetime() {
 		return departuretime;
 	}
-	public void setDeparturetime(int departuretime) {
+	public void setDeparturetime(LocalTime departuretime) {
 		this.departuretime = departuretime;
 	}
-	public int getArrivaltime() {
+	public LocalTime getArrivaltime() {
 		return arrivaltime;
 	}
-	public void setArrivaltime(int arrivaltime) {
+	public void setArrivaltime(LocalTime arrivaltime) {
 		this.arrivaltime = arrivaltime;
 	}
 	public int getFlightduration() {
@@ -61,16 +58,16 @@ public class Flightclass {
 	public void setDelay(int delay) {
 		this.delay = delay;
 	}
-	public int getDepartdate() {
+	public LocalDate getDepartdate() {
 		return departdate;
 	}
-	public void setDepartdate(int departdate) {
+	public void setDepartdate(LocalDate departdate) {
 		this.departdate = departdate;
 	}
-	public int getReturndate() {
+	public LocalDate getReturndate() {
 		return returndate;
 	}
-	public void setReturndate(int returndate) {
+	public void setReturndate(LocalDate returndate) {
 		this.returndate = returndate;
 	}
 	public String getDepartureairport() {
