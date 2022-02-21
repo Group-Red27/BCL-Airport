@@ -1,7 +1,7 @@
 
 public class SeatingPlan {
 
-	     Flightclass flight = Flightclass.getinstance();
+	     Flightclass flight; 
 	     private int numOfTickets;
 		 public String planeType;
 		 private String[] seatNumber;
@@ -11,7 +11,8 @@ public class SeatingPlan {
 		 AirbusA318 airbus = AirbusA318.getinstance();
 		 Boeing747 boeing = Boeing747.getinstance();
 
-		 public SeatingPlan(String planeType) {
+		 public SeatingPlan(String planeType, Flightclass flight) {
+			 this.flight = flight;
 			 this.planeType = planeType;
 			 if (this.planeType=="airbus")
 				{
