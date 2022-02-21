@@ -64,7 +64,7 @@ public class SeatingPlanDesign extends JFrame {
 		contentPane.add(flightLabel);
 		
 		JComboBox numOfTicketsComboBox = new JComboBox();
-		numOfTicketsComboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
+		numOfTicketsComboBox.setModel(new DefaultComboBoxModel(new Integer[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}));
 		numOfTicketsComboBox.setBounds(140, 218, 38, 17);
 		contentPane.add(numOfTicketsComboBox);
 		
