@@ -99,9 +99,10 @@ public class RestaurantSelectionScreen extends JFrame {
 		JButton financeButton = new JButton("Finance");
 		financeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Popup popup = new Popup();
-				popup.showSuccessMessage("Seating plan");
-				System.out.println("return to page here");
+				Finance_GUI financeScreen = new Finance_GUI();
+				setVisible(false);
+				financeScreen.main(null);
+				// might need to delete main after this 
 			}
 		});
 		financeButton.addMouseListener(new MouseAdapter() {
@@ -128,6 +129,9 @@ public class RestaurantSelectionScreen extends JFrame {
 		arrivalButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				FlightArrivalMap_UI arrivalMap = new FlightArrivalMap_UI();
+				setVisible(false);
+				arrivalMap.setVisible(true);
 			}
 		});
 		arrivalButton.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -230,26 +234,22 @@ public class RestaurantSelectionScreen extends JFrame {
 		JTextPane description1 = new JTextPane();
 		description1.setEditable(false);
 		description1.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		description1.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
 		description1.setBounds(10, 31, 176, 50);
 		mealPanel.add(description1);
 		
 		JTextPane description2 = new JTextPane();
-		description2.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
 		description2.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		description2.setEditable(false);
 		description2.setBounds(10, 144, 176, 50);
 		mealPanel.add(description2);
 		
 		JTextPane description3 = new JTextPane();
-		description3.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
 		description3.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		description3.setEditable(false);
 		description3.setBounds(10, 258, 176, 50);
 		mealPanel.add(description3);
 		
 		JTextPane description4 = new JTextPane();
-		description4.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
 		description4.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		description4.setEditable(false);
 		description4.setBounds(10, 384, 176, 50);
@@ -339,14 +339,12 @@ public class RestaurantSelectionScreen extends JFrame {
 		snacksPanel.add(price8);
 		
 		JTextPane description5 = new JTextPane();
-		description5.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
 		description5.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		description5.setEditable(false);
 		description5.setBounds(10, 144, 176, 50);
 		snacksPanel.add(description5);
 		
 		JTextPane description6 = new JTextPane();
-		description6.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
 		description6.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		description6.setEditable(false);
 		description6.setBounds(10, 258, 176, 50);
@@ -355,12 +353,10 @@ public class RestaurantSelectionScreen extends JFrame {
 		JTextPane description7 = new JTextPane();
 		description7.setBounds(10, 32, 176, 50);
 		snacksPanel.add(description7);
-		description7.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
 		description7.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		description7.setEditable(false);
 		
 		JTextPane description8 = new JTextPane();
-		description8.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
 		description8.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		description8.setEditable(false);
 		description8.setBounds(10, 386, 176, 50);
@@ -450,52 +446,46 @@ public class RestaurantSelectionScreen extends JFrame {
 		drinksPanel.add(price12);
 		
 		JTextPane description9 = new JTextPane();
-		description9.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
 		description9.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		description9.setEditable(false);
 		description9.setBounds(10, 31, 176, 50);
 		drinksPanel.add(description9);
 		
 		JTextPane description10 = new JTextPane();
-		description10.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
 		description10.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		description10.setEditable(false);
 		description10.setBounds(10, 143, 176, 50);
 		drinksPanel.add(description10);
 		
 		JTextPane description11 = new JTextPane();
-		description11.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
 		description11.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		description11.setEditable(false);
 		description11.setBounds(10, 258, 176, 50);
 		drinksPanel.add(description11);
 		
 		JTextPane description12 = new JTextPane();
-		description12.setText("Marinated chicken with seasonal greens. menma. spring onion. rich chicken broth with miso");
 		description12.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		description12.setEditable(false);
 		description12.setBounds(10, 384, 176, 50);
 		drinksPanel.add(description12);
 
-		
+		Data data = Data.getInstance();
 		// price test
 		// using a loop to assign the prices from foodItem rather than setting them constant
-		// instead of prices, do FoodItem[], foodItem.getPrice
+		JLabel[] itemNames = {label1,label2,label3,label4,label5,label6,label7,label8,label9,label10,label11,label12};
 		JLabel[] priceLabels = {price1,price2,price3,price4,price5,price6,price7,price8,price9,price10,price11,price12};
 		JTextPane[] descriptionText = {description1,description2,description3,description4,description5,description6,description7,description8,description9,description10,description11,description12};
-
-		double[] prices = {1,2,3,4,5,6,7,8,9,10,11,12};
-		String[] descriptions = {"1","2","3","4","5","6","7","8","9","10","11","12"};
-		for (int i = 0; i < 12; i ++) {
-			priceLabels[i].setText(String.format("£%.2f", prices[i]));
-			//descriptionText[i].setText(descriptions[i]);
-			// could i do this as setText(data.itemsAvailable[i].description) rather than as a for loop?
-		}
-		
-		// entry test
 		JTextField[] entryList = {entry1,entry2,entry3,entry4,entry5,entry6,entry7,entry8,entry9,entry10,entry11,entry12};
-		
-		
+		for (int i = 0; i < 12; i ++) {
+			priceLabels[i].setText(String.format("£%.2f", data.itemsAvailable[i].getPrice()));
+			descriptionText[i].setText(data.itemsAvailable[i].getDescription());
+			itemNames[i].setText(data.itemsAvailable[i].getItemName());
+			// entry markOutOfStock test, restock not run from here
+			if (data.itemsAvailable[i].getStockLevel() == 0) {
+				entryList[i].enable(false);
+				entryList[i].setBackground(Color.GRAY);
+			} 
+		}
 		
 		JPanel infoPanel = new JPanel();
 		infoPanel.setBackground(SystemColor.menu);
@@ -529,6 +519,7 @@ public class RestaurantSelectionScreen extends JFrame {
 		txtpnInvalidTicketNumber.setText("\r\nPlease enter the quantity of a desired product into the entry box before pressing 'Purchase'\r\n\r\nYou will be prompted to enter your NAME and TICKET NUMBER to complete a purchase");
 		txtpnInvalidTicketNumber.setBounds(20, 116, 108, 272);
 		infoPanel.add(txtpnInvalidTicketNumber);
+		
 		purchaseButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// move screens
@@ -542,29 +533,20 @@ public class RestaurantSelectionScreen extends JFrame {
 							rows += 1;
 							index.add(i);
 						}
-					} // calc num of rows needed based on items selected
+					} // calc num of rows needed based on items selected and the index of selected items
 					
-					Object[][] data = new Object[rows][4];
+					Object[][] tableData = new Object[rows][4];
 					for (int i = 0; i < rows; i++ ) {
-						/* data[i][0] = order.data.itemsAvailable[index[i]].getname;
-						data[i][1] = order.data.itemsAvailable[index[i]].getprice;
-						data[i][2] = order.getquantity[index[i]];
-						data[i][3] = order.netPrices[index[i]]; */
-					} // create data for table
+						tableData[i][0] = data.itemsAvailable[index.get(i)].getItemName();
+						tableData[i][1] = String.format("£%.2f",data.itemsAvailable[index.get(i)].getPrice());
+						tableData[i][2] = order.getQuantity()[index.get(i)];
+						tableData[i][3] = String.format("£%.2f",order.getNetPrices()[index.get(i)]); 
+					}  //create data for table 
 					
-					
-					/* from here probably want to move this to actual confirmationScreen with foodOrer Object to call the other methods
-							ArrayList<Double> netPrices = new ArrayList<Double>();
-							netPrices = calcNetPrice(data.itemsAvailable,quantityInt);
-							double total = calcTotalCost(netPrices);
-							//display confirmation screen */
-					// add this to the main of confirmation screen- set total cost???
-					
-					RestaurantConfirmationScreen confirmationScreen = new RestaurantConfirmationScreen(order,data);
+					RestaurantConfirmationScreen confirmationScreen = new RestaurantConfirmationScreen(order,tableData,entryList);
 					setVisible(false);
 					confirmationScreen.setVisible(true);
-				}
-	
+				} // end of if statement, if false, do nothing 
 			}
 		});
 		
