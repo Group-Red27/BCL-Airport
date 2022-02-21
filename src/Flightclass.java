@@ -1,13 +1,13 @@
 public class Flightclass {
 
-	private int dateofflight;
-	private int departuretime;
-	private int arrivaltime;
-	private int flightduration;
+	private DateTime dateofflight;
+	private DateTime departuretime;
+	private DateTime arrivaltime;
+	private DateTime flightduration;
 	private double distance;
 	private int delay;
-	private int departdate;
-	private int returndate;
+	private DateTime departdate;
+	private DateTime returndate;
 	private String departureairport;
 	private String departurecity;
 	private String arivalairport;
@@ -18,35 +18,35 @@ public class Flightclass {
 	private String departureflight[];
 	
 	
- public int getdateofflight() {
+ public DateTime getdateofflight() {
 	 return dateofflight;
 	 
  }
-	public void setdateofflight(int dateofflight) {
+	public void setdateofflight(DateTime dateofflight) {
 		this.dateofflight = dateofflight;
 	}
-	public int getDateofflight() {
+	public DateTime getDateofflight() {
 		return dateofflight;
 	}
-	public void setDateofflight(int dateofflight) {
+	public void setDateofflight(DateTime dateofflight) {
 		this.dateofflight = dateofflight;
 	}
-	public int getDeparturetime() {
+		public DateTime getDeparturetime() {
 		return departuretime;
 	}
-	public void setDeparturetime(int departuretime) {
+	public void setDeparturetime(DateTime departuretime) {
 		this.departuretime = departuretime;
 	}
-	public int getArrivaltime() {
+	public DateTime getArrivaltime() {
 		return arrivaltime;
 	}
-	public void setArrivaltime(int arrivaltime) {
+	public void setArrivaltime(DateTime arrivaltime) {
 		this.arrivaltime = arrivaltime;
 	}
-	public int getFlightduration() {
+	public DateTime getFlightduration() {
 		return flightduration;
 	}
-	public void setFlightduration(int flightduration) {
+	public void setFlightduration(DateTime flightduration) {
 		this.flightduration = flightduration;
 	}
 	public double getDistance() {
@@ -61,16 +61,16 @@ public class Flightclass {
 	public void setDelay(int delay) {
 		this.delay = delay;
 	}
-	public int getDepartdate() {
+	public DateTime getDepartdate() {
 		return departdate;
 	}
-	public void setDepartdate(int departdate) {
+	public void setDepartdate(DateTime departdate) {
 		this.departdate = departdate;
 	}
-	public int getReturndate() {
+	public DateTime getReturndate() {
 		return returndate;
 	}
-	public void setReturndate(int returndate) {
+	public void setReturndate(DateTime returndate) {
 		this.returndate = returndate;
 	}
 	public String getDepartureairport() {
@@ -121,42 +121,4 @@ public class Flightclass {
 	public void setDepartureflight(String[] departureflight) {
 		this.departureflight = departureflight;
 	}
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
