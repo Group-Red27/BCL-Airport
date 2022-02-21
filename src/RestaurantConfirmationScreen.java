@@ -75,7 +75,17 @@ public class RestaurantConfirmationScreen extends JFrame {
 		confirmButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		confirmButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				order.confirmOrder(ticketEntry, nameEntry, entryList);
+				boolean moveFrame = order.confirmOrder(ticketEntry, nameEntry, entryList);
+				if (moveFrame == true) {
+					RestaurantSelectionScreen selectionScreen = new RestaurantSelectionScreen();
+					this.setVisible(false);
+					selectionScreen.main(null);
+				}
+			}
+
+			private void setVisible(boolean b) {
+				// TODO Auto-generated method stub
+				
 			}
 		});
 		confirmButton.setBounds(626, 393, 137, 29);

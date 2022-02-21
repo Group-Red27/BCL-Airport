@@ -120,7 +120,8 @@ public class FoodOrder {
 
 
 	////////////////// confirm order
-	public void confirmOrder(JTextField ticketEntry, JTextField nameEntry, JTextField[] entryList) {
+	public boolean confirmOrder(JTextField ticketEntry, JTextField nameEntry, JTextField[] entryList) {
+		boolean moveFrame = true;
 		Popup popup = new Popup();
 		String ticketNumber = ticketEntry.getText(); 
 		setTicket(ticketNumber);
@@ -128,6 +129,7 @@ public class FoodOrder {
 		String errorString = validateDetails(passengerName);
 		if (errorString != "") {
 			popup.showErrorMessage(errorString);
+			moveFrame = false;
 		} else {
 			for (int i = 0; i < 12; i++) {
 				int currentStock = data.getItemsAvailable()[i].getStockLevel();
@@ -141,7 +143,8 @@ public class FoodOrder {
 			Ticket ticket = getTicket();
 			addCostToTicket(ticket, totalCost);
 			popup.showSuccessMessage("Purchase Successful, you will be returned to the SELECTION menu");
-		}
+		} 
+		return moveFrame;
 	}
 	
 	//////////// validate quantity
@@ -186,7 +189,7 @@ public class FoodOrder {
 		} else if (ticket == null) {
 			errorString = "Invalid ticket number, you will be returned to the CONFIRMATION menu";
 		} else 
-			if (passengerName != ticket.getPassengerName()) {
+			if (passengerName.equals(ticket.getPassengerName()) == false) {
 			errorString = "Details don’t match, you will be returned to the CONFIRMATION menu";
 		} 
 		return errorString;
