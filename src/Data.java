@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Data {
 	private static Data instance = new Data();
-	ArrayList<Object> flights;
+	ArrayList<Flightclass> flights;
 	ArrayList<Ticket> tickets; 
 	ArrayList<Object> users;
 	static Fooditem[] itemsAvailable;// for restaurant component
@@ -13,7 +13,7 @@ public class Data {
 	
 	
 	private Data() {
-		flights = new ArrayList<Object>();
+		flights = new ArrayList<Flightclass>();
 		tickets = new ArrayList<Ticket>();
 		users = new ArrayList<Object>();
 				
@@ -31,6 +31,13 @@ public class Data {
 		Fooditem item12 = new Fooditem("Beer","American Lager, ABV: 4.5%. Light bodied lager with clean, crisp, dry finish",100,3.45);
 		Fooditem[] items = {item1,item2,item3,item4,item5,item6,item7,item8,item9,item10,item11,item12};
 		itemsAvailable = items;
+		
+		try {
+			this.main(null);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	} // the constructor, setting the itemsAvailable array since this will be fixed
 
 	public static Data getInstance() {
@@ -92,5 +99,11 @@ public class Data {
 	public void addTicketToData(Object user) {
 		users.add(user);
 	}
-	
+
+	public ArrayList<Flightclass> getFlights() {
+		
+		return this.flights;
+	}
+
+
 }

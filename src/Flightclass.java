@@ -16,8 +16,6 @@ public class Flightclass {
 	private String airline;
 	private String returnflight[];
 	private String departureflight[];
-	private static Flightclass instance = new Flightclass();
-
 	
 	
  public int getdateofflight() {
@@ -124,10 +122,8 @@ public class Flightclass {
 		this.departureflight = departureflight;
 	}
 	
-	public static Flightclass getinstance() {
-		return instance;
-	}
 
+	
 	
 	
 	

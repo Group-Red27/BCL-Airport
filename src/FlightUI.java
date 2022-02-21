@@ -6,6 +6,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextPane;
 import java.awt.TextField;
+import java.util.ArrayList;
+
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.Color;
@@ -23,6 +25,8 @@ import javax.swing.JMenuItem;
 import javax.swing.JComboBox;
 
 public class FlightUI extends JFrame {
+	
+	ArrayList<Flightclass> flights = null; 
 
 	private JPanel contentPane;
 
@@ -46,6 +50,10 @@ public class FlightUI extends JFrame {
 	 * Create the frame.
 	 */
 	public FlightUI() {
+	
+		this.flights = ((Data) Data.getInstance()).getFlights();
+		
+		System.out.print(flights.size());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 750, 515);
 		contentPane = new JPanel();
@@ -54,20 +62,20 @@ public class FlightUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		TextField textField = new TextField();
+		JLabel textField = new JLabel();
 		textField.setFont(new Font("Dialog", Font.PLAIN, 6));
 		textField.setBackground(Color.WHITE);
 		textField.setText("From");
 		textField.setBounds(0, 77, 46, 21);
 		contentPane.add(textField);
 		
-		TextField textField_1 = new TextField();
+		JLabel textField_1 = new JLabel();
 		textField_1.setFont(new Font("Dialog", Font.PLAIN, 6));
 		textField_1.setText("Depart");
 		textField_1.setBounds(0, 158, 58, 21);
 		contentPane.add(textField_1);
 		
-		TextField textField_2 = new TextField();
+		JLabel textField_2 = new JLabel();
 		textField_2.setFont(new Font("Dialog", Font.PLAIN, 6));
 		textField_2.setText("To");
 		textField_2.setBounds(375, 77, 38, 27);
@@ -135,10 +143,16 @@ public class FlightUI extends JFrame {
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(258, 171, 30, 32);
+		
+		for (int i=0; i<this.flights.size(); i++) {
+			Flightclass f = this.flights.get(i);
+			comboBox.addItem(f.getArivalairport());
+		}
 		contentPane.add(comboBox);
 		
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setBounds(643, 171, 30, 32);
 		contentPane.add(comboBox_1);
+		
 	}
 }
