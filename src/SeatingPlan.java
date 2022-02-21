@@ -11,6 +11,20 @@ public class SeatingPlan {
 		 AirbusA318 airbus = AirbusA318.getinstance();
 		 Boeing747 boeing = Boeing747.getinstance();
 
+		 public SeatingPlan(String planeType) {
+			 this.planeType = planeType;
+			 if (this.planeType=="airbus")
+				{
+				
+					this.seatClass = new String[][] {{"Business class","Economy"}, 
+											  {"1A","30B"}, 
+											  {"2B",""},};
+				}
+				else
+				{
+					this.seatClass= new String[][] {{"First Class", "Business Class","Economy"}};
+				}
+		}		
 		 
 		 public String[] getSelectedSeats() {
 			return selectedSeats;
@@ -120,32 +134,30 @@ public class SeatingPlan {
 //			}
 //		}
 		
-		public void AssignSeatToClass(String[][] seatingClass, String PlaneType, String[] seatNumber, String planeType)
-		{
-			seatingClass =this.seatClass;
-			if (this.planeType=' ')
-			{
+		public String getSeatClass(String seatNumber) throws Exception {
 			
-				String[] Classes={"Business class","Economy"};
-			}
-			else
-			{
-				String[] Classes={"First Class", "Business Class","Economy"};
-			}
-			
-			for (int i=0;i<Classes.length;i++)
+			String seatNumberClass = null; 
+			for (int i=0;i<this.seatClass.length;i++)
 			{
 				for(int j=0;j<this.seatClass[i].length;j++)
 				{
-					if (seatNumber = Classes[i][j])
+					if (seatNumber == seatClass[i][j])
 					{
-						seatingClass=Classes[i];
-						newSeat = Seat(seatNumber, seatClass,planeType)
+						seatNumberClass = seatClass[0][j];
 					}
 					
 				}
+				}
+			
+			if (seatNumberClass==null) {
+				throw new Exception("The seat is not found!");
 			}
+			
+			return seatNumberClass; 
+			
 		}
+		
+			
 }
 		
 
