@@ -20,10 +20,11 @@ public class SeatingPlan {
 					this.seatClass = new String[][] {{"Business class","Economy"}, 
 											  {"1A","30B"}, 
 											  {"2B",""},};
+											  //Complete that... 
 				}
 				else
 				{
-					this.seatClass= new String[][] {{"First Class", "Business Class","Economy"}};
+					this.seatClass= new String[][] {{"First Class", "Business Class","Economy"}}; //Complete this
 				}
 		}		
 		 
@@ -36,7 +37,6 @@ public class SeatingPlan {
 		}
 
 		 
-		
 		
 		public int getNumOfTickets() {
 			return numOfTickets;
