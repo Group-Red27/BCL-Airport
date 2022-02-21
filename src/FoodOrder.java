@@ -89,7 +89,7 @@ public class FoodOrder {
 				if (quantityInt[i] > 0) {
 					// if to check if item selected
 					selected[i] = true;
-					int stockLevel = data.itemsAvailable[i].getStockLevel();
+					int stockLevel = data.getItemsAvailable()[i].getStockLevel();
 					if (quantityInt[i] > stockLevel) {
 						// if statement to adjust selected according to stock level
 						quantityInt[i] = stockLevel;
@@ -101,7 +101,7 @@ public class FoodOrder {
 					selected[i] = false;
 				}
 			}// validate the quantites entered
-			double[] netPrices = calcNetPrices(data.itemsAvailable, quantityInt);
+			double[] netPrices = calcNetPrices(data.getItemsAvailable(), quantityInt);
 			double totalCost = calcTotalCost(netPrices);
 			setQuantity(quantityInt);
 			setNetPrices(netPrices);
@@ -130,13 +130,13 @@ public class FoodOrder {
 			popup.showErrorMessage(errorString);
 		} else {
 			for (int i = 0; i < 12; i++) {
-				int currentStock = data.itemsAvailable[i].getStockLevel();
+				int currentStock = data.getItemsAvailable()[i].getStockLevel();
 				int newStock = currentStock - quantity[i];
 				if (newStock == 0) {
-					restockTimer(data.itemsAvailable[i],entryList[i]);
+					restockTimer(data.getItemsAvailable()[i],entryList[i]);
 					// if statement when an item gets put out of stock, restock with timer
 				} 
-				data.itemsAvailable[i].setStockLevel(newStock);
+				data.getItemsAvailable()[i].setStockLevel(newStock);
 			}
 			Ticket ticket = getTicket();
 			addCostToTicket(ticket, totalCost);

@@ -104,6 +104,10 @@ public class Data {
 		
 		return this.flights;
 	}
+	
+	public Fooditem[] getItemsAvailable() {
+		return this.itemsAvailable;
+	}
 
 
 }

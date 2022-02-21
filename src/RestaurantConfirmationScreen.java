@@ -167,7 +167,7 @@ public class RestaurantConfirmationScreen extends JFrame {
 		ArrayList<String> amendedNames = new ArrayList<String>();
 		for (int i = 0; i < 12; i ++) {
 			if (amended[i] == true) {
-				amendedNames.add(data.itemsAvailable[i].getItemName());
+				amendedNames.add(data.getItemsAvailable()[i].getItemName());
 			}
 		}
 		String message = "";
