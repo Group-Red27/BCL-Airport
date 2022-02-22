@@ -16,19 +16,21 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 public class SeatingPlanDesign extends JFrame {
 	
+	private static final String String = null;
 	private JPanel contentPane;
 	private JComboBox numOfTicketsComboBox;
 	public JLabel returnSeatNumbersLabel;
-	public static JLabel departureSeatNumbersLabel;
+	public  JLabel departureSeatNumbersLabel;
 	
 
 
 	/**
 	 * Launch the application.
-	 */
+	 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -42,10 +44,10 @@ public class SeatingPlanDesign extends JFrame {
 		});
 	}
 
-	/**
+	
 	 * Create the frame.
 	 */
-	public SeatingPlanDesign() {
+	public SeatingPlanDesign(ArrayList<String> departSeats) {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -106,7 +108,8 @@ public class SeatingPlanDesign extends JFrame {
 		
 		
 		
-		JLabel departureSeatNumbersLabel = new JLabel("depart");
+		JLabel departureSeatNumbersLabel = new JLabel();
+		departureSeatNumbersLabel.setText(java.lang.String.join(",", departSeats));
 		departureSeatNumbersLabel.setForeground(new Color(0, 0, 255));
 		departureSeatNumbersLabel.setBounds(416, 219, 46, 14);
 		contentPane.add(departureSeatNumbersLabel);

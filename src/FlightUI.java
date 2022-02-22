@@ -1,11 +1,9 @@
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextPane;
 import java.awt.TextField;
+import java.net.URL;
 import java.util.ArrayList;
 
 import javax.swing.JTextField;
@@ -13,6 +11,8 @@ import javax.swing.SwingConstants;
 import java.awt.Color;
 import javax.swing.UIManager;
 import javax.swing.JTextArea;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.TextArea;
@@ -24,12 +24,15 @@ import java.awt.Label;
 import javax.swing.JMenuItem;
 import javax.swing.JComboBox;
 import javax.swing.JCheckBox;
+import java.awt.event.KeyEvent;
 
 public class FlightUI extends JFrame {
 	
 	ArrayList<Flightclass> flights = null; 
 
 	private JPanel contentPane;
+
+	private Object jpg;
 
 	/**
 	 * Launch the application.
@@ -56,7 +59,7 @@ public class FlightUI extends JFrame {
 		
 		System.out.print(flights.size());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 750, 515);
+		setBounds(100, 100, 750, 620);
 		contentPane = new JPanel();
 		contentPane.setBackground(UIManager.getColor("CheckBoxMenuItem.selectionBackground"));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -67,25 +70,25 @@ public class FlightUI extends JFrame {
 		textField.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textField.setBackground(Color.WHITE);
 		textField.setText("From");
-		textField.setBounds(0, 77, 75, 32);
+		textField.setBounds(0, 167, 75, 32);
 		contentPane.add(textField);
 		
 		JLabel textField_1 = new JLabel();
 		textField_1.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textField_1.setText("Depart");
-		textField_1.setBounds(0, 158, 58, 21);
+		textField_1.setBounds(0, 260, 58, 21);
 		contentPane.add(textField_1);
 		
 		JLabel textField_2 = new JLabel();
 		textField_2.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textField_2.setText("To");
-		textField_2.setBounds(375, 77, 38, 27);
+		textField_2.setBounds(416, 170, 38, 27);
 		contentPane.add(textField_2);
 		
 		JLabel textField_3 = new JLabel();
 		textField_3.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textField_3.setText("Return");
-		textField_3.setBounds(375, 158, 64, 27);
+		textField_3.setBounds(358, 257, 64, 27);
 		contentPane.add(textField_3);
 		
 		JLabel textField_4 = new JLabel();
@@ -107,43 +110,43 @@ public class FlightUI extends JFrame {
 		contentPane.add(textField_6);
 		
 		List list = new List();
-		list.setBounds(91, 88, 135, 21);
+		list.setBounds(81, 178, 135, 21);
 		contentPane.add(list);
 		
 		List list_1 = new List();
-		list_1.setBounds(91, 164, 135, 21);
+		list_1.setBounds(91, 260, 135, 21);
 		contentPane.add(list_1);
 		
 		List list_2 = new List();
-		list_2.setBounds(464, 83, 135, 21);
+		list_2.setBounds(501, 178, 135, 21);
 		contentPane.add(list_2);
 		
 		List list_3 = new List();
-		list_3.setBounds(486, 164, 135, 21);
+		list_3.setBounds(464, 260, 135, 21);
 		contentPane.add(list_3);
 		
 		JTextPane textPane = new JTextPane();
-		textPane.setBounds(0, 277, 355, 204);
+		textPane.setBounds(0, 382, 355, 204);
 		contentPane.add(textPane);
 		
 		JTextPane textPane_1 = new JTextPane();
-		textPane_1.setBounds(383, 277, 355, 204);
+		textPane_1.setBounds(383, 382, 355, 204);
 		contentPane.add(textPane_1);
 		
 		JLabel textField_1_1 = new JLabel();
 		textField_1_1.setText("Departures");
 		textField_1_1.setFont(new Font("Dialog", Font.PLAIN, 16));
-		textField_1_1.setBounds(50, 228, 95, 27);
+		textField_1_1.setBounds(26, 325, 95, 27);
 		contentPane.add(textField_1_1);
 		
 		JLabel textField_1_2 = new JLabel();
 		textField_1_2.setText("Arrivals");
 		textField_1_2.setFont(new Font("Dialog", Font.PLAIN, 16));
-		textField_1_2.setBounds(452, 228, 75, 21);
+		textField_1_2.setBounds(495, 328, 75, 21);
 		contentPane.add(textField_1_2);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(258, 171, 30, 32);
+		comboBox.setBounds(258, 268, 30, 32);
 		
 		for (int i=0; i<this.flights.size(); i++) {
 			Flightclass f = this.flights.get(i);
@@ -152,8 +155,15 @@ public class FlightUI extends JFrame {
 		contentPane.add(comboBox);
 		
 		JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setBounds(643, 181, 38, 32);
+		comboBox_2.setBounds(649, 257, 38, 32);
 		contentPane.add(comboBox_2);
+		
+		JLabel lblNewLabel = new JLabel("");
+		ImageIcon Image= new ImageIcon(this.getClass().getResource("logo.jpg"));
+		JLabel lblNewLabel1=new JLabel(Image);
+		lblNewLabel1.setBounds(-11, 0, 142, 144);
+		contentPane.add(lblNewLabel1);
+		
 		
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setBounds(643, 171, 30, 32);
@@ -163,5 +173,10 @@ public class FlightUI extends JFrame {
 		contentPane.add(comboBox_1);
 		
 	}
+	}
+
+	private Object ImageIcon(URL resource) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
