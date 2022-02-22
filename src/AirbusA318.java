@@ -214,6 +214,7 @@ public class AirbusA318 extends JFrame {
 		        	for (int i =0; i < seatNumber.length; i++ ) {
 		        			if (seatNumber[i].isSelected() == true) {
 		        				seatsSelected.add(seatNumber[i].getText());
+		        				seatNumber[i].setEnabled(false);
 		        			}
 		        	}
 		        	SeatingPlanDesign p = new SeatingPlanDesign(seatsSelected);
