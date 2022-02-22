@@ -11,11 +11,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class AirbusA318 extends JFrame {
 
-	SeatingPlanDesign p;
+	//SeatingPlanDesign p;
 	private JPanel contentPane;
 	public JToggleButton[] seatNumber;
 	
@@ -101,7 +102,8 @@ public class AirbusA318 extends JFrame {
 	        		if(seatNumber[i].isSelected()) {
 	        			seatNumber[i].setContentAreaFilled(false);
 	        			seatNumber[i].setOpaque(true);
-	        			seatNumber[i].setBackground(Color.LIGHT_GRAY); 	
+	        			seatNumber[i].setBackground(Color.LIGHT_GRAY);
+	        			
 				    }
 	        		
 	        		else {
@@ -115,6 +117,7 @@ public class AirbusA318 extends JFrame {
 	        	
 	        }
 	    };
+	   
 
 	    
 	    
@@ -207,10 +210,15 @@ public class AirbusA318 extends JFrame {
 				
 		        @Override
 		        public void actionPerformed(ActionEvent e) {
-					SeatingPlanDesign S = new SeatingPlanDesign();
-				
-					SeatingPlanDesign.departureSeatNumbersLabel.setText("HI");   
-					S.setVisible(true);
+		        	ArrayList<String> seatsSelected = new ArrayList<String>();
+		        	for (int i =0; i < seatNumber.length; i++ ) {
+		        			if (seatNumber[i].isSelected() == true) {
+		        				seatsSelected.add(seatNumber[i].getText());
+		        			}
+		        	}
+		        	SeatingPlanDesign p = new SeatingPlanDesign(seatsSelected);
+					p.setVisible(true);
+					
 
 		        		
 				    
@@ -226,6 +234,11 @@ public class AirbusA318 extends JFrame {
 			contentPane.add(btnBook);
 
 	
+	}
+
+	protected String getText() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 			
 }

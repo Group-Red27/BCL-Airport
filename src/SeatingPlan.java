@@ -1,3 +1,5 @@
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class SeatingPlan {
 
@@ -181,8 +183,11 @@ public class SeatingPlan {
 		//PlaneType
 		public boolean planeSeatingPlan() {//Which one it displays, either airbus or boeing. 
 			
+	        DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm");
+
+			
 			boolean valid=true;
-			if(flight.getFlightduration()<=120)
+			if(flight.getFlightduration()<=LocalTime.parse(120, timeFormat))
 			{
 				valid=true;//frame change to airbus
 				
@@ -225,15 +230,20 @@ public class SeatingPlan {
 		}
 		
 		
-//		public boolean selectSeats(String selectedSeats)
-//		{
-//			for(int i=0;i<=selectedSeats.length();i++)
-//			{
-//				Index = getIndex(seatNumber,selectedSeats[i]);
-//				
-//			}
-//		}
+		public boolean selectSeats()
+		{
+			for(int i=0;i<=selectedSeats.length;i++)
+			{
+				int Index =
+				
+			}
+			return false;
+		}
 		
+		private int getIndex() {
+			return getIndex();
+		}
+
 		public String getSeatClass(String seatNumber) throws Exception {
 			
 			String seatNumberClass = null; 

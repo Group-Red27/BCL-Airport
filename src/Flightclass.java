@@ -6,7 +6,7 @@ public class Flightclass {
 	private LocalDate dateofflight;
 	private LocalTime departuretime;
 	private LocalTime arrivaltime;
-	private int flightduration;
+	private LocalTime flightduration;
 	private double distance;
 	private int delay;
 	private LocalDate departdate;
@@ -40,11 +40,11 @@ public class Flightclass {
 	public void setArrivaltime(LocalTime arrivaltime) {
 		this.arrivaltime = arrivaltime;
 	}
-	public int getFlightduration() {
+	public LocalTime getFlightduration() {
 		return flightduration;
 	}
-	public void setFlightduration(int flightduration) {
-		this.flightduration = flightduration;
+	public void setFlightduration(LocalTime localTime) {
+		this.flightduration = localTime;
 	}
 	public double getDistance() {
 		return distance;
