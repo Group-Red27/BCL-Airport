@@ -5,7 +5,7 @@ public class Finance {
 	Data data = Data.getInstance();
 	Ticket ticket;
 	SeatingPlan departureSeatingPlan; 
-	SeatingPlan arrivalSeatingPlan; 
+	SeatingPlan returnSeatingPlan; 
 	double bagCost;
 	double travelDistDeparture;
 	double travelDistReturn;
