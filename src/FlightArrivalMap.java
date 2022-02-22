@@ -9,8 +9,7 @@ public class FlightArrivalMap {
 		
 		String FlightArrivalMapCode1 = null;
 		return FlightArrivalMapCode1;
-		
-		
 	}
-
+ 
+	
 }
