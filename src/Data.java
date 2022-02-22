@@ -2,8 +2,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
+//import Flightclass;
 
 public class Data {
 	private static Data instance = new Data();
@@ -68,6 +70,17 @@ public class Data {
 		}return null;
 	}
 	
+	public Flightclass findflight(String flightNumber) {
+		Flightclass flight = null;
+		if (tickets.size() > 0) { 
+			for (int i = 0; i < flights.size(); i++) {
+				if (flightNumber == flights.get(i).getFlightnumber()) {
+					flight = flights.get(i);
+				}
+			}
+		}return flight;
+
+	}
 
 //Read CSV	
 	  public void main(String[] args) throws Exception {
@@ -78,11 +91,12 @@ public class Data {
 	      while (myReader.hasNextLine()) {
 	        String[] data = myReader.nextLine().split(",");
 	        Flightclass flightC = new Flightclass();
-	        
-	        flightC.setDateofflight(LocalDate.parse(data[0]));
-	        flightC.setDeparturetime(LocalTime.parse(data[1]));
-	        flightC.setArrivaltime(LocalTime.parse(data[2]));
-	        flightC.setFlightduration(Integer.parseInt(data[3]));
+	        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	        DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm");
+	        flightC.setDateofflight(LocalDate.parse(data[0],dateFormat));
+	        flightC.setDeparturetime(LocalTime.parse(data[1],timeFormat));
+	        flightC.setArrivaltime(LocalTime.parse(data[2],timeFormat));
+	        flightC.setFlightduration(LocalTime.parse(data[3],timeFormat));
 	        flightC.setDistance(Double.parseDouble(data[4]));
 	        flightC.setDelay(Integer.parseInt(data[5]));
 	        flightC.setDepartureairport(data[6]);
