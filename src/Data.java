@@ -61,14 +61,7 @@ public class Data {
 		return ticket;
 	} // finds a specific ticket object given a ticket number,
 	
-	//need this for finance, i still need to fix this
-	public Flight findFlight(String flightNumber) {
-		for(int i =0; i<flights.size();i++);{
-			if(flightNumber.equals(flights.get(i).getFlightNumber() ) ) {
-				return flights.get(i);				
-			}
-		}return null;
-	}
+	
 	
 	public Flightclass findflight(String flightNumber) {
 		Flightclass flight = null;

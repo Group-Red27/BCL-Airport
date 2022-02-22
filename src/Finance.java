@@ -4,7 +4,8 @@ public class Finance {
 	
 	Data data = Data.getInstance();
 	Ticket ticket;
-	
+	SeatingPlan departureSeatingPlan; 
+	SeatingPlan arrivalSeatingPlan; 
 	double bagCost;
 	double travelDistDeparture;
 	double travelDistReturn;
@@ -19,6 +20,12 @@ public class Finance {
 	String returnFlightNumber;
 	
 	
+	public Finance(Ticket ticket) {
+		this.ticket = ticket; 
+		FlightClass flight = data.findflight(ticket.rtnflightnu);
+		this.seatingPlan = new SeatingPlan();
+		
+	}
 	
 	public Ticket getTicket() {
 		return ticket;
@@ -140,7 +147,8 @@ public class Finance {
 		return compensationCost;
 		}
 
-	public String ticketCostRating  (String seatClass) {
+	public String ticketCostRating  (String SeatNumber) {
+		String seatClass = SeatingPlan.getSeatClass(SeatNumber);
 		double classPriceRating = 0;
 		
 		if (seatClass = "economy") {

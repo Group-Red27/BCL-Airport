@@ -4,6 +4,7 @@ public class Ticket {
 	double foodCost;
 	String firstName;
 	String lastName;
+	String flightNumber;
 	
 	public Ticket() {
 		// constructor
