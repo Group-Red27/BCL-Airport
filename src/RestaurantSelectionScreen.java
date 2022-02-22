@@ -89,7 +89,11 @@ public class RestaurantSelectionScreen extends JFrame {
 		flightsButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		flightsButton.setBackground(new Color(255, 255, 255));
 		
-		JButton restuarantButton = new JButton("Restuarant");
+		JButton restuarantButton = new JButton("Restaurant");
+		restuarantButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		restuarantButton.setEnabled(false);
 		buttonPanel.add(restuarantButton);
 		restuarantButton.setForeground(new Color(255, 255, 255));
