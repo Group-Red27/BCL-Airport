@@ -55,11 +55,6 @@ public class AirbusA318 extends JFrame {
 		airbusA318Label.setBounds(22, 30, 220, 28);
 		contentPane.add(airbusA318Label);
 		
-		JLabel selectLabel = new JLabel("select x seats");
-		selectLabel.setForeground(Color.BLUE);
-		selectLabel.setFont(new Font("Tahoma", Font.BOLD, 9));
-		selectLabel.setBounds(22, 59, 74, 28);
-		contentPane.add(selectLabel);
 		
 		JLabel businessClassLabel = new JLabel("Business Class");
 		businessClassLabel.setForeground(Color.BLUE);
