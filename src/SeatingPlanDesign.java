@@ -20,10 +20,10 @@ import java.awt.event.MouseEvent;
 public class SeatingPlanDesign extends JFrame {
 	
 	private JPanel contentPane;
-	public static SeatingPlanDesign instance;
 	private JComboBox numOfTicketsComboBox;
 	public JLabel returnSeatNumbersLabel;
-	public JLabel departureSeatNumbersLabel;
+	public static JLabel departureSeatNumbersLabel;
+	
 
 
 	/**
@@ -125,7 +125,7 @@ public class SeatingPlanDesign extends JFrame {
 		contentPane.add(completeTicketDetailsPlanButton);
 		
 		
-	instance=this;}
+	}
 	
 
 }

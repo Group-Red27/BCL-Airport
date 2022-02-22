@@ -18,7 +18,6 @@ public class AirbusA318 extends JFrame {
 	SeatingPlanDesign p;
 	private JPanel contentPane;
 	public JToggleButton[] seatNumber;
-	public static AirbusA318 instance;
 	
 
 
@@ -74,12 +73,7 @@ public class AirbusA318 extends JFrame {
 		economyClassLabel.setBounds(22, 241, 86, 28);
 		contentPane.add(economyClassLabel);
 		
-		JButton btnBook = new JButton("Book Seats");
-		btnBook.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnBook.setBounds(155, 500, 107, 36);
-		btnBook.setBackground(new Color(0, 0, 128));
-		btnBook.setForeground(new Color(255, 255, 255));
-		contentPane.add(btnBook);
+		
 		
 		//Button Array
 		
@@ -219,36 +213,29 @@ public class AirbusA318 extends JFrame {
 		        @Override
 		        public void actionPerformed(ActionEvent e) {
 					SeatingPlanDesign S = new SeatingPlanDesign();
-					boolean clicked = false;
 					
 					for(int i=0;i<seatNumber.length;i++)
-						if(listener != null) {
-							SeatingPlanDesign.instance.departureSeatNumbersLabel.setText("Departure Seats: "+seatNumber[i]);
-							S.setVisible(true);
+						{
+							SeatingPlanDesign.departureSeatNumbersLabel.setText("Departure Seats: "+seatNumber[i].isSelected());
 					    	
 					    } 
-					
+					S.setVisible(true);
+
 		        		
 				    
 		        }
 		    };
-
 		    
-			JButton btnBooking = new JButton("Book Seats");
-			btnBooking.setFont(new Font("Tahoma", Font.BOLD, 11));
-			btnBooking.setBounds(183, 650, 107, 36);
-			btnBooking.setBackground(new Color(0, 0, 128));
-			btnBooking.setForeground(new Color(255, 255, 255));
-			btnBooking.addActionListener(listener2);
-			contentPane.add(btnBooking);
-		
-			
-			instance = this;}
+		    JButton btnBook = new JButton("Book Seats");
+			btnBook.setFont(new Font("Tahoma", Font.BOLD, 11));
+			btnBook.setBounds(155, 500, 107, 36);
+			btnBook.setBackground(new Color(0, 0, 128));
+			btnBook.setForeground(new Color(255, 255, 255));
+			btnBook.addActionListener(listener2);
+			contentPane.add(btnBook);
 
-	public static AirbusA318 getinstance() {
-		return instance ;
+	
 	}
-
 			
 }
 
