@@ -18,8 +18,13 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class SeatingPlanDesign extends JFrame {
-
+	
 	private JPanel contentPane;
+	private JComboBox numOfTicketsComboBox;
+	public JLabel returnSeatNumbersLabel;
+	public static JLabel departureSeatNumbersLabel;
+	
+
 
 	/**
 	 * Launch the application.
@@ -41,6 +46,8 @@ public class SeatingPlanDesign extends JFrame {
 	 * Create the frame.
 	 */
 	public SeatingPlanDesign() {
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 550, 387);
 		contentPane = new JPanel();
@@ -57,7 +64,7 @@ public class SeatingPlanDesign extends JFrame {
 		contentPane.add(flightLabel);
 		
 		JComboBox numOfTicketsComboBox = new JComboBox();
-		numOfTicketsComboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
+		numOfTicketsComboBox.setModel(new DefaultComboBoxModel(new Integer[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}));
 		numOfTicketsComboBox.setBounds(140, 218, 38, 17);
 		contentPane.add(numOfTicketsComboBox);
 		
@@ -68,17 +75,20 @@ public class SeatingPlanDesign extends JFrame {
 		contentPane.add(numOfTicketsLabel);
 		
 		JButton viewSeatingPlanButton = new JButton("View Seating Plan");
+		viewSeatingPlanButton.setFont(new Font("Tahoma", Font.BOLD, 11));
+		viewSeatingPlanButton.setBackground(new Color(0, 0, 128));
+		viewSeatingPlanButton.setForeground(new Color(255, 255, 255));
+		viewSeatingPlanButton.setBounds(40, 252, 138, 23);
+		contentPane.add(viewSeatingPlanButton);
+		
+		
 		viewSeatingPlanButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AirbusA318_JDiolog A = new AirbusA318_JDiolog();
 				A.setVisible(true);
 			}	
 			});
-		viewSeatingPlanButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		viewSeatingPlanButton.setBackground(new Color(0, 0, 128));
-		viewSeatingPlanButton.setForeground(new Color(255, 255, 255));
-		viewSeatingPlanButton.setBounds(40, 252, 138, 23);
-		contentPane.add(viewSeatingPlanButton);
+		
 		
 		JLabel departureSeatsLabel = new JLabel("Departure Seats: ");
 		departureSeatsLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -94,12 +104,15 @@ public class SeatingPlanDesign extends JFrame {
 		returnSeatsLabel.setBounds(290, 256, 100, 14);
 		contentPane.add(returnSeatsLabel);
 		
-		JLabel departureSeatNumbersLabel = new JLabel("..............");
+		
+		
+		JLabel departureSeatNumbersLabel = new JLabel("depart");
 		departureSeatNumbersLabel.setForeground(new Color(0, 0, 255));
 		departureSeatNumbersLabel.setBounds(416, 219, 46, 14);
 		contentPane.add(departureSeatNumbersLabel);
+	
 		
-		JLabel returnSeatNumbersLabel = new JLabel("..............");
+		JLabel returnSeatNumbersLabel = new JLabel("return");
 		returnSeatNumbersLabel.setForeground(new Color(0, 0, 255));
 		returnSeatNumbersLabel.setBounds(416, 256, 46, 14);
 		contentPane.add(returnSeatNumbersLabel);
@@ -110,5 +123,9 @@ public class SeatingPlanDesign extends JFrame {
 		completeTicketDetailsPlanButton.setBackground(new Color(0, 0, 128));
 		completeTicketDetailsPlanButton.setBounds(159, 302, 179, 23);
 		contentPane.add(completeTicketDetailsPlanButton);
+		
+		
 	}
+	
+
 }

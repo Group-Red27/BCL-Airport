@@ -89,7 +89,11 @@ public class RestaurantSelectionScreen extends JFrame {
 		flightsButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		flightsButton.setBackground(new Color(255, 255, 255));
 		
-		JButton restuarantButton = new JButton("Restuarant");
+		JButton restuarantButton = new JButton("Restaurant");
+		restuarantButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		restuarantButton.setEnabled(false);
 		buttonPanel.add(restuarantButton);
 		restuarantButton.setForeground(new Color(255, 255, 255));
@@ -99,7 +103,10 @@ public class RestaurantSelectionScreen extends JFrame {
 		JButton financeButton = new JButton("Finance");
 		financeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				//Finance_GUI financeScreen = new Finance_GUI();
+				setVisible(false);
+				//financeScreen.main(null);
+				// might need to delete main after this 
 			}
 		});
 		financeButton.addMouseListener(new MouseAdapter() {
@@ -474,11 +481,11 @@ public class RestaurantSelectionScreen extends JFrame {
 		JTextPane[] descriptionText = {description1,description2,description3,description4,description5,description6,description7,description8,description9,description10,description11,description12};
 		JTextField[] entryList = {entry1,entry2,entry3,entry4,entry5,entry6,entry7,entry8,entry9,entry10,entry11,entry12};
 		for (int i = 0; i < 12; i ++) {
-			priceLabels[i].setText(String.format("£%.2f", data.itemsAvailable[i].getPrice()));
-			descriptionText[i].setText(data.itemsAvailable[i].getDescription());
-			itemNames[i].setText(data.itemsAvailable[i].getItemName());
-			// entry markOutOfStock test
-			if (data.itemsAvailable[i].getStockLevel() == 0) {
+			priceLabels[i].setText(String.format("£%.2f", data.getItemsAvailable()[i].getPrice()));
+			descriptionText[i].setText(data.getItemsAvailable()[i].getDescription());
+			itemNames[i].setText(data.getItemsAvailable()[i].getItemName());
+			// entry markOutOfStock test, restock not run from here
+			if (data.getItemsAvailable()[i].getStockLevel() == 0) {
 				entryList[i].enable(false);
 				entryList[i].setBackground(Color.GRAY);
 			} 
@@ -534,13 +541,13 @@ public class RestaurantSelectionScreen extends JFrame {
 					
 					Object[][] tableData = new Object[rows][4];
 					for (int i = 0; i < rows; i++ ) {
-						tableData[i][0] = data.itemsAvailable[index.get(i)].getItemName();
-						tableData[i][1] = String.format("£%.2f",data.itemsAvailable[index.get(i)].getPrice());
+						tableData[i][0] = data.getItemsAvailable()[index.get(i)].getItemName();
+						tableData[i][1] = String.format("£%.2f",data.getItemsAvailable()[index.get(i)].getPrice());
 						tableData[i][2] = order.getQuantity()[index.get(i)];
 						tableData[i][3] = String.format("£%.2f",order.getNetPrices()[index.get(i)]); 
 					}  //create data for table 
 					
-					RestaurantConfirmationScreen confirmationScreen = new RestaurantConfirmationScreen(order,tableData);
+					RestaurantConfirmationScreen confirmationScreen = new RestaurantConfirmationScreen(order,tableData,entryList);
 					setVisible(false);
 					confirmationScreen.setVisible(true);
 				} // end of if statement, if false, do nothing 

@@ -3,10 +3,13 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JToggleButton;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -17,6 +20,9 @@ import javax.swing.SwingConstants;
 public class Boeing747 extends JFrame {
 
 	private JPanel contentPane;
+	private JButton[] seatNumber;
+	private static Boeing747 instance = new Boeing747();
+
 
 	/**
 	 * Launch the application.
@@ -82,16 +88,16 @@ public class Boeing747 extends JFrame {
 		
 		//Buttons
 		
-		JButton[] seatNumber = new JButton[84];
+		JToggleButton[] seatNumber = new JToggleButton[84];
 				
-		String[] FirstClassLabel= {"1A","2A","3A","4A","5A","1B","2B","3B","4B","5B"};
+		String[] Label= {"1A","2A","3A","4A","5A","1B","2B","3B","4B","5B", //First Class
 		
-		String[] BusinessClassLabel= {"6A","7A","8A","9A","10A",
-									  "6B","7B","8B","9B","10B",
-									  "6C","7C","8C","9C","10C",
-									  "6D","7D","8D","9D","10D",};
+									"6A","7A","8A","9A","10A", //Business Class
+									"6B","7B","8B","9B","10B",
+								    "6C","7C","8C","9C","10C",
+									"6D","7D","8D","9D","10D",
 		
-		String[] EconomyLabel= {"11A","12A","13A","14A","15A","16A","17A","18A","19A",
+								"11A","12A","13A","14A","15A","16A","17A","18A","19A", //Economy class
 								"11B","12B","13B","14B","15B","16B","17B","18B","19B",
 								"11C","12C","13C","14C","15C","16C","17C","18C","19C",
 								"11D","12D","13D","14D","15D","16D","17D","18D","19D",
@@ -105,136 +111,168 @@ public class Boeing747 extends JFrame {
 		int yCounter7 =420,yCounter8 =420, yCounter9 =420, yCounter10 =420, yCounter11 =420,yCounter12 =420;
 
 
+		ActionListener listener = new ActionListener() {
 
-		Handling h = new Handling();
+	        @Override
+	        public void actionPerformed(ActionEvent e) {
+	        	for (int i=0;i<seatNumber.length;i++) {
+	        		
+	        		if(seatNumber[i].isSelected()) {
+	        			seatNumber[i].setContentAreaFilled(false);
+	        			seatNumber[i].setOpaque(true);
+	        			seatNumber[i].setBackground(Color.LIGHT_GRAY); 	
+				    }
+	        		
+	        		else {
+	        			seatNumber[i].setContentAreaFilled(false);
+	        			seatNumber[i].setOpaque(true);
+	        			seatNumber[i].setBackground(new Color(126, 192, 236)); 
+	        			
+	        		}
+				    	
+	        	}
+	        	
+	        }
+	    };
+
+		
 
 	//First Class
 		for(int i=0;i<5;i++) { //For loop for array of JButton [0] to [4]
-			seatNumber[i]= new JButton(FirstClassLabel[i]);
+			seatNumber[i]= new JToggleButton(Label[i]);
 			seatNumber[i].setBackground(new Color(126, 192, 236));
 			seatNumber[i].setForeground(new Color(255, 255, 255));
 			seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 			seatNumber[i].setBounds(139,yCounter+=20, 51, 21);
-			seatNumber[i].addActionListener(h);
+			seatNumber[i].addActionListener(listener);
 			contentPane.add(seatNumber[i]);
 		}
 		
 			for(int i=5;i<10;i++) {//For loop for array of JButton [4] to [9]
-				seatNumber[i]= new JButton(FirstClassLabel[i]);
+				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(234,yCounter2+=20, 51, 21);
-				seatNumber[i].addActionListener(h);
+				seatNumber[i].addActionListener(listener);
 				contentPane.add(seatNumber[i]);
 			}
 			
 		//Business Class
 			
-		for(int i=0;i<5;i++) {//For loop for array of JButton [0] to [5]
-				seatNumber[i]= new JButton(BusinessClassLabel[i]);
+		for(int i=10;i<15;i++) {//For loop for array of JButton [0] to [5]
+				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(110,yCounter3+=20, 51, 21);
-				seatNumber[i].addActionListener(h);
+				seatNumber[i].addActionListener(listener);
 				contentPane.add(seatNumber[i]);
 			}
 			
-			for(int i=5;i<10;i++) {//For loop for array of JButton [8] to [16]
-				seatNumber[i]= new JButton(BusinessClassLabel[i]);
+			for(int i=15;i<20;i++) {//For loop for array of JButton [8] to [16]
+				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(170,yCounter4+=20, 51, 21);
-				seatNumber[i].addActionListener(h);
+				seatNumber[i].addActionListener(listener);
 				contentPane.add(seatNumber[i]);
 			}
 			
-			for(int i=10;i<15;i++) {//For loop for array of JButton [16] to [24]
-				seatNumber[i]= new JButton(BusinessClassLabel[i]);
+			for(int i=20;i<25;i++) {//For loop for array of JButton [16] to [24]
+				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(230,yCounter5+=20, 51, 21);
-				seatNumber[i].addActionListener(h);
+				seatNumber[i].addActionListener(listener);
 				contentPane.add(seatNumber[i]);
 			}
 			
-			for(int i=15;i<20;i++) {//For loop for array of JButton [24] to [32]
-				seatNumber[i]= new JButton(BusinessClassLabel[i]);
+			for(int i=25;i<30;i++) {//For loop for array of JButton [24] to [32]
+				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(290,yCounter6+=20, 51, 21);
-				seatNumber[i].addActionListener(h);
+				seatNumber[i].addActionListener(listener);
 				contentPane.add(seatNumber[i]);
 			}
 			
 			//Economy class
-			for(int i=0;i<9;i++) {
-				seatNumber[i]= new JButton(EconomyLabel[i]);
+			for(int i=30;i<39;i++) {
+				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(80,yCounter7+=20, 51, 21);
-				seatNumber[i].addActionListener(h);
+				seatNumber[i].addActionListener(listener);
 				contentPane.add(seatNumber[i]);
 			}
 			
-			for(int i=9;i<18;i++) {
-				seatNumber[i]= new JButton(EconomyLabel[i]);
+			for(int i=39;i<48;i++) {
+				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(131,yCounter8+=20, 51, 21);
-				seatNumber[i].addActionListener(h);
+				seatNumber[i].addActionListener(listener);
 				contentPane.add(seatNumber[i]);
 			}
 		
-			for(int i=18;i<27;i++) {
-				seatNumber[i]= new JButton(EconomyLabel[i]);
+			for(int i=48;i<57;i++) {
+				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(182,yCounter9+=20, 51, 21);
-				seatNumber[i].addActionListener(h);
+				seatNumber[i].addActionListener(listener);
 				contentPane.add(seatNumber[i]);
 			}
 			
-			for(int i=27;i<36;i++) {
-				seatNumber[i]= new JButton(EconomyLabel[i]);
+			for(int i=57;i<66;i++) {
+				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(254,yCounter10+=20, 51, 21);
-				seatNumber[i].addActionListener(h);
+				seatNumber[i].addActionListener(listener);
 				contentPane.add(seatNumber[i]);
 			}
 			
-			for(int i=36;i<45;i++) {
-				seatNumber[i]= new JButton(EconomyLabel[i]);
+			for(int i=66;i<75;i++) {
+				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(305,yCounter11+=20, 51, 21);
-				seatNumber[i].addActionListener(h);
+				seatNumber[i].addActionListener(listener);
 				contentPane.add(seatNumber[i]);
 			}
 			
-			for(int i=45;i<54;i++) {
-				seatNumber[i]= new JButton(EconomyLabel[i]);
+			for(int i=75;i<84;i++) {
+				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(356,yCounter12+=20, 51, 21);
-				seatNumber[i].addActionListener(h);
+				seatNumber[i].addActionListener(listener);
 				contentPane.add(seatNumber[i]);
 			}
 			
+			JButton btnBook = new JButton("Book Seats");
+			btnBook.setFont(new Font("Tahoma", Font.BOLD, 11));
+			btnBook.setBounds(183, 650, 107, 36);
+			btnBook.setBackground(new Color(0, 0, 128));
+			btnBook.setForeground(new Color(255, 255, 255));
+			contentPane.add(btnBook);
 			
-			
+	}
 
+
+	
+}
 //		//SeatClass Buttons
 //		
 //		JButton oneAButton = new JButton("1A");
@@ -838,6 +876,5 @@ public class Boeing747 extends JFrame {
 //		fourAButton_1_4_1_1_1_1.setBackground(new Color(126, 192, 236));
 //		fourAButton_1_4_1_1_1_1.setBounds(374, 654, 51, 21);
 //		contentPane.add(fourAButton_1_4_1_1_1_1);
-	}
-}
+
 

@@ -1,5 +1,7 @@
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.swing.JTextField;
 
@@ -87,7 +89,7 @@ public class FoodOrder {
 				if (quantityInt[i] > 0) {
 					// if to check if item selected
 					selected[i] = true;
-					int stockLevel = data.itemsAvailable[i].getStockLevel();
+					int stockLevel = data.getItemsAvailable()[i].getStockLevel();
 					if (quantityInt[i] > stockLevel) {
 						// if statement to adjust selected according to stock level
 						quantityInt[i] = stockLevel;
@@ -99,7 +101,7 @@ public class FoodOrder {
 					selected[i] = false;
 				}
 			}// validate the quantites entered
-			double[] netPrices = calcNetPrices(data.itemsAvailable, quantityInt);
+			double[] netPrices = calcNetPrices(data.getItemsAvailable(), quantityInt);
 			double totalCost = calcTotalCost(netPrices);
 			setQuantity(quantityInt);
 			setNetPrices(netPrices);
@@ -118,7 +120,8 @@ public class FoodOrder {
 
 
 	////////////////// confirm order
-	public void confirmOrder(JTextField ticketEntry, JTextField nameEntry) {
+	public boolean confirmOrder(JTextField ticketEntry, JTextField nameEntry, JTextField[] entryList) {
+		boolean moveFrame = true;
 		Popup popup = new Popup();
 		String ticketNumber = ticketEntry.getText(); 
 		setTicket(ticketNumber);
@@ -126,19 +129,22 @@ public class FoodOrder {
 		String errorString = validateDetails(passengerName);
 		if (errorString != "") {
 			popup.showErrorMessage(errorString);
+			moveFrame = false;
 		} else {
 			for (int i = 0; i < 12; i++) {
-				int currentStock = data.itemsAvailable[i].getStockLevel();
+				int currentStock = data.getItemsAvailable()[i].getStockLevel();
 				int newStock = currentStock - quantity[i];
 				if (newStock == 0) {
-					data.itemsAvailable[i].setStockLevel(0);
-				}
+					restockTimer(data.getItemsAvailable()[i],entryList[i]);
+					// if statement when an item gets put out of stock, restock with timer
+				} 
+				data.getItemsAvailable()[i].setStockLevel(newStock);
 			}
 			Ticket ticket = getTicket();
-			setTotalCost(totalCost);
 			addCostToTicket(ticket, totalCost);
 			popup.showSuccessMessage("Purchase Successful, you will be returned to the SELECTION menu");
-		}
+		} 
+		return moveFrame;
 	}
 	
 	//////////// validate quantity
@@ -183,7 +189,7 @@ public class FoodOrder {
 		} else if (ticket == null) {
 			errorString = "Invalid ticket number, you will be returned to the CONFIRMATION menu";
 		} else 
-			if (passengerName != ticket.getPassengerName()) {
+			if (passengerName.equals(ticket.getPassengerName()) == false) {
 			errorString = "Details don’t match, you will be returned to the CONFIRMATION menu";
 		} 
 		return errorString;
@@ -214,7 +220,7 @@ public class FoodOrder {
 		return valid;
 	}
 	
-	public double[] calcNetPrices(FoodItem[] itemsAvailable, int[] quantity) {
+	public double[] calcNetPrices(Fooditem[] itemsAvailable, int[] quantity) {
 		double[] netPrices = new double[12];
 		for (int i = 0; i < 12; i++) {
 			double netPrice = 0;
@@ -232,21 +238,16 @@ public class FoodOrder {
 		return total;
 	}
 	
-	public void checkForRestock() {
-		for (int i = 0; i < 12; i++) {
-			int stockLevel = data.itemsAvailable[i].getStockLevel();
-			if (stockLevel == 0) {
-				restock(data.itemsAvailable[i]);
-			}
-		}
-	}
 	
-	public void restock(FoodItem item) {
-		LocalTime currentTime = java.time.LocalTime.now();
-		LocalTime restockTime = item.getTimePrompt();
-		if (currentTime.compareTo(restockTime) >= 0) {
-			item.setStockLevel(100);
-		}
+	public static void restockTimer(Fooditem item, JTextField entry) {
+		Timer timer = new Timer();
+		TimerTask restock = new TimerTask() {
+			public void run() {
+				item.setStockLevel(100);
+				entry.enable(true);
+				System.out.println("restock this item");
+			}
+		}; timer.schedule(restock,180000);
 	}
 	
 	public void addCostToTicket(Ticket ticket, double totalCost) {
