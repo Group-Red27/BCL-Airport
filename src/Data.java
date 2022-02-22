@@ -5,6 +5,8 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import tutorials.Flightclass;
+
 public class Data {
 	private static Data instance = new Data();
 	ArrayList<Flightclass> flights;
@@ -59,6 +61,17 @@ public class Data {
 		return ticket;
 	} // finds a specific ticket object given a ticket number
 	
+	public Flightclass findflight(String flightNumber) {
+		Flightclass flight = null;
+		if (tickets.size() > 0) { 
+			for (int i = 0; i < flights.size(); i++) {
+				if (flightNumber == flights.get(i).getFlightnumber()) {
+					flight = flights.get(i);
+				}
+			}
+		}return flight;
+
+	}
 
 //Read CSV	
 	  public void main(String[] args) throws Exception {
