@@ -57,7 +57,16 @@ public class Data {
 			}
 		} // if statement in case tickets array has no tickets in it yet.
 		return ticket;
-	} // finds a specific ticket object given a ticket number
+	} // finds a specific ticket object given a ticket number,
+	
+	//need this for finance, i still need to fix this
+	public Flight findFlight(String flightNumber) {
+		for(int i =0; i<flights.size();i++);{
+			if(flightNumber.equals(flights.get(i).getFlightNumber() ) ) {
+				return flights.get(i);				
+			}
+		}return null;
+	}
 	
 
 //Read CSV	
