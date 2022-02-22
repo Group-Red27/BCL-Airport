@@ -217,7 +217,7 @@ public class SeatingPlan {
 		return valid;
 }
 		
-		public int Index(String selectedSeats,String[] seatNumber ) //Index for Selected seats and seatNumber. 
+		public int getIndex(String selectedSeats,String[] seatNumber ) //Index for Selected seats and seatNumber. 
 		{
 			int index=0;
 			for(int i=0;i<=seatNumber.length;i++)
@@ -230,19 +230,29 @@ public class SeatingPlan {
 		}
 		
 		
-		public boolean selectSeats()
+		public void selectSeats()
 		{
 			for(int i=0;i<=selectedSeats.length;i++)
 			{
-				int Index =
-				
+				int Index = getIndex(selectedSeats[i],seatNumber);
+				seatAvailability[Index]=true;
 			}
-			return false;
 		}
 		
-		private int getIndex() {
-			return getIndex();
+		public boolean isSeatNumberAvailable()
+		{
+			boolean valid=true;
+			for (int i=0;i<=selectedSeats.length;i++)
+			{
+				int Index = getIndex(selectedSeats[i],seatNumber);
+					if(seatAvailability[Index]=false)
+					{
+						valid=false;
+					}
+			}
+			return valid;
 		}
+		
 
 		public String getSeatClass(String seatNumber) throws Exception {
 			
