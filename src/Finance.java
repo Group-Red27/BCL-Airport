@@ -111,20 +111,24 @@ public class Finance {
 	return ("*****");
 	}
 	
+	private String bagCostError(){
+		return ("Invalid input for number of bags checked in, please go back to bookings & enter a valid number.If there is no bags then enter zero");
+		}
+	
 	public double calBagCost(int noOfBags) {
 		
 		Ticket ticket = getTicket();
 		noOfBags = ticket.getNoOfBags();
-		String bagCostError = "";
 		bagCost = 0; //Do I need this
 		
 		if (noOfBags > 0) {
 			bagCost = noOfBags * 25.00;
+			
 		} else if (noOfBags == 0){
 			bagCost = 0.00;
 		} else 
-			bagCostError = "Invalid input for number of bags checked in, please go back to bookings & enter a valid number.If there is no bags then enter zero";
 			System.out.println(anError());
+			System.out.println(bagCostError());
 		return bagCost;
 	}
 	

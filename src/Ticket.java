@@ -4,8 +4,11 @@ public class Ticket {
 	double foodCost;
 	String firstName;
 	String lastName;
-	String flightNumber;
+	String departureFlightNumber;
+	String returnFlightNumber;
+	int noOfBags;
 	
+
 	public Ticket() {
 		// constructor
 	}
@@ -27,11 +30,18 @@ public class Ticket {
 		// TODO Auto-generated method stub
 		return firstName+" "+lastName;
 	}
+	public int getNoOfBags() {
+		return noOfBags;
+	}
+
+	public void setNoOfBags(int noOfBags) {
+		this.noOfBags = noOfBags;
+	}
 	
 	public void addTicketToData() {
 		Data data = Data.getInstance();
 		data.addTicketToData(this);
 		
 	}
-
+	
 }
