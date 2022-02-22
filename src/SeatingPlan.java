@@ -12,10 +12,10 @@ public class SeatingPlan {
 		 private String[][] seatClass;
 		 
 
-		 public SeatingPlan(String planeType, Flightclass flight) {
+		 public SeatingPlan(String planeType, Flightclass flight) { //constructor 
 			 this.flight = flight;
 			 this.planeType = planeType;
-			 if (this.planeType=="airbus")
+			 if (this.planeType=="AirbusA318")
 				{
 				
 					this.seatClass = new String[][] {{"Business class","Economy"}, 
@@ -190,12 +190,15 @@ public class SeatingPlan {
 			if(flight.getFlightduration()<=LocalTime.parse(120, timeFormat))
 			{
 				valid=true;//frame change to airbus
+				planeType="AirbusA318";
 				
 				
 			}
 			if(flight.getFlightduration()>120)
 			{
 				valid=false;//frame change to boeing
+				planeType="AirbusA318";
+
 			}
 			
 			return valid;
@@ -239,9 +242,10 @@ public class SeatingPlan {
 			}
 		}
 		
-		public boolean isSeatNumberAvailable()
+		public boolean isSeatNumberAvailable(String[] seatNumber)
 		{
 			boolean valid=true;
+			
 			for (int i=0;i<=selectedSeats.length;i++)
 			{
 				int Index = getIndex(selectedSeats[i],seatNumber);

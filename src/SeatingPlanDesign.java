@@ -86,7 +86,7 @@ public class SeatingPlanDesign extends JFrame {
 		
 		viewSeatingPlanButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AirbusA318_JDiolog A = new AirbusA318_JDiolog();
+				AirbusA318 A = new AirbusA318();
 				A.setVisible(true);
 			}	
 			});
