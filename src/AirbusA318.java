@@ -213,12 +213,8 @@ public class AirbusA318 extends JFrame {
 		        @Override
 		        public void actionPerformed(ActionEvent e) {
 					SeatingPlanDesign S = new SeatingPlanDesign();
-					
-					for(int i=0;i<seatNumber.length;i++)
-						{
-							SeatingPlanDesign.departureSeatNumbersLabel.setText("Departure Seats: "+seatNumber[i].isSelected());
-					    	
-					    } 
+				
+					SeatingPlanDesign.departureSeatNumbersLabel.setText("HI");   
 					S.setVisible(true);
 
 		        		

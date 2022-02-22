@@ -106,13 +106,13 @@ public class SeatingPlanDesign extends JFrame {
 		
 		
 		
-		JLabel departureSeatNumbersLabel = new JLabel("..............");
+		JLabel departureSeatNumbersLabel = new JLabel("depart");
 		departureSeatNumbersLabel.setForeground(new Color(0, 0, 255));
 		departureSeatNumbersLabel.setBounds(416, 219, 46, 14);
 		contentPane.add(departureSeatNumbersLabel);
 	
 		
-		JLabel returnSeatNumbersLabel = new JLabel("..............");
+		JLabel returnSeatNumbersLabel = new JLabel("return");
 		returnSeatNumbersLabel.setForeground(new Color(0, 0, 255));
 		returnSeatNumbersLabel.setBounds(416, 256, 46, 14);
 		contentPane.add(returnSeatNumbersLabel);
