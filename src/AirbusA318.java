@@ -18,7 +18,6 @@ public class AirbusA318 extends JFrame {
 	SeatingPlanDesign p;
 	private JPanel contentPane;
 	public JToggleButton[] seatNumber;
-	public static AirbusA318 instance;
 	
 
 
@@ -56,11 +55,6 @@ public class AirbusA318 extends JFrame {
 		airbusA318Label.setBounds(22, 30, 220, 28);
 		contentPane.add(airbusA318Label);
 		
-		JLabel selectLabel = new JLabel("select x seats");
-		selectLabel.setForeground(Color.BLUE);
-		selectLabel.setFont(new Font("Tahoma", Font.BOLD, 9));
-		selectLabel.setBounds(22, 59, 74, 28);
-		contentPane.add(selectLabel);
 		
 		JLabel businessClassLabel = new JLabel("Business Class");
 		businessClassLabel.setForeground(Color.BLUE);
@@ -74,12 +68,7 @@ public class AirbusA318 extends JFrame {
 		economyClassLabel.setBounds(22, 241, 86, 28);
 		contentPane.add(economyClassLabel);
 		
-		JButton btnBook = new JButton("Book Seats");
-		btnBook.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnBook.setBounds(155, 500, 107, 36);
-		btnBook.setBackground(new Color(0, 0, 128));
-		btnBook.setForeground(new Color(255, 255, 255));
-		contentPane.add(btnBook);
+		
 		
 		//Button Array
 		
@@ -90,7 +79,6 @@ public class AirbusA318 extends JFrame {
 				"6B","7B","8B","9B","10B","11B","12B","13B",
 				"6C","7C","8C","9C","10C","11C","12C","13C",
 				"6D","7D","8D","9D","10D","11D","12D","13D",
-				"6E","7E","8E","9E","10E","11E","12E","13E",
 				"6E","7E","8E","9E","10E","11E","12E","13E",
 				"6F","7F","8F","9F","10F","11F","12F","13F"};
 		
@@ -220,36 +208,25 @@ public class AirbusA318 extends JFrame {
 		        @Override
 		        public void actionPerformed(ActionEvent e) {
 					SeatingPlanDesign S = new SeatingPlanDesign();
-					boolean clicked = false;
-					
-					for(int i=0;i<seatNumber.length;i++)
-						if(listener != null) {
-							SeatingPlanDesign.instance.departureSeatNumbersLabel.setText("Departure Seats: "+seatNumber[i]);
-							S.setVisible(true);
-					    	
-					    } 
-					
+				
+					SeatingPlanDesign.departureSeatNumbersLabel.setText("HI");   
+					S.setVisible(true);
+
 		        		
 				    
 		        }
 		    };
-
 		    
-			JButton btnBooking = new JButton("Book Seats");
-			btnBooking.setFont(new Font("Tahoma", Font.BOLD, 11));
-			btnBooking.setBounds(183, 650, 107, 36);
-			btnBooking.setBackground(new Color(0, 0, 128));
-			btnBooking.setForeground(new Color(255, 255, 255));
-			btnBooking.addActionListener(listener2);
-			contentPane.add(btnBooking);
-		
-			
-			instance = this;}
+		    JButton btnBook = new JButton("Book Seats");
+			btnBook.setFont(new Font("Tahoma", Font.BOLD, 11));
+			btnBook.setBounds(155, 500, 107, 36);
+			btnBook.setBackground(new Color(0, 0, 128));
+			btnBook.setForeground(new Color(255, 255, 255));
+			btnBook.addActionListener(listener2);
+			contentPane.add(btnBook);
 
-	public static AirbusA318 getinstance() {
-		return instance ;
+	
 	}
-
 			
 }
 

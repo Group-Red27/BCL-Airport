@@ -20,10 +20,10 @@ import java.awt.event.MouseEvent;
 public class SeatingPlanDesign extends JFrame {
 	
 	private JPanel contentPane;
-	public static SeatingPlanDesign instance;
 	private JComboBox numOfTicketsComboBox;
 	public JLabel returnSeatNumbersLabel;
-	public JLabel departureSeatNumbersLabel;
+	public static JLabel departureSeatNumbersLabel;
+	
 
 
 	/**
@@ -64,7 +64,7 @@ public class SeatingPlanDesign extends JFrame {
 		contentPane.add(flightLabel);
 		
 		JComboBox numOfTicketsComboBox = new JComboBox();
-		numOfTicketsComboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
+		numOfTicketsComboBox.setModel(new DefaultComboBoxModel(new Integer[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}));
 		numOfTicketsComboBox.setBounds(140, 218, 38, 17);
 		contentPane.add(numOfTicketsComboBox);
 		
@@ -106,13 +106,13 @@ public class SeatingPlanDesign extends JFrame {
 		
 		
 		
-		JLabel departureSeatNumbersLabel = new JLabel("..............");
+		JLabel departureSeatNumbersLabel = new JLabel("depart");
 		departureSeatNumbersLabel.setForeground(new Color(0, 0, 255));
 		departureSeatNumbersLabel.setBounds(416, 219, 46, 14);
 		contentPane.add(departureSeatNumbersLabel);
 	
 		
-		JLabel returnSeatNumbersLabel = new JLabel("..............");
+		JLabel returnSeatNumbersLabel = new JLabel("return");
 		returnSeatNumbersLabel.setForeground(new Color(0, 0, 255));
 		returnSeatNumbersLabel.setBounds(416, 256, 46, 14);
 		contentPane.add(returnSeatNumbersLabel);
@@ -125,7 +125,7 @@ public class SeatingPlanDesign extends JFrame {
 		contentPane.add(completeTicketDetailsPlanButton);
 		
 		
-	instance=this;}
+	}
 	
 
 }

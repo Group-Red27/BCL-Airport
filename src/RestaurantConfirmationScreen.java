@@ -75,8 +75,14 @@ public class RestaurantConfirmationScreen extends JFrame {
 		confirmButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		confirmButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				order.confirmOrder(ticketEntry, nameEntry, entryList);
+				boolean moveFrame = order.confirmOrder(ticketEntry, nameEntry, entryList);
+				if (moveFrame == true) {
+					RestaurantSelectionScreen selectionScreen = new RestaurantSelectionScreen();
+					setVisible(false);
+					selectionScreen.main(null);
+				}
 			}
+
 		});
 		confirmButton.setBounds(626, 393, 137, 29);
 		contentPane.add(confirmButton);
@@ -167,7 +173,7 @@ public class RestaurantConfirmationScreen extends JFrame {
 		ArrayList<String> amendedNames = new ArrayList<String>();
 		for (int i = 0; i < 12; i ++) {
 			if (amended[i] == true) {
-				amendedNames.add(data.itemsAvailable[i].getItemName());
+				amendedNames.add(data.getItemsAvailable()[i].getItemName());
 			}
 		}
 		String message = "";
