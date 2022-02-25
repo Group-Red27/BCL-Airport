@@ -22,7 +22,7 @@ public class SeatingPlanDesign extends JFrame {
 	
 	private static final String String = null;
 	private JPanel contentPane;
-	private JComboBox numOfTicketsComboBox;
+	public JComboBox numOfTicketsComboBox;
 	public JLabel returnSeatNumbersLabel;
 	public  JLabel departureSeatNumbersLabel;
 	AirbusA318 airbus;
@@ -96,18 +96,23 @@ public class SeatingPlanDesign extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				if(seatingPlan.planeSeatingPlan()==true) {
-					//if()
+					//if(seatingPlan.flight==false) {//So I dont make new ones everytime
 					AirbusA318 a = new AirbusA318();
 					a.setVisible(true);
 					
+				//}
 				}
 				else {
-					Boeing747 b = new Boeing747();
-					b.setVisible(true);
-				}
+					//if(seatingPlan.flight==false) {//So I dont make new ones everytime
+						Boeing747 b = new Boeing747();
+						b.setVisible(true);
+					}
+					
+				//}
 				
-			}	
-			});
+				
+			}
+		});
 		
 		
 		JLabel departureSeatsLabel = new JLabel("Departure Seats: ");

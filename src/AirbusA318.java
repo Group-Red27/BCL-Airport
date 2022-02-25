@@ -19,6 +19,7 @@ public class AirbusA318 extends JFrame {
 	//SeatingPlanDesign p;
 	private JPanel contentPane;
 	public JToggleButton[] seatNumber;
+	SeatingPlanDesign seatingPlan;
 	
 
 
@@ -214,18 +215,22 @@ public class AirbusA318 extends JFrame {
 		        @Override
 		        public void actionPerformed(ActionEvent e) {
 		        	ArrayList<String> seatsSelected = new ArrayList<String>();
+		        	
 		        	for (int i =0; i < seatNumber.length; i++ ) {
+		        		
+		        		
+		        		if(seatNumber[i].isSelected(true)) //Trying to get a count of the isSelected array.
+		        		{
+		        			
+		        		}
+		        		
 		        			if (seatNumber[i].isSelected() == true) {
 		        				seatsSelected.add(seatNumber[i].getText());
 		        				seatNumber[i].setEnabled(false);
 		        			}
 		        	}
 		        	SeatingPlanDesign p = new SeatingPlanDesign(seatsSelected);
-					p.setVisible(true);
-					
-
-		        		
-				    
+					p.setVisible(true);		  
 		        }
 		    };
 		    
