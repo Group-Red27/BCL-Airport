@@ -41,7 +41,7 @@ public class AirbusA318 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AirbusA318(AirbusA318 airbus) {
+	public AirbusA318() {
 		
 		
 		
