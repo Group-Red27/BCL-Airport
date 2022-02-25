@@ -25,17 +25,27 @@ public class SeatingPlanDesign extends JFrame {
 	private JComboBox numOfTicketsComboBox;
 	public JLabel returnSeatNumbersLabel;
 	public  JLabel departureSeatNumbersLabel;
+	AirbusA318 airbus;
+	Boeing747 boeing;
+	SeatingPlan seatingPlan;
 	
 
 
 	/**
 	 * Launch the application.
 	 
+	
+
+	
+	 * Create the frame.
+	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SeatingPlanDesign frame = new SeatingPlanDesign();
+					ArrayList<String> b = new ArrayList<String>();
+					SeatingPlanDesign frame = new SeatingPlanDesign(b);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,10 +53,8 @@ public class SeatingPlanDesign extends JFrame {
 			}
 		});
 	}
-
 	
-	 * Create the frame.
-	 */
+	
 	public SeatingPlanDesign(ArrayList<String> departSeats) {
 		
 		
@@ -86,8 +94,18 @@ public class SeatingPlanDesign extends JFrame {
 		
 		viewSeatingPlanButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AirbusA318 A = new AirbusA318();
-				A.setVisible(true);
+				
+				if(seatingPlan.planeSeatingPlan()==true) {
+					//if()
+					AirbusA318 a = new AirbusA318();
+					a.setVisible(true);
+					
+				}
+				else {
+					Boeing747 b = new Boeing747();
+					b.setVisible(true);
+				}
+				
 			}	
 			});
 		
@@ -119,6 +137,42 @@ public class SeatingPlanDesign extends JFrame {
 		returnSeatNumbersLabel.setForeground(new Color(0, 0, 255));
 		returnSeatNumbersLabel.setBounds(416, 256, 46, 14);
 		contentPane.add(returnSeatNumbersLabel);
+		
+		ActionListener listeners = new ActionListener() {
+			
+	        @Override
+	        public void actionPerformed(ActionEvent e) {
+	        	
+	        	if (seatingPlan.planeType =="AirbusA318") {
+	        		for (int i=0; i < airbus.seatNumber.length;i++) {
+	        			if(seatingPlan.getSeatAvailability()[i]==false)
+	        			{
+	        				airbus.seatNumber[i].enable(false);
+	        				airbus.seatNumber[i].setContentAreaFilled(false);
+	        				airbus.seatNumber[i].setOpaque(true);
+	        				airbus.seatNumber[i].setBackground(Color.white);
+	        				
+	        			}
+	        		}
+	        	}
+        			
+	        	else  {
+	        		for (int i=0; i < boeing.seatNumber.length;i++) {
+	        			if(seatingPlan.getSeatAvailability()[i]==false)
+	        			{
+	        				boeing.seatNumber[i].enable(false);
+	        				boeing.seatNumber[i].setContentAreaFilled(false);
+	        				boeing.seatNumber[i].setOpaque(true);
+	        				boeing.seatNumber[i].setBackground(Color.white);
+	        				
+	        			}
+	        		}
+	        	}
+        			
+	        			
+			    
+	        }
+	    };
 		
 		JButton completeTicketDetailsPlanButton = new JButton("Complete Ticket Details");
 		completeTicketDetailsPlanButton.setFont(new Font("Tahoma", Font.BOLD, 11));

@@ -20,7 +20,7 @@ import javax.swing.SwingConstants;
 public class Boeing747 extends JFrame {
 
 	private JPanel contentPane;
-	private JButton[] seatNumber;
+	public JButton[] seatNumber;
 	private static Boeing747 instance = new Boeing747();
 
 

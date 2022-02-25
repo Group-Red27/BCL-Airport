@@ -1,11 +1,12 @@
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Flightclass {
 
 	private LocalDate dateofflight;
-	private LocalDate departuretime;
-	private LocalDate arrivaltime;
-	private LocalDate flightduration;
+	private LocalTime departuretime;
+	private LocalTime arrivaltime;
+	private LocalTime flightduration;
 	private double distance;
 	private int delay;
 	private LocalDate departdate;
@@ -18,27 +19,28 @@ public class Flightclass {
 	private String airline;
 	private String returnflight[];
 	private String departureflight[];
+	SeatingPlan seatingPlan= null;
 	
  public LocalDate getdateofflight() {
 	 return dateofflight;
 	 
  }
-	public LocalDate getDeparturetime() {
+	public LocalTime getDeparturetime() {
 	return departuretime;
 }
-public void setDeparturetime(LocalDate departuretime) {
-	this.departuretime = departuretime;
+public void setDeparturetime(LocalTime localTime) {
+	this.departuretime = localTime;
 }
-public LocalDate getArrivaltime() {
+public LocalTime getArrivaltime() {
 	return arrivaltime;
 }
-public void setArrivaltime(LocalDate arrivaltime) {
+public void setArrivaltime(LocalTime arrivaltime) {
 	this.arrivaltime = arrivaltime;
 }
-public LocalDate getFlightduration() {
+public LocalTime getFlightduration() {
 	return flightduration;
 }
-public void setFlightduration(LocalDate flightduration) {
+public void setFlightduration(LocalTime flightduration) {
 	this.flightduration = flightduration;
 }
 public double getDistance() {

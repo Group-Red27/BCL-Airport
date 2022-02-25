@@ -5,10 +5,10 @@ public class SeatingPlan {
 
 	     Flightclass flight; 
 	     private int numOfTickets;
-		 private String planeType;
+		 public String planeType;
 		 private String[] seatNumber;
-		 private String[] selectedSeats;
-		 private boolean[] seatAvailability;
+		 public String[] selectedSeats;
+		 public boolean[] seatAvailability;
 		 private String[][] seatClass;
 		 
 
@@ -183,20 +183,23 @@ public class SeatingPlan {
 		//PlaneType
 		public boolean planeSeatingPlan() {//Which one it displays, either airbus or boeing. 
 			
-	        DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm");
 
+	        LocalTime Flightduration= flight.getFlightduration();
+	        LocalTime comparingtime= LocalTime.parse("2:00:00");
+	        
+	        int compare = Flightduration.compareTo(comparingtime);
 			
 			boolean valid=true;
-			if(flight.getFlightduration()<=LocalTime.parse(120, timeFormat))
+			if(compare>0)
 			{
-				valid=true;//frame change to airbus
-				planeType="AirbusA318";
+				valid=true;//frame change to boeing
+				planeType="Boeing747";
 				
 				
 			}
-			if(flight.getFlightduration()>120)
+			else
 			{
-				valid=false;//frame change to boeing
+				valid=false;//frame change to airbus
 				planeType="AirbusA318";
 
 			}

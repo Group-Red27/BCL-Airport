@@ -241,7 +241,7 @@ public class AirbusA318 extends JFrame {
 	}
 
 	protected String getText() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 			
