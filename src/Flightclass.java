@@ -20,8 +20,17 @@ public class Flightclass {
 	private String returnflight[];
 	private String departureflight[];
 	SeatingPlan seatingPlan= null;
+	public String flightTypes[]= {"DepartureFlights","ReturnFlights"};
+
 	
- public LocalDate getdateofflight() {
+ public String[] getFlightTypes() {
+		return flightTypes;
+	}
+	public void setFlightTypes(String[] flightTypes) {
+		this.flightTypes = flightTypes;
+	}
+	
+public LocalDate getdateofflight() {
 	 return dateofflight;
 	 
  }
