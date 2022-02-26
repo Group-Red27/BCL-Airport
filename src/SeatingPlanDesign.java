@@ -95,18 +95,18 @@ public class SeatingPlanDesign extends JFrame {
 		viewSeatingPlanButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				if(seatingPlan.planeSeatingPlan()==true) {
+				//if(seatingPlan.planeSeatingPlan()==true) {
 					//if(seatingPlan.flight==false) {//So I dont make new ones everytime
 					AirbusA318 a = new AirbusA318();
 					a.setVisible(true);
 					
 				//}
-				}
-				else {
+				//}
+				//else {
 					//if(seatingPlan.flight==false) {//So I dont make new ones everytime
 						Boeing747 b = new Boeing747();
 						b.setVisible(true);
-					}
+					//}
 					
 				//}
 				
