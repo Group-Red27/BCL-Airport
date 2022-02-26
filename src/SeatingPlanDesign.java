@@ -25,8 +25,8 @@ public class SeatingPlanDesign extends JFrame {
 	public JComboBox numOfTicketsComboBox;
 	public JLabel returnSeatNumbersLabel;
 	public  JLabel departureSeatNumbersLabel;
-	AirbusA318 airbus;
-	Boeing747 boeing;
+	AirbusA318_JDiolog airbus;
+	Boeing747_JDiolog boeing;
 	SeatingPlan seatingPlan;
 	
 
@@ -97,14 +97,14 @@ public class SeatingPlanDesign extends JFrame {
 				
 				//if(seatingPlan.planeSeatingPlan()==true) {
 					//if(seatingPlan.flight==false) {//So I dont make new ones everytime
-					AirbusA318 a = new AirbusA318();
+					AirbusA318_JDiolog a = new AirbusA318_JDiolog();
 					a.setVisible(true);
 					
 				//}
 				//}
 				//else {
 					//if(seatingPlan.flight==false) {//So I dont make new ones everytime
-						Boeing747 b = new Boeing747();
+					Boeing747_JDiolog b = new Boeing747_JDiolog();
 						b.setVisible(true);
 					//}
 					

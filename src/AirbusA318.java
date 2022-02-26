@@ -43,9 +43,7 @@ public class AirbusA318 extends JFrame {
 	 * Create the frame.
 	 */
 	public AirbusA318() {
-		
-		
-		
+	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 600);
 		contentPane = new JPanel();
