@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.Color;
+import java.awt.EventQueue;
+
 import javax.swing.UIManager;
 import javax.swing.JTextArea;
 import javax.imageio.ImageIO;
