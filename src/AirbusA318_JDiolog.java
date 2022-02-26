@@ -234,7 +234,9 @@ public class AirbusA318_JDiolog extends JDialog {
 		        				seatsSelected.add(seatNumber[i].getText());
 		        				seatNumber[i].setEnabled(false);
 		        				SeatingPlanDesign p = new SeatingPlanDesign(seatsSelected);
-				        		p.setVisible(true);
+		        				p.setVisible(true);
+				        		
+				        		
 		        					
 		        			}
 		        		}
