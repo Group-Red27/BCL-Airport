@@ -210,7 +210,6 @@ public class AirbusA318_JDiolog extends JDialog {
 		        	ArrayList<String> seatsSelected = new ArrayList<String>();
 		        	int count=0;
 		        	Popup popup = new Popup();
-    				SeatingPlanDesign p = new SeatingPlanDesign(seatsSelected);
 
 
 		        	
@@ -234,6 +233,7 @@ public class AirbusA318_JDiolog extends JDialog {
 		        			
 		        				seatsSelected.add(seatNumber[i].getText());
 		        				seatNumber[i].setEnabled(false);
+		        				SeatingPlanDesign p = new SeatingPlanDesign(seatsSelected);
 				        		p.setVisible(true);
 		        					
 		        			}
