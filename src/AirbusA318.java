@@ -215,23 +215,42 @@ public class AirbusA318 extends JFrame {
 		        @Override
 		        public void actionPerformed(ActionEvent e) {
 		        	ArrayList<String> seatsSelected = new ArrayList<String>();
+		        	int count=0;
+		        	Popup popup = new Popup();
+    				SeatingPlanDesign p = new SeatingPlanDesign(seatsSelected);
+
+
 		        	
 		        	for (int i =0; i < seatNumber.length; i++ ) {
 		        		
 		        		
-		        		if(seatNumber[i].isSelected(true)) //Trying to get a count of the isSelected array.
+		        		if(seatNumber[i].isSelected())
 		        		{
-		        			
+		        			count++;
+		        		}
+		        	}
+		        		
+		        		if (count !=2) { //I Have to change this to the value of the combobox. 
+		        			popup.showErrorMessage("You have to select the same number of tickets");
 		        		}
 		        		
-		        			if (seatNumber[i].isSelected() == true) {
+		        		else {
+
+		        			for (int i =0; i < seatNumber.length; i++ ) {
+		        				if(seatNumber[i].isSelected()) {
+		        			
 		        				seatsSelected.add(seatNumber[i].getText());
 		        				seatNumber[i].setEnabled(false);
+				        		p.setVisible(true);
+		        					
 		        			}
+		        		}
 		        	}
-		        	SeatingPlanDesign p = new SeatingPlanDesign(seatsSelected);
-					p.setVisible(true);		  
+			        	
 		        }
+						
+					
+		         
 		    };
 		    
 		    JButton btnBook = new JButton("Book Seats");
@@ -243,7 +262,8 @@ public class AirbusA318 extends JFrame {
 			contentPane.add(btnBook);
 
 	
-	}
+			}
+	
 
 	protected String getText() {
 		
