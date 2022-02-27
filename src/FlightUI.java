@@ -160,11 +160,18 @@ public class FlightUI extends JFrame {
 		comboBox_2.setBounds(649, 257, 38, 32);
 		contentPane.add(comboBox_2);
 		
-		JLabel lblNewLabel = new JLabel("");
-		ImageIcon Image= new ImageIcon(this.getClass().getResource("logo.jpg"));
-		JLabel lblNewLabel1=new JLabel(Image);
-		lblNewLabel1.setBounds(-11, 0, 142, 144);
-		contentPane.add(lblNewLabel1);
+//		JLabel lblNewLabel = new JLabel("");
+//		ImageIcon Image= new ImageIcon(this.getClass().getResource("BrunelLogo.png"));
+//		JLabel lblNewLabel1=new JLabel(Image);
+//		lblNewLabel1.setBounds(-11, 0, 142, 144);
+//		contentPane.add(lblNewLabel1);
+		
+		ImageIcon icon = new ImageIcon("BrunelLogo.png");
+		JLabel imageHolder=new JLabel(icon);
+		imageHolder.setBounds(358, 257, 64, 27);
+		contentPane.add(imageHolder);
+
+		
 		
 		
 		JComboBox comboBox_1 = new JComboBox();
