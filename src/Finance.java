@@ -4,8 +4,7 @@ public class Finance {
 	
 	Data data = Data.getInstance();
 	Ticket ticket;
-	SeatingPlan departureSeatingPlan; 
-	SeatingPlan returnSeatingPlan; 
+	SeatingPlan seatingPlan; 
 	double bagCost;
 	double travelDistDeparture;
 	double travelDistReturn;
@@ -24,8 +23,13 @@ public class Finance {
 	
 	public Finance(Ticket ticket) {
 		this.ticket = ticket; 
+<<<<<<< HEAD
 		Flightclass flight = data.findflight(ticket.departureFlightNumber);
 		this.seatingPlan = new SeatingPlan(); // i need to work on findflight method in data and seatingplan method //
+=======
+		Flightclass flight = data.findflight(ticket.rtnflightnu);
+		this.seatingPlan = seatingPlan;
+>>>>>>> 4a669bedb587047bf33332f86112401b68f28f0f
 		
 	}
 	
@@ -161,6 +165,7 @@ public class Finance {
 		System.out.format("%.2f", compensationCost);
 		}
 
+<<<<<<< HEAD
 	private String ticketCostRating  (String seatClass) {
 		this.seatClass = SeatingPlan.getSeatClass();
 		double classPriceRating = 0;
@@ -168,6 +173,15 @@ public class Finance {
 		if (seatClass == "economy") {
 			classPriceRating = 0.5;
 		}else if (seatClass == "business") {
+=======
+	public String ticketCostRating  (String SeatNumber) {
+		String seatClass = seatingPlan.getSeatClass(SeatNumber);
+		double classPriceRating = 0;
+		
+		if (seatClass == "Economy") {
+			classPriceRating = 0.5;
+		}else if (seatClass == "Business class") {
+>>>>>>> 4a669bedb587047bf33332f86112401b68f28f0f
 			classPriceRating = 1.0;
 		}else
 			classPriceRating = 1.5;		

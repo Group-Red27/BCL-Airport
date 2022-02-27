@@ -70,7 +70,7 @@ public class SeatingPlan {
 				}
 				else
 				{
-					this.seatClass= new String[][] {{"First Class", "Business Class","Economy"},
+					this.seatClass= new String[][] {{"First Class", "Business class","Economy"},
 																	{"1A","6A","11A"},
 																	{"2A","7A","12A"},
 																	{"3A","8A","13A"},

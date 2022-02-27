@@ -86,6 +86,7 @@ public class Data {
 	        Flightclass flightC = new Flightclass();
 	        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	        DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm");
+	        
 	        flightC.setDateofflight(LocalDate.parse(data[0],dateFormat));
 	        flightC.setDeparturetime(LocalTime.parse(data[1],timeFormat));
 	        flightC.setArrivaltime(LocalTime.parse(data[2],timeFormat));
