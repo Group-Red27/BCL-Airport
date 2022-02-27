@@ -71,7 +71,7 @@ public class Data {
 					flight = flights.get(i);
 				}
 			}
-		}return flight;
+		}return flight; // which flight will it return Departure or Arrival //
 
 	}
 
