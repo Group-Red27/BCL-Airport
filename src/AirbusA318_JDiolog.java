@@ -17,7 +17,7 @@ import javax.swing.JToggleButton;
 import javax.swing.border.EmptyBorder;
 
 public class AirbusA318_JDiolog extends JDialog {
-//hi
+
 	private JPanel contentPanel = new JPanel();
 	public JToggleButton[] seatNumber;
 	SeatingPlanDesign seatingPlan;
