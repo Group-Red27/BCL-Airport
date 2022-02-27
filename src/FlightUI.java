@@ -4,6 +4,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextPane;
 import java.awt.TextField;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.swing.JTextField;
@@ -33,8 +34,7 @@ public class FlightUI extends JFrame {
 	ArrayList<Flightclass> flights = null; 
 
 	private JPanel contentPane;
-
-	private Object jpg;
+	Data data;
 
 	/**
 	 * Launch the application.
@@ -147,45 +147,36 @@ public class FlightUI extends JFrame {
 		textField_1_2.setBounds(495, 328, 75, 21);
 		contentPane.add(textField_1_2);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(258, 268, 30, 32);
+		JComboBox<LocalDate> comboBox = new JComboBox<LocalDate>();
+		comboBox.setBounds(228, 260, 100, 23);
 		
 		for (int i=0; i<this.flights.size(); i++) {
 			Flightclass f = this.flights.get(i);
 			comboBox.addItem(f.getDepartdate());
 		}
 		contentPane.add(comboBox);
+
 		
 		JComboBox comboBox_2 = new JComboBox();
 		comboBox_2.setBounds(649, 257, 38, 32);
 		contentPane.add(comboBox_2);
-		
-//		JLabel lblNewLabel = new JLabel("");
-//		ImageIcon Image= new ImageIcon(this.getClass().getResource("BrunelLogo.png"));
-//		JLabel lblNewLabel1=new JLabel(Image);
-//		lblNewLabel1.setBounds(-11, 0, 142, 144);
-//		contentPane.add(lblNewLabel1);
+	
 		
 		ImageIcon icon = new ImageIcon("BrunelLogo.png");
 		JLabel imageHolder=new JLabel(icon);
-		imageHolder.setBounds(358, 257, 64, 27);
+		imageHolder.setBounds(-100, 0, 600, 100);
 		contentPane.add(imageHolder);
 
-		
-		
 		
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setBounds(643, 171, 30, 32);
 		for (int i=0; i<this.flights.size(); i++) {
 			Flightclass f = this.flights.get(i);
-			comboBox.addItem(f.getReturndate());
-		contentPane.add(comboBox_1);
+			comboBox_1.addItem(f.getReturndate());
+		    contentPane.add(comboBox_1);
 		
 	}
 	}
 
-	private Object ImageIcon(URL resource) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 }
