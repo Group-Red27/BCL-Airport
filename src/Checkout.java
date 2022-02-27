@@ -156,14 +156,14 @@ public class Checkout extends JFrame {
 		
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(43, 30, 1100, 350);
+		scrollPane.setBounds(43, 30, 1100, 300);
 		scrollPane.setBackground(new Color(25, 25, 112));
 		mainContentpanel.add(scrollPane);
 		
 		table = new JTable();
 		table.setForeground(new Color(255, 255, 255));
 		table.setToolTipText("");
-		table.setBackground(new Color(25, 25, 112));
+		table.setBackground(Color.LIGHT_GRAY);
 		table.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		table.setFillsViewportHeight(true);
 		scrollPane.setViewportView(table);
