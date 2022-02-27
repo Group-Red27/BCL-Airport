@@ -147,7 +147,7 @@ public class FlightUI extends JFrame {
 		textField_1_2.setBounds(495, 328, 75, 21);
 		contentPane.add(textField_1_2);
 		
-		JComboBox<LocalDate> comboBox = new JComboBox<LocalDate>();
+		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(228, 260, 100, 23);
 		
 		for (int i=0; i<this.flights.size(); i++) {
