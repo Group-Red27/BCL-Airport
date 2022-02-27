@@ -13,16 +13,22 @@ public class Finance {
 	double ticketCostDeparture;
 	double ticketCostReturn;
 	double productCost;
+	double foodCost;
 	double compensationCost;
 	double overallTotalCost;
 	String departureFlightNumber;
 	String returnFlightNumber;
+	int classPriceRating;
 	
 	
 	public Finance(Ticket ticket) {
 		this.ticket = ticket; 
-		Flightclass flight = data.findflight(ticket.rtnflightnu);
-		this.seatingPlan = seatingPlan;
+//
+//		Flightclass flight = data.findflight(ticket.departureFlightNumber);
+//		this.seatingPlan = new SeatingPlan(); // i need to work on findflight method in data and seatingplan method //
+//
+//		Flightclass flight = data.findflight(ticket.rtnflightnu);
+//		this.seatingPlan = seatingPlan;
 		
 	}
 	
@@ -32,7 +38,7 @@ public class Finance {
 	public void setTicket(Ticket ticket) {
 		this.ticket = ticket;
 	}
-	public String getDepartureFlightNumber() {
+	public String getDepartureFlightNumber() {	// is this flight or flight number ???
 		return departureFlightNumber;
 	}
 	public void setDepartureFlightNumber(String departureFlightNumber) {
@@ -86,11 +92,17 @@ public class Finance {
 	public void setTicketCostReturn(double ticketCostReturn) {
 		this.ticketCostReturn = ticketCostReturn;
 	}
+	public double getFoodCost() {
+		return foodCost;
+	}
+	public void setFoodCost(double foodCost) {
+		this.foodCost = Ticket.getFoodCost();		// Is this right for calling from data class
+	}
 	public double getProductCost() {
 		return productCost;
 	}
 	public void setProductCost(double productCost) {
-		this.productCost = productCost;
+		this.productCost = 0.00;						// I want to set this to zero
 	}
 	public double getCompensationCost() {
 		return compensationCost;
@@ -129,6 +141,7 @@ public class Finance {
 			System.out.println(anError());
 			System.out.println(bagCostError());
 		return bagCost;
+		System.out.format("%.2f", bagCost);
 	}
 	
 	public double compensationCost(int delaysInDeparture) {
@@ -148,7 +161,17 @@ public class Finance {
 			compensationCost = 300.00;
 		
 		return compensationCost;
+		System.out.format("%.2f", compensationCost);
 		}
+
+
+	private String ticketCostRating  (String seatClass) {
+		this.seatClass = SeatingPlan.getSeatClass();
+		double classPriceRating = 0;
+		
+		if (seatClass == "economy") {
+			classPriceRating = 0.5;
+		}else if (seatClass == "business") {
 
 	public String ticketCostRating  (String SeatNumber) {
 		String seatClass = seatingPlan.getSeatClass(SeatNumber);
@@ -164,20 +187,35 @@ public class Finance {
 	
 	 // how to get departureflighNumber & distance
 	// do I need getFlight method?
+	// i need method in data class to find departure flights & return flights
 	
-	public double calTicketCostDeparture() {
+	private double calTicketCostDeparture() {
 		Ticket ticket = getTicket();
 		
+		this.seatNumber = 
 		String seatClass = SeatingPlan.getSeatClass(seatNumber);
 		seatClass = SeatingPlan.seatClass;
 		departureFlightNumber = ticket.getDepartureFlightNumber();
 		travelDistDeparture = departureFlightNumbr.getdistance();
 		
-		ticketCostDeparture = travelDistDeparture * ticketCostRating().getClassPriceRating;
+		ticketCostDeparture = travelDistDeparture * classPriceRating;		
+		return ticketCostDeparture;
+	}
 		
-		return ticketCostDeparture;}
+	private double calTicketCostReturn() {
+		Ticket ticket = getTicket();
 		
+		ticketCostReturn = travelDistReturn * classPriceRating;
+		return ticketCostReturn;		
+	}
 	
+	private double calTicketPrice(Ticket ticket) {
+		double tempTicketPrice = 0;
+		tempTicketPrice = ticketCostDeparture + ticketCostReturn;	
+		System.out.format("%.2f",tempTicketPrice); // berfore return or after ???
+		return ticketPrice;
+		
+	}
 	
 	
 
