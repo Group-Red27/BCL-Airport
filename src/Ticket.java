@@ -4,19 +4,19 @@ public class Ticket {
 	double foodCost;
 	String firstName;
 	String lastName;
-	Flightclass departureFlight;
-	Flightclass returnFlight;
+	String departureFlightNumber;
+	String returnFlightNumber;
 	String departSeat;
 	String returnSeat;
 	int noOfBags;
 	
 
-	public Ticket(String fname, String lname, Flightclass departureF, Flightclass returnF, String dSeat, String rSeat) {
+	public Ticket(String fname, String lname, String departureF, String returnF, String dSeat, String rSeat) {
 		this.ticketNumber = generateTicketNum();
 		this.firstName = fname;
 		this.lastName = lname;
-		this.departureFlight = departureF;
-		this.returnFlight = returnF;
+		this.departureFlightNumber = departureF;
+		this.returnFlightNumber = returnF;
 		this.departSeat = dSeat;
 		this.returnSeat = rSeat;
 		// constructor
