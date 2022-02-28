@@ -81,7 +81,9 @@ public class RestaurantSelectionScreen extends JFrame {
 		flightsButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				FlightUI flightScreen = new FlightUI();
+				setVisible(false);
+				flightScreen.setVisible(true);
 			}
 		});
 		buttonPanel.add(flightsButton);
@@ -103,9 +105,9 @@ public class RestaurantSelectionScreen extends JFrame {
 		JButton financeButton = new JButton("Finance");
 		financeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//Finance_GUI financeScreen = new Finance_GUI();
+				Checkout financeScreen = new Checkout();
 				setVisible(false);
-				//financeScreen.main(null);
+				financeScreen.setVisible(true);
 				// might need to delete main after this 
 			}
 		});

@@ -185,7 +185,7 @@ public class Finance {
 			compensationCost = 300.00;
 		
 		return compensationCost;
-		System.out.format("%.2f", compensationCost);
+		//System.out.format("%.2f", compensationCost);
 		}
 
 
@@ -235,9 +235,10 @@ public class Finance {
 //		tempTicketPrice = ticketCostDeparture + ticketCostReturn;	
 //		System.out.format("%.2f",tempTicketPrice); // berfore return or after ???
 //		return ticketPrice;
-//		
-	}
+//	}
+	
+}
 	
 	
 
-}
+

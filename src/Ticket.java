@@ -11,16 +11,20 @@ public class Ticket {
 	int noOfBags;
 	
 
-	public Ticket(String fname, String lname, String departureF, String returnF, String dSeat, String rSeat) {
-		this.ticketNumber = generateTicketNum();
-		this.firstName = fname;
-		this.lastName = lname;
-		this.departureFlightNumber = departureF;
-		this.returnFlightNumber = returnF;
-		this.departSeat = dSeat;
-		this.returnSeat = rSeat;
-		// constructor
+	public Ticket() {
+		
 	}
+	
+//	public Ticket(String fname, String lname, String departureF, String returnF, String dSeat, String rSeat) {
+//		this.ticketNumber = generateTicketNum();
+//		this.firstName = fname;
+//		this.lastName = lname;
+//		this.departureFlightNumber = departureF;
+//		this.returnFlightNumber = returnF;
+//		this.departSeat = dSeat;
+//		this.returnSeat = rSeat;
+//		// constructor
+//	}
 	
 	private long generateTicketNum() {
 		// TODO Auto-generated method stub
