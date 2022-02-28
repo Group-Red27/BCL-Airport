@@ -59,20 +59,37 @@ public class Data {
 			}
 		} // if statement in case tickets array has no tickets in it yet.
 		return ticket;
-	} // finds a specific ticket object given a ticket number,
+//	} // finds a specific ticket object given a ticket number,
 	
+	}
 	
+	public Ticket findFinTicket(long ticketNumber) {
+		Ticket ticket = null;
+//		System.out.println(flights);
+//		System.out.println(ticketNumber);
+//		System.out.println(tickets.get(0));
+		for (int i = 0; i < tickets.size(); i++ ) {
+			long currentTicketNumber = tickets.get(i).getTicketNumber();
+					if (ticketNumber == currentTicketNumber)   {
+						return tickets.get(i);
+					}
+					
+		}return null;
+	}
 	
+//	This is for finance class
 	public Flightclass findflight(String flightNumber) {
 		Flightclass flight = null;
-		if (tickets.size() > 0) { 
-			for (int i = 0; i < flights.size(); i++) {
-				if (flightNumber == flights.get(i).getFlightnumber()) {
-					flight = flights.get(i);
-				}
-			}
-		}return flight; // which flight will it return Departure or Arrival //
-
+//		System.out.println(flights);
+//		System.out.println(flightNumber);
+		for (int i = 0; i < flights.size(); i++ ) {
+			String currentFlightNumber = flights.get(i).getFlightnumber();
+					if (flightNumber.equals(currentFlightNumber)) {
+						return flights.get(i);
+					}
+					
+		}return null;
+		
 	}
 
 //Read CSV	
