@@ -9,6 +9,10 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JTextPane;
 import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PassengerUI extends JFrame {
 
@@ -67,9 +71,9 @@ public class PassengerUI extends JFrame {
 		lblNewLabel_2.setBounds(64, 133, 107, 26);
 		contentPane.add(lblNewLabel_2);
 		
-		JTextPane textPane = new JTextPane();
-		textPane.setBounds(219, 133, 116, 20);
-		contentPane.add(textPane);
+		JTextPane nameEntry = new JTextPane();
+		nameEntry.setBounds(219, 133, 116, 20);
+		contentPane.add(nameEntry);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("Surname");
 		lblNewLabel_2_1.setForeground(Color.DARK_GRAY);
@@ -130,15 +134,28 @@ public class PassengerUI extends JFrame {
 		contentPane.add(lblNewLabel_2_1_1_3_1_1);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(226, 396, 30, 22);
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4"}));
+		comboBox.setBounds(226, 396, 47, 22);
 		contentPane.add(comboBox);
 		
 		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(226, 433, 30, 22);
+		comboBox_1.setBounds(226, 433, 47, 22);
 		contentPane.add(comboBox_1);
 		
 		JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setBounds(226, 470, 30, 22);
+		comboBox_2.setBounds(226, 470, 47, 22);
 		contentPane.add(comboBox_2);
+		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Passengers P = new Passengers();
+				boolean validName = P.validateName(nameEntry); 
+			}
+			
+			
+		});
+		btnNewButton.setBounds(427, 516, 89, 23);
+		contentPane.add(btnNewButton);
 	}
 }
