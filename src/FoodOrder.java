@@ -21,7 +21,7 @@ public class FoodOrder {
 		} else {
 			this.ticket = null;
 		}
-	}
+	} // searches data to see if a ticket exists with correct ticket num
 
 	public Ticket getTicket() {
 		return this.ticket;
@@ -83,68 +83,74 @@ public class FoodOrder {
 			
 		boolean valid = validateQuantity(quantity);
 		if (valid == true) {
-			// if to check if quantities are valid and not all 0s
+			// if statement used to check if quantities are valid and not all 0s
 			int[] quantityInt = convertQuantityToInt(quantity);
 			for (int i = 0; i < 12; i++) {
 				if (quantityInt[i] > 0) {
 					// if to check if item selected
 					selected[i] = true;
-					int stockLevel = data.itemsAvailable[i].getStockLevel();
+					int stockLevel = data.getItemsAvailable()[i].getStockLevel();
 					if (quantityInt[i] > stockLevel) {
 						// if statement to adjust selected according to stock level
 						quantityInt[i] = stockLevel;
 						amended[i] = true;
 					} else {
 						amended[i] = false;
-					}
+					} // if an item is amended on an order it is recorded here
 				} else {
 					selected[i] = false;
 				}
 			}// validate the quantites entered
-			double[] netPrices = calcNetPrices(data.itemsAvailable, quantityInt);
+			double[] netPrices = calcNetPrices(data.getItemsAvailable(), quantityInt);
 			double totalCost = calcTotalCost(netPrices);
 			setQuantity(quantityInt);
 			setNetPrices(netPrices);
 			setTotalCost(totalCost);
 			setItemsSelected(selected);
 			setItemsAmended(amended);
-			// set items selected, quantity, full prices attribute of object
+			// set items selected, quantity, full prices attribute of object to the order
 		} else {
 			Popup popup = new Popup();
 			popup.showErrorMessage("Invalid quantity, you will be returned to the SELECTION menu");
 			moveFrame = false;
-		} 
+		}  // creates an error pop up and a false flag to indicate not to move screens
 		return moveFrame; 
 	}
 	
 
 
 	////////////////// confirm order
-	public void confirmOrder(JTextField ticketEntry, JTextField nameEntry, JTextField[] entryList) {
+	public boolean confirmOrder(JTextField ticketEntry, JTextField nameEntry, JTextField[] entryList) {
+		boolean moveFrame = true;
 		Popup popup = new Popup();
 		String ticketNumber = ticketEntry.getText(); 
 		setTicket(ticketNumber);
 		String passengerName = nameEntry.getText();
 		String errorString = validateDetails(passengerName);
+		// carries out validation and error checking
 		if (errorString != "") {
 			popup.showErrorMessage(errorString);
+			moveFrame = false;
+			// if any validation tests fail, whole process flags as false and does not procees
 		} else {
 			for (int i = 0; i < 12; i++) {
-				int currentStock = data.itemsAvailable[i].getStockLevel();
+				int currentStock = data.getItemsAvailable()[i].getStockLevel();
 				int newStock = currentStock - quantity[i];
 				if (newStock == 0) {
-					restockTimer(data.itemsAvailable[i],entryList[i]);
+					restockTimer(data.getItemsAvailable()[i],entryList[i]);
 					// if statement when an item gets put out of stock, restock with timer
-				} 
-				data.itemsAvailable[i].setStockLevel(newStock);
+				}  // for loop to change stockLevel based on order
+				data.getItemsAvailable()[i].setStockLevel(newStock);
 			}
 			Ticket ticket = getTicket();
 			addCostToTicket(ticket, totalCost);
 			popup.showSuccessMessage("Purchase Successful, you will be returned to the SELECTION menu");
-		}
+			// adds the cost of the order to the ticket
+		} 
+		return moveFrame;
 	}
 	
-	//////////// validate quantity
+	//////////// validate quantity for being int, within range
 	public boolean validateQuantity(String[] quantity) {
 		boolean valid = true;
 		int count = 0;
@@ -186,13 +192,13 @@ public class FoodOrder {
 		} else if (ticket == null) {
 			errorString = "Invalid ticket number, you will be returned to the CONFIRMATION menu";
 		} else 
-			if (passengerName != ticket.getPassengerName()) {
+			if (passengerName.equals(ticket.getPassengerName()) == false) {
 			errorString = "Details don’t match, you will be returned to the CONFIRMATION menu";
-		} 
+		}  // returns different error messsages based on which error occurs
 		return errorString;
 	}
 	
-	//////////// validate passenger name
+	//////////// validate passenger name, regular expression to define only letters and space staring with a letter
 	public boolean validatePassengerName(String passengerName) {
 		boolean valid;
 		if (passengerName.matches("[a-zA-Z][a-zA-Z\s]*")) {
@@ -242,16 +248,16 @@ public class FoodOrder {
 			public void run() {
 				item.setStockLevel(100);
 				entry.enable(true);
-				System.out.println("restock this item");
+				//System.out.println("restock this item");
 			}
 		}; timer.schedule(restock,180000);
-	}
+	} 
 	
 	public void addCostToTicket(Ticket ticket, double totalCost) {
 		double foodCost = ticket.getFoodCost();
 		foodCost += totalCost;
 		ticket.setFoodCost(foodCost);
-	}
+	} // adds the order cost to existing foodCost on ticket cumulative
 	
 
 	

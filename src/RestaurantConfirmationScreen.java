@@ -75,8 +75,14 @@ public class RestaurantConfirmationScreen extends JFrame {
 		confirmButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		confirmButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				order.confirmOrder(ticketEntry, nameEntry, entryList);
+				boolean moveFrame = order.confirmOrder(ticketEntry, nameEntry, entryList);
+				if (moveFrame == true) {
+					RestaurantSelectionScreen selectionScreen = new RestaurantSelectionScreen();
+					setVisible(false);
+					selectionScreen.main(null);
+				}
 			}
+
 		});
 		confirmButton.setBounds(626, 393, 137, 29);
 		contentPane.add(confirmButton);
@@ -154,6 +160,7 @@ public class RestaurantConfirmationScreen extends JFrame {
 		table.setEnabled(false);
 		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(tableData, columnNames));
+		// the data is passed as an input from the previous screen
 		
 		JTextPane userMessageLabel = new JTextPane();
 		userMessageLabel.setForeground(new Color(0, 0, 128));
@@ -161,15 +168,16 @@ public class RestaurantConfirmationScreen extends JFrame {
 		userMessageLabel.setBackground(SystemColor.menu);
 		userMessageLabel.setEditable(false);
 		userMessageLabel.setBounds(56, 276, 417, 68);
+		
 		// adding user message for any items that were amended
 		Data data = Data.getInstance();
 		boolean[] amended = order.getItemsAmended();
 		ArrayList<String> amendedNames = new ArrayList<String>();
 		for (int i = 0; i < 12; i ++) {
 			if (amended[i] == true) {
-				amendedNames.add(data.itemsAvailable[i].getItemName());
+				amendedNames.add(data.getItemsAvailable()[i].getItemName());
 			}
-		}
+		} // for any items that have been ammened on an order, store their item names in a arrayList to show in the label
 		String message = "";
 		if (amendedNames.size() != 0) {
 			for (int i = 0; i < amendedNames.size(); i++ ) {
@@ -181,7 +189,7 @@ public class RestaurantConfirmationScreen extends JFrame {
 		}
 		userMessageLabel.setText(message);
 		contentPane.add(userMessageLabel);
-		
+		// config the amended message and add to label
 
 		TableColumn column1= table.getColumn("Item Name");
         column1.setMinWidth(350);

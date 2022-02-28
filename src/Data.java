@@ -1,17 +1,26 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Scanner;
+//import Flightclass;
 
 public class Data {
 	private static Data instance = new Data();
-	ArrayList<Object> flights;
+	ArrayList<Flightclass> flights;
 	ArrayList<Ticket> tickets; 
 	ArrayList<Object> users;
-	static Fooditem[] itemsAvailable; // for restaurant component
+	static Fooditem[] itemsAvailable;// for restaurant component
+	Seat SeatClasses;// for seat component
+	
 	
 	private Data() {
-		flights = new ArrayList<Object>();
+		flights = new ArrayList<Flightclass>();
 		tickets = new ArrayList<Ticket>();
 		users = new ArrayList<Object>();
-		
+				
 		Fooditem item1 = new Fooditem("Chicken Noodles","Marinated chicken with seasonal greens, menma, spring onion, rich chicken broth with miso",100,10.99);
 		Fooditem item2 = new Fooditem("Rice & Beef","Beef brisket in teriyaki sauce shredded carrots. seasonal greens spring onion sesame seeds",100,8.99);
 		Fooditem item3 = new Fooditem("Tofu Stir Fry","Bold + fiery tofu, mangetout, red + green peppers, onion, hot red chillies, sesame seeds stir fry",100,9.99);
@@ -26,6 +35,13 @@ public class Data {
 		Fooditem item12 = new Fooditem("Beer","American Lager, ABV: 4.5%. Light bodied lager with clean, crisp, dry finish",100,3.45);
 		Fooditem[] items = {item1,item2,item3,item4,item5,item6,item7,item8,item9,item10,item11,item12};
 		itemsAvailable = items;
+		
+		try {
+			this.main(null);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	} // the constructor, setting the itemsAvailable array since this will be fixed
 
 	public static Data getInstance() {
@@ -43,8 +59,75 @@ public class Data {
 			}
 		} // if statement in case tickets array has no tickets in it yet.
 		return ticket;
-	} // finds a specific ticket object given a ticket number
+//	} // finds a specific ticket object given a ticket number,
 	
+	}
+	
+	public Ticket findFinTicket(long ticketNumber) {
+		Ticket ticket = null;
+//		System.out.println(flights);
+//		System.out.println(ticketNumber);
+//		System.out.println(tickets.get(0));
+		for (int i = 0; i < tickets.size(); i++ ) {
+			long currentTicketNumber = tickets.get(i).getTicketNumber();
+					if (ticketNumber == currentTicketNumber)   {
+						return tickets.get(i);
+					}
+					
+		}return null;
+	}
+	
+//	This is for finance class
+	public Flightclass findflight(String flightNumber) {
+		Flightclass flight = null;
+//		System.out.println(flights);
+//		System.out.println(flightNumber);
+		for (int i = 0; i < flights.size(); i++ ) {
+			String currentFlightNumber = flights.get(i).getFlightnumber();
+					if (flightNumber.equals(currentFlightNumber)) {
+						return flights.get(i);
+					}
+					
+		}return null;
+		
+	}
+
+//Read CSV	
+	  public void main(String[] args) throws Exception {
+	    try {
+	      File myObj = new File("Flights.csv");
+	      Scanner myReader = new Scanner(myObj);
+	      
+	      while (myReader.hasNextLine()) {
+	        String[] data = myReader.nextLine().split(",");
+	        Flightclass flightC = new Flightclass();
+	        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	        DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm");
+	        
+	        flightC.setDateofflight(LocalDate.parse(data[0],dateFormat));
+	        flightC.setDeparturetime(LocalTime.parse(data[1],timeFormat));
+	        flightC.setArrivaltime(LocalTime.parse(data[2],timeFormat));
+	        flightC.setFlightduration(LocalTime.parse(data[3],timeFormat));
+	        flightC.setDistance(Double.parseDouble(data[4]));
+	        flightC.setDelay(Integer.parseInt(data[5]));
+	        flightC.setDepartureairport(data[6]);
+	        flightC.setDeparturecity(data[7]);
+	        flightC.setArivalairport(data[8]);
+	        flightC.setArrivalcity(data[9]);
+	        flightC.setFlightnumber(data[10]);
+	        flightC.setAirline(data[11]);
+	        
+	        flights.add(flightC); 
+	        
+	      }
+	      myReader.close();
+	    } catch (FileNotFoundException e) {
+	      System.out.println("An error occurred.");
+	      e.printStackTrace();
+	    }
+	  }
+	 
+
 	public void addTicketToData(Ticket ticket) {
 		tickets.add(ticket);
 	}
@@ -52,5 +135,15 @@ public class Data {
 	public void addTicketToData(Object user) {
 		users.add(user);
 	}
+
+	public ArrayList<Flightclass> getFlights() {
+		
+		return this.flights;
+	}
 	
+	public Fooditem[] getItemsAvailable() {
+		return this.itemsAvailable;
+	}
+
+
 }

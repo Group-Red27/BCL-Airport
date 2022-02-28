@@ -6,7 +6,6 @@ public class Fooditem {
 	String description;
 	int stockLevel;
 	double price;
-	LocalTime timePrompt = null;
 	
 	 public Fooditem(String newItemName, String newDescription, int newStock, double newPrice) {
 			// TODO Auto-generated constructor stub
@@ -47,17 +46,6 @@ public class Fooditem {
 	 
 	 public double getPrice() {
 		 return this.price;
-	 }
-	 
-	 public LocalTime getTimePrompt() {
-		 return this.timePrompt;
-	 }
-	 
-	 public void setTimePrompt() {
-		 LocalTime currentTime = java.time.LocalTime.now(); 
-		 LocalTime newTime = currentTime.plusMinutes(3);
-		 this.timePrompt = newTime;
-	
 	 }
  
 }
