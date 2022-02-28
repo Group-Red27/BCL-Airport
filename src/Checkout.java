@@ -18,6 +18,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollPane;
 
 public class Checkout extends JFrame {
+	
+	
 
 	/**
 	 * 
@@ -53,8 +55,13 @@ public class Checkout extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		Finance finance = new Finance(null);
+//		System.out.println("anything");
+		
+		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon(Checkout.class.getResource("/Images_Finance/BrunelLogo.png")));
+//		lblNewLabel.setIcon(new ImageIcon(Checkout.class.getResource("../BrunelLogo.png")));
 		lblNewLabel.setBounds(0, 0, 390, 90);
 		contentPane.add(lblNewLabel);
 		
