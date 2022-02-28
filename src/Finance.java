@@ -23,7 +23,6 @@ public class Finance {
 	int classPriceRating;
 	
 	
-	
 	public Finance(Ticket ticket) {
 		if (ticket == null) {
 			ticket = new Ticket();
@@ -150,11 +149,12 @@ public class Finance {
 		}
 	
 //	calculation of bag cost
-	public double calBagCost(int noOfBags) {
+	public double calBagCost() {
 		
 //		Ticket ticket = getTicket();
-		Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());	//is this right??
-		noOfBags = ticketFound.noOfBags;	// will it get no of bags ??
+		//Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());	//is this right??
+		Ticket ticketFound = this.ticket;
+		int noOfBags = ticketFound.noOfBags;	// will it get no of bags ??
 		System.out.println(ticket.noOfBags);
 		bagCost = 0; 
 		
@@ -163,10 +163,11 @@ public class Finance {
 			
 		} else if (noOfBags == 0){
 			bagCost = 0.00;
-		} else 
+		} else {
 			System.out.println(anError());
 			System.out.println(bagCostError());
 			System.out.format("%.2f", bagCost);
+		}
 		return bagCost;
 		
 	}
@@ -192,25 +193,27 @@ public class Finance {
 		}
 
 
-	private String declarePriceRating  (String SeatNumber) {		
-		String seatClass = seatingPlan.getSeatClass(SeatNumber);
-		double classPriceRating = 0;
-		
-		if (seatClass == "Economy") {
-			classPriceRating = 0.5;
-		}else if (seatClass == "Business class") {
-			classPriceRating = 1.0;
-		}else
-			classPriceRating = 1.5;		
-	}
+//	private String declarePriceRating  (String SeatNumber) {		
+//		String seatClass = seatingPlan.getSeatClass(SeatNumber);
+//		double classPriceRating = 0;
+//		
+//		if (seatClass == "Economy") {
+//			classPriceRating = 0.5;
+//		}else if (seatClass == "Business class") {
+//			classPriceRating = 1.0;
+//		}else
+//			classPriceRating = 1.5;		
+//	}
 	
 	
 
 	private double calTicketCostDeparture() {
-		Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());
-		Flightclass departureFlight = data.findflight(ticketFound.getDepartureFlightNumber());	
+		//Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());
+		
+		Flightclass departureFlight = data.findflight(ticket.getDepartureFlightNumber());
+				//ticketFound.getDepartureFlightNumber());	
 		travelDistDeparture = departureFlight.getDistance();
-		seatNumberDeparture = ticketFound.getSeatNumber();
+		seatNumberDeparture = ticket.getSeatNumber();
 		
 		ticketCostDeparture = travelDistDeparture * classPriceRating;		
 		return ticketCostDeparture;
