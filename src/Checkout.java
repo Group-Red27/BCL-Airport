@@ -56,6 +56,7 @@ public class Checkout extends JFrame {
 		contentPane.setLayout(null);
 		
 		Finance finance = new Finance(null);
+		finance.calBagCost();
 //		System.out.println("anything");
 		
 		
@@ -174,6 +175,8 @@ public class Checkout extends JFrame {
 		table.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		table.setFillsViewportHeight(true);
 		scrollPane.setViewportView(table);
+		
+		
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null, null, null, null, null, null, null},

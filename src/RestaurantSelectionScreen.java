@@ -24,10 +24,14 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.border.LineBorder;
+
+//import tutorials.RestaurantSelectionScreen;
+
 import javax.swing.JTextPane;
 
 public class RestaurantSelectionScreen extends JFrame {
 
+	//private static RestaurantSelectionScreen instance = new RestaurantSelectionScreen(); // new
 	private JPanel contentPane;
 	private JTextField entry1;
 	private JTextField entry2;
@@ -62,6 +66,11 @@ public class RestaurantSelectionScreen extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	
+//	public static RestaurantSelectionScreen getInstance() {
+//		return instance;
+//    } // new
+	
 	public RestaurantSelectionScreen() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 850, 650);
@@ -483,6 +492,7 @@ public class RestaurantSelectionScreen extends JFrame {
 		JTextPane[] descriptionText = {description1,description2,description3,description4,description5,description6,description7,description8,description9,description10,description11,description12};
 		JTextField[] entryList = {entry1,entry2,entry3,entry4,entry5,entry6,entry7,entry8,entry9,entry10,entry11,entry12};
 		for (int i = 0; i < 12; i ++) {
+			System.out.println(data.getItemsAvailable()[i].getItemName()+" "+data.getItemsAvailable()[i].getStockLevel());
 			priceLabels[i].setText(String.format("£%.2f", data.getItemsAvailable()[i].getPrice()));
 			descriptionText[i].setText(data.getItemsAvailable()[i].getDescription());
 			itemNames[i].setText(data.getItemsAvailable()[i].getItemName());

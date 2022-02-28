@@ -7,9 +7,12 @@ public class Ticket {
 	String departureFlightNumber;
 	String returnFlightNumber;
 	String seatNumber;
+<<<<<<< HEAD
 	String departSeat;
 	String returnSeat;
 
+=======
+>>>>>>> 7f29ae4e05bd2ca5c8a9bc687bd5ee5355e1c192
 	int noOfBags;
 	
 

@@ -136,11 +136,13 @@ public class FoodOrder {
 			for (int i = 0; i < 12; i++) {
 				int currentStock = data.getItemsAvailable()[i].getStockLevel();
 				int newStock = currentStock - quantity[i];
+				System.out.print(newStock);
 				if (newStock == 0) {
 					restockTimer(data.getItemsAvailable()[i],entryList[i]);
 					// if statement when an item gets put out of stock, restock with timer
 				}  // for loop to change stockLevel based on order
 				data.getItemsAvailable()[i].setStockLevel(newStock);
+				System.out.println(data.getItemsAvailable()[i].getStockLevel());
 			}
 			Ticket ticket = getTicket();
 			addCostToTicket(ticket, totalCost);
@@ -194,6 +196,7 @@ public class FoodOrder {
 		} else 
 			if (passengerName.equals(ticket.getPassengerName()) == false) {
 			errorString = "Details don’t match, you will be returned to the CONFIRMATION menu";
+			System.out.print(passengerName);
 		}  // returns different error messsages based on which error occurs
 		return errorString;
 	}
@@ -255,8 +258,11 @@ public class FoodOrder {
 	
 	public void addCostToTicket(Ticket ticket, double totalCost) {
 		double foodCost = ticket.getFoodCost();
+		System.out.println(ticket.firstName);
+		System.out.println("Ticket foodCost before"+foodCost);
 		foodCost += totalCost;
 		ticket.setFoodCost(foodCost);
+		System.out.println("Ticket foodCost after "+ticket.getFoodCost());
 	} // adds the order cost to existing foodCost on ticket cumulative
 	
 

@@ -77,9 +77,10 @@ public class RestaurantConfirmationScreen extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				boolean moveFrame = order.confirmOrder(ticketEntry, nameEntry, entryList);
 				if (moveFrame == true) {
+					//RestaurantSelectionScreen selectionScreen = RestaurantSelectionScreen.getInstance();
 					RestaurantSelectionScreen selectionScreen = new RestaurantSelectionScreen();
 					setVisible(false);
-					selectionScreen.main(null);
+					selectionScreen.setVisible(true);
 				}
 			}
 
@@ -95,6 +96,7 @@ public class RestaurantConfirmationScreen extends JFrame {
 		JButton backButton = new JButton("Back");
 		backButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//RestaurantSelectionScreen selectionScreen = RestaurantSelectionScreen.getInstance();
 				RestaurantSelectionScreen selectionScreen = new RestaurantSelectionScreen();
 				setVisible(false);
 				selectionScreen.setVisible(true);

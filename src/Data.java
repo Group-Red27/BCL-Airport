@@ -20,7 +20,13 @@ public class Data {
 		flights = new ArrayList<Flightclass>();
 		tickets = new ArrayList<Ticket>();
 		users = new ArrayList<Object>();
-				
+		
+		Ticket ticket1 = new Ticket();
+		ticket1.setFirstName("Aaron"); ticket1.setLastName("Samuels"); ticket1.setTicketNumber(83746578);
+		Ticket ticket2 = new Ticket();
+		ticket2.setFirstName("Regina"); ticket2.setLastName("George"); ticket2.setTicketNumber(27475839);
+		this.addTicketToData(ticket1); this.addTicketToData(ticket2);
+		
 		Fooditem item1 = new Fooditem("Chicken Noodles","Marinated chicken with seasonal greens, menma, spring onion, rich chicken broth with miso",100,10.99);
 		Fooditem item2 = new Fooditem("Rice & Beef","Beef brisket in teriyaki sauce shredded carrots. seasonal greens spring onion sesame seeds",100,8.99);
 		Fooditem item3 = new Fooditem("Tofu Stir Fry","Bold + fiery tofu, mangetout, red + green peppers, onion, hot red chillies, sesame seeds stir fry",100,9.99);
