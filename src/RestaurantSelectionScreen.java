@@ -474,8 +474,8 @@ public class RestaurantSelectionScreen extends JFrame {
 		drinksPanel.add(description12);
 
 		Data data = Data.getInstance();
-		// price test
-		// using a loop to assign the prices from foodItem rather than setting them constant
+
+		// using a loop to assign the prices, labels + desc. from foodItem rather than setting them constant
 		JLabel[] itemNames = {label1,label2,label3,label4,label5,label6,label7,label8,label9,label10,label11,label12};
 		JLabel[] priceLabels = {price1,price2,price3,price4,price5,price6,price7,price8,price9,price10,price11,price12};
 		JTextPane[] descriptionText = {description1,description2,description3,description4,description5,description6,description7,description8,description9,description10,description11,description12};
@@ -484,7 +484,7 @@ public class RestaurantSelectionScreen extends JFrame {
 			priceLabels[i].setText(String.format("£%.2f", data.getItemsAvailable()[i].getPrice()));
 			descriptionText[i].setText(data.getItemsAvailable()[i].getDescription());
 			itemNames[i].setText(data.getItemsAvailable()[i].getItemName());
-			// entry markOutOfStock test, restock not run from here
+			// checks the stock level for every item and sets that entry enables = false and grey, restock not run here
 			if (data.getItemsAvailable()[i].getStockLevel() == 0) {
 				entryList[i].enable(false);
 				entryList[i].setBackground(Color.GRAY);
@@ -526,7 +526,7 @@ public class RestaurantSelectionScreen extends JFrame {
 		
 		purchaseButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// move screens
+				// determines if moving screens is needed based on valid inputs
 				FoodOrder order = new FoodOrder();
 				boolean moveFrame = order.selectItems(entryList);
 				if (moveFrame == true) {
@@ -537,7 +537,7 @@ public class RestaurantSelectionScreen extends JFrame {
 							rows += 1;
 							index.add(i);
 						}
-					} // calc num of rows needed based on items selected and the index of selected items
+					} // calc num of rows needed for JTable based on items selected and the index of selected items
 					
 					Object[][] tableData = new Object[rows][4];
 					for (int i = 0; i < rows; i++ ) {
@@ -545,7 +545,7 @@ public class RestaurantSelectionScreen extends JFrame {
 						tableData[i][1] = String.format("£%.2f",data.getItemsAvailable()[index.get(i)].getPrice());
 						tableData[i][2] = order.getQuantity()[index.get(i)];
 						tableData[i][3] = String.format("£%.2f",order.getNetPrices()[index.get(i)]); 
-					}  //create data for table 
+					}  //create data for table on confirmationScreen
 					
 					RestaurantConfirmationScreen confirmationScreen = new RestaurantConfirmationScreen(order,tableData,entryList);
 					setVisible(false);
