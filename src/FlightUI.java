@@ -152,7 +152,7 @@ public class FlightUI extends JFrame {
 		
 		for (int i=0; i<this.flights.size(); i++) {
 			Flightclass f = this.flights.get(i);
-			comboBox.addItem(f.getDepartdate());
+			comboBox.addItem(f.getdateofflight());
 		}
 		contentPane.add(comboBox);
 
@@ -172,7 +172,7 @@ public class FlightUI extends JFrame {
 		comboBox_1.setBounds(643, 171, 30, 32);
 		for (int i=0; i<this.flights.size(); i++) {
 			Flightclass f = this.flights.get(i);
-			comboBox_1.addItem(f.getReturndate());
+			comboBox_1.addItem(f.getdateofflight());
 		    contentPane.add(comboBox_1);
 		
 	}

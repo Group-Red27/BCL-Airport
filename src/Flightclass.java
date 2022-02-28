@@ -9,8 +9,6 @@ public class Flightclass {
 	private LocalTime flightduration;
 	private double distance;
 	private int delay;
-	private LocalDate departdate;
-	private LocalDate returndate;
 	private String departureairport;
 	private String departurecity;
 	private String arivalairport;
@@ -64,18 +62,7 @@ public int getDelay() {
 public void setDelay(int delay) {
 	this.delay = delay;
 }
-public LocalDate getDepartdate() {
-	return departdate;
-}
-public void setDepartdate(LocalDate departdate) {
-	this.departdate = departdate;
-}
-public LocalDate getReturndate() {
-	return returndate;
-}
-public void setReturndate(LocalDate returndate) {
-	this.returndate = returndate;
-}
+
 public String getDepartureairport() {
 	return departureairport;
 }
