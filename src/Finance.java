@@ -187,13 +187,12 @@ public class Finance {
 		}else 
 			compensationCost = 300.00;
 		
-		return compensationCost;
-		//System.out.format("%.2f", compensationCost);
+		return compensationCost;		
 		}
 
 
-	private String declarePriceRating  (String SeatNumber) {		
-		String seatClass = seatingPlan.getSeatClass(SeatNumber);
+	private void declarePriceRating() {		
+		String seatClass = ticket.getSeatNumber();
 		double classPriceRating = 0;
 		
 		if (seatClass == "Economy") {

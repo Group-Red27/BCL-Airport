@@ -6,12 +6,10 @@ public class Ticket {
 	String lastName;
 	String departureFlightNumber;
 	String returnFlightNumber;
-<<<<<<< HEAD
 	String seatNumber;
-=======
 	String departSeat;
 	String returnSeat;
->>>>>>> 0337eb1ba732259861451326ed36ca1f93defee8
+
 	int noOfBags;
 	
 
