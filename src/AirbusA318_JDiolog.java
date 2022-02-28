@@ -24,10 +24,10 @@ public class AirbusA318_JDiolog extends JDialog {
 
 	/**
 	 * Launch the application.
-	 */
+	 
 	public static void main(String[] args) {
 		try {
-			AirbusA318_JDiolog dialog = new AirbusA318_JDiolog();
+			AirbusA318_JDiolog dialog = new AirbusA318_JDiolog("3");
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -38,7 +38,7 @@ public class AirbusA318_JDiolog extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public AirbusA318_JDiolog() {
+	public AirbusA318_JDiolog(String selectedTicketNum) {
 		
 		setBounds(100, 100, 450, 600);
 		contentPanel = new JPanel();
@@ -211,7 +211,6 @@ public class AirbusA318_JDiolog extends JDialog {
 		        	int count=0;
 		        	Popup popup = new Popup();
 
-
 		        	
 		        	for (int i =0; i < seatNumber.length; i++ ) {
 		        		
@@ -222,7 +221,7 @@ public class AirbusA318_JDiolog extends JDialog {
 		        		}
 		        	}
 		        		
-		        		if (count !=2) { //I Have to change this to the value of the combobox. 
+		        		if (count != Integer.parseInt(selectedTicketNum)) { //I Have to change this to the value of the combobox. 
 		        			popup.showErrorMessage("You have to select the same number of tickets");
 		        		}
 		        		

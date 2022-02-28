@@ -4,16 +4,37 @@ public class Ticket {
 	double foodCost;
 	String firstName;
 	String lastName;
-	String departureFlightNumber;	
+	String departureFlightNumber;
 	String returnFlightNumber;
+<<<<<<< HEAD
 	String seatNumber;
+=======
+	String departSeat;
+	String returnSeat;
+>>>>>>> 0337eb1ba732259861451326ed36ca1f93defee8
 	int noOfBags;
 	
 
 	public Ticket() {
-		// constructor
+		
 	}
 	
+//	public Ticket(String fname, String lname, String departureF, String returnF, String dSeat, String rSeat) {
+//		this.ticketNumber = generateTicketNum();
+//		this.firstName = fname;
+//		this.lastName = lname;
+//		this.departureFlightNumber = departureF;
+//		this.returnFlightNumber = returnF;
+//		this.departSeat = dSeat;
+//		this.returnSeat = rSeat;
+//		// constructor
+//	}
+	
+	private long generateTicketNum() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	public long getTicketNumber() {
 		return this.ticketNumber;
 	}

@@ -188,7 +188,7 @@ public class Finance {
 			compensationCost = 300.00;
 		
 		return compensationCost;
-		System.out.format("%.2f", compensationCost);
+		//System.out.format("%.2f", compensationCost);
 		}
 
 
@@ -205,6 +205,7 @@ public class Finance {
 	}
 	
 	
+
 	private double calTicketCostDeparture() {
 		Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());
 		Flightclass departureFlight = data.findflight(ticketFound.getDepartureFlightNumber());	
@@ -232,7 +233,37 @@ public class Finance {
 		return ticketPrice;
 		
 	}
+
+//	private double calTicketCostDeparture() {
+//		Ticket ticket = getTicket();
+//		
+//		this.seatNumber = 
+//		String seatClass = SeatingPlan.getSeatClass(seatNumber);
+//		seatClass = SeatingPlan.seatClass;
+//		departureFlightNumber = ticket.getDepartureFlightNumber();
+//		travelDistDeparture = departureFlightNumbr.getdistance();
+//		
+//		ticketCostDeparture = travelDistDeparture * classPriceRating;		
+//		return ticketCostDeparture;
+//	}
+//		
+//	private double calTicketCostReturn() {
+//		Ticket ticket = getTicket();
+//		
+//		ticketCostReturn = travelDistReturn * classPriceRating;
+//		return ticketCostReturn;		
+//	}
+//	
+//	private double calTicketPrice(Ticket ticket) {
+//		double tempTicketPrice = 0;
+//		tempTicketPrice = ticketCostDeparture + ticketCostReturn;	
+//		System.out.format("%.2f",tempTicketPrice); // berfore return or after ???
+//		return ticketPrice;
+//	}
+	
+}
+
 	
 	
 
-}
+
