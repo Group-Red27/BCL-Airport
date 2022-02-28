@@ -8,6 +8,8 @@ public class Finance {
 	double bagCost;
 	double travelDistDeparture;
 	double travelDistReturn;
+	String seatNumberDeparture;
+	String seatNumberReturn;
 	int delaysInDeparture;
 	double ticketPrice;
 	double ticketCostDeparture;
@@ -118,6 +120,7 @@ public class Finance {
 //	}
 	public double getProductCost() {
 		return productCost;
+		
 	}
 	public void setProductCost(double productCost) {
 		this.productCost = 0.00;						// I want to set this to zero
@@ -189,53 +192,45 @@ public class Finance {
 		}
 
 
-//	private String ticketCostRating  (String seatClass) {
-//		this.seatClass = SeatingPlan.getSeatClass();
-//		double classPriceRating = 0;
-//		
-//		if (seatClass == "economy") {
-//			classPriceRating = 0.5;
-//		}else if (seatClass == "business") {
-//
-//	public String ticketCostRating  (String SeatNumber) {
-//		String seatClass = seatingPlan.getSeatClass(SeatNumber);
-//		double classPriceRating = 0;
-//		
-//		if (seatClass == "Economy") {
-//			classPriceRating = 0.5;
-//		}else if (seatClass == "Business class") {
-//			classPriceRating = 1.0;
-//		}else
-//			classPriceRating = 1.5;		
-//	}
+	private String declarePriceRating  (String SeatNumber) {		
+		String seatClass = seatingPlan.getSeatClass(SeatNumber);
+		double classPriceRating = 0;
+		
+		if (seatClass == "Economy") {
+			classPriceRating = 0.5;
+		}else if (seatClass == "Business class") {
+			classPriceRating = 1.0;
+		}else
+			classPriceRating = 1.5;		
+	}
 	
 	
-//	private double calTicketCostDeparture() {
-//		Ticket ticket = getTicket();
-//		
-//		this.seatNumber = 
-//		String seatClass = SeatingPlan.getSeatClass(seatNumber);
-//		seatClass = SeatingPlan.seatClass;
-//		departureFlightNumber = ticket.getDepartureFlightNumber();
-//		travelDistDeparture = departureFlightNumbr.getdistance();
-//		
-//		ticketCostDeparture = travelDistDeparture * classPriceRating;		
-//		return ticketCostDeparture;
-//	}
-//		
-//	private double calTicketCostReturn() {
-//		Ticket ticket = getTicket();
-//		
-//		ticketCostReturn = travelDistReturn * classPriceRating;
-//		return ticketCostReturn;		
-//	}
-//	
-//	private double calTicketPrice(Ticket ticket) {
-//		double tempTicketPrice = 0;
-//		tempTicketPrice = ticketCostDeparture + ticketCostReturn;	
-//		System.out.format("%.2f",tempTicketPrice); // berfore return or after ???
-//		return ticketPrice;
-//		
+	private double calTicketCostDeparture() {
+		Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());
+		Flightclass departureFlight = data.findflight(ticketFound.getDepartureFlightNumber());	
+		travelDistDeparture = departureFlight.getDistance();
+		seatNumberDeparture = ticketFound.getSeatNumber();
+		
+		ticketCostDeparture = travelDistDeparture * classPriceRating;		
+		return ticketCostDeparture;
+	}
+		
+	private double calTicketCostReturn() {
+		Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());
+		Flightclass returnFlight = data.findflight(ticketFound.getReturnFlightNumber());	
+		travelDistReturn = returnFlight.getDistance();
+		seatNumberReturn = ticketFound.getSeatNumber();;
+		
+		ticketCostReturn = travelDistReturn * classPriceRating;
+		return ticketCostReturn;		
+	}
+	
+	private double calTicketPrice(Ticket ticket) {
+		double tempTicketPrice = 0;
+		tempTicketPrice = ticketCostDeparture + ticketCostReturn;	
+		System.out.format("%.2f",tempTicketPrice); // berfore return or after ???
+		return ticketPrice;
+		
 	}
 	
 	

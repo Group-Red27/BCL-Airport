@@ -6,6 +6,7 @@ public class Ticket {
 	String lastName;
 	String departureFlightNumber;	
 	String returnFlightNumber;
+	String seatNumber;
 	int noOfBags;
 	
 
@@ -48,15 +49,8 @@ public class Ticket {
 	
 	public void setLastName(String lastName) {
 		this.lastName =lastName;
-		}
+	}
 	
-	public int getNoOfBags() {
-		return noOfBags;
-	}
-
-	public void setNoOfBags(int noOfBags) {
-		this.noOfBags = noOfBags;
-	}
 	public String getDepartureFlightNumber() {
 		return departureFlightNumber;
 	}
@@ -71,6 +65,21 @@ public class Ticket {
 
 	public void setReturnFlightNumber(String returnFlightNumber) {
 		this.returnFlightNumber = returnFlightNumber;
+	}
+	public int getNoOfBags() {
+		return noOfBags;
+	}
+
+	public void setNoOfBags(int noOfBags) {
+		this.noOfBags = noOfBags;
+	}
+	
+	public String getSeatNumber() {
+		return seatNumber;
+	}
+
+	public void setSeatNumber(String seatNumber) {
+		this.seatNumber = seatNumber;
 	}
 
 	
