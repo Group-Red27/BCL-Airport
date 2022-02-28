@@ -3,6 +3,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -73,9 +74,10 @@ public class SeatingPlanDesign extends JFrame {
 		flightLabel.setBounds(10, 11, 514, 28);
 		contentPane.add(flightLabel);
 		
-		JComboBox <Integer>  numOfTicketsComboBox = new JComboBox();
-		numOfTicketsComboBox.setModel(new DefaultComboBoxModel(new Integer[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}));
+		JComboBox <Integer> numOfTicketsComboBox = new JComboBox<Integer>();
+		numOfTicketsComboBox.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}));
 		numOfTicketsComboBox.setBounds(140, 218, 38, 17);
+		
 		contentPane.add(numOfTicketsComboBox);
 		
 		JLabel numOfTicketsLabel = new JLabel("Number Of Tickets: ");
@@ -97,7 +99,8 @@ public class SeatingPlanDesign extends JFrame {
 				
 				//if(seatingPlan.planeSeatingPlan()==true) {
 					//if(seatingPlan.flight==false) {//So I dont make new ones everytime
-					AirbusA318_JDiolog a = new AirbusA318_JDiolog();
+					String selectedTicketNum = numOfTicketsComboBox.getSelectedItem().toString();
+					AirbusA318_JDiolog a = new AirbusA318_JDiolog(selectedTicketNum);
 					a.setVisible(true);
 					
 				//}
@@ -131,10 +134,10 @@ public class SeatingPlanDesign extends JFrame {
 		
 		
 		
-		JLabel departureSeatNumbersLabel = new JLabel();
+		JTextPane departureSeatNumbersLabel = new JTextPane();
 		departureSeatNumbersLabel.setText(java.lang.String.join(",", departSeats));
 		departureSeatNumbersLabel.setForeground(new Color(0, 0, 255));
-		departureSeatNumbersLabel.setBounds(416, 219, 46, 14);
+		departureSeatNumbersLabel.setBounds(400, 219, 79, 28);
 		contentPane.add(departureSeatNumbersLabel);
 	
 		
