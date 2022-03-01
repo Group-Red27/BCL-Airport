@@ -251,9 +251,14 @@ public class FoodOrder {
 			public void run() {
 				item.setStockLevel(100);
 				entry.enable(true);
+				Popup popup = new Popup();
+				popup.showSuccessMessage(item.getItemName()+" has been restocked. Refresh the screen to see changes");
 				//System.out.println("restock this item");
+				// a pop up is created to indicate to the user that a restock has occured, prompting them to 
+				// refesh the page if wanted, or to continue with their order
 			}
-		}; timer.schedule(restock,180000);
+		}; timer.schedule(restock,18000);
+		 //timer.schedule(restock,5000);
 	} 
 	
 	public void addCostToTicket(Ticket ticket, double totalCost) {
