@@ -263,8 +263,8 @@ public class FoodOrder {
 				// a pop up is created to indicate to the user that a restock has occured, prompting them to 
 				// refesh the page if wanted, or to continue with their order
 			}
-		}; //timer.schedule(restock,180000);
-		 timer.schedule(restock,5000);
+		}; timer.schedule(restock,180000);
+		 //timer.schedule(restock,5000);
 	} 
 	
 	public void addCostToTicket(Ticket ticket, double totalCost) {
