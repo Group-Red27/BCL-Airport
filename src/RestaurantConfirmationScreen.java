@@ -81,7 +81,7 @@ public class RestaurantConfirmationScreen extends JFrame {
 					RestaurantSelectionScreen selectionScreen = new RestaurantSelectionScreen();
 					setVisible(false);
 					selectionScreen.setVisible(true);
-				}
+				} // does not move frames if invalid name or ticket num entered
 			}
 
 		});
@@ -179,7 +179,8 @@ public class RestaurantConfirmationScreen extends JFrame {
 			if (amended[i] == true) {
 				amendedNames.add(data.getItemsAvailable()[i].getItemName());
 			}
-		} // for any items that have been ammened on an order, store their item names in a arrayList to show in the label
+		} // for any items that have been amended on an order, store their item names in a arrayList to show in the label
+		
 		String message = "";
 		if (amendedNames.size() != 0) {
 			for (int i = 0; i < amendedNames.size(); i++ ) {
