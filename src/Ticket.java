@@ -6,13 +6,8 @@ public class Ticket {
 	String lastName;
 	String departureFlightNumber;
 	String returnFlightNumber;
-	String seatNumber;
-<<<<<<< HEAD
-	String departSeat;
-	String returnSeat;
-
-=======
->>>>>>> 7f29ae4e05bd2ca5c8a9bc687bd5ee5355e1c192
+	String departureSeatNumber;
+	String returnSeatNumber;
 	int noOfBags;
 	
 
@@ -96,15 +91,22 @@ public class Ticket {
 		this.noOfBags = noOfBags;
 	}
 	
-	public String getSeatNumber() {
-		return seatNumber;
+	public String getDepartureSeatNumber() {
+		return departureSeatNumber;
 	}
 
-	public void setSeatNumber(String seatNumber) {
-		this.seatNumber = seatNumber;
+	public void setDepartureSeatNumber(String departureSeatNumber) {
+		this.departureSeatNumber = departureSeatNumber;
 	}
 
-	
+	public String getReturnSeatNumber() {
+		return returnSeatNumber;
+	}
+
+	public void setReturnSeatNumber(String returnSeatNumber) {
+		this.returnSeatNumber = returnSeatNumber;
+	}
+
 	public void addTicketToData() {
 		Data data = Data.getInstance();
 		data.addTicketToData(this);
