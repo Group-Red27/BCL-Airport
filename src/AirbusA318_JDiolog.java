@@ -46,17 +46,17 @@ public class AirbusA318_JDiolog extends JDialog {
 		setContentPane(getContentPane());
 		getContentPane().setLayout(null);
 		
-		JLabel airbusA318Label = new JLabel("Departure/Return: Airbus A318");
+		JLabel airbusA318Label = new JLabel("Departure: Airbus A318");
 		airbusA318Label.setFont(new Font("Tahoma", Font.BOLD, 12));
 		airbusA318Label.setForeground(new Color(0, 0, 255));
 		airbusA318Label.setBounds(22, 30, 220, 28);
 		getContentPane().add(airbusA318Label);
 		
-		JLabel selectLabel = new JLabel("select x seats");
-		selectLabel.setForeground(Color.BLUE);
-		selectLabel.setFont(new Font("Tahoma", Font.BOLD, 9));
-		selectLabel.setBounds(22, 59, 74, 28);
-		getContentPane().add(selectLabel);
+//		JLabel selectLabel = new JLabel("select x seats");
+//		selectLabel.setForeground(Color.BLUE);
+//		selectLabel.setFont(new Font("Tahoma", Font.BOLD, 9));
+//		selectLabel.setBounds(22, 59, 74, 28);
+//		getContentPane().add(selectLabel);
 		
 		JLabel businessClassLabel = new JLabel("Business Class");
 		businessClassLabel.setForeground(Color.BLUE);
