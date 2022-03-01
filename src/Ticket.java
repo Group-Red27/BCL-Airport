@@ -6,7 +6,8 @@ public class Ticket {
 	String lastName;
 	String departureFlightNumber;
 	String returnFlightNumber;
-	String seatNumber;
+	String departureSeatNumber;
+	String returnSeatNumber;
 	int noOfBags;
 	
 
@@ -90,15 +91,22 @@ public class Ticket {
 		this.noOfBags = noOfBags;
 	}
 	
-	public String getSeatNumber() {
-		return seatNumber;
+	public String getDepartureSeatNumber() {
+		return departureSeatNumber;
 	}
 
-	public void setSeatNumber(String seatNumber) {
-		this.seatNumber = seatNumber;
+	public void setDepartureSeatNumber(String departureSeatNumber) {
+		this.departureSeatNumber = departureSeatNumber;
 	}
 
-	
+	public String getReturnSeatNumber() {
+		return returnSeatNumber;
+	}
+
+	public void setReturnSeatNumber(String returnSeatNumber) {
+		this.returnSeatNumber = returnSeatNumber;
+	}
+
 	public void addTicketToData() {
 		Data data = Data.getInstance();
 		data.addTicketToData(this);

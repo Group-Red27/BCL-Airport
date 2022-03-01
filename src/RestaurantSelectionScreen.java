@@ -353,23 +353,23 @@ public class RestaurantSelectionScreen extends JFrame {
 		price8.setBounds(17, 439, 53, 19);
 		snacksPanel.add(price8);
 		
-		JTextPane description5 = new JTextPane();
-		description5.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		description5.setEditable(false);
-		description5.setBounds(10, 144, 176, 50);
-		snacksPanel.add(description5);
-		
 		JTextPane description6 = new JTextPane();
 		description6.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		description6.setEditable(false);
-		description6.setBounds(10, 258, 176, 50);
+		description6.setBounds(10, 144, 176, 50);
 		snacksPanel.add(description6);
 		
 		JTextPane description7 = new JTextPane();
-		description7.setBounds(10, 32, 176, 50);
-		snacksPanel.add(description7);
 		description7.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		description7.setEditable(false);
+		description7.setBounds(10, 258, 176, 50);
+		snacksPanel.add(description7);
+		
+		JTextPane description5 = new JTextPane();
+		description5.setBounds(10, 32, 176, 50);
+		snacksPanel.add(description5);
+		description5.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		description5.setEditable(false);
 		
 		JTextPane description8 = new JTextPane();
 		description8.setFont(new Font("Tahoma", Font.PLAIN, 11));
@@ -505,7 +505,7 @@ public class RestaurantSelectionScreen extends JFrame {
 		
 		JPanel infoPanel = new JPanel();
 		infoPanel.setBackground(SystemColor.menu);
-		infoPanel.setBounds(641, 32, 151, 485);
+		infoPanel.setBounds(640, 76, 151, 468);
 		mainPanel.add(infoPanel);
 		infoPanel.setLayout(null);
 		
@@ -522,7 +522,7 @@ public class RestaurantSelectionScreen extends JFrame {
 		infoPanel.add(lblNewLabel_2_1_1);
 		
 		JButton purchaseButton = new JButton("Purchase");
-		purchaseButton.setBounds(20, 424, 109, 29);
+		purchaseButton.setBounds(20, 411, 109, 29);
 		infoPanel.add(purchaseButton);
 		purchaseButton.setForeground(new Color(255, 255, 255));
 		purchaseButton.setBackground(new Color(0, 0, 128));
@@ -591,5 +591,19 @@ public class RestaurantSelectionScreen extends JFrame {
 		drinksLabel.setForeground(new Color(0, 0, 128));
 		drinksLabel.setBounds(405, 0, 185, 41);
 		titlePanel.add(drinksLabel);
+		
+		JButton refreshButton = new JButton("Refresh");
+		refreshButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RestaurantSelectionScreen screen = new RestaurantSelectionScreen();
+				screen.setVisible(true);
+				dispose();
+			}
+		});
+		refreshButton.setForeground(new Color(128, 128, 128));
+		refreshButton.setFont(new Font("Tahoma", Font.BOLD, 16));
+		refreshButton.setBackground(SystemColor.menu);
+		refreshButton.setBounds(660, 30, 109, 29);
+		mainPanel.add(refreshButton);
 	}
 }

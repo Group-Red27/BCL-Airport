@@ -25,7 +25,9 @@ public class Data {
 		ticket1.setFirstName("Aaron"); ticket1.setLastName("Samuels"); ticket1.setTicketNumber(83746578);
 		Ticket ticket2 = new Ticket();
 		ticket2.setFirstName("Regina"); ticket2.setLastName("George"); ticket2.setTicketNumber(27475839);
-		this.addTicketToData(ticket1); this.addTicketToData(ticket2);
+		Ticket ticket3 = new Ticket();
+		ticket3.setFirstName("Cady"); ticket3.setLastName("Heron"); ticket3.setTicketNumber(95738494);
+		this.addTicketToData(ticket1); this.addTicketToData(ticket2); this.addTicketToData(ticket3);
 		
 		Fooditem item1 = new Fooditem("Chicken Noodles","Marinated chicken with seasonal greens, menma, spring onion, rich chicken broth with miso",100,10.99);
 		Fooditem item2 = new Fooditem("Rice & Beef","Beef brisket in teriyaki sauce shredded carrots. seasonal greens spring onion sesame seeds",100,8.99);
