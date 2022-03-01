@@ -44,17 +44,17 @@ public class Boeing747_JDiolog extends JDialog {
 		setContentPane(getContentPane());
 		getContentPane().setLayout(null);
 		
-		JLabel boeing747Label = new JLabel("Departure/Return: Boeing 747");
+		JLabel boeing747Label = new JLabel("Return: Boeing 747");
 		boeing747Label.setBounds(21, 22, 207, 28);
 		boeing747Label.setForeground(new Color(0, 0, 255));
 		boeing747Label.setFont(new Font("Tahoma", Font.BOLD, 12));
 		getContentPane().add(boeing747Label);
 		
-		JLabel selectLabel = new JLabel("select x seats");
-		selectLabel.setBounds(21, 45, 74, 28);
-		selectLabel.setForeground(Color.BLUE);
-		selectLabel.setFont(new Font("Tahoma", Font.BOLD, 9));
-		getContentPane().add(selectLabel);
+//		JLabel selectLabel = new JLabel("select x seats");
+//		selectLabel.setBounds(21, 45, 74, 28);
+//		selectLabel.setForeground(Color.BLUE);
+//		selectLabel.setFont(new Font("Tahoma", Font.BOLD, 9));
+//		getContentPane().add(selectLabel);
 		
 		JLabel firstClassLabel = new JLabel("First Class");
 		firstClassLabel.setHorizontalAlignment(SwingConstants.CENTER);

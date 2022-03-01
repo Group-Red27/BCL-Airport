@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
@@ -95,6 +97,8 @@ public class RestaurantSelectionScreen extends JFrame {
 				flightScreen.setVisible(true);
 			}
 		});
+		
+
 		buttonPanel.add(flightsButton);
 		flightsButton.setForeground(Color.BLACK);
 		flightsButton.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -485,8 +489,9 @@ public class RestaurantSelectionScreen extends JFrame {
 		drinksPanel.add(description12);
 
 		Data data = Data.getInstance();
-
+		System.out.println(" ");
 		// using a loop to assign the prices, labels + desc. from foodItem rather than setting them constant
+		// after putting all component into coresponding arrays
 		JLabel[] itemNames = {label1,label2,label3,label4,label5,label6,label7,label8,label9,label10,label11,label12};
 		JLabel[] priceLabels = {price1,price2,price3,price4,price5,price6,price7,price8,price9,price10,price11,price12};
 		JTextPane[] descriptionText = {description1,description2,description3,description4,description5,description6,description7,description8,description9,description10,description11,description12};
@@ -500,7 +505,7 @@ public class RestaurantSelectionScreen extends JFrame {
 			if (data.getItemsAvailable()[i].getStockLevel() == 0) {
 				entryList[i].enable(false);
 				entryList[i].setBackground(Color.GRAY);
-			} 
+			} // sets the entry to invalid and gray to show out of stock
 		}
 		
 		JPanel infoPanel = new JPanel();
@@ -543,12 +548,14 @@ public class RestaurantSelectionScreen extends JFrame {
 				boolean moveFrame = order.selectItems(entryList);
 				if (moveFrame == true) {
 					int rows = 0;
+					// each food item will have a row in the jtable, the index is the index of that specific item in the data class []
+					// eg, chicken noodles is the 0th item, this index is used to get the right data for the right items 
 					ArrayList<Integer> index = new ArrayList<Integer>();
 					for (int i = 0; i < 12; i++) {
 						if (order.itemsSelected[i] == true) {
 							rows += 1;
 							index.add(i);
-						}
+						} // all of the indexes are added to an array for below use
 					} // calc num of rows needed for JTable based on items selected and the index of selected items
 					
 					Object[][] tableData = new Object[rows][4];
