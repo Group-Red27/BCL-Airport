@@ -8,6 +8,13 @@ public class Ticket {
 	String returnFlightNumber;
 	String departureSeatNumber;
 	String returnSeatNumber;
+	String dateOfBirth;
+	double bagCost;
+	double compensation;
+	double ticketPrice;
+	double productCost;
+	double totalCost;
+	
 	int noOfBags;
 	
 
@@ -15,16 +22,16 @@ public class Ticket {
 		
 	}
 	
-//	public Ticket(String fname, String lname, String departureF, String returnF, String dSeat, String rSeat) {
-//		this.ticketNumber = generateTicketNum();
-//		this.firstName = fname;
-//		this.lastName = lname;
-//		this.departureFlightNumber = departureF;
-//		this.returnFlightNumber = returnF;
-//		this.departSeat = dSeat;
-//		this.returnSeat = rSeat;
-//		// constructor
-//	}
+	public Ticket(String fname, String lname, String dob, String departureF, String returnF, String dSeat, String rSeat) {
+		this.ticketNumber = generateTicketNum();
+		this.firstName = fname;
+		this.lastName = lname;
+		this.departureFlightNumber = departureF;
+		this.returnFlightNumber = returnF;
+		this.departureSeatNumber = dSeat;
+		this.returnSeatNumber = rSeat;
+		// constructor
+	}
 	
 	private long generateTicketNum() {
 		// TODO Auto-generated method stub

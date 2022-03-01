@@ -55,9 +55,11 @@ public class Checkout extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		Ticket ticket;
 		Finance finance = new Finance(null);
+		finance.anError();
 		finance.calBagCost();
-//		System.out.println("anything");
+		System.out.println("anything");
 		
 		
 		JLabel lblNewLabel = new JLabel("New label");
@@ -178,13 +180,14 @@ public class Checkout extends JFrame {
 		
 		
 		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null, null, null, null, null, null, null},
-			},
-			new String[] {
-				"First name", "Surname", "Date of birth", "Ticket No", "Bag Cost", "Product Cost", "Compensation", "Total Cost", "Ticket Cost", "Ticket Cost"
-			}
-		) {
+			Ticket Object = new Object[] {
+				{ticket.firstName, null, null ,null, null, null, null, null, null, null},
+			};
+			
+			String columnNames [] = new String[] {
+				"First name", "Surname", "Date of birth", "Ticket No", "Bag Cost", "Ticket Price", "Food Cost", "Product Cost", "Compensation", "Total Cost"
+			};
+		 {
 			/**
 			 * 
 			 */

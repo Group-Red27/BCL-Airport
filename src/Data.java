@@ -85,7 +85,7 @@ public class Data {
 		}return null;
 	}
 	
-//	This is for finance class
+//	This is for finance class 
 	public Flightclass findflight(String flightNumber) {
 		Flightclass flight = null;
 //		System.out.println(flights);

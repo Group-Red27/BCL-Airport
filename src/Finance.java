@@ -5,6 +5,8 @@ public class Finance {
 	Data data = Data.getInstance();
 	Ticket ticket;
 	SeatingPlan seatingPlan; 
+	Seat seat;
+	
 	double bagCost;
 	double travelDistDeparture;
 	double travelDistReturn;
@@ -16,7 +18,7 @@ public class Finance {
 	double ticketCostReturn;
 	double productCost;
 	double foodCost;
-	double compensationCost;
+	double compensation;
 	double overallTotalCost;
 	String departureFlightNumber;
 	String returnFlightNumber;
@@ -114,21 +116,21 @@ public class Finance {
 	public double getFoodCost() {
 		return foodCost;
 	}
-//	public void setFoodCost(double foodCost) {
-//		this.foodCost = Ticket.getFoodCost();		// Is this right for calling from data class
-//	}
+	public void setFoodCost(Ticket ticketFound) {
+		this.foodCost = ticketFound.getFoodCost();		
+	}
 	public double getProductCost() {
 		return productCost;
 		
 	}
 	public void setProductCost(double productCost) {
-		this.productCost = 0.00;						// I want to set this to zero
+		this.productCost = 0.00;						
 	}
-	public double getCompensationCost() {
-		return compensationCost;
+	public double getCompensation() {
+		return compensation;
 	}
-	public void setCompensationCost(double compensationCost) {
-		this.compensationCost = compensationCost;
+	public void setCompensation(double compensation) {
+		this.compensation = compensation;
 	}
 	public double getOverallTotalCost() {
 		return overallTotalCost;
@@ -140,7 +142,7 @@ public class Finance {
 	
 	
 //	For all costs which has dispute - error messages
-	private String anError(){
+	public String anError(){
 	return ("**Error**");
 	}
 	
@@ -163,36 +165,38 @@ public class Finance {
 			bagCost = 0.00;
 		} else {
 			System.out.println(anError());
-			System.out.println(bagCostError());
-			System.out.format("%.2f", bagCost);
+			System.out.println(bagCostError());			
 		}
+		System.out.format("%.2f", bagCost);
 		return bagCost;
 		
 	}
 	
-	public double compensationCost() {
+	private double calcompensation() {
 		
 		Ticket ticketFound = this.ticket;
 		Flightclass departureFlight = data.findflight(ticketFound.getDepartureFlightNumber());	
 		delaysInDeparture = departureFlight.getDelay();
-		compensationCost = 0;
+		compensation = 0;
 		
 		if (delaysInDeparture > 60 && delaysInDeparture <= 120) {
-			compensationCost = 100.00;
+			compensation = 100.00;
 		}else if (delaysInDeparture > 120 && delaysInDeparture <= 180) {
-			compensationCost = 200.00;
+			compensation = 200.00;
 		}else if (delaysInDeparture > 180) {
-			compensationCost = 300.00;
+			compensation = 300.00;
 		}else 
-			compensationCost = 300.00;
+			compensation = 300.00;
 		
-		return compensationCost;		
+		return compensation;		
 		}
 
 
 
 	private void declarePriceRating() {		
-		String seatClass = seatingPlan.getSeatClass();
+		Flightclass flight = data.findflight(departureFlightNumber);
+		
+		String seatClass = seat.getSeatClass();
 		double classPriceRating = 0;
 		
 		if (seatClass == "Economy") {
@@ -203,9 +207,7 @@ public class Finance {
 			classPriceRating = 1.5;		
 	}
 
-		
-
-	private double calTicketCostDeparture() {
+	public double calTicketCostDeparture() {
 		//Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());
 		Ticket ticketFound = this.ticket;
 		Flightclass departureFlight = data.findflight(ticketFound.getDepartureFlightNumber());
@@ -218,7 +220,7 @@ public class Finance {
 		return ticketCostDeparture;
 	}
 		
-	private double calTicketCostReturn() {
+	public double calTicketCostReturn() {
 		Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());
 		Flightclass returnFlight = data.findflight(ticketFound.getReturnFlightNumber());	
 		travelDistReturn = returnFlight.getDistance();
@@ -228,16 +230,35 @@ public class Finance {
 		return ticketCostReturn;		
 	}
 	
-	private double calTicketPrice() {
-		double tempTicketPrice = 0;
-		tempTicketPrice = ticketCostDeparture + ticketCostReturn;	
-		System.out.format("%.2f",tempTicketPrice);
-		return ticketPrice;
-		
+	public double calTicketPrice() {
+		ticketPrice = 0;
+		ticketPrice = ticketCostDeparture + ticketCostReturn;	
+		System.out.format("%.2f",ticketPrice);
+		return ticketPrice;		
 	}
 	
-}
-
+	public double calOverallTotalCost() {
+		overallTotalCost = 0;
+		double tempTotal = 0;
+		
+		tempTotal = (bagCost + ticket.foodCost + productCost +ticketPrice) ;
+		System.out.format("%.2f",overallTotalCost);
+		return overallTotalCost = (tempTotal - compensation) ;		
+	}
+	
+	public int defineNoTableRows() {			//is this right ? do i need a loop?
+		int tableRows = 0;
+		int purchasedTickets = data.tickets.size();
+		
+		return tableRows = purchasedTickets;
+	}
+	
+//	Object tableData [] = new Object[];
+//	for (i=0; i<tableRows; i++);
+	
+	
+	}
+ 
 	
 	
 

@@ -21,6 +21,7 @@ public class Flightclass {
 	public String flightTypes[]= {"DepartureFlights","ReturnFlights"};
 
 	
+		
  public String[] getFlightTypes() {
 		return flightTypes;
 	}
