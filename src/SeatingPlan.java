@@ -10,7 +10,7 @@ public class SeatingPlan {
 		 public String[] selectedSeats;
 		 public boolean[] seatAvailability;
 		 private String[][] seatClass;
-		 
+		 public String seatNumberClass;
 
 		 public SeatingPlan(String planeType, Flightclass flight) { //constructor 
 			 this.flight = flight;
@@ -180,6 +180,14 @@ public class SeatingPlan {
 		
 	
 		
+		public String getSeatNumberClass() {
+			return seatNumberClass;
+		}
+
+		public void setSeatNumberClass(String seatNumberClass) {
+			this.seatNumberClass = seatNumberClass;
+		}
+
 		//PlaneType
 		public boolean planeSeatingPlan() {//Which one it displays, either airbus or boeing. 
 			

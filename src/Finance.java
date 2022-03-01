@@ -5,7 +5,7 @@ public class Finance {
 	Data data = Data.getInstance();
 	Ticket ticket;
 	SeatingPlan seatingPlan; 
-	Seat seat;
+	
 	
 	double bagCost;
 	double travelDistDeparture;
@@ -193,23 +193,21 @@ public class Finance {
 
 
 
-//	private void declarePriceRating() {		
-//		Flightclass flight = data.findflight(departureFlightNumber);
-//		
-//		String seatClass = seat.getSeatClass();
-//		double classPriceRating = 0;
-//		
-//		if (seatClass == "Economy") {
-//			classPriceRating = 0.5;
-//		}else if (seatClass == "Business class") {
-//			classPriceRating = 1.0;
-//		}else
-//			classPriceRating = 1.5;		
-//	}
+	private void declarePriceRating() {				
+		String seatClass = seatingPlan.seatNumberClass;
+		double classPriceRating = 0;
+		
+		if (seatClass == "Economy") {
+			classPriceRating = 0.5;
+		}else if (seatClass == "Business class") {
+			classPriceRating = 1.0;
+		}else
+			classPriceRating = 1.5;		
+	}
 
-	public double calTicketCostDeparture(double travelDistDeparture) {
+	public double calTicketCostDeparture(double travelDistDeparture, double classPriceRating) {
 		//Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());
-//		Ticket ticketFound = this.ticket;
+		Ticket ticketFound = this.ticket;
 		Flightclass departureFlight = data.findflight(ticketFound.getDepartureFlightNumber());
 				//ticketFound.getDepartureFlightNumber());
 		travelDistDeparture = departureFlight.getDistance();
@@ -220,7 +218,7 @@ public class Finance {
 		return ticketCostDeparture;
 	}
 		
-	public double calTicketCostReturn() {
+	public double calTicketCostReturn(double travelDistReturn, double classPriceRating) {
 		Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());
 		Flightclass returnFlight = data.findflight(ticketFound.getReturnFlightNumber());	
 		travelDistReturn = returnFlight.getDistance();
@@ -246,7 +244,7 @@ public class Finance {
 		return overallTotalCost = (tempTotal - compensation) ;		
 	}
 	
-	public int defineNoTableRows() {			//is this right ? do i need a loop?
+	public int defineNoTableRows() {			
 		int purchasedTickets = data.tickets.size();
 		return purchasedTickets;
 	}

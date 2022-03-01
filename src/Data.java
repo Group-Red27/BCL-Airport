@@ -23,7 +23,7 @@ public class Data {
 		
 		Ticket ticket1 = new Ticket();
 		ticket1.setFirstName("Aaron"); ticket1.setLastName("Samuels"); ticket1.setTicketNumber(83746578);ticket1.setDelaysInDeparture(179);ticket1.setTravelDistDeparture(7021.04);ticket1.setTravelDistReturn(11687.85);
-		ticket1.setNoOfBags(2);
+		ticket1.setNoOfBags(2);ticket1.setDateOfBirth("01/01/1990");ticket1.setReturnSeatNumber("1A");
 		Ticket ticket2 = new Ticket();
 		ticket2.setFirstName("Regina"); ticket2.setLastName("George"); ticket2.setTicketNumber(27475839);
 		Ticket ticket3 = new Ticket();
@@ -145,8 +145,7 @@ public class Data {
 		users.add(user);
 	}
 
-	public ArrayList<Flightclass> getFlights() {
-		
+	public ArrayList<Flightclass> getFlights() {		
 		return this.flights;
 	}
 	
