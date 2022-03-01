@@ -14,6 +14,9 @@ public class Ticket {
 	double ticketPrice;
 	double productCost;
 	double totalCost;
+	int delaysInDeparture;
+	double travelDistDeparture;
+	double travelDistReturn;
 	
 	int noOfBags;
 	
@@ -75,6 +78,54 @@ public class Ticket {
 		this.lastName =lastName;
 	}
 	
+	public String getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(String dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	public double getBagCost() {
+		return bagCost;
+	}
+
+	public void setBagCost(double bagCost) {
+		this.bagCost = bagCost;
+	}
+
+	public double getCompensation() {
+		return compensation;
+	}
+
+	public void setCompensation(double compensation) {
+		this.compensation = compensation;
+	}
+
+	public double getTicketPrice() {
+		return ticketPrice;
+	}
+
+	public void setTicketPrice(double ticketPrice) {
+		this.ticketPrice = ticketPrice;
+	}
+
+	public double getProductCost() {
+		return productCost;
+	}
+
+	public void setProductCost(double productCost) {
+		this.productCost = productCost;
+	}
+
+	public double getTotalCost() {
+		return totalCost;
+	}
+
+	public void setTotalCost(double totalCost) {
+		this.totalCost = totalCost;
+	}
+
 	public String getDepartureFlightNumber() {
 		return departureFlightNumber;
 	}
@@ -112,6 +163,30 @@ public class Ticket {
 
 	public void setReturnSeatNumber(String returnSeatNumber) {
 		this.returnSeatNumber = returnSeatNumber;
+	}
+	
+	public int getDelaysInDeparture() {
+		return delaysInDeparture;
+	}
+
+	public void setDelaysInDeparture(int delaysInDeparture) {
+		this.delaysInDeparture = delaysInDeparture;
+	}
+	
+	public double getTravelDistDeparture() {
+		return travelDistDeparture;
+	}
+
+	public void setTravelDistDeparture(double travelDistDeparture) {
+		this.travelDistDeparture = travelDistDeparture;
+	}
+
+	public double getTravelDistReturn() {
+		return travelDistReturn;
+	}
+
+	public void setTravelDistReturn(double travelDistReturn) {
+		this.travelDistReturn = travelDistReturn;
 	}
 
 	public void addTicketToData() {

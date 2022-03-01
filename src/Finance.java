@@ -26,29 +26,29 @@ public class Finance {
 	
 	
 	public Finance(Ticket ticket) {
-		if (ticket == null) {
-			ticket = new Ticket();
-			ticket.setDepartureFlightNumber("TA8112");
-			ticket.setReturnFlightNumber("TM5422");
-			ticket.setNoOfBags(4);
-			ticket.setFoodCost(45.00);
-			ticket.setFirstName("John");
-			ticket.setLastName("Smith");
-			ticket.setTicketNumber(12345678);
-			ticket.addTicketToData();
-		}
-		this.ticket = ticket; 
+//		if (ticket == null) {
+//			ticket = new Ticket();
+//			ticket.setDepartureFlightNumber("TA8112");
+//			ticket.setReturnFlightNumber("TM5422");
+//			ticket.setNoOfBags(4);
+//			ticket.setFoodCost(45.00);
+//			ticket.setFirstName("John");
+//			ticket.setLastName("Smith");
+//			ticket.setTicketNumber(12345678);
+//			ticket.addTicketToData();
+//		}
+//		this.ticket = ticket; 
 		
-		Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());
+//		Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());
 //		System.out.print(ticketFound.getTicketNumber());
-//		System.out.println(ticketFound.noOfBags);
-
-		Flightclass departureFlight = data.findflight(ticketFound.getDepartureFlightNumber());
-//		System.out.println(departureFlight.getDistance());
-//		System.out.println(departureFlight.getDelay());
-		
-		Flightclass returnFlight = data.findflight(ticketFound.getReturnFlightNumber());
-//		System.out.println(returnFlight.getDistance());	
+////		System.out.println(ticketFound.noOfBags);
+//
+//		Flightclass departureFlight = data.findflight(ticketFound.getDepartureFlightNumber());
+////		System.out.println(departureFlight.getDistance());
+////		System.out.println(departureFlight.getDelay());
+//		
+//		Flightclass returnFlight = data.findflight(ticketFound.getReturnFlightNumber());
+////		System.out.println(returnFlight.getDistance());	
 	}
 	
 //	Object tableData [] = {ticketFound.getFoodCost(), getProductCost(), getBagCost()};
@@ -151,11 +151,11 @@ public class Finance {
 		}
 	
 //	calculation of bag cost
-	public double calBagCost() {
+	public double calBagCost(int noOfBags) {
 		
 		//Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());	//is this right??
-		Ticket ticketFound = this.ticket;
-		int noOfBags = ticketFound.noOfBags;		
+	//	Ticket ticketFound = this.ticket;
+	//	int noOfBags = ticketFound.noOfBags;		
 		bagCost = 0; 
 		
 		if (noOfBags > 0) {
@@ -172,11 +172,11 @@ public class Finance {
 		
 	}
 	
-	private double calcompensation() {
+	public double calcompensation(int delaysInDeparture) {
 		
-		Ticket ticketFound = this.ticket;
-		Flightclass departureFlight = data.findflight(ticketFound.getDepartureFlightNumber());	
-		delaysInDeparture = departureFlight.getDelay();
+//		Ticket ticketFound = this.ticket;
+//		Flightclass departureFlight = data.findflight(ticketFound.getDepartureFlightNumber());	
+//		delaysInDeparture = departureFlight.getDelay();
 		compensation = 0;
 		
 		if (delaysInDeparture > 60 && delaysInDeparture <= 120) {
@@ -193,23 +193,23 @@ public class Finance {
 
 
 
-	private void declarePriceRating() {		
-		Flightclass flight = data.findflight(departureFlightNumber);
-		
-		String seatClass = seat.getSeatClass();
-		double classPriceRating = 0;
-		
-		if (seatClass == "Economy") {
-			classPriceRating = 0.5;
-		}else if (seatClass == "Business class") {
-			classPriceRating = 1.0;
-		}else
-			classPriceRating = 1.5;		
-	}
+//	private void declarePriceRating() {		
+//		Flightclass flight = data.findflight(departureFlightNumber);
+//		
+//		String seatClass = seat.getSeatClass();
+//		double classPriceRating = 0;
+//		
+//		if (seatClass == "Economy") {
+//			classPriceRating = 0.5;
+//		}else if (seatClass == "Business class") {
+//			classPriceRating = 1.0;
+//		}else
+//			classPriceRating = 1.5;		
+//	}
 
-	public double calTicketCostDeparture() {
+	public double calTicketCostDeparture(double travelDistDeparture) {
 		//Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());
-		Ticket ticketFound = this.ticket;
+//		Ticket ticketFound = this.ticket;
 		Flightclass departureFlight = data.findflight(ticketFound.getDepartureFlightNumber());
 				//ticketFound.getDepartureFlightNumber());
 		travelDistDeparture = departureFlight.getDistance();
@@ -247,14 +247,10 @@ public class Finance {
 	}
 	
 	public int defineNoTableRows() {			//is this right ? do i need a loop?
-		int tableRows = 0;
 		int purchasedTickets = data.tickets.size();
-		
-		return tableRows = purchasedTickets;
+		return purchasedTickets;
 	}
 	
-//	Object tableData [] = new Object[];
-//	for (i=0; i<tableRows; i++);
 	
 	
 	}

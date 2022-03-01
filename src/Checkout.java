@@ -57,9 +57,9 @@ public class Checkout extends JFrame {
 		
 		Ticket ticket;
 		Finance finance = new Finance(null);
-		finance.anError();
-		finance.calBagCost();
-		System.out.println("anything");
+//		finance.anError();
+//		finance.calBagCost();
+	//	System.out.println("anything");
 		
 		
 		JLabel lblNewLabel = new JLabel("New label");
@@ -162,7 +162,30 @@ public class Checkout extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnNewButton.setBounds(863, 384, 250, 50);
 		mainContentpanel.add(btnNewButton);
-		
+	
+		String[] columnNames = {"First Name", "Surname", "Date Of Birth","Ticket No","Bag Cost","Ticket Price","Food Cost", "Product Cost", "Compensation", "TotalCost"};
+		int numRows = finance.defineNoTableRows();
+		Object[][] tableData = new Object[numRows][10];
+		Data data = Data.getInstance();
+		for (int i = 0; i < numRows; i++) {
+			// calculating what is needed with methods from finance
+			double compensation = finance.calcompensation(data.getTickets().get(i).getDelaysInDeparture());
+			data.getTickets().get(i).setCompensation(compensation);
+			double bagCost = finance.calBagCost(data.getTickets().get(i).getNoOfBags());
+			data.getTickets().get(i).setBagCost(bagCost);
+			
+			// display data by getting from ticket
+			tableData[i][0] = data.getTickets().get(i).getFirstName();
+			tableData[i][1] = data.getTickets().get(i).getLastName();
+			tableData[i][2] = data.getTickets().get(i).getDateOfBirth();
+			tableData[i][3] = data.getTickets().get(i).getTicketNumber();
+			tableData[i][4] = data.getTickets().get(i).getBagCost();
+			tableData[i][5] = data.getTickets().get(i).getTicketPrice();
+			tableData[i][6] = data.getTickets().get(i).getFoodCost();
+			tableData[i][7] = data.getTickets().get(i).getProductCost();
+			tableData[i][8] = data.getTickets().get(i).getCompensation(); 
+			tableData[i][9] = data.getTickets().get(i).getTotalCost();
+		}
 		
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -170,7 +193,8 @@ public class Checkout extends JFrame {
 		scrollPane.setBackground(new Color(25, 25, 112));
 		mainContentpanel.add(scrollPane);
 		
-		table = new JTable();
+		table = new JTable(tableData,columnNames);
+		table.setEnabled(false);
 		table.setForeground(new Color(255, 255, 255));
 		table.setToolTipText("");
 		table.setBackground(Color.LIGHT_GRAY);
@@ -179,51 +203,8 @@ public class Checkout extends JFrame {
 		scrollPane.setViewportView(table);
 		
 		
-		table.setModel(new DefaultTableModel(
-			Ticket Object = new Object[] {
-				{ticket.firstName, null, null ,null, null, null, null, null, null, null},
-			};
-			
-			String columnNames [] = new String[] {
-				"First name", "Surname", "Date of birth", "Ticket No", "Bag Cost", "Ticket Price", "Food Cost", "Product Cost", "Compensation", "Total Cost"
-			};
-		 {
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-			Class[] columnTypes = new Class[] {
-				String.class, String.class, Object.class, Long.class, Float.class, Float.class, Float.class, Float.class, Float.class, Float.class
-			};
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-			boolean[] columnEditables = new boolean[] {
-				false, false, false, false, false, false, false, false, false, false
-			};
-			public boolean isCellEditable(int row, int column) {
-				return columnEditables[column];
-			}
-		});
-		table.getColumnModel().getColumn(0).setResizable(false);
-		table.getColumnModel().getColumn(0).setPreferredWidth(100);
-		table.getColumnModel().getColumn(1).setResizable(false);
-		table.getColumnModel().getColumn(1).setPreferredWidth(100);
-		table.getColumnModel().getColumn(2).setResizable(false);
-		table.getColumnModel().getColumn(2).setPreferredWidth(100);
-		table.getColumnModel().getColumn(3).setResizable(false);
-		table.getColumnModel().getColumn(3).setPreferredWidth(100);
-		table.getColumnModel().getColumn(4).setResizable(false);
-		table.getColumnModel().getColumn(4).setPreferredWidth(100);
-		table.getColumnModel().getColumn(5).setResizable(false);
-		table.getColumnModel().getColumn(5).setPreferredWidth(100);
-		table.getColumnModel().getColumn(6).setResizable(false);
-		table.getColumnModel().getColumn(6).setPreferredWidth(100);
-		table.getColumnModel().getColumn(7).setResizable(false);
-		table.getColumnModel().getColumn(7).setPreferredWidth(100);
-		table.getColumnModel().getColumn(8).setResizable(false);
-		table.getColumnModel().getColumn(8).setPreferredWidth(100);
-		table.getColumnModel().getColumn(9).setResizable(false);
-		table.getColumnModel().getColumn(9).setPreferredWidth(100);
+	
+	};
+
 	}
-}
+
