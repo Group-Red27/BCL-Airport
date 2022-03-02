@@ -268,7 +268,7 @@ public class Boeing747_JDiolog extends JDialog {
 		        {
 		        	ArrayList<String> seatsSelected = new ArrayList<String>();
 		        	int count=0;
-		        	Popup popup = new Popup();
+		        	pop_plane popup = new pop_plane();
     				SeatingPlanDesign p = new SeatingPlanDesign(seatsSelected, null, null, null, null,null);
 		        	
     				for (int i =0; i < seatNumber.length; i++ ) 

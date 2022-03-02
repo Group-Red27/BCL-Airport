@@ -213,7 +213,7 @@ public class AirbusA318_JDiolog extends JDialog {
 		        public void actionPerformed(ActionEvent e) {
 		        	ArrayList<String> seatsSelected = new ArrayList<String>();
 		        	int count=0;
-		        	Popup Pop = new Popup();
+		        	pop_plane Pop = new pop_plane();
 
 		        	
 		        	for (int i =0; i < seatNumber.length; i++ ) {
@@ -262,10 +262,5 @@ public class AirbusA318_JDiolog extends JDialog {
 	
 			}
 	
-
-	protected String getText() {
-		
-		return null;
-	}
 			
 }
