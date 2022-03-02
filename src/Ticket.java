@@ -115,7 +115,7 @@ public class Ticket {
 	}
 
 	public void setProductCost(double productCost) {
-		this.productCost = productCost;
+		this.productCost = productCost ;
 	}
 
 	public double getTotalCost() {

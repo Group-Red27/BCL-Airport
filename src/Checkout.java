@@ -174,7 +174,9 @@ public class Checkout extends JFrame {
 			double compensation = finance.calcompensation(data.getTickets().get(i).getDelaysInDeparture());
 			data.getTickets().get(i).setCompensation(compensation);
 			double bagCost = finance.calBagCost(data.getTickets().get(i).getNoOfBags());
-			data.getTickets().get(i).setBagCost(bagCost);			
+			data.getTickets().get(i).setBagCost(bagCost);
+			double productCost = finance.productCost;
+			data.getTickets().get(i).setProductCost(productCost);
 			double ticketPrice = finance.calTicketPrice(); // what shall I pass in brackets
 			data.getTickets().get(i).setTicketPrice(ticketPrice);
 			
