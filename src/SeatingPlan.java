@@ -33,7 +33,7 @@ public class SeatingPlan {
 													true,true,true,true,true,true,true,true,
 													true,true,true,true,true,true,true,true};
 				
-					this.seatClass = new String[][] {{"Business class","Economy"}, 
+					this.seatClass = new String[][] {{"Business class","Economy"}, //assigning seat to a class Airbus
 											  					{"1A","6A"}, 
 											  					{"2A","7A"},
 											  					{"3A","8A"},
@@ -97,7 +97,7 @@ public class SeatingPlan {
 															true,true,true,true,true,true,true,true,
 															true,true,true,true};
 					
-					this.seatClass= new String[][] {{"First Class", "Business class","Economy"},
+					this.seatClass= new String[][] {{"First Class", "Business class","Economy"}, //assigning seat to a class Boeing
 																	{"1A","6A","11A"},
 																	{"2A","7A","12A"},
 																	{"3A","8A","13A"},
@@ -205,13 +205,6 @@ public class SeatingPlan {
 			this.seatClass = seatClass;
 		}
 		
-	
-//		public boolean UpdateSeatingPlan() {
-//			
-//			if()
-//			
-//		}
-		
 		
 		
 		
@@ -225,7 +218,6 @@ public class SeatingPlan {
 			
 			boolean valid=true;
 			
-			System.out.println(flight.getFlightduration());
 			
 			if(hour>2)
 			{
@@ -275,7 +267,7 @@ public class SeatingPlan {
 		}
 		
 		
-		public void selectSeats()
+		public void selectSeats() //Checks selected seats
 		{
 			for(int i=0;i<=selectedSeats.length;i++)
 			{
@@ -285,7 +277,7 @@ public class SeatingPlan {
 		}
 		
 		
-		public boolean isSeatNumberAvailable(String[] seatNumber)
+		public boolean isSeatNumberAvailable(String[] seatNumber) //Check if seatNumber is available. 
 		{
 			boolean valid=true;
 			

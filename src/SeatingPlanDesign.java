@@ -45,8 +45,8 @@ public class SeatingPlanDesign extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ArrayList<String> ds = new ArrayList<String>();
-					ArrayList<String> as = new ArrayList<String>();
+					ArrayList<String> emptryAL = new ArrayList<String>();
+					ArrayList<String> emptryAL2 = new ArrayList<String>();
 					HardCodedData data = new HardCodedData();
 					HardCodedFlightclass arrival = data.flights[0];
 					HardCodedFlightclass departure = data.flights[1];
@@ -56,7 +56,7 @@ public class SeatingPlanDesign extends JFrame {
 
 					
 					
-					SeatingPlanDesign frame = new SeatingPlanDesign(ds, as ,departure,arrival,departingFlight,returningFlight);
+					SeatingPlanDesign frame = new SeatingPlanDesign(emptryAL, emptryAL2 ,departure,arrival,departingFlight,returningFlight);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -65,7 +65,7 @@ public class SeatingPlanDesign extends JFrame {
 		});
 	}
 	
-	public SeatingPlanDesign(ArrayList<String> departSeats,ArrayList<String>arrivalSeats ,HardCodedFlightclass flight, HardCodedFlightclass returnFlight, String departingFlight, String returningFlight) {
+	public SeatingPlanDesign(ArrayList<String> departSeats,ArrayList<String>returnSeats ,HardCodedFlightclass flight, HardCodedFlightclass returnFlight, String departingFlight, String returningFlight) {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -176,9 +176,9 @@ public class SeatingPlanDesign extends JFrame {
 	
 		
 		JTextPane returnSeatNumbersLabel = new JTextPane();
-		if (arrivalSeats != null) 
+		if (returnSeats != null) 
 		{
-			departureSeatNumbersLabel.setText(java.lang.String.join(",", arrivalSeats));
+			returnSeatNumbersLabel.setText(java.lang.String.join(",", returnSeats));
 		}
 		returnSeatNumbersLabel.setForeground(new Color(0, 0, 255));
 		returnSeatNumbersLabel.setBounds(416, 256, 46, 14);
