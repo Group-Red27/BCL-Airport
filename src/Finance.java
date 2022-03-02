@@ -10,8 +10,8 @@ public class Finance {
 	double bagCost;
 	double travelDistDeparture;
 	double travelDistReturn;
-//	String seatNumberDeparture;
-//	String seatNumberReturn;
+	String seatNumberDeparture;
+	String seatNumberReturn;
 	int delaysInDeparture;
 	double ticketPrice;
 	double ticketCostDeparture;
@@ -23,7 +23,8 @@ public class Finance {
 	String departureFlightNumber;
 	String returnFlightNumber;
 	int classPriceRating;
-	private Finance ticketFound;
+	
+//	private Finance ticketFound;
 	
 	
 	public Finance(Ticket ticket) {
@@ -112,18 +113,18 @@ public class Finance {
 	public void setTicketCostReturn(double ticketCostReturn) {
 		this.ticketCostReturn = ticketCostReturn;
 	}
-	public double getFoodCost() {
-		return foodCost;
-	}
-	public void setFoodCost(Ticket ticketFound) {
-		this.foodCost = ticketFound.getFoodCost();		
-	}
+//	public double getFoodCost() {
+//		return foodCost;
+//	}
+//	public void setFoodCost(Ticket ticketFound) {
+//		this.foodCost = ticketFound.getFoodCost();		
+//	}
 	public double getProductCost() {
 		return productCost;
 		
 	}
 	public void setProductCost(double productCost) {
-		this.productCost = 0.00;						
+		this.productCost = 100.00;						
 	}
 	public double getCompensation() {
 		return compensation;
@@ -259,8 +260,5 @@ public class Finance {
 	
 	
 	}
- 
-	
-	
 
 
