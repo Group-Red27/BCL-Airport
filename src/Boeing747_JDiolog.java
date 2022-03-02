@@ -257,7 +257,7 @@ public class Boeing747_JDiolog extends JDialog {
 		        public void actionPerformed(ActionEvent e) {
 		        	ArrayList<String> seatsSelected = new ArrayList<String>();
 		        	int count=0;
-		        	//Popup Pop = new Popup();
+		        	Popup Pop = new Popup();
     				SeatingPlanDesign p = new SeatingPlanDesign(seatsSelected, null, null, null, null,null);
 
 
@@ -272,7 +272,7 @@ for (int i =0; i < seatNumber.length; i++ ) {
 		        	}
 		        		
 		        		if (count != Integer.parseInt(selectedTicketNum)) { //I Have to change this to the value of the combobox. 
-		        			//Pop.showErrorMessage("You have to select the same number of tickets");
+		        			Pop.showErrorMessage("You have to select the same number of tickets");
 		        		}
 		        		
 		        		else {
