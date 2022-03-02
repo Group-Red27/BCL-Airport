@@ -153,7 +153,6 @@ public class Finance {
 //	calculation of bag cost
 	public double calBagCost(int noOfBags) {
 		
-		//Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());	//is this right??
 	//	Ticket ticketFound = this.ticket;
 	//	int noOfBags = ticketFound.noOfBags;		
 		bagCost = 0; 
@@ -207,18 +206,18 @@ public class Finance {
 
 	public double calTicketCostDeparture(double travelDistDeparture, double classPriceRating) {
 		//Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());
-		Ticket ticketFound = this.ticket;
-		Flightclass departureFlight = data.findflight(ticketFound.getDepartureFlightNumber());
-				//ticketFound.getDepartureFlightNumber());
-		travelDistDeparture = departureFlight.getDistance();
-		String departureSeatNumber = ticketFound.departureSeatNumber;
+//		Ticket ticketFound = this.ticket;
+//		Flightclass departureFlight = data.findflight(ticketFound.getDepartureFlightNumber());
+//				//ticketFound.getDepartureFlightNumber());
+//		travelDistDeparture = departureFlight.getDistance();
+//		String departureSeatNumber = ticketFound.departureSeatNumber;
 
 		
 		ticketCostDeparture = travelDistDeparture * classPriceRating;
 		return ticketCostDeparture;
 	}
 		
-	public double calTicketCostReturn(double travelDistReturn, double classPriceRating) {
+	public double calTicketCostReturn(double travelDist, double classPriceRating) {
 		Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());
 		Flightclass returnFlight = data.findflight(ticketFound.getReturnFlightNumber());	
 		travelDistReturn = returnFlight.getDistance();
