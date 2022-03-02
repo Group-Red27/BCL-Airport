@@ -269,7 +269,7 @@ public class FoodOrder {
 	
 	public void addCostToTicket(Ticket ticket, double totalCost) {
 		double foodCost = ticket.getFoodCost();
-		String.format("  "+"£%.2f",totalCost);
+		totalCost = Double.parseDouble(String.format("%.2f",totalCost));
 		System.out.println(ticket.firstName);
 		System.out.println("Ticket foodCost before"+foodCost);
 		foodCost += totalCost;
