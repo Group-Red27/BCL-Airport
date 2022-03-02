@@ -17,7 +17,7 @@ public class Ticket {
 	int delaysInDeparture;
 	double travelDistDeparture;
 	double travelDistReturn;
-	
+	String seatClass;
 	int noOfBags;
 	
 
@@ -187,6 +187,15 @@ public class Ticket {
 
 	public void setTravelDistReturn(double travelDistReturn) {
 		this.travelDistReturn = travelDistReturn;
+	}
+	
+
+	public String getSeatClass() {
+		return seatClass;
+	}
+
+	public void setSeatClass(String seatClass) {
+		this.seatClass = seatClass;
 	}
 
 	public void addTicketToData() {

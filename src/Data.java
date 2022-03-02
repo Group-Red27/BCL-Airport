@@ -24,7 +24,7 @@ public class Data {
 		Ticket ticket1 = new Ticket();
 		ticket1.setFirstName("Aaron"); ticket1.setLastName("Samuels"); ticket1.setTicketNumber(83746578);ticket1.setDateOfBirth("01/01/1990");ticket1.setNoOfBags(2);
 		ticket1.setDelaysInDeparture(179);ticket1.setTravelDistDeparture(7021.04);ticket1.setDepartureFlightNumber("TS4977");ticket1.setDepartureSeatNumber("1A");
-		ticket1.setReturnFlightNumber("ST4138");ticket1.setTravelDistReturn(11687.85);ticket1.setReturnSeatNumber("1A");
+		ticket1.setReturnFlightNumber("ST4138");ticket1.setTravelDistReturn(11687.85);ticket1.setReturnSeatNumber("1A");ticket1.setSeatClass("Economy");
 
 		
 		Ticket ticket2 = new Ticket();

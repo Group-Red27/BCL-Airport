@@ -49,7 +49,7 @@ public class Checkout extends JFrame {
 	 */
 	public Checkout() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1200, 650)
+		setBounds(100, 100, 1200, 650);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
