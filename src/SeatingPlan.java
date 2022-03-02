@@ -24,7 +24,15 @@ public class SeatingPlan {
 			 this.planeType = planeType;
 			 if (this.planeType=="AirbusA318")
 				{
-				// this.seatAvailability = new boolean[] {false,true,true,true};
+			this.seatAvailability = new boolean[]  {true,true,true,true,true,true,true,true,
+													true,true,true,true,true,true,true,true,
+													true,true,true,true,true,true,true,true,
+													true,true,true,true,true,true,true,true,
+													true,true,true,true,true,true,true,true,
+													true,true,true,true,true,true,true,true,
+													true,true,true,true,true,true,true,true,
+													true,true,true,true,true,true,true,true};
+				
 					this.seatClass = new String[][] {{"Business class","Economy"}, 
 											  					{"1A","6A"}, 
 											  					{"2A","7A"},
@@ -77,6 +85,18 @@ public class SeatingPlan {
 				}
 				else
 				{
+					this.seatAvailability = new boolean[]  {true,true,true,true,true,true,true,true,
+															true,true,true,true,true,true,true,true,
+															true,true,true,true,true,true,true,true,
+															true,true,true,true,true,true,true,true,
+															true,true,true,true,true,true,true,true,
+															true,true,true,true,true,true,true,true,
+															true,true,true,true,true,true,true,true,
+															true,true,true,true,true,true,true,true,
+															true,true,true,true,true,true,true,true,
+															true,true,true,true,true,true,true,true,
+															true,true,true,true};
+					
 					this.seatClass= new String[][] {{"First Class", "Business class","Economy"},
 																	{"1A","6A","11A"},
 																	{"2A","7A","12A"},
@@ -309,3 +329,5 @@ public class SeatingPlan {
 			
 }
 		
+
+	

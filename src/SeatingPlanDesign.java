@@ -4,7 +4,6 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -15,11 +14,6 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class SeatingPlanDesign extends JFrame {
@@ -90,7 +84,11 @@ public class SeatingPlanDesign extends JFrame {
 		contentPane.add(flightLabel);
 		
 		JComboBox <Integer> numOfTicketsComboBox = new JComboBox<Integer>();
-		numOfTicketsComboBox.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32}));
+		numOfTicketsComboBox.setModel(new DefaultComboBoxModel<Integer>(new Integer[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11,12,
+																						13,14,15,16,17,18,19,20,21,22,23,24,
+																						25,26,27,28,29,30,31,32,33,34,36,37,
+																						38,39,40,41,42,43,44,45,46,47,48,49,50,
+																						51,52,53,54,55,56,57,58,59,60,61,62,63,64}));
 		numOfTicketsComboBox.setBounds(140, 218, 38, 17);
 		
 		contentPane.add(numOfTicketsComboBox);
@@ -108,11 +106,14 @@ public class SeatingPlanDesign extends JFrame {
 		viewSeatingPlanButton.setBounds(40, 252, 138, 23);
 		contentPane.add(viewSeatingPlanButton);
 		
-		viewSeatingPlanButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		viewSeatingPlanButton.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
 				HardCodedFlightclass[] flights = {flight, returnFlight};
 				
-				for (int i=0; i<2;i++) {
+				for (int i=0; i<2;i++) 
+				{
 					boolean isBoeing = seatingPlan.planeSeatingPlan(flights[i]);
 					String Title;
 					if(i==0) {
@@ -122,7 +123,8 @@ public class SeatingPlanDesign extends JFrame {
 						Title = "Arrival";
 					}
 					
-					if(seatingPlan.planeSeatingPlan(flights[i])==true) {
+					if(seatingPlan.planeSeatingPlan(flights[i])==true) 
+					{
 						
 						String selectedTicketNum = numOfTicketsComboBox.getSelectedItem().toString();
 						Title += " Boeing747";
@@ -130,9 +132,10 @@ public class SeatingPlanDesign extends JFrame {
 						b.setVisible(true);
 						setVisible(false);
 						
-				}
+					}
 					
-					else {
+					else 
+					{
 						String selectedTicketNum = numOfTicketsComboBox.getSelectedItem().toString();
 						Title += " AirbusA137";
 						AirbusA318_JDiolog a = new AirbusA318_JDiolog(selectedTicketNum,Title);
@@ -140,7 +143,7 @@ public class SeatingPlanDesign extends JFrame {
 						setVisible(false);
 					}
 					
-			}
+				}
 			}
 			
 		});
@@ -163,7 +166,8 @@ public class SeatingPlanDesign extends JFrame {
 		
 		
 		JTextPane departureSeatNumbersLabel = new JTextPane();
-		if (departSeats != null) {
+		if (departSeats != null) 
+		{
 			departureSeatNumbersLabel.setText(java.lang.String.join(",", departSeats));
 		}
 		departureSeatNumbersLabel.setForeground(new Color(0, 0, 255));
@@ -172,20 +176,25 @@ public class SeatingPlanDesign extends JFrame {
 	
 		
 		JTextPane returnSeatNumbersLabel = new JTextPane();
-		if (arrivalSeats != null) {
+		if (arrivalSeats != null) 
+		{
 			departureSeatNumbersLabel.setText(java.lang.String.join(",", arrivalSeats));
 		}
 		returnSeatNumbersLabel.setForeground(new Color(0, 0, 255));
 		returnSeatNumbersLabel.setBounds(416, 256, 46, 14);
 		contentPane.add(returnSeatNumbersLabel);
 		
-		ActionListener listeners = new ActionListener() {
+		ActionListener listeners = new ActionListener() 
+		{
 			
 	        @Override
-	        public void actionPerformed(ActionEvent e) {
+	        public void actionPerformed(ActionEvent e) 
+	        {
 	        	
-	        	if (seatingPlan.planeType =="AirbusA318") {
-	        		for (int i=0; i < airbus.seatNumber.length;i++) {
+	        	if (seatingPlan.planeType =="AirbusA318") 
+	        	{
+	        		for (int i=0; i < airbus.seatNumber.length;i++) 
+	        		{
 	        			if(seatingPlan.getSeatAvailability()[i]==false)
 	        			{
 	        				airbus.seatNumber[i].enable(false);
@@ -197,8 +206,10 @@ public class SeatingPlanDesign extends JFrame {
 	        		}
 	        	}
         			
-	        	else  {
-	        		for (int i=0; i < boeing.seatNumber.length;i++) {
+	        	else  
+	        	{
+	        		for (int i=0; i < boeing.seatNumber.length;i++) 
+	        		{
 	        			if(seatingPlan.getSeatAvailability()[i]==false)
 	        			{
 	        				boeing.seatNumber[i].enable(false);
@@ -226,3 +237,4 @@ public class SeatingPlanDesign extends JFrame {
 		
 	}
 }
+
