@@ -21,6 +21,8 @@ public class AirbusA318_JDiolog extends JDialog {
 	private JPanel contentPanel = new JPanel();
 	public JToggleButton[] seatNumber;
 	SeatingPlanDesign seatingPlan;
+	public JLabel airbusA318Label;
+
 
 	/**
 	 * Launch the application.
@@ -37,8 +39,9 @@ public class AirbusA318_JDiolog extends JDialog {
 
 	/**
 	 * Create the dialog.
+	 * @param title 
 	 */
-	public AirbusA318_JDiolog(String selectedTicketNum) {
+	public AirbusA318_JDiolog(String selectedTicketNum, String title) {
 		
 		setBounds(100, 100, 450, 600);
 		contentPanel = new JPanel();
@@ -46,17 +49,12 @@ public class AirbusA318_JDiolog extends JDialog {
 		setContentPane(getContentPane());
 		getContentPane().setLayout(null);
 		
-		JLabel airbusA318Label = new JLabel("Departure: Airbus A318");
+		JLabel airbusA318Label = new JLabel(title);
 		airbusA318Label.setFont(new Font("Tahoma", Font.BOLD, 12));
 		airbusA318Label.setForeground(new Color(0, 0, 255));
 		airbusA318Label.setBounds(22, 30, 220, 28);
 		getContentPane().add(airbusA318Label);
 		
-//		JLabel selectLabel = new JLabel("select x seats");
-//		selectLabel.setForeground(Color.BLUE);
-//		selectLabel.setFont(new Font("Tahoma", Font.BOLD, 9));
-//		selectLabel.setBounds(22, 59, 74, 28);
-//		getContentPane().add(selectLabel);
 		
 		JLabel businessClassLabel = new JLabel("Business Class");
 		businessClassLabel.setForeground(Color.BLUE);
@@ -94,7 +92,14 @@ public class AirbusA318_JDiolog extends JDialog {
 
 	        @Override
 	        public void actionPerformed(ActionEvent e) {
+	        	
 	        	for (int i=0;i<seatNumber.length;i++) {
+	        		
+//	        		SeatingPlan seatingP = new SeatingPlan(null, null);
+//	        	    if(seatingP.isSeatNumberAvailable(seatNumber[i].getText())==false) {
+//	        	    	// check if seat avialb,e if not, seatbutton[i].setenabled = false
+//	        	    }
+//	        		
 	        		
 	        		if(seatNumber[i].isSelected()) {
 	        			seatNumber[i].setContentAreaFilled(false);
@@ -209,7 +214,7 @@ public class AirbusA318_JDiolog extends JDialog {
 		        public void actionPerformed(ActionEvent e) {
 		        	ArrayList<String> seatsSelected = new ArrayList<String>();
 		        	int count=0;
-		        	Popup popup = new Popup();
+		        	Popup Pop = new Popup();
 
 		        	
 		        	for (int i =0; i < seatNumber.length; i++ ) {
@@ -222,7 +227,7 @@ public class AirbusA318_JDiolog extends JDialog {
 		        	}
 		        		
 		        		if (count != Integer.parseInt(selectedTicketNum)) { //I Have to change this to the value of the combobox. 
-		        			popup.showErrorMessage("You have to select the same number of tickets");
+		        			Pop.showErrorMessage("You have to select the same number of tickets");
 		        		}
 		        		
 		        		else {
@@ -232,9 +237,9 @@ public class AirbusA318_JDiolog extends JDialog {
 		        			
 		        				seatsSelected.add(seatNumber[i].getText());
 		        				seatNumber[i].setEnabled(false);
-		        				SeatingPlanDesign p = new SeatingPlanDesign(seatsSelected);
+		        				SeatingPlanDesign p = new SeatingPlanDesign(seatsSelected, null, null, null, null, null);
 		        				p.setVisible(true);
-				        		
+				        		setVisible(false);
 				        		
 		        					
 		        			}

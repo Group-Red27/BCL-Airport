@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
+import javax.swing.Popup;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
@@ -20,41 +21,39 @@ public class Boeing747_JDiolog extends JDialog {
 
 	private JPanel contentPanel = new JPanel();
 	public JButton[] seatNumber;
+	SeatingPlanDesign seatingPlan;
+	public JLabel boeing747Label;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		try {
-			Boeing747_JDiolog dialog = new Boeing747_JDiolog();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+//	public static void main(String[] args) {
+//		try {
+//			Boeing747_JDiolog dialog = new Boeing747_JDiolog();
+//			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+//			dialog.setVisible(true);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
 
 	/**
 	 * Create the dialog.
+	 * @param title 
 	 */
-	public Boeing747_JDiolog() {
+	public Boeing747_JDiolog(String selectedTicketNum, String title) {
 		setBounds(100, 100, 481, 736);
 		contentPanel = new JPanel();
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setContentPane(getContentPane());
 		getContentPane().setLayout(null);
 		
-		JLabel boeing747Label = new JLabel("Return: Boeing 747");
+		JLabel boeing747Label = new JLabel(title);
 		boeing747Label.setBounds(21, 22, 207, 28);
 		boeing747Label.setForeground(new Color(0, 0, 255));
 		boeing747Label.setFont(new Font("Tahoma", Font.BOLD, 12));
 		getContentPane().add(boeing747Label);
 		
-//		JLabel selectLabel = new JLabel("select x seats");
-//		selectLabel.setBounds(21, 45, 74, 28);
-//		selectLabel.setForeground(Color.BLUE);
-//		selectLabel.setFont(new Font("Tahoma", Font.BOLD, 9));
-//		getContentPane().add(selectLabel);
 		
 		JLabel firstClassLabel = new JLabel("First Class");
 		firstClassLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -258,12 +257,12 @@ public class Boeing747_JDiolog extends JDialog {
 		        public void actionPerformed(ActionEvent e) {
 		        	ArrayList<String> seatsSelected = new ArrayList<String>();
 		        	int count=0;
-		        	Popup popup = new Popup();
-    				SeatingPlanDesign p = new SeatingPlanDesign(seatsSelected);
+		        	Popup Pop = new Popup();
+    				SeatingPlanDesign p = new SeatingPlanDesign(seatsSelected, null, null, null, null,null);
 
 
 		        	
-		        	for (int i =0; i < seatNumber.length; i++ ) {
+for (int i =0; i < seatNumber.length; i++ ) {
 		        		
 		        		
 		        		if(seatNumber[i].isSelected())
@@ -272,8 +271,8 @@ public class Boeing747_JDiolog extends JDialog {
 		        		}
 		        	}
 		        		
-		        		if (count !=2) { //I Have to change this to the value of the combobox. 
-		        			popup.showErrorMessage("You have to select the same number of tickets");
+		        		if (count != Integer.parseInt(selectedTicketNum)) { //I Have to change this to the value of the combobox. 
+		        			Pop.showErrorMessage("You have to select the same number of tickets");
 		        		}
 		        		
 		        		else {
@@ -283,7 +282,10 @@ public class Boeing747_JDiolog extends JDialog {
 		        			
 		        				seatsSelected.add(seatNumber[i].getText());
 		        				seatNumber[i].setEnabled(false);
-				        		p.setVisible(true);
+		        				SeatingPlanDesign b = new SeatingPlanDesign(seatsSelected, null, null, null, null, null);
+		        				b.setVisible(true);
+				        		setVisible(false);
+				        		
 		        					
 		        			}
 		        		}
@@ -308,3 +310,4 @@ public class Boeing747_JDiolog extends JDialog {
 
 	
 }
+

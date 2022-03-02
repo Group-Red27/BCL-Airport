@@ -1,23 +1,30 @@
+import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 public class SeatingPlan {
 
-	     Flightclass flight; 
+	     HardCodedFlightclass flight;
 	     private int numOfTickets;
 		 public String planeType;
 		 private String[] seatNumber;
 		 public String[] selectedSeats;
 		 public boolean[] seatAvailability;
 		 private String[][] seatClass;
-		 public String seatNumberClass;
+		 HardCodedData data;
+			
+		
 
-		 public SeatingPlan(String planeType, Flightclass flight) { //constructor 
+
+			
+		 public SeatingPlan(String planeType, HardCodedFlightclass flight) { //constructor 
 			 this.flight = flight;
 			 this.planeType = planeType;
 			 if (this.planeType=="AirbusA318")
 				{
-				
+				// this.seatAvailability = new boolean[] {false,true,true,true};
 					this.seatClass = new String[][] {{"Business class","Economy"}, 
 											  					{"1A","6A"}, 
 											  					{"2A","7A"},
@@ -70,7 +77,7 @@ public class SeatingPlan {
 				}
 				else
 				{
-					this.seatClass= new String[][] {{"First Class", "Business Class","Economy"},
+					this.seatClass= new String[][] {{"First Class", "Business class","Economy"},
 																	{"1A","6A","11A"},
 																	{"2A","7A","12A"},
 																	{"3A","8A","13A"},
@@ -179,27 +186,30 @@ public class SeatingPlan {
 		}
 		
 	
+//		public boolean UpdateSeatingPlan() {
+//			
+//			if()
+//			
+//		}
 		
-		public String getSeatNumberClass() {
-			return seatNumberClass;
-		}
-
-		public void setSeatNumberClass(String seatNumberClass) {
-			this.seatNumberClass = seatNumberClass;
-		}
-
+		
+		
+		
 		//PlaneType
-		public boolean planeSeatingPlan() {//Which one it displays, either airbus or boeing. 
+		public boolean planeSeatingPlan(HardCodedFlightclass flight) {//Which one it displays, either airbus or boeing. 
+		
 			
-
-	        LocalTime Flightduration= flight.getFlightduration();
-	        LocalTime comparingtime= LocalTime.parse("2:00:00");
-	        
-	        int compare = Flightduration.compareTo(comparingtime);
+			 String time = flight.getFlightduration().split(":")[0];
+			 Integer hour = Integer.parseInt(time);
+			 
 			
 			boolean valid=true;
-			if(compare>0)
+			
+			System.out.println(flight.getFlightduration());
+			
+			if(hour>2)
 			{
+				
 				valid=true;//frame change to boeing
 				planeType="Boeing747";
 				
@@ -214,6 +224,7 @@ public class SeatingPlan {
 			
 			return valid;
 		}
+		
 		
 		
 		public boolean numberOfSeats() { //validate number of seats compared to number of ticktes.
@@ -252,6 +263,7 @@ public class SeatingPlan {
 				seatAvailability[Index]=true;
 			}
 		}
+		
 		
 		public boolean isSeatNumberAvailable(String[] seatNumber)
 		{
@@ -292,9 +304,8 @@ public class SeatingPlan {
 			
 		}
 		
+		
+		
 			
 }
 		
-
-	
-

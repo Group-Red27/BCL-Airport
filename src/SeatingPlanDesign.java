@@ -17,6 +17,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class SeatingPlanDesign extends JFrame {
@@ -28,7 +31,7 @@ public class SeatingPlanDesign extends JFrame {
 	public  JLabel departureSeatNumbersLabel;
 	AirbusA318_JDiolog airbus;
 	Boeing747_JDiolog boeing;
-	SeatingPlan seatingPlan;
+	SeatingPlan seatingPlan = new SeatingPlan(null, null);
 	
 
 
@@ -36,17 +39,30 @@ public class SeatingPlanDesign extends JFrame {
 	 * Launch the application.
 	 
 	
-
-	
 	 * Create the frame.
-	 */
+	 
+	
+	
+	 * @param returnFlight 
+	
+	*/
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ArrayList<String> b = new ArrayList<String>();
-					SeatingPlanDesign frame = new SeatingPlanDesign(b);
+					ArrayList<String> ds = new ArrayList<String>();
+					ArrayList<String> as = new ArrayList<String>();
+					HardCodedData data = new HardCodedData();
+					HardCodedFlightclass arrival = data.flights[0];
+					HardCodedFlightclass departure = data.flights[1];
+					HardCodedFlightclass[] flights = {departure, arrival};
+					String departingFlight = "depart";
+					String returningFlight = "return";
+
+					
+					
+					SeatingPlanDesign frame = new SeatingPlanDesign(ds, as ,departure,arrival,departingFlight,returningFlight);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -55,8 +71,7 @@ public class SeatingPlanDesign extends JFrame {
 		});
 	}
 	
-	
-	public SeatingPlanDesign(ArrayList<String> departSeats) {
+	public SeatingPlanDesign(ArrayList<String> departSeats,ArrayList<String>arrivalSeats ,HardCodedFlightclass flight, HardCodedFlightclass returnFlight, String departingFlight, String returningFlight) {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -93,28 +108,41 @@ public class SeatingPlanDesign extends JFrame {
 		viewSeatingPlanButton.setBounds(40, 252, 138, 23);
 		contentPane.add(viewSeatingPlanButton);
 		
-		
 		viewSeatingPlanButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				HardCodedFlightclass[] flights = {flight, returnFlight};
 				
-				//if(seatingPlan.planeSeatingPlan()==true) {
-					//if(seatingPlan.flight==false) {//So I dont make new ones everytime
-					String selectedTicketNum = numOfTicketsComboBox.getSelectedItem().toString();
-					AirbusA318_JDiolog a = new AirbusA318_JDiolog(selectedTicketNum);
-					a.setVisible(true);
+				for (int i=0; i<2;i++) {
+					boolean isBoeing = seatingPlan.planeSeatingPlan(flights[i]);
+					String Title;
+					if(i==0) {
+						Title = "Departure";
+					}
+					else {
+						Title = "Arrival";
+					}
 					
-				//}
-				//}
-				//else {
-					//if(seatingPlan.flight==false) {//So I dont make new ones everytime
-					Boeing747_JDiolog b = new Boeing747_JDiolog();
+					if(seatingPlan.planeSeatingPlan(flights[i])==true) {
+						
+						String selectedTicketNum = numOfTicketsComboBox.getSelectedItem().toString();
+						Title += " Boeing747";
+						Boeing747_JDiolog b = new Boeing747_JDiolog(selectedTicketNum,Title);
 						b.setVisible(true);
-					//}
+						setVisible(false);
+						
+				}
 					
-				//}
-				
-				
+					else {
+						String selectedTicketNum = numOfTicketsComboBox.getSelectedItem().toString();
+						Title += " AirbusA137";
+						AirbusA318_JDiolog a = new AirbusA318_JDiolog(selectedTicketNum,Title);
+						a.setVisible(true);
+						setVisible(false);
+					}
+					
 			}
+			}
+			
 		});
 		
 		
@@ -135,13 +163,18 @@ public class SeatingPlanDesign extends JFrame {
 		
 		
 		JTextPane departureSeatNumbersLabel = new JTextPane();
-		departureSeatNumbersLabel.setText(java.lang.String.join(",", departSeats));
+		if (departSeats != null) {
+			departureSeatNumbersLabel.setText(java.lang.String.join(",", departSeats));
+		}
 		departureSeatNumbersLabel.setForeground(new Color(0, 0, 255));
 		departureSeatNumbersLabel.setBounds(400, 219, 79, 28);
 		contentPane.add(departureSeatNumbersLabel);
 	
 		
-		JLabel returnSeatNumbersLabel = new JLabel("return");
+		JTextPane returnSeatNumbersLabel = new JTextPane();
+		if (arrivalSeats != null) {
+			departureSeatNumbersLabel.setText(java.lang.String.join(",", arrivalSeats));
+		}
 		returnSeatNumbersLabel.setForeground(new Color(0, 0, 255));
 		returnSeatNumbersLabel.setBounds(416, 256, 46, 14);
 		contentPane.add(returnSeatNumbersLabel);
@@ -158,7 +191,7 @@ public class SeatingPlanDesign extends JFrame {
 	        				airbus.seatNumber[i].enable(false);
 	        				airbus.seatNumber[i].setContentAreaFilled(false);
 	        				airbus.seatNumber[i].setOpaque(true);
-	        				airbus.seatNumber[i].setBackground(Color.white);
+	        				airbus.seatNumber[i].setForeground(Color.white);
 	        				
 	        			}
 	        		}
@@ -172,6 +205,7 @@ public class SeatingPlanDesign extends JFrame {
 	        				boeing.seatNumber[i].setContentAreaFilled(false);
 	        				boeing.seatNumber[i].setOpaque(true);
 	        				boeing.seatNumber[i].setBackground(Color.white);
+
 	        				
 	        			}
 	        		}
@@ -191,6 +225,4 @@ public class SeatingPlanDesign extends JFrame {
 		
 		
 	}
-	
-
 }
