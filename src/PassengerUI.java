@@ -133,35 +133,56 @@ public class PassengerUI extends JFrame {
 		contentPane.add(DOB);
 		
 		JButton btnNewButton = new JButton("Next");
-	
+		
 		btnNewButton.setBounds(427, 516, 89, 23);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				boolean validTicket = true;
 				if(nameEntry.getText().length()==0) {
 					JOptionPane.showMessageDialog(null, "Enter the First Name");
+					validTicket = false;
 				}
 				else if(nameEntry.getText().length()<3){
 					JOptionPane.showMessageDialog(null, "First Name Should be minimum of 3 characters");
+					validTicket = false;
 				}
 				if(SurName.getText().length()==0) {
 					JOptionPane.showMessageDialog(null, "Enter the Surname");
+					validTicket = false;
 				}
 					else if(SurName.getText().length()<3){
 						JOptionPane.showMessageDialog(null, " Surname Should be minimum of 3 characters");
+						validTicket = false;
 				}
 				if(DOB.getDate()==null) {
 				JOptionPane.showMessageDialog(null, "Enter the DOB");
+				validTicket = false;
 				}
 				if(Email.getText().length()==0) {
-				JOptionPane.showMessageDialog(null, "Enter the Email");
+				JOptionPane.showMessageDialog(null, "Enter valid Email address");
+				validTicket = false;
 				}
+				String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
+			      //Matching the given phone number with regular expression
+			      boolean result = Email.getText().matches(regex);
+			      if(result) {
+			         JOptionPane.showMessageDialog(contentPane, "Matches!");
+			      } else {
+			         JOptionPane.showMessageDialog(contentPane, "Does not match!");
+			         
+			      }
+				
+				
 				if(Tele.getText().length()==0) {
 					JOptionPane.showMessageDialog(null, "Enter the Telephone number");
 				}
+				if (validTicket == true) {
 				Random rand = new Random();
-			
 				System.out.println(rand.nextInt(99999999));
 				JOptionPane.showMessageDialog(contentPane, "Your ticket no. is " + rand.nextInt(999999999));
+				setVisible(false);
+				}
+				
 				
 				
 			
