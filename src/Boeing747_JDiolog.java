@@ -1,6 +1,4 @@
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,14 +6,11 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 import javax.swing.Popup;
 import javax.swing.SwingConstants;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.LineBorder;
 
 public class Boeing747_JDiolog extends JDialog {
 
@@ -105,12 +100,26 @@ public class Boeing747_JDiolog extends JDialog {
 
 	        @Override
 	        public void actionPerformed(ActionEvent e) {
+	        	
 	        	for (int i=0;i<seatNumber.length;i++) {
+	        		
+	        		SeatingPlan seatingP = new SeatingPlan(null, null);
+
+	        		if(seatingP.seatAvailability[i]==false) {
+	        			seatNumber[i].setEnabled(false);
+	        		}
+	        		
+	        		else
+	        		{
+	        			seatNumber[i].setEnabled(true);
+	        			
+	        		}	
 	        		
 	        		if(seatNumber[i].isSelected()) {
 	        			seatNumber[i].setContentAreaFilled(false);
 	        			seatNumber[i].setOpaque(true);
-	        			seatNumber[i].setBackground(Color.LIGHT_GRAY); 	
+	        			seatNumber[i].setBackground(Color.LIGHT_GRAY);
+	        			
 				    }
 	        		
 	        		else {
@@ -251,18 +260,19 @@ public class Boeing747_JDiolog extends JDialog {
 				getContentPane().add(seatNumber[i]);
 			}
 			
-			ActionListener listener2 = new ActionListener() {
+			ActionListener listener2 = new ActionListener() 
+			{
 				
 		        @Override
-		        public void actionPerformed(ActionEvent e) {
+		        public void actionPerformed(ActionEvent e) 
+		        {
 		        	ArrayList<String> seatsSelected = new ArrayList<String>();
 		        	int count=0;
-		        	Popup Pop = new Popup();
+		        	Popup popup = new Popup();
     				SeatingPlanDesign p = new SeatingPlanDesign(seatsSelected, null, null, null, null,null);
-
-
 		        	
-for (int i =0; i < seatNumber.length; i++ ) {
+    				for (int i =0; i < seatNumber.length; i++ ) 
+    				{
 		        		
 		        		
 		        		if(seatNumber[i].isSelected())
@@ -271,14 +281,18 @@ for (int i =0; i < seatNumber.length; i++ ) {
 		        		}
 		        	}
 		        		
-		        		if (count != Integer.parseInt(selectedTicketNum)) { //I Have to change this to the value of the combobox. 
-		        			Pop.showErrorMessage("You have to select the same number of tickets");
+		        		if (count != Integer.parseInt(selectedTicketNum)) 
+		        		{  
+		        			popup.showErrorMessage("You have to select the same number of tickets");
 		        		}
 		        		
-		        		else {
+		        		else 
+		        		{
 
-		        			for (int i =0; i < seatNumber.length; i++ ) {
-		        				if(seatNumber[i].isSelected()) {
+		        			for (int i =0; i < seatNumber.length; i++ ) 
+		        			{
+		        				if(seatNumber[i].isSelected()) 
+		        				{
 		        			
 		        				seatsSelected.add(seatNumber[i].getText());
 		        				seatNumber[i].setEnabled(false);
@@ -287,9 +301,9 @@ for (int i =0; i < seatNumber.length; i++ ) {
 				        		setVisible(false);
 				        		
 		        					
+		        				}
 		        			}
 		        		}
-		        	}
 			        	
 		        }
 						
@@ -310,4 +324,5 @@ for (int i =0; i < seatNumber.length; i++ ) {
 
 	
 }
+
 
