@@ -18,7 +18,6 @@ import java.util.ArrayList;
 
 public class SeatingPlanDesign extends JFrame {
 	
-	private static final String String = null;
 	private JPanel contentPane;
 	public JComboBox numOfTicketsComboBox;
 	public JLabel returnSeatNumbersLabel;
@@ -45,8 +44,8 @@ public class SeatingPlanDesign extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ArrayList<String> emptryAL = new ArrayList<String>();
-					ArrayList<String> emptryAL2 = new ArrayList<String>();
+					ArrayList<String> departSeatsSelected = new ArrayList<String>();
+					ArrayList<String> returnSeatsSelected = new ArrayList<String>();
 					HardCodedData data = new HardCodedData();
 					HardCodedFlightclass arrival = data.flights[0];
 					HardCodedFlightclass departure = data.flights[1];
@@ -56,7 +55,7 @@ public class SeatingPlanDesign extends JFrame {
 
 					
 					
-					SeatingPlanDesign frame = new SeatingPlanDesign(emptryAL, emptryAL2 ,departure,arrival,departingFlight,returningFlight);
+					SeatingPlanDesign frame = new SeatingPlanDesign(departSeatsSelected, returnSeatsSelected ,departure,arrival,departingFlight,returningFlight);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -65,7 +64,7 @@ public class SeatingPlanDesign extends JFrame {
 		});
 	}
 	
-	public SeatingPlanDesign(ArrayList<String> departSeats,ArrayList<String>returnSeats ,HardCodedFlightclass flight, HardCodedFlightclass returnFlight, String departingFlight, String returningFlight) {
+	public SeatingPlanDesign(ArrayList<String> departSeats,ArrayList<String>returnSeats ,HardCodedFlightclass departureflight, HardCodedFlightclass returnFlight, String departingFlight, String returningFlight) {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -110,7 +109,7 @@ public class SeatingPlanDesign extends JFrame {
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
-				HardCodedFlightclass[] flights = {flight, returnFlight};
+				HardCodedFlightclass[] flights = {departureflight, returnFlight};
 				
 				for (int i=0; i<2;i++) 
 				{

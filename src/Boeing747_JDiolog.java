@@ -266,10 +266,12 @@ public class Boeing747_JDiolog extends JDialog {
 		        @Override
 		        public void actionPerformed(ActionEvent e) 
 		        {
-		        	ArrayList<String> seatsSelected = new ArrayList<String>();
+		        	ArrayList<String> departSeatsSelected = new ArrayList<String>();
+		        	ArrayList<String> returnSeatsSelected = new ArrayList<String>();
+
 		        	int count=0;
 		        	pop_plane popup = new pop_plane();
-    				SeatingPlanDesign p = new SeatingPlanDesign(seatsSelected, null, null, null, null,null);
+    				SeatingPlanDesign p = new SeatingPlanDesign(departSeatsSelected, returnSeatsSelected, null, null, null,null);
 		        	
     				for (int i =0; i < seatNumber.length; i++ ) 
     				{
@@ -293,10 +295,21 @@ public class Boeing747_JDiolog extends JDialog {
 		        			{
 		        				if(seatNumber[i].isSelected()) 
 		        				{
+		        					for(int k=0;k<2;k++)
+		        					{
+		        						if(i==0)
+		        						{
+		        							departSeatsSelected.add(seatNumber[i].getText());
+		    		        				seatNumber[i].setEnabled(false);
+		    		        				SeatingPlanDesign b = new SeatingPlanDesign(departSeatsSelected, null, null, null, null, null);
+		    		        				b.setVisible(true);
+		    				        		setVisible(false);
+		        						}
+		        					}
 		        			
-		        				seatsSelected.add(seatNumber[i].getText());
+		        				returnSeatsSelected.add(seatNumber[i].getText());
 		        				seatNumber[i].setEnabled(false);
-		        				SeatingPlanDesign b = new SeatingPlanDesign(seatsSelected, null, null, null, null, null);
+		        				SeatingPlanDesign b = new SeatingPlanDesign(null, returnSeatsSelected, null, null, null, null);
 		        				b.setVisible(true);
 				        		setVisible(false);
 				        		
