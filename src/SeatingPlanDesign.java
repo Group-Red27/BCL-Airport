@@ -170,29 +170,29 @@ public class SeatingPlanDesign extends JFrame {
 		completeTicketDetailsPlanButton.setForeground(Color.WHITE);
 		completeTicketDetailsPlanButton.setBackground(new Color(0, 0, 128));
 		completeTicketDetailsPlanButton.setBounds(169, 163, 179, 23);
-		completeTicketDetailsPlanButton.addActionListener(new ActionListener() 
-		{
-			public void actionPerformed(ActionEvent e) 
-			{
-				if(SelectedSeatsLabel==null)
-				{
-					Popup popup = new Popup();
-					popup.showErrorMessage("Must select seats");
-				}
-				
-				else
-				{
-					PassengerUI passenger = new PassengerUI();
-					passenger.setVisible(true);
-					
-				}
-				
-			}
-					
-				
-			
-			
-		});
+//		completeTicketDetailsPlanButton.addActionListener(new ActionListener() 
+//		{
+//			public void actionPerformed(ActionEvent e) 
+//			{
+//				if(SelectedSeatsLabel==null)
+//				{
+//					Popup popup = new Popup();
+//					popup.showErrorMessage("Must select seats");
+//				}
+//				
+//				else
+//				{
+//					PassengerUI passenger = new PassengerUI(); //Passengers is not done
+//					passenger.setVisible(true);
+//					
+//				}
+//				
+//			}
+//					
+//				
+//			
+//			
+//		});
 		
 		contentPane.add(completeTicketDetailsPlanButton);
 		
