@@ -59,8 +59,8 @@ public class Checkout extends JFrame {
 		Finance finance = new Finance(null);
 		
 //		finance.anError();
-		finance.calBagCost();
-		finance.getProductCost();
+//		finance.calBagCost();
+//		finance.getProductCost();
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon(Checkout.class.getResource("/Images_Finance/BrunelLogo.png")));

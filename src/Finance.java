@@ -26,21 +26,21 @@ public class Finance {
 	
 	
 	public Finance(Ticket ticket) {	
-//		this.ticket = ticket;
-//		if (ticket == null) {
-//			ticket = new Ticket();
-//			ticket.setDepartureFlightNumber("TA8112");
-//			ticket.setReturnFlightNumber("TM5422");
-//			ticket.setDepartureSeatNumber("1A");
-//			ticket.setReturnSeatNumber("6A");
-//			ticket.setNoOfBags(4);
-//			ticket.setFoodCost(45.00);
-//			ticket.setFirstName("John");
-//			ticket.setLastName("Smith");
-//			ticket.setTicketNumber(12345678);
-//			ticket.addTicketToData();
-//		}
-//		this.ticket = ticket; 
+		this.ticket = ticket;
+		if (ticket == null) {
+			ticket = new Ticket();
+			ticket.setDepartureFlightNumber("TA8112");
+			ticket.setReturnFlightNumber("TM5422");
+			ticket.setDepartureSeatNumber("1A");
+			ticket.setReturnSeatNumber("6A");
+			ticket.setNoOfBags(4);
+			ticket.setFoodCost(45.00);
+			ticket.setFirstName("John");
+			ticket.setLastName("Smith");
+			ticket.setTicketNumber(12345678);
+			ticket.addTicketToData();
+		}
+		this.ticket = ticket; 
 		
 //		Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());
 //		System.out.print(ticketFound.getTicketNumber());
