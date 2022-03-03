@@ -60,8 +60,7 @@ public class Checkout extends JFrame {
 		
 //		finance.anError();
 //		finance.calBagCost();
-	//	System.out.println("anything");
-		
+//		finance.getProductCost();
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon(Checkout.class.getResource("/Images_Finance/BrunelLogo.png")));
@@ -171,12 +170,19 @@ public class Checkout extends JFrame {
 		for (int i = 0; i < numRows; i++) {
 			
 			// calculating what is needed with methods from finance			
-			double compensation = finance.calcompensation(data.getTickets().get(i).getDelaysInDeparture());
+			double compensation = finance.calcompensation();
+//			data.getTickets().get(i).getDelaysInDeparture()
 			data.getTickets().get(i).setCompensation(compensation);
-			double bagCost = finance.calBagCost(data.getTickets().get(i).getNoOfBags());
-			data.getTickets().get(i).setBagCost(bagCost);			
-			double ticketPrice = finance.calTicketPrice(); // what shall I pass in brackets
-			data.getTickets().get(i).setTicketPrice(ticketPrice);
+			
+			double bagCost = finance.calBagCost();
+//			data.getTickets().get(i).getNoOfBags()
+			data.getTickets().get(i).setBagCost(bagCost);
+			
+			double productCost = finance.productCost;
+			data.getTickets().get(i).setProductCost(productCost);
+//			
+//			double ticketPrice = finance.calTicketPrice(); // what shall I pass in brackets
+//			data.getTickets().get(i).setTicketPrice(ticketPrice);
 			
 			
 			// display data by getting from ticket

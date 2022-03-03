@@ -3,11 +3,13 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 
-public class HardCodedData {
+public class HardCodedData 
+{
 	HardCodedFlightclass[] flights;// for flights component
 
 	
-	public HardCodedData() {
+	public HardCodedData() 
+	{
 		  DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	      DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
 
@@ -28,6 +30,6 @@ public class HardCodedData {
 	
 	}
 	
-	}
+}
 
 

@@ -1,20 +1,14 @@
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
-import javax.swing.border.EmptyBorder;
+
 
 public class AirbusA318_JDiolog extends JDialog {
 
@@ -88,20 +82,19 @@ public class AirbusA318_JDiolog extends JDialog {
 		int yCounter8 =280;
 		
 		
-		ActionListener listener = new ActionListener() {
+		ActionListener SelectingSeats = new ActionListener() 
+		{
 
 	        @Override
-	        public void actionPerformed(ActionEvent e) {
+	        public void actionPerformed(ActionEvent e) 
+	        {
 	        	
-	        	for (int i=0;i<seatNumber.length;i++) {
+	        	for (int i=0;i<seatNumber.length;i++) 
+	        	{
 	        		
-//	        		SeatingPlan seatingP = new SeatingPlan(null, null);
-//	        	    if(seatingP.isSeatNumberAvailable(seatNumber[i].getText())==false) {
-//	        	    	// check if seat avialb,e if not, seatbutton[i].setenabled = false
-//	        	    }
-//	        		
-	        		
-	        		if(seatNumber[i].isSelected()) {
+        			        		
+	        		if(seatNumber[i].isSelected()) 
+	        		{
 	        			seatNumber[i].setContentAreaFilled(false);
 	        			seatNumber[i].setOpaque(true);
 	        			seatNumber[i].setBackground(Color.LIGHT_GRAY);
@@ -124,100 +117,114 @@ public class AirbusA318_JDiolog extends JDialog {
 	    
 	    
 	//Business Class
-		for(int i=0;i<5;i++) { 
+		for(int i=0;i<5;i++) 
+		{ 
 			seatNumber[i]= new JToggleButton(Label[i]);
 			seatNumber[i].setBackground(new Color(126, 192, 236));
 			seatNumber[i].setForeground(new Color(255, 255, 255));
 			seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 			seatNumber[i].setBounds(139,yCounter+=20, 51, 21);
-			seatNumber[i].addActionListener(listener);
+			seatNumber[i].addActionListener(SelectingSeats);
 			getContentPane().add(seatNumber[i]);
 		}
 		
-			for(int i=5;i<10;i++) {
+			for(int i=5;i<10;i++) 
+			{
 				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(234,yCounter2+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(SelectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 			
 		//Economy Class
 			
-			for(int i=10;i<18;i++) {
+			for(int i=10;i<18;i++) 
+			{
 				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(50,yCounter3+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(SelectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 			
-			for(int i=18;i<26;i++) {
+			for(int i=18;i<26;i++) 
+			{
 				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(101,yCounter4+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(SelectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 			
-			for(int i=26;i<34;i++) {
+			for(int i=26;i<34;i++) 
+			{
 				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(152,yCounter5+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(SelectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 			
-			for(int i=34;i<42;i++) {
+			for(int i=34;i<42;i++) 
+			{
 				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(230,yCounter6+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(SelectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 			
-			for(int i=42;i<50;i++) {
+			for(int i=42;i<50;i++) 
+			{
 				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(281,yCounter7+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(SelectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 			
-			for(int i=50;i<58;i++) {
+			for(int i=50;i<58;i++) 
+			{
 				
 				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(332,yCounter8+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(SelectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 			
 			
-			ActionListener listener2 = new ActionListener() {
+			ActionListener Book = new ActionListener() 
+			{
 				
 		        @Override
-		        public void actionPerformed(ActionEvent e) {
-		        	ArrayList<String> seatsSelected = new ArrayList<String>();
+		        public void actionPerformed(ActionEvent e) 
+		        {
+		        	
+		        	ArrayList<String> seatNumbersSelected = new ArrayList<String>();
+
 		        	int count=0;
-		        	Popup Pop = new Popup();
+		        	pop_plane popup = new pop_plane();
+    				SeatingPlanDesign p = new SeatingPlanDesign(seatNumbersSelected, null, null);
 
 		        	
-		        	for (int i =0; i < seatNumber.length; i++ ) {
+		        	for (int i =0; i < seatNumber.length; i++ ) 
+		        	{
 		        		
 		        		
 		        		if(seatNumber[i].isSelected())
@@ -226,25 +233,30 @@ public class AirbusA318_JDiolog extends JDialog {
 		        		}
 		        	}
 		        		
-		        		if (count != Integer.parseInt(selectedTicketNum)) { //I Have to change this to the value of the combobox. 
-		        			Pop.showErrorMessage("You have to select the same number of tickets");
+		        		if (count != Integer.parseInt(selectedTicketNum))
+		        		{  
+		        			popup.showErrorMessage("You have to select the same number of tickets");
 		        		}
 		        		
-		        		else {
+		        		else 
+		        		{
 
-		        			for (int i =0; i < seatNumber.length; i++ ) {
-		        				if(seatNumber[i].isSelected()) {
+		        			for (int i =0; i < seatNumber.length; i++ ) 
+		        			{
+		        				if(seatNumber[i].isSelected()) 
+		        				{
 		        			
-		        				seatsSelected.add(seatNumber[i].getText());
+		        				seatNumbersSelected.add(seatNumber[i].getText());
 		        				seatNumber[i].setEnabled(false);
-		        				SeatingPlanDesign p = new SeatingPlanDesign(seatsSelected, null, null, null, null, null);
-		        				p.setVisible(true);
-				        		setVisible(false);
-				        		
+		        				
+		        				SeatingPlan seatingP = new SeatingPlan(null, null);
+		    	        		seatingP.getSeatAvailability()[i]=false;
 		        					
+		        				}
 		        			}
+		        			SeatingPlanDesign seatingb = new SeatingPlanDesign(seatNumbersSelected, null, null);
+		        			seatingb.setVisible(true);
 		        		}
-		        	}
 			        	
 		        }
 						
@@ -257,16 +269,11 @@ public class AirbusA318_JDiolog extends JDialog {
 			btnBook.setBounds(155, 500, 107, 36);
 			btnBook.setBackground(new Color(0, 0, 128));
 			btnBook.setForeground(new Color(255, 255, 255));
-			btnBook.addActionListener(listener2);
+			btnBook.addActionListener(Book);
 			getContentPane().add(btnBook);
 
 	
 			}
 	
-
-	protected String getText() {
-		
-		return null;
-	}
 			
 }
