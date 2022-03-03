@@ -22,15 +22,20 @@ public class Data {
 		users = new ArrayList<Object>();
 		
 		Ticket ticket1 = new Ticket();
-		ticket1.setFirstName("Aaron"); ticket1.setLastName("Samuels"); ticket1.setTicketNumber(83746578);ticket1.setDateOfBirth("01/01/1990");ticket1.setNoOfBags(-2);
+		ticket1.setFirstName("Aaron"); ticket1.setLastName("Samuels"); ticket1.setTicketNumber(83746578);ticket1.setDateOfBirth("01/01/1990");ticket1.setNoOfBags(4);
 		ticket1.setDelaysInDeparture(179);ticket1.setTravelDistDeparture(7021.04);ticket1.setDepartureFlightNumber("TS4977");ticket1.setDepartureSeatNumber("1A");
-		ticket1.setReturnFlightNumber("ST4138");ticket1.setTravelDistReturn(11687.85);ticket1.setReturnSeatNumber("1A");ticket1.setSeatClass("Economy");
-
+		ticket1.setReturnFlightNumber("ST4138");ticket1.setTravelDistReturn(11687.85);ticket1.setReturnSeatNumber("1A");ticket1.setSeatClass("First");
 		
 		Ticket ticket2 = new Ticket();
-		ticket2.setFirstName("Regina"); ticket2.setLastName("George"); ticket2.setTicketNumber(27475839);
+		ticket2.setFirstName("Regina"); ticket2.setLastName("George"); ticket2.setTicketNumber(27475839);ticket2.setDateOfBirth("28/02/1995");ticket2.setNoOfBags(0);
+		ticket2.setDelaysInDeparture(179);ticket2.setTravelDistDeparture(7021.04);ticket2.setDepartureFlightNumber("TS4977");ticket2.setDepartureSeatNumber("6A");
+		ticket2.setReturnFlightNumber("ST4138");ticket2.setTravelDistReturn(11687.85);ticket2.setReturnSeatNumber("6A");ticket2.setSeatClass("Business");
+		
 		Ticket ticket3 = new Ticket();
-		ticket3.setFirstName("Cady"); ticket3.setLastName("Heron"); ticket3.setTicketNumber(95738494);
+		ticket3.setFirstName("Cady"); ticket3.setLastName("Heron"); ticket3.setTicketNumber(95738494);ticket3.setDateOfBirth("21/08/1997");ticket3.setNoOfBags(3);
+		ticket3.setDelaysInDeparture(179);ticket3.setTravelDistDeparture(7021.04);ticket3.setDepartureFlightNumber("TS4977");ticket3.setDepartureSeatNumber("11A");
+		ticket3.setReturnFlightNumber("ST4138");ticket3.setTravelDistReturn(11687.85);ticket3.setReturnSeatNumber("1A");ticket3.setSeatClass("Economy");
+		
 		this.addTicketToData(ticket1); this.addTicketToData(ticket2); this.addTicketToData(ticket3);
 		
 		Fooditem item1 = new Fooditem("Chicken Noodles","Marinated chicken with seasonal greens, menma, spring onion, rich chicken broth with miso",100,10.99);
@@ -74,9 +79,8 @@ public class Data {
 //	} // finds a specific ticket object given a ticket number,
 	
 	}
-	
 	public Ticket findFinTicket(long ticketNumber) {
-		Ticket ticket = null;
+		Ticket ticketF = new Ticket();
 //		System.out.println(flights);
 //		System.out.println(ticketNumber);
 //		System.out.println(tickets.get(0));
@@ -86,12 +90,12 @@ public class Data {
 						return tickets.get(i);
 					}
 					
-		}return null;
+		}return ticketF;
 	}
 	
 //	This is for finance class 
 	public Flightclass findflight(String flightNumber) {
-		Flightclass flight = null;
+		Flightclass flight = new Flightclass();
 //		System.out.println(flights);
 //		System.out.println(flightNumber);
 		for (int i = 0; i < flights.size(); i++ ) {
@@ -100,7 +104,7 @@ public class Data {
 						return flights.get(i);
 					}
 					
-		}return null;
+		}return flight;
 		
 	}
 
@@ -144,9 +148,9 @@ public class Data {
 		tickets.add(ticket);
 	}
 	
-	public void addTicketToData(Object user) {
-		users.add(user);
-	}
+//	public void addTicketToData(Object user) {
+//		users.add(user);
+//	}
 
 	public ArrayList<Flightclass> getFlights() {		
 		return this.flights;
@@ -155,10 +159,10 @@ public class Data {
 	public Fooditem[] getItemsAvailable() {
 		return this.itemsAvailable;
 	}
-
 		
 	public ArrayList<Ticket> getTickets() {
 		return this.tickets;
 	}
+	
 
 }
