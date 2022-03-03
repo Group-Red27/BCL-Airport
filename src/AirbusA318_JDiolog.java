@@ -87,7 +87,7 @@ public class AirbusA318_JDiolog extends JDialog {
 		int yCounter8 =280;
 		
 		
-		ActionListener listener = new ActionListener() {
+		ActionListener SelectingSeats = new ActionListener() {
 
 	        @Override
 	        public void actionPerformed(ActionEvent e) {
@@ -129,7 +129,7 @@ public class AirbusA318_JDiolog extends JDialog {
 			seatNumber[i].setForeground(new Color(255, 255, 255));
 			seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 			seatNumber[i].setBounds(139,yCounter+=20, 51, 21);
-			seatNumber[i].addActionListener(listener);
+			seatNumber[i].addActionListener(SelectingSeats);
 			getContentPane().add(seatNumber[i]);
 		}
 		
@@ -139,7 +139,7 @@ public class AirbusA318_JDiolog extends JDialog {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(234,yCounter2+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(SelectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 			
@@ -151,7 +151,7 @@ public class AirbusA318_JDiolog extends JDialog {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(50,yCounter3+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(SelectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 			
@@ -161,7 +161,7 @@ public class AirbusA318_JDiolog extends JDialog {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(101,yCounter4+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(SelectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 			
@@ -171,7 +171,7 @@ public class AirbusA318_JDiolog extends JDialog {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(152,yCounter5+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(SelectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 			
@@ -181,7 +181,7 @@ public class AirbusA318_JDiolog extends JDialog {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(230,yCounter6+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(SelectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 			
@@ -191,7 +191,7 @@ public class AirbusA318_JDiolog extends JDialog {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(281,yCounter7+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(SelectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 			
@@ -202,12 +202,12 @@ public class AirbusA318_JDiolog extends JDialog {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(332,yCounter8+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(SelectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 			
 			
-			ActionListener listener2 = new ActionListener() {
+			ActionListener Book = new ActionListener() {
 				
 		        @Override
 		        public void actionPerformed(ActionEvent e) {
@@ -256,7 +256,7 @@ public class AirbusA318_JDiolog extends JDialog {
 			btnBook.setBounds(155, 500, 107, 36);
 			btnBook.setBackground(new Color(0, 0, 128));
 			btnBook.setForeground(new Color(255, 255, 255));
-			btnBook.addActionListener(listener2);
+			btnBook.addActionListener(Book);
 			getContentPane().add(btnBook);
 
 	

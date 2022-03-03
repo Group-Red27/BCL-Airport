@@ -17,6 +17,7 @@ public class Boeing747_JDiolog extends JDialog {
 	private JPanel contentPanel = new JPanel();
 	public JButton[] seatNumber;
 	SeatingPlanDesign seatingPlan;
+	SeatingPlan sp;
 	public JLabel boeing747Label;
 
 	/**
@@ -96,7 +97,7 @@ public class Boeing747_JDiolog extends JDialog {
 		int yCounter7 =420,yCounter8 =420, yCounter9 =420, yCounter10 =420, yCounter11 =420,yCounter12 =420;
 
 
-		ActionListener listener = new ActionListener() {
+		ActionListener selectingSeats = new ActionListener() {
 
 	        @Override
 	        public void actionPerformed(ActionEvent e) {
@@ -107,6 +108,8 @@ public class Boeing747_JDiolog extends JDialog {
 
 	        		if(seatingP.seatAvailability[i]==false) {
 	        			seatNumber[i].setEnabled(false);
+
+
 	        		}
 	        		
 	        		else
@@ -143,7 +146,7 @@ public class Boeing747_JDiolog extends JDialog {
 			seatNumber[i].setForeground(new Color(255, 255, 255));
 			seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 			seatNumber[i].setBounds(139,yCounter+=20, 51, 21);
-			seatNumber[i].addActionListener(listener);
+			seatNumber[i].addActionListener(selectingSeats);
 			getContentPane().add(seatNumber[i]);
 		}
 		
@@ -153,7 +156,7 @@ public class Boeing747_JDiolog extends JDialog {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(234,yCounter2+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(selectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 			
@@ -165,7 +168,7 @@ public class Boeing747_JDiolog extends JDialog {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(110,yCounter3+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(selectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 			
@@ -175,7 +178,7 @@ public class Boeing747_JDiolog extends JDialog {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(170,yCounter4+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(selectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 			
@@ -185,7 +188,7 @@ public class Boeing747_JDiolog extends JDialog {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(230,yCounter5+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(selectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 			
@@ -195,7 +198,7 @@ public class Boeing747_JDiolog extends JDialog {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(290,yCounter6+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(selectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 			
@@ -206,7 +209,7 @@ public class Boeing747_JDiolog extends JDialog {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(80,yCounter7+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(selectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 			
@@ -216,7 +219,7 @@ public class Boeing747_JDiolog extends JDialog {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(131,yCounter8+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(selectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 		
@@ -226,7 +229,7 @@ public class Boeing747_JDiolog extends JDialog {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(182,yCounter9+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(selectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 			
@@ -236,7 +239,7 @@ public class Boeing747_JDiolog extends JDialog {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(254,yCounter10+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(selectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 			
@@ -246,7 +249,7 @@ public class Boeing747_JDiolog extends JDialog {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(305,yCounter11+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(selectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 			
@@ -256,11 +259,11 @@ public class Boeing747_JDiolog extends JDialog {
 				seatNumber[i].setForeground(new Color(255, 255, 255));
 				seatNumber[i].setFont(new Font("Tahoma", Font.PLAIN, 9));
 				seatNumber[i].setBounds(356,yCounter12+=20, 51, 21);
-				seatNumber[i].addActionListener(listener);
+				seatNumber[i].addActionListener(selectingSeats);
 				getContentPane().add(seatNumber[i]);
 			}
 			
-			ActionListener listener2 = new ActionListener() 
+			ActionListener Book = new ActionListener() 
 			{
 				
 		        @Override
@@ -300,20 +303,25 @@ public class Boeing747_JDiolog extends JDialog {
 		    		        				seatNumber[i].setEnabled(false);
 		    		        				SeatingPlanDesign b = new SeatingPlanDesign(departSeatsSelected, null, null, null, null, null);
 		    		        				b.setVisible(true);
-		    				        		setVisible(false);
+		    		        				
+		    		    	        		SeatingPlan seatingP = new SeatingPlan(null, null);
+		    		    	        		//seatingP.getSeatAvailability()[i]=false;
+
+		    				        		
 		        						}
 		        					}
 		        		
 		        			}
 		        		}
 		    };
+		    
 			
 			JButton btnBook = new JButton("Book Seats");
 			btnBook.setFont(new Font("Tahoma", Font.BOLD, 11));
 			btnBook.setBounds(183, 650, 107, 36);
 			btnBook.setBackground(new Color(0, 0, 128));
 			btnBook.setForeground(new Color(255, 255, 255));
-			btnBook.addActionListener(listener2);
+			btnBook.addActionListener(Book);
 			getContentPane().add(btnBook);
 			
 	}

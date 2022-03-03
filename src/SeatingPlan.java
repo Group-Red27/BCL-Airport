@@ -8,9 +8,9 @@ public class SeatingPlan {
 
 	     HardCodedFlightclass flight;
 	     private int numOfTickets;
-		 public String planeType;
+	     private String planeType;
 		 private String[] seatNumber;
-		 public String[] selectedSeats;
+		 private String[] selectedSeats;
 		 public boolean[] seatAvailability;
 		 private String[][] seatClass;
 		 HardCodedData data;
@@ -24,7 +24,7 @@ public class SeatingPlan {
 			 this.planeType = planeType;
 			 if (this.planeType=="AirbusA318")
 				{
-			this.seatAvailability = new boolean[]  {true,true,true,true,true,true,true,true,
+			this.seatAvailability = new boolean[]  {false,false,true,true,true,true,true,true,
 													true,true,true,true,true,true,true,true,
 													true,true,true,true,true,true,true,true,
 													true,true,true,true,true,true,true,true,
@@ -85,7 +85,7 @@ public class SeatingPlan {
 				}
 				else
 				{
-					this.seatAvailability = new boolean[]  {true,true,true,true,true,true,true,true,
+					this.seatAvailability = new boolean[]  {false,true,true,true,true,true,true,true,
 															true,true,true,true,true,true,true,true,
 															true,true,true,true,true,true,true,true,
 															true,true,true,true,true,true,true,true,

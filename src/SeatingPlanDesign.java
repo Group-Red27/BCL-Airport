@@ -183,48 +183,6 @@ public class SeatingPlanDesign extends JFrame {
 		returnSeatNumbersLabel.setBounds(416, 256, 46, 14);
 		contentPane.add(returnSeatNumbersLabel);
 		
-		ActionListener listeners = new ActionListener() 
-		{
-			
-	        @Override
-	        public void actionPerformed(ActionEvent e) 
-	        {
-	        	
-	        	if (seatingPlan.planeType =="AirbusA318") 
-	        	{
-	        		for (int i=0; i < airbus.seatNumber.length;i++) 
-	        		{
-	        			if(seatingPlan.getSeatAvailability()[i]==false)
-	        			{
-	        				airbus.seatNumber[i].enable(false);
-	        				airbus.seatNumber[i].setContentAreaFilled(false);
-	        				airbus.seatNumber[i].setOpaque(true);
-	        				airbus.seatNumber[i].setForeground(Color.white);
-	        				
-	        			}
-	        		}
-	        	}
-        			
-	        	else  
-	        	{
-	        		for (int i=0; i < boeing.seatNumber.length;i++) 
-	        		{
-	        			if(seatingPlan.getSeatAvailability()[i]==false)
-	        			{
-	        				boeing.seatNumber[i].enable(false);
-	        				boeing.seatNumber[i].setContentAreaFilled(false);
-	        				boeing.seatNumber[i].setOpaque(true);
-	        				boeing.seatNumber[i].setBackground(Color.white);
-
-	        				
-	        			}
-	        		}
-	        	}
-        			
-	        			
-			    
-	        }
-	    };
 		
 		JButton completeTicketDetailsPlanButton = new JButton("Complete Ticket Details");
 		completeTicketDetailsPlanButton.setFont(new Font("Tahoma", Font.BOLD, 11));
