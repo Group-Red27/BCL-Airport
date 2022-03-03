@@ -243,7 +243,7 @@ public class SeatingPlan {
 			
 			boolean valid;
 			
-		if (seatNumber.length!=numOfTickets)
+		if (selectedSeats.length!=numOfTickets)
 		{
 			valid=false;
 		}

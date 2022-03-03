@@ -295,10 +295,7 @@ public class Boeing747_JDiolog extends JDialog {
 		        			{
 		        				if(seatNumber[i].isSelected()) 
 		        				{
-		        					for(int k=0;k<2;k++)
-		        					{
-		        						if(i==0)
-		        						{
+
 		        							departSeatsSelected.add(seatNumber[i].getText());
 		    		        				seatNumber[i].setEnabled(false);
 		    		        				SeatingPlanDesign b = new SeatingPlanDesign(departSeatsSelected, null, null, null, null, null);
@@ -306,22 +303,9 @@ public class Boeing747_JDiolog extends JDialog {
 		    				        		setVisible(false);
 		        						}
 		        					}
-		        			
-		        				returnSeatsSelected.add(seatNumber[i].getText());
-		        				seatNumber[i].setEnabled(false);
-		        				SeatingPlanDesign b = new SeatingPlanDesign(null, returnSeatsSelected, null, null, null, null);
-		        				b.setVisible(true);
-				        		setVisible(false);
-				        		
-		        					
-		        				}
+		        		
 		        			}
 		        		}
-			        	
-		        }
-						
-					
-		         
 		    };
 			
 			JButton btnBook = new JButton("Book Seats");
