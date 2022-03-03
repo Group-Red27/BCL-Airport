@@ -97,16 +97,20 @@ public class Boeing747_JDiolog extends JDialog {
 		int yCounter7 =420,yCounter8 =420, yCounter9 =420, yCounter10 =420, yCounter11 =420,yCounter12 =420;
 
 
-		ActionListener selectingSeats = new ActionListener() {
+		ActionListener selectingSeats = new ActionListener() 
+		{
 
 	        @Override
-	        public void actionPerformed(ActionEvent e) {
+	        public void actionPerformed(ActionEvent e) 
+	        {
 	        	
-	        	for (int i=0;i<seatNumber.length;i++) {
+	        	for (int i=0;i<seatNumber.length;i++) 
+	        	{
 	        		
 	        		SeatingPlan seatingP = new SeatingPlan(null, null);
 
-	        		if(seatingP.seatAvailability[i]==false) {
+	        		if(seatingP.seatAvailability[i]==false) 
+	        		{
 	        			seatNumber[i].setEnabled(false);
 
 
@@ -118,14 +122,16 @@ public class Boeing747_JDiolog extends JDialog {
 	        			
 	        		}	
 	        		
-	        		if(seatNumber[i].isSelected()) {
+	        		if(seatNumber[i].isSelected()) 
+	        		{
 	        			seatNumber[i].setContentAreaFilled(false);
 	        			seatNumber[i].setOpaque(true);
 	        			seatNumber[i].setBackground(Color.LIGHT_GRAY);
 	        			
 				    }
 	        		
-	        		else {
+	        		else 
+	        		{
 	        			seatNumber[i].setContentAreaFilled(false);
 	        			seatNumber[i].setOpaque(true);
 	        			seatNumber[i].setBackground(new Color(126, 192, 236)); 
@@ -140,7 +146,8 @@ public class Boeing747_JDiolog extends JDialog {
 		
 
 	//First Class
-		for(int i=0;i<5;i++) { //For loop for array of JButton [0] to [4]
+		for(int i=0;i<5;i++) 
+		{ 
 			seatNumber[i]= new JToggleButton(Label[i]);
 			seatNumber[i].setBackground(new Color(126, 192, 236));
 			seatNumber[i].setForeground(new Color(255, 255, 255));
@@ -150,7 +157,8 @@ public class Boeing747_JDiolog extends JDialog {
 			getContentPane().add(seatNumber[i]);
 		}
 		
-			for(int i=5;i<10;i++) {//For loop for array of JButton [4] to [9]
+			for(int i=5;i<10;i++) 
+			{
 				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
@@ -162,7 +170,8 @@ public class Boeing747_JDiolog extends JDialog {
 			
 		//Business Class
 			
-		for(int i=10;i<15;i++) {//For loop for array of JButton [0] to [5]
+		for(int i=10;i<15;i++) 
+			{
 				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
@@ -172,7 +181,8 @@ public class Boeing747_JDiolog extends JDialog {
 				getContentPane().add(seatNumber[i]);
 			}
 			
-			for(int i=15;i<20;i++) {//For loop for array of JButton [8] to [16]
+			for(int i=15;i<20;i++) 
+			{
 				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
@@ -182,7 +192,8 @@ public class Boeing747_JDiolog extends JDialog {
 				getContentPane().add(seatNumber[i]);
 			}
 			
-			for(int i=20;i<25;i++) {//For loop for array of JButton [16] to [24]
+			for(int i=20;i<25;i++) 
+			{
 				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
@@ -192,7 +203,8 @@ public class Boeing747_JDiolog extends JDialog {
 				getContentPane().add(seatNumber[i]);
 			}
 			
-			for(int i=25;i<30;i++) {//For loop for array of JButton [24] to [32]
+			for(int i=25;i<30;i++) 
+			{//For loop for array of JButton [24] to [32]
 				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
@@ -203,7 +215,8 @@ public class Boeing747_JDiolog extends JDialog {
 			}
 			
 			//Economy class
-			for(int i=30;i<39;i++) {
+			for(int i=30;i<39;i++) 
+			{
 				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
@@ -213,7 +226,8 @@ public class Boeing747_JDiolog extends JDialog {
 				getContentPane().add(seatNumber[i]);
 			}
 			
-			for(int i=39;i<48;i++) {
+			for(int i=39;i<48;i++) 
+			{
 				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
@@ -223,7 +237,8 @@ public class Boeing747_JDiolog extends JDialog {
 				getContentPane().add(seatNumber[i]);
 			}
 		
-			for(int i=48;i<57;i++) {
+			for(int i=48;i<57;i++)
+			{
 				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
@@ -233,7 +248,8 @@ public class Boeing747_JDiolog extends JDialog {
 				getContentPane().add(seatNumber[i]);
 			}
 			
-			for(int i=57;i<66;i++) {
+			for(int i=57;i<66;i++) 
+			{
 				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
@@ -243,7 +259,8 @@ public class Boeing747_JDiolog extends JDialog {
 				getContentPane().add(seatNumber[i]);
 			}
 			
-			for(int i=66;i<75;i++) {
+			for(int i=66;i<75;i++)
+			{
 				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
@@ -253,7 +270,8 @@ public class Boeing747_JDiolog extends JDialog {
 				getContentPane().add(seatNumber[i]);
 			}
 			
-			for(int i=75;i<84;i++) {
+			for(int i=75;i<84;i++) 
+			{
 				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
 				seatNumber[i].setForeground(new Color(255, 255, 255));
@@ -269,12 +287,11 @@ public class Boeing747_JDiolog extends JDialog {
 		        @Override
 		        public void actionPerformed(ActionEvent e) 
 		        {
-		        	ArrayList<String> departSeatsSelected = new ArrayList<String>();
-		        	ArrayList<String> returnSeatsSelected = new ArrayList<String>();
+		        	ArrayList<String> seatNumbersSelected = new ArrayList<String>();
 
 		        	int count=0;
 		        	pop_plane popup = new pop_plane();
-    				SeatingPlanDesign p = new SeatingPlanDesign(departSeatsSelected, returnSeatsSelected, null, null, null,null);
+    				SeatingPlanDesign p = new SeatingPlanDesign(seatNumbersSelected, null, null);
 		        	
     				for (int i =0; i < seatNumber.length; i++ ) 
     				{
@@ -299,20 +316,21 @@ public class Boeing747_JDiolog extends JDialog {
 		        				if(seatNumber[i].isSelected()) 
 		        				{
 
-		        							departSeatsSelected.add(seatNumber[i].getText());
+		        							seatNumbersSelected.add(seatNumber[i].getText());
 		    		        				seatNumber[i].setEnabled(false);
-		    		        				SeatingPlanDesign b = new SeatingPlanDesign(departSeatsSelected, null, null, null, null, null);
+		    		        				SeatingPlanDesign b = new SeatingPlanDesign(seatNumbersSelected, null, null);
 		    		        				b.setVisible(true);
 		    		        				
+		    		        				
 		    		    	        		SeatingPlan seatingP = new SeatingPlan(null, null);
-		    		    	        		//seatingP.getSeatAvailability()[i]=false;
+		    		    	        		seatingP.getSeatAvailability()[i]=false;
 
 		    				        		
-		        						}
-		        					}
-		        		
+		        				}
 		        			}
+		        		
 		        		}
+		        }
 		    };
 		    
 			
