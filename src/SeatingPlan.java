@@ -24,7 +24,7 @@ public class SeatingPlan {
 			 this.planeType = planeType;
 			 if (this.planeType=="AirbusA318")
 				{
-			this.seatAvailability = new boolean[]  {false,false,true,true,true,true,true,true,
+			this.seatAvailability = new boolean[]  {true,true,true,true,true,true,true,true,
 													true,true,true,true,true,true,true,true,
 													true,true,true,true,true,true,true,true,
 													true,true,true,true,true,true,true,true,
@@ -85,7 +85,7 @@ public class SeatingPlan {
 				}
 				else
 				{
-					this.seatAvailability = new boolean[]  {false,true,true,true,true,true,true,true,
+					this.seatAvailability = new boolean[]  {true,true,true,true,true,true,true,true,
 															true,true,true,true,true,true,true,true,
 															true,true,true,true,true,true,true,true,
 															true,true,true,true,true,true,true,true,
@@ -156,29 +156,35 @@ public class SeatingPlan {
 				}
 		}		
 		 
-		 public String[] getSelectedSeats() {
+		 public String[] getSelectedSeats() 
+		 {
 			return selectedSeats;
-		}
+		 }
 
-		public void setSelectedSeats(String[] selectedSeats) {
+		public void setSelectedSeats(String[] selectedSeats) 
+		{
 			this.selectedSeats = selectedSeats;
 		}
 
 		 
 		
-		public int getNumOfTickets() {
+		public int getNumOfTickets() 
+		{
 			return numOfTickets;
 		}
 		
-		public void setNumOfTickets(int numOfTickets) {
+		public void setNumOfTickets(int numOfTickets) 
+		{
 			this.numOfTickets = numOfTickets;
 		}
 		
-		public String getPlaneType() {
+		public String getPlaneType() 
+		{
 			return planeType;
 		}
 		
-		public void setPlaneType(String planeType) {
+		public void setPlaneType(String planeType) 
+		{
 			this.planeType = planeType;
 		}
 		
@@ -186,22 +192,27 @@ public class SeatingPlan {
 			return seatNumber;
 		}
 		
-		public void setSeatNumber(String[] seatNumber) {
+		public void setSeatNumber(String[] seatNumber) 
+		{
 			this.seatNumber = seatNumber;
 		}
-		public boolean[] getSeatAvailability() {
+		public boolean[] getSeatAvailability() 
+		{
 			return seatAvailability;
 		}
 		
-		public void setSeatAvailability(boolean[] seatAvailability) {
+		public void setSeatAvailability(boolean[] seatAvailability) 
+		{
 			this.seatAvailability = seatAvailability;
 		}
 		
-		public String[][] getSeatClass() {
+		public String[][] getSeatClass() 
+		{
 			return seatClass;
 		}
 		
-		public void setSeatClass(String[][] seatClass) {
+		public void setSeatClass(String[][] seatClass) 
+		{
 			this.seatClass = seatClass;
 		}
 		
@@ -209,7 +220,8 @@ public class SeatingPlan {
 		
 		
 		//PlaneType
-		public boolean planeSeatingPlan(HardCodedFlightclass flight) {//Which one it displays, either airbus or boeing. 
+		public boolean planeSeatingPlan(HardCodedFlightclass flight)//Which one it displays, either airbus or boeing.  
+		{															
 		
 			
 			 String time = flight.getFlightduration().split(":")[0];
@@ -239,7 +251,8 @@ public class SeatingPlan {
 		
 		
 		
-		public boolean numberOfSeats() { //validate number of seats compared to number of ticktes.
+		public boolean numberOfSeats() //validate number of seats compared to number of ticktes.
+		{ 
 			
 			boolean valid;
 			
@@ -254,7 +267,7 @@ public class SeatingPlan {
 		return valid;
 }
 		
-		public int getIndex(String selectedSeats,String[] seatNumber ) //Index for Selected seats and seatNumber. 
+		public int getIndex(String selectedSeats,String[] seatNumber) //Index for Selected seats and seatNumber. 
 		{
 			int index=0;
 			for(int i=0;i<=seatNumber.length;i++)

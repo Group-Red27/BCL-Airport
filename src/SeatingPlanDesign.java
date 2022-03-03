@@ -44,18 +44,17 @@ public class SeatingPlanDesign extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ArrayList<String> departSeatsSelected = new ArrayList<String>();
-					ArrayList<String> returnSeatsSelected = new ArrayList<String>();
+					ArrayList<String> SeatsSelected = new ArrayList<String>();
+					
 					HardCodedData data = new HardCodedData();
 					HardCodedFlightclass arrival = data.flights[0];
 					HardCodedFlightclass departure = data.flights[1];
-					HardCodedFlightclass[] flights = {departure, arrival};
-					String departingFlight = "depart";
-					String returningFlight = "return";
+					
+					
 
 					
 					
-					SeatingPlanDesign frame = new SeatingPlanDesign(departSeatsSelected, returnSeatsSelected ,departure,arrival,departingFlight,returningFlight);
+					SeatingPlanDesign frame = new SeatingPlanDesign(SeatsSelected,departure,arrival);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -64,11 +63,11 @@ public class SeatingPlanDesign extends JFrame {
 		});
 	}
 	
-	public SeatingPlanDesign(ArrayList<String> departSeats,ArrayList<String>returnSeats ,HardCodedFlightclass departureflight, HardCodedFlightclass returnFlight, String departingFlight, String returningFlight) {
+	public SeatingPlanDesign(ArrayList<String> SeatNumber,HardCodedFlightclass departureflight, HardCodedFlightclass returnFlight) {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 550, 387);
+		setBounds(100, 100, 550, 265);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new LineBorder(new Color(0, 0, 139), 6, true));
@@ -85,24 +84,24 @@ public class SeatingPlanDesign extends JFrame {
 		JComboBox <Integer> numOfTicketsComboBox = new JComboBox<Integer>();
 		numOfTicketsComboBox.setModel(new DefaultComboBoxModel<Integer>(new Integer[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11,12,
 																						13,14,15,16,17,18,19,20,21,22,23,24,
-																						25,26,27,28,29,30,31,32,33,34,36,37,
+																						25,26,27,28,29,30,31,32,33,34,35,36,37,
 																						38,39,40,41,42,43,44,45,46,47,48,49,50,
 																						51,52,53,54,55,56,57,58,59,60,61,62,63,64}));
-		numOfTicketsComboBox.setBounds(140, 218, 38, 17);
+		numOfTicketsComboBox.setBounds(150, 79, 38, 17);
 		
 		contentPane.add(numOfTicketsComboBox);
 		
 		JLabel numOfTicketsLabel = new JLabel("Number Of Tickets: ");
 		numOfTicketsLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
 		numOfTicketsLabel.setForeground(new Color(0, 0, 255));
-		numOfTicketsLabel.setBounds(24, 219, 121, 14);
+		numOfTicketsLabel.setBounds(34, 80, 121, 14);
 		contentPane.add(numOfTicketsLabel);
 		
 		JButton viewSeatingPlanButton = new JButton("View Seating Plan");
 		viewSeatingPlanButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		viewSeatingPlanButton.setBackground(new Color(0, 0, 128));
 		viewSeatingPlanButton.setForeground(new Color(255, 255, 255));
-		viewSeatingPlanButton.setBounds(40, 252, 138, 23);
+		viewSeatingPlanButton.setBounds(50, 113, 138, 23);
 		contentPane.add(viewSeatingPlanButton);
 		
 		viewSeatingPlanButton.addActionListener(new ActionListener() 
@@ -148,47 +147,31 @@ public class SeatingPlanDesign extends JFrame {
 		});
 		
 		
-		JLabel departureSeatsLabel = new JLabel("Departure Seats: ");
-		departureSeatsLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		departureSeatsLabel.setForeground(new Color(0, 0, 255));
-		departureSeatsLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		departureSeatsLabel.setBounds(290, 219, 100, 14);
-		contentPane.add(departureSeatsLabel);
-		
-		JLabel returnSeatsLabel = new JLabel("Return Seats: ");
-		returnSeatsLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		returnSeatsLabel.setForeground(new Color(0, 0, 255));
-		returnSeatsLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		returnSeatsLabel.setBounds(290, 256, 100, 14);
-		contentPane.add(returnSeatsLabel);
+		JLabel SeatsSelected = new JLabel("Seats Selected: ");
+		SeatsSelected.setFont(new Font("Tahoma", Font.BOLD, 11));
+		SeatsSelected.setForeground(new Color(0, 0, 255));
+		SeatsSelected.setHorizontalAlignment(SwingConstants.CENTER);
+		SeatsSelected.setBounds(300, 80, 100, 14);
+		contentPane.add(SeatsSelected);
 		
 		
-		
-		JTextPane departureSeatNumbersLabel = new JTextPane();
-		if (departSeats != null) 
+		JTextPane SelectedSeatsLabel = new JTextPane();
+		if (SeatNumber != null) 
 		{
-			departureSeatNumbersLabel.setText(java.lang.String.join(",", departSeats));
+			SelectedSeatsLabel.setText(java.lang.String.join(",", SeatNumber));
 		}
-		departureSeatNumbersLabel.setForeground(new Color(0, 0, 255));
-		departureSeatNumbersLabel.setBounds(400, 219, 79, 28);
-		contentPane.add(departureSeatNumbersLabel);
+		SelectedSeatsLabel.setForeground(new Color(0, 0, 255));
+		SelectedSeatsLabel.setBounds(410, 80, 79, 17);
+		contentPane.add(SelectedSeatsLabel);
 	
 		
-		JTextPane returnSeatNumbersLabel = new JTextPane();
-		if (returnSeats != null) 
-		{
-			returnSeatNumbersLabel.setText(java.lang.String.join(",", returnSeats));
-		}
-		returnSeatNumbersLabel.setForeground(new Color(0, 0, 255));
-		returnSeatNumbersLabel.setBounds(416, 256, 46, 14);
-		contentPane.add(returnSeatNumbersLabel);
 		
 		
 		JButton completeTicketDetailsPlanButton = new JButton("Complete Ticket Details");
 		completeTicketDetailsPlanButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		completeTicketDetailsPlanButton.setForeground(Color.WHITE);
 		completeTicketDetailsPlanButton.setBackground(new Color(0, 0, 128));
-		completeTicketDetailsPlanButton.setBounds(159, 302, 179, 23);
+		completeTicketDetailsPlanButton.setBounds(169, 163, 179, 23);
 		contentPane.add(completeTicketDetailsPlanButton);
 		
 		
