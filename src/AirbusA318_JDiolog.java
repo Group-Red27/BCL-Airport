@@ -215,9 +215,10 @@ public class AirbusA318_JDiolog extends JDialog {
 		        @Override
 		        public void actionPerformed(ActionEvent e) 
 		        {
-		        	ArrayList<String> seatsSelected = new ArrayList<String>();
+		        	ArrayList<String> seatNumbersSelected = new ArrayList<String>();
 		        	int count=0;
 		        	pop_plane Pop = new pop_plane();
+		        	SeatingPlanDesign p = new SeatingPlanDesign(seatNumbersSelected, null, null);
 
 		        	
 		        	for (int i =0; i < seatNumber.length; i++ ) 
@@ -243,14 +244,17 @@ public class AirbusA318_JDiolog extends JDialog {
 		        				if(seatNumber[i].isSelected()) 
 		        				{
 		        			
-		        				seatsSelected.add(seatNumber[i].getText());
+		        				seatNumbersSelected.add(seatNumber[i].getText());
 		        				seatNumber[i].setEnabled(false);
-		        				SeatingPlanDesign p = new SeatingPlanDesign(seatsSelected, null, null);
-		        				p.setVisible(true);
+		        				
+		        				SeatingPlan seatingP = new SeatingPlan(null, null);
+		    	        		seatingP.getSeatAvailability()[i]=false;
 				        		
 		        					
 		        				}
 		        			}
+		        			SeatingPlanDesign b = new SeatingPlanDesign(seatNumbersSelected, null, null);
+	        				b.setVisible(true);
 		        		}
 			        	
 		        }
