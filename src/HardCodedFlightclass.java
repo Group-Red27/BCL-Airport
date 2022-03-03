@@ -26,7 +26,8 @@ public HardCodedFlightclass(LocalDate dateofflight, LocalTime departuretime, Loc
 		double distance, int delay,
 		String departureairport, String departurecity,
 		String arivalairport, String arrivalcity, 
-		String flightnumber, String airline) {
+		String flightnumber, String airline) 
+{
 	
 	this.dateofflight=dateofflight;
 	this.departuretime=departuretime;
@@ -47,87 +48,114 @@ public HardCodedFlightclass(LocalDate dateofflight, LocalTime departuretime, Loc
 
 
 
-public LocalDate getdateofflight() {
+public LocalDate getdateofflight() 
+{
 	 return dateofflight;
 	 
  }
-	public LocalTime getDeparturetime() {
+	public LocalTime getDeparturetime() 
+{
 	return departuretime;
 }
-public void setDeparturetime(LocalTime localTime) {
+public void setDeparturetime(LocalTime localTime) 
+{
 	this.departuretime = localTime;
 }
-public LocalTime getArrivaltime() {
+public LocalTime getArrivaltime() 
+{
 	return arrivaltime;
 }
-public void setArrivaltime(LocalTime arrivaltime) {
+public void setArrivaltime(LocalTime arrivaltime) 
+{
 	this.arrivaltime = arrivaltime;
 }
-public String getFlightduration() {
+public String getFlightduration() 
+{
 	return flightduration;
 }
-public void setFlightduration(String flightduration) {
+public void setFlightduration(String flightduration)
+{
 	this.flightduration = flightduration;
 }
-public double getDistance() {
+public double getDistance() 
+{
 	return distance;
 }
-public void setDistance(double distance) {
+public void setDistance(double distance) 
+{
 	this.distance = distance;
 }
-public int getDelay() {
+public int getDelay() 
+{
 	return delay;
 }
-public void setDelay(int delay) {
+public void setDelay(int delay) 
+{
 	this.delay = delay;
 }
 
-public String getDepartureairport() {
+public String getDepartureairport() 
+{
 	return departureairport;
 }
-public void setDepartureairport(String departureairport) {
+public void setDepartureairport(String departureairport)
+{
 	this.departureairport = departureairport;
 }
-public String getDeparturecity() {
+public String getDeparturecity() 
+{
 	return departurecity;
 }
-public void setDeparturecity(String departurecity) {
+public void setDeparturecity(String departurecity) 
+{
 	this.departurecity = departurecity;
 }
-public String getArivalairport() {
+public String getArivalairport() 
+{
 	return arivalairport;
 }
-public void setArivalairport(String arivalairport) {
+public void setArivalairport(String arivalairport) 
+{
 	this.arivalairport = arivalairport;
 }
-public String getArrivalcity() {
+public String getArrivalcity() 
+{
 	return arrivalcity;
 }
-public void setArrivalcity(String arrivalcity) {
+public void setArrivalcity(String arrivalcity) 
+{
 	this.arrivalcity = arrivalcity;
 }
-public String getFlightnumber() {
+public String getFlightnumber() 
+{
 	return flightnumber;
 }
-public void setFlightnumber(String flightnumber) {
+public void setFlightnumber(String flightnumber) 
+{
 	this.flightnumber = flightnumber;
 }
-public String getAirline() {
+public String getAirline() 
+{
+	
 	return airline;
 }
 public void setAirline(String airline) {
 	this.airline = airline;
 }
 
-public void setDateofflight(LocalDate dateofflight) {
+public void setDateofflight(LocalDate dateofflight) 
+{
 	this.dateofflight = dateofflight;
 }
-	public void setdateofflight(LocalDate dateofflight) {
-		this.dateofflight = dateofflight;
-	}
-	public LocalDate getDateofflight() {
-		return dateofflight;
-	}
+public void setdateofflight(LocalDate dateofflight) 
+{
+	this.dateofflight = dateofflight;
+}
+
+public LocalDate getDateofflight() 
+{
+	return dateofflight;
+}
 	
 	
 }

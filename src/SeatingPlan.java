@@ -1,8 +1,4 @@
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
+
 
 public class SeatingPlan {
 
@@ -19,7 +15,8 @@ public class SeatingPlan {
 
 
 			
-		 public SeatingPlan(String planeType, HardCodedFlightclass flight) { //constructor 
+		 public SeatingPlan(String planeType, HardCodedFlightclass flight) //constructor 
+		 { 
 			 this.flight = flight;
 			 this.planeType = planeType;
 			 if (this.planeType=="AirbusA318")
@@ -306,7 +303,8 @@ public class SeatingPlan {
 		}
 		
 
-		public String getSeatClass(String seatNumber) throws Exception {
+		public String getSeatClass(String seatNumber) throws Exception 
+		{
 			
 			String seatNumberClass = null; 
 			for (int i=0;i<this.seatClass.length;i++)
@@ -319,9 +317,10 @@ public class SeatingPlan {
 					}
 					
 				}
-				}
+			}
 			
-			if (seatNumberClass==null) {
+			if (seatNumberClass==null) 
+			{
 				throw new Exception("The seat is not found!");
 			}
 			
