@@ -20,6 +20,7 @@ import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.sql.Date;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -117,20 +118,23 @@ public class PassengerUI extends JFrame {
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(226, 396, 47, 22);
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"", "1", "2", "3", "4", "5", "6", "7", "8", ""}));
 		contentPane.add(comboBox);
 		
 		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"", "1A", "6A", "11A"}));
 		comboBox_1.setBounds(226, 433, 47, 22);
 		contentPane.add(comboBox_1);
 		
 		JComboBox comboBox_2 = new JComboBox();
+		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"", "1A", "6A", "11A"}));
 		comboBox_2.setBounds(226, 470, 47, 22);
 		contentPane.add(comboBox_2);
 		
 		JDateChooser DOB = new JDateChooser();
 		DOB.setBounds(226, 228, 107, 20);
 		contentPane.add(DOB);
+
 		
 		JButton btnNewButton = new JButton("Next");
 		
@@ -162,23 +166,45 @@ public class PassengerUI extends JFrame {
 					validTicket = false;
 				}
 				String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
+<<<<<<< HEAD
+			      //Matching the given phone number with regular expression
+			      boolean result = Email.getText().matches(regex);
+			      if(result) {
+			         JOptionPane.showMessageDialog(contentPane, "Email Verified!");
+			      } else {
+			         JOptionPane.showMessageDialog(contentPane, "Email not verified!");
+			         
+			      }
+				
+=======
 			    //Matching the given phone number with regular expression
 			    boolean result = Email.getText().matches(regex);
 			    if(result == false) {
 			       JOptionPane.showMessageDialog(contentPane, "Enter valid Email address");
 			       validTicket = false;
 			    }
+>>>>>>> edb5f60974bf906b53356371e91b29d004002305
 				
 				if(Tele.getText().length()==0) {
 					JOptionPane.showMessageDialog(null, "Enter the Telephone number");
+					
+					
+					
 				}
 				
 				
 				if (validTicket == true) {
+<<<<<<< HEAD
+				Random rand = new Random();
+				System.out.println(rand.nextInt(99999999));
+				JOptionPane.showMessageDialog(contentPane, "Your ticket no. is " + rand.nextInt(99999999));
+				setVisible(false);
+=======
 					Random rand = new Random();
 					System.out.println(rand.nextInt(99999999));
 					JOptionPane.showMessageDialog(contentPane, "Your ticket no. is " + rand.nextInt(999999999));
 					setVisible(false);
+>>>>>>> edb5f60974bf906b53356371e91b29d004002305
 				}
 				
 				
