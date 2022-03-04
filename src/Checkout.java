@@ -177,9 +177,10 @@ public class Checkout extends JFrame {
 			
 			double productCost = data.getTickets().get(i).getProductCost();
 			data.getTickets().get(i).setProductCost(productCost);
-//			
-//			double ticketPrice = finance.calTicketPrice(); // what shall I pass in brackets
-//			data.getTickets().get(i).setTicketPrice(ticketPrice);
+			
+			double ticketPrice = finance.calTicketPrice(data.getTickets().get(i)); 
+			data.getTickets().get(i).setTicketPrice(ticketPrice);
+			
 			
 			
 			// display data by getting from ticket
