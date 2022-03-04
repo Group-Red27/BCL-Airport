@@ -169,7 +169,7 @@ public class Checkout extends JFrame {
 		for (int i = 0; i < numRows; i++) {
 			
 			// calculating what is needed with methods from finance			
-			double compensation = finance.calcompensation(data.getTickets().get(i).getDelaysInDeparture());
+			double compensation = finance.calCompensation(data.getTickets().get(i).getDelaysInDeparture());
 			data.getTickets().get(i).setCompensation(compensation);
 			
 			double bagCost = finance.calBagCost(data.getTickets().get(i).getNoOfBags());	

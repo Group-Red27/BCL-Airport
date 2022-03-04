@@ -151,7 +151,7 @@ public class Finance {
 		
 	}
 	
-	public double calcompensation(int delaysInDeparture) {
+	public double calCompensation(int delaysInDeparture) {
 		
 //		Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());
 //		System.out.println(ticketFound);
@@ -243,10 +243,10 @@ public class Finance {
 		overallTotalCost = 0;
 		double tempTotal = 0;
 		double bagCost = calBagCost(ticket.getNoOfBags());
-		double ticketPrice = calTicketPrice(ticket);
-		double compensation = 
+//		double ticketPrice = calTicketPrice(ticket);
+		double compensation = calCompensation(ticket.delaysInDeparture);
 	
-		tempTotal = (bagCost + ticket.foodCost + ticket.productCost + ticketPrice ) ;
+		tempTotal = (bagCost + ticket.getFoodCost() + ticket.getProductCost() + ticket.getTicketPrice() ) ;
 		System.out.format("%.2f",overallTotalCost);
 		return overallTotalCost = (tempTotal - compensation) ;		
 	}
