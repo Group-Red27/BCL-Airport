@@ -59,8 +59,7 @@ public class Checkout extends JFrame {
 		Finance finance = new Finance(null);
 		
 //		finance.anError();
-//		finance.calBagCost();
-//		finance.getProductCost();
+		finance.calBagCost(83746578);
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon(Checkout.class.getResource("/Images_Finance/BrunelLogo.png")));
@@ -170,15 +169,13 @@ public class Checkout extends JFrame {
 		for (int i = 0; i < numRows; i++) {
 			
 			// calculating what is needed with methods from finance			
-			double compensation = finance.calcompensation();
-//			data.getTickets().get(i).getDelaysInDeparture()
+			double compensation = finance.calcompensation(data.getTickets().get(i).getDelaysInDeparture());
 			data.getTickets().get(i).setCompensation(compensation);
 			
-			double bagCost = finance.calBagCost();
-//			data.getTickets().get(i).getNoOfBags()
+			double bagCost = finance.calBagCost(data.getTickets().get(i).getNoOfBags());	
 			data.getTickets().get(i).setBagCost(bagCost);
 			
-			double productCost = finance.productCost;
+			double productCost = data.getTickets().get(i).getProductCost();
 			data.getTickets().get(i).setProductCost(productCost);
 //			
 //			double ticketPrice = finance.calTicketPrice(); // what shall I pass in brackets
@@ -201,21 +198,25 @@ public class Checkout extends JFrame {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(43, 30, 1100, 300);
-		scrollPane.setBackground(new Color(25, 25, 112));
+		scrollPane.setBackground(new Color(0, 0, 0));
 		mainContentpanel.add(scrollPane);
 		
 		table = new JTable(tableData,columnNames);
+		table.setFillsViewportHeight(false);
 		table.setEnabled(false);
-		table.setForeground(new Color(255, 255, 255));
+		table.setForeground(new Color(0, 0, 0));
 		table.setToolTipText("");
 		table.setBackground(Color.LIGHT_GRAY);
 		table.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		table.setFillsViewportHeight(true);
+		table.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 11));
+		table.getTableHeader().setBackground(Color.decode("#000080"));
+		table.getTableHeader().setForeground(Color.WHITE);
 		scrollPane.setViewportView(table);
 		
-		
-	
+			
 	};
+	
+	
 
 	}
 

@@ -17,7 +17,7 @@ public class FoodOrder {
 	
 	public void setTicket(String ticketNumber) {
 		if (validateTicketNumber(ticketNumber) == true) {
-			this.ticket = data.findTicket(ticketNumber);
+			this.ticket = data.findTicket(ticketNumber); 
 		} else {
 			this.ticket = null;
 		}
@@ -103,7 +103,7 @@ public class FoodOrder {
 					selected[i] = false;
 				} // selected items recorded with this if statement
 			}// validate the quantites entered
-			double[] netPrices = calcNetPrices(data.getItemsAvailable(), quantityInt);
+			double[] netPrices = calcNetPrices(data.getItemsAvailable(), quantityInt); 
 			double totalCost = calcTotalCost(netPrices);
 			setQuantity(quantityInt);
 			setNetPrices(netPrices);
