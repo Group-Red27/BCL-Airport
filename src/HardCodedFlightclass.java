@@ -7,7 +7,7 @@ public class HardCodedFlightclass {
 	private LocalDate dateofflight;
 	private LocalTime departuretime;
 	private LocalTime arrivaltime;
-	private LocalTime flightduration;
+	private String flightduration;
 	private double distance;
 	private int delay;
 	private String departureairport;
@@ -22,7 +22,7 @@ public class HardCodedFlightclass {
 	
 
 public HardCodedFlightclass(LocalDate dateofflight, LocalTime departuretime, LocalTime arrivaltime, 
-		LocalTime flightduration, 
+		String flightduration, 
 		double distance, int delay,
 		String departureairport, String departurecity,
 		String arivalairport, String arrivalcity, 

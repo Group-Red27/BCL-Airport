@@ -202,7 +202,7 @@ public class Finance {
 		return classPriceRating;		
 	}
 
-	public double calTicketCostDeparture(double travelDistanceDeparture, String departureSeatNumber,String departureFlightNumber ) {
+	public double calTicketCostDeparture(double travelDistDeparture, String departureSeatNumber,String departureFlightNumber ) {
 //		Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());
 		Flightclass departureFlight = data.findflight(departureFlightNumber);		
 //		double travelDistDeparture = departureFlight.getDistance();
@@ -241,9 +241,12 @@ public class Finance {
 	
 	public double calOverallTotalCost() {
 		overallTotalCost = 0;
-		double tempTotal = 0; 
-		
-		tempTotal = ( getBagCost() + ticket.foodCost + ticket.productCost + getTicketPrice() ) ;
+		double tempTotal = 0;
+		double bagCost = calBagCost(ticket.getNoOfBags());
+		double ticketPrice = calTicketPrice(ticket);
+		double compensation = 
+	
+		tempTotal = (bagCost + ticket.foodCost + ticket.productCost + ticketPrice ) ;
 		System.out.format("%.2f",overallTotalCost);
 		return overallTotalCost = (tempTotal - compensation) ;		
 	}

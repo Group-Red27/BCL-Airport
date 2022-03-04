@@ -27,12 +27,12 @@ public class Data {
 		ticket1.setReturnFlightNumber("ST4138");ticket1.setTravelDistReturn(11687.85);ticket1.setReturnSeatNumber("1A");;
 		
 		Ticket ticket2 = new Ticket();
-		ticket2.setFirstName("Regina"); ticket2.setLastName("George"); ticket2.setTicketNumber(27475839);ticket2.setDateOfBirth("28/02/1995");ticket2.setNoOfBags(0);
+		ticket2.setFirstName("Regina"); ticket2.setLastName("George"); ticket2.setTicketNumber(27475839);ticket2.setDateOfBirth("28/02/1995");ticket2.setNoOfBags(3);
 		ticket2.setDelaysInDeparture(179);ticket2.setTravelDistDeparture(7021.04);ticket2.setDepartureFlightNumber("TS4977");ticket2.setDepartureSeatNumber("6A");
 		ticket2.setReturnFlightNumber("ST4138");ticket2.setTravelDistReturn(11687.85);ticket2.setReturnSeatNumber("6A");;
 		
 		Ticket ticket3 = new Ticket();
-		ticket3.setFirstName("Cady"); ticket3.setLastName("Heron"); ticket3.setTicketNumber(95738494);ticket3.setDateOfBirth("21/08/1997");ticket3.setNoOfBags(-2);
+		ticket3.setFirstName("Cady"); ticket3.setLastName("Heron"); ticket3.setTicketNumber(95738494);ticket3.setDateOfBirth("21/08/1997");ticket3.setNoOfBags(4);
 		ticket3.setDelaysInDeparture(179);ticket3.setTravelDistDeparture(7021.04);ticket3.setDepartureFlightNumber("TS4977");ticket3.setDepartureSeatNumber("11A");
 		ticket3.setReturnFlightNumber("ST4138");ticket3.setTravelDistReturn(11687.85);ticket3.setReturnSeatNumber("1A");
 		
@@ -123,7 +123,7 @@ public class Data {
 	        flightC.setDateofflight(LocalDate.parse(data[0],dateFormat));
 	        flightC.setDeparturetime(LocalTime.parse(data[1],timeFormat));
 	        flightC.setArrivaltime(LocalTime.parse(data[2],timeFormat));
-	        flightC.setFlightduration(LocalTime.parse(data[3],timeFormat));
+	        flightC.setFlightduration(String(data[3],timeFormat));
 	        flightC.setDistance(Double.parseDouble(data[4]));
 	        flightC.setDelay(Integer.parseInt(data[5]));
 	        flightC.setDepartureairport(data[6]);
@@ -143,6 +143,11 @@ public class Data {
 	    }
 	  }
 	 
+
+	private String String(String string, DateTimeFormatter timeFormat) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	public void addTicketToData(Ticket ticket) {
 		tickets.add(ticket);
