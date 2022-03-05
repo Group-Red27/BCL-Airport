@@ -161,7 +161,7 @@ public class Checkout extends JFrame {
 		btnNewButton.setBounds(863, 384, 250, 50);
 		mainContentpanel.add(btnNewButton);
 	
-		String[] columnNames = {"First Name", "Surname", "Date Of Birth","Ticket No","Bag Cost","Ticket Price","Food Cost", "Product Cost", "Compensation", "TotalCost"};
+		String[] columnNames = {"First Name", "Surname", "Date Of Birth","Ticket No","Bag Cost(£)","Ticket Price(£)","Food Cost(£)","Product Cost(£)", "Compensation(£)", "TotalCost(£)"};
 		int numRows = finance.defineNoTableRows();
 		Object[][] tableData = new Object[numRows][10];
 		Data data = Data.getInstance();
@@ -182,19 +182,19 @@ public class Checkout extends JFrame {
 			
 			double overallTotalCost = finance.calOverallTotalCost(data.getTickets().get(i)); 
 			data.getTickets().get(i).setOverallTotalCost(overallTotalCost);
-			
+						
 			
 			// display data by getting from ticket
 			tableData[i][0] = data.getTickets().get(i).getFirstName();
 			tableData[i][1] = data.getTickets().get(i).getLastName();
 			tableData[i][2] = data.getTickets().get(i).getDateOfBirth();
 			tableData[i][3] = data.getTickets().get(i).getTicketNumber();
-			tableData[i][4] = data.getTickets().get(i).getBagCost();
-			tableData[i][5] = data.getTickets().get(i).getTicketPrice();
-			tableData[i][6] = data.getTickets().get(i).getFoodCost();
-			tableData[i][7] = data.getTickets().get(i).getProductCost();
-			tableData[i][8] = data.getTickets().get(i).getCompensation(); 
-			tableData[i][9] = data.getTickets().get(i).getOverallTotalCost();
+			tableData[i][4] = String.format("%.2f",data.getTickets().get(i).getBagCost());
+			tableData[i][5] = String.format("%.2f",data.getTickets().get(i).getTicketPrice());
+			tableData[i][6] = String.format("%.2f",data.getTickets().get(i).getFoodCost());
+			tableData[i][7] = String.format("%.2f",data.getTickets().get(i).getProductCost());
+			tableData[i][8] = String.format("%.2f",data.getTickets().get(i).getCompensation());
+			tableData[i][9] = String.format("%.2f", data.getTickets().get(i).getOverallTotalCost());			
 		}
 		
 		
@@ -215,10 +215,14 @@ public class Checkout extends JFrame {
 		table.getTableHeader().setForeground(Color.WHITE);
 		scrollPane.setViewportView(table);
 		
+		JLabel bagErrorText = new JLabel(finance.bagCostError());
+		bagErrorText.setHorizontalAlignment(SwingConstants.CENTER);
+		bagErrorText.setFont(new Font("Tahoma", Font.BOLD, 11));
+		bagErrorText.setBounds(65, 340, 1100, 40);
+		mainContentpanel.add(bagErrorText);
+		bagErrorText.setVisible(false);
 			
-	};
+	}
 	
-	
-
 	}
 

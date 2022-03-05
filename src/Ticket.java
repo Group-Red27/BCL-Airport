@@ -56,7 +56,9 @@ public class Ticket {
 	}
 
 	public void setFoodCost(double cost) {
-		this.foodCost = cost;		
+		this.foodCost = cost;	
+		
+		
 	}
 	
 	public String getPassengerName() {
@@ -119,34 +121,27 @@ public class Ticket {
 	public void setProductCost(double productCost) {
 		this.productCost = 123.00 ;
 	}
-
 	public double getOverallTotalCost() {
 		return overallTotalCost;
 	}
-
 	public void setOverallTotalCost(double overallTotalCost) {
 		this.overallTotalCost = overallTotalCost;
 	}
-
 	public String getDepartureFlightNumber() {
 		return departureFlightNumber;
 	}
-
 	public void setDepartureFlightNumber(String departureFlightNumber) {
 		this.departureFlightNumber = departureFlightNumber;
 	}
-
 	public String getReturnFlightNumber() {
 		return returnFlightNumber;
 	}
-
 	public void setReturnFlightNumber(String returnFlightNumber) {
 		this.returnFlightNumber = returnFlightNumber;
 	}
 	public int getNoOfBags() {
 		return noOfBags;
 	}
-
 	public void setNoOfBags(int noOfBags) {
 		this.noOfBags = noOfBags;
 	}
