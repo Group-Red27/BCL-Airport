@@ -34,7 +34,7 @@ public class Data {
 		Ticket ticket3 = new Ticket();
 		ticket3.setFirstName("Cady"); ticket3.setLastName("Heron"); ticket3.setTicketNumber(95738494);ticket3.setDateOfBirth("21/08/1997");ticket3.setNoOfBags(4);
 		ticket3.setDelaysInDeparture(179);ticket3.setTravelDistDeparture(7021.04);ticket3.setDepartureFlightNumber("TS4977");ticket3.setDepartureSeatNumber("11A");
-		ticket3.setReturnFlightNumber("ST4138");ticket3.setTravelDistReturn(11687.85);ticket3.setReturnSeatNumber("1A");
+		ticket3.setReturnFlightNumber("ST4138");ticket3.setTravelDistReturn(11687.85);ticket3.setReturnSeatNumber("11A");
 		
 		this.addTicketToData(ticket1); this.addTicketToData(ticket2); this.addTicketToData(ticket3);
 		

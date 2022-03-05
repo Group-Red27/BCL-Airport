@@ -58,8 +58,7 @@ public class Checkout extends JFrame {
 		Ticket ticket;
 		Finance finance = new Finance(null);
 		
-//		finance.anError();
-//		finance.calBagCost(83746578);
+		
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon(Checkout.class.getResource("/Images_Finance/BrunelLogo.png")));
@@ -181,6 +180,8 @@ public class Checkout extends JFrame {
 			double ticketPrice = finance.calTicketPrice(data.getTickets().get(i)); 
 			data.getTickets().get(i).setTicketPrice(ticketPrice);
 			
+			double overallTotalCost = finance.calOverallTotalCost(data.getTickets().get(i)); 
+			data.getTickets().get(i).setOverallTotalCost(overallTotalCost);
 			
 			
 			// display data by getting from ticket
@@ -193,7 +194,7 @@ public class Checkout extends JFrame {
 			tableData[i][6] = data.getTickets().get(i).getFoodCost();
 			tableData[i][7] = data.getTickets().get(i).getProductCost();
 			tableData[i][8] = data.getTickets().get(i).getCompensation(); 
-			tableData[i][9] = data.getTickets().get(i).getTotalCost();
+			tableData[i][9] = data.getTickets().get(i).getOverallTotalCost();
 		}
 		
 		

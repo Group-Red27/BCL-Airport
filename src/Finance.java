@@ -4,6 +4,7 @@ public class Finance {
 	Data data = Data.getInstance();
 	Ticket ticket;
 	SeatingPlan seatingPlan; 
+	HardCodedFlightclass hardcodedFlightclass;
 	
 	
 	
@@ -42,6 +43,7 @@ public class Finance {
 //		}
 //		this.ticket = ticket; 
 		
+				
 //		Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());
 //		System.out.print(ticketFound.getTicketNumber());
 //		System.out.println(ticketFound.noOfBags);
@@ -181,9 +183,9 @@ public class Finance {
 				flightclass.getFlightnumber(),flightclass.getAirline());
 		try {
 			SeatingPlan seatingPlan = new SeatingPlan(flightclass.getAirline(), temp);
-			System.out.println(seatingPlan);
-			System.out.println(seatNumber);
-			System.out.println(flightclass.getFlightnumber());
+//			System.out.println(seatingPlan);
+//			System.out.println(seatNumber);
+//			System.out.println(flightclass.getFlightnumber());
 			seatClass = seatingPlan.getSeatClass(seatNumber);
 //			System.out.println(seatClass);
 		} catch (Exception e) {
@@ -198,57 +200,58 @@ public class Finance {
 			classPriceRating = 1.0;
 		}else {
 			classPriceRating = 1.5;}
-		System.out.println(classPriceRating);
+
 		return classPriceRating;		
 	}
 
+	
 	public double calTicketCostDeparture(double travelDistDeparture, String departureSeatNumber,String departureFlightNumber ) {
 //		Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());
 		Flightclass departureFlight = data.findflight(departureFlightNumber);		
-//		double travelDistDeparture = departureFlight.getDistance();
+		travelDistDeparture = departureFlight.getDistance();
 //		String departureSeatNumber = ticketFound.getDepartureSeatNumber();
 		
 		double classPriceRating = declarePriceRating(departureSeatNumber,departureFlight);
 		ticketCostDeparture = departureFlight.getDistance() * classPriceRating;		
-		System.out.println(ticketCostDeparture);
 		return ticketCostDeparture;
 		
 	}
 		
-	public double calTicketCostReturn(double travelDistanceReturn, String returnSeatNumber, String returnFlightNumber) {
+	public double calTicketCostReturn(double travelDistReturn, String returnSeatNumber, String returnFlightNumber) {
 //		Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());
 		Flightclass returnFlight = data.findflight(returnFlightNumber);	
-//		double travelDistReturn = returnFlight.getDistance();
+		travelDistReturn = returnFlight.getDistance();
 //		String seatNumberReturn = ticketFound.getReturnSeatNumber();
 		
 		double classPriceRating = declarePriceRating(returnSeatNumber, returnFlight);		
-		ticketCostReturn = returnFlight.getDistance() * classPriceRating;
-		System.out.println(ticketCostReturn);
+		ticketCostReturn = travelDistReturn * classPriceRating;
+//		System.out.println(returnFlight.getDistance());
 		return ticketCostReturn;
 		
 	}
 	
 	public double calTicketPrice(Ticket ticket) {
-		System.out.println(String.format("ticket Number %s",ticket.getTicketNumber()));
-		double ticketCostDeparture = calTicketCostDeparture(travelDistDeparture, ticket.getDepartureSeatNumber(),ticket.getDepartureFlightNumber());
+//		System.out.println(String.format("ticket Number %s",ticket.getTicketNumber()));
+		
+		double ticketCostDeparture = calTicketCostDeparture(ticket.getTravelDistDeparture(), ticket.getDepartureSeatNumber(),ticket.getDepartureFlightNumber());
 		double ticketCostReturn = calTicketCostReturn(travelDistReturn,ticket.getReturnSeatNumber(),ticket.getReturnFlightNumber());
+		
 		ticketPrice = 0;
 		ticketPrice = ticketCostDeparture + ticketCostReturn;	
 		System.out.format("%.2f",ticketPrice);
-		System.out.println(ticketPrice);
 		return ticketPrice;	
 	}
 	
-	public double calOverallTotalCost() {
+	public double calOverallTotalCost(Ticket ticket) {
 		overallTotalCost = 0;
 		double tempTotal = 0;
 		double bagCost = calBagCost(ticket.getNoOfBags());
-//		double ticketPrice = calTicketPrice(ticket);
-		double compensation = calCompensation(ticket.delaysInDeparture);
+		ticketPrice = calTicketPrice(ticket);
+		double compensation = calCompensation(ticket.getDelaysInDeparture());
 	
-		tempTotal = (bagCost + ticket.getFoodCost() + ticket.getProductCost() + ticket.getTicketPrice() ) ;
+		tempTotal = (bagCost + ticket.getFoodCost() + ticket.getProductCost() + ticketPrice ) ;
 		System.out.format("%.2f",overallTotalCost);
-		return overallTotalCost = (tempTotal - compensation) ;		
+		return overallTotalCost = (tempTotal - compensation);		
 	}
 	
 	public int defineNoTableRows() {			

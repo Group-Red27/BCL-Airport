@@ -15,7 +15,7 @@ public class Ticket {
 	double ticketCostReturn;
 	double ticketPrice;
 	double productCost;
-	double totalCost;
+	double overallTotalCost;
 	int delaysInDeparture;
 	double travelDistDeparture;
 	double travelDistReturn;
@@ -120,12 +120,12 @@ public class Ticket {
 		this.productCost = 123.00 ;
 	}
 
-	public double getTotalCost() {
-		return totalCost;
+	public double getOverallTotalCost() {
+		return overallTotalCost;
 	}
 
-	public void setTotalCost(double totalCost) {
-		this.totalCost = totalCost;
+	public void setOverallTotalCost(double overallTotalCost) {
+		this.overallTotalCost = overallTotalCost;
 	}
 
 	public String getDepartureFlightNumber() {
