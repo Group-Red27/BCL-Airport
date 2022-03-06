@@ -152,7 +152,7 @@ public class Checkout extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				PaymentConfirmation paymentScreen = new PaymentConfirmation();
 				paymentScreen.setVisible(true);
-//				setVisible(false); /// can I leave main screen not visible ???? ////
+				setVisible(false); 
 				
 			}
 		});

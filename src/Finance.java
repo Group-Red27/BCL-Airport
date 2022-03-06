@@ -142,7 +142,7 @@ public class Finance {
 		} else if (noOfBags == 0){
 			bagCost = 0.00;
 		} else {
-			bagCost = 888888888;
+			bagCost = 888888888;			
 //			System.out.println(bagCostError());			
 		}		
 		return bagCost;
@@ -201,7 +201,7 @@ public class Finance {
 	}
 
 	
-	public double calTicketCostDeparture(double travelDistDeparture, String departureSeatNumber,String departureFlightNumber ) {
+	public double calTicketCostDeparture(double travelDistDeparture, String departureSeatNumber,String departureFlightNumber ) {		
 //		Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());
 		Flightclass departureFlight = data.findflight(departureFlightNumber);	
 		travelDistDeparture = departureFlight.getDistance();

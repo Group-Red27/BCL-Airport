@@ -11,6 +11,8 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextPane;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PaymentConfirmation extends JFrame {
 
@@ -19,7 +21,7 @@ public class PaymentConfirmation extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -65,9 +67,21 @@ public class PaymentConfirmation extends JFrame {
 		txtpnImportantInformation.setBounds(100, 120, 436, 190);
 		contentPane.add(txtpnImportantInformation);
 		
-		JButton btnNewButton = new JButton("Payment");
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnNewButton.setBounds(424, 329, 100, 25);
-		contentPane.add(btnNewButton);
+		JButton btnMakePayment = new JButton("Make Payment");
+		btnMakePayment.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnMakePayment.setBounds(425, 329, 160, 25);
+		contentPane.add(btnMakePayment);
+		
+		JButton btnGoBack = new JButton("Back to checkout");
+		btnGoBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Checkout CheckoutScreen = new Checkout();
+				CheckoutScreen.setVisible(true);
+				setVisible (false);
+			}			
+		});		
+		btnGoBack.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnGoBack.setBounds(65, 329, 160, 25);
+		contentPane.add(btnGoBack);
 	}
 }

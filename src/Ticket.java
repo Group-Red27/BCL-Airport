@@ -8,6 +8,8 @@ public class Ticket {
 	String returnFlightNumber;
 	String departureSeatNumber;
 	String returnSeatNumber;
+	String departureairport;
+	String returnairport;
 	String dateOfBirth;
 	double bagCost;
 	double compensation;
@@ -138,7 +140,20 @@ public class Ticket {
 	}
 	public void setReturnFlightNumber(String returnFlightNumber) {
 		this.returnFlightNumber = returnFlightNumber;
+	}	
+	public String getDepartureairport() {
+		return departureairport;
 	}
+	public void setDepartureairport(String departureairport) {
+		this.departureairport = departureairport;
+	}
+	public String getReturnairport() {
+		return returnairport;
+	}
+	public void setReturnCity(String returnairport) {
+		this.returnairport = returnairport;
+	}
+
 	public int getNoOfBags() {
 		return noOfBags;
 	}

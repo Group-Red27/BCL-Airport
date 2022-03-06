@@ -82,12 +82,6 @@ public String getArivalairport() {
 public void setArivalairport(String arivalairport) {
 	this.arivalairport = arivalairport;
 }
-public String getArrivalcity() {
-	return arrivalcity;
-}
-public void setArrivalcity(String arrivalcity) {
-	this.arrivalcity = arrivalcity;
-}
 public String getFlightnumber() {
 	return flightnumber;
 }
@@ -120,5 +114,11 @@ public void setDateofflight(LocalDate dateofflight) {
 	}
 	public LocalDate getDateofflight() {
 		return dateofflight;
+	}
+	public String getArrivalcity() {
+		return arrivalcity;
+	}
+	public void setArrivalcity(String arrivalcity) {
+		this.arrivalcity = arrivalcity;
 	}
 }
