@@ -150,7 +150,7 @@ public class Ticket {
 	public String getReturnairport() {
 		return returnairport;
 	}
-	public void setReturnCity(String returnairport) {
+	public void setReturnairport(String returnairport) {
 		this.returnairport = returnairport;
 	}
 
