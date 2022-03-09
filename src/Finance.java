@@ -26,22 +26,25 @@ public class Finance {
 	
 	
 	public Finance(Ticket ticket) {	
+//		Try with this data while building the code step by step
 //		this.ticket = ticket;
 //		if (ticket == null) {
 //			ticket = new Ticket();
-//			ticket.setDepartureFlightNumber("TA8112");
-//			ticket.setDelaysInDeparture(120);
-//			ticket.setReturnFlightNumber("TM5422");
+//			ticket.setDepartureFlightNumber("TS4977");
+//			ticket.setTravelDistDeparture(7021.04);
+//			ticket.setDelaysInDeparture(179);
+//			ticket.setReturnFlightNumber("ST4138");
+//			ticket.setTravelDistReturn(11687.85);
 //			ticket.setDepartureSeatNumber("1A");
 //			ticket.setReturnSeatNumber("6A");
-//			ticket.setNoOfBags(4);
-//			ticket.setFoodCost(45.00);
+//			ticket.setNoOfBags(5);
 //			ticket.setFirstName("John");
 //			ticket.setLastName("Smith");
 //			ticket.setTicketNumber(12345678);
 //			ticket.addTicketToData();
 //		}
 //		this.ticket = ticket; 
+		
 		
 				
 //		Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());
@@ -142,7 +145,9 @@ public class Finance {
 		} else if (noOfBags == 0){
 			bagCost = 0.00;
 		} else {
-			bagCost = 888888888;			
+			bagCost = 888888888;		
+			Checkout checkout = new Checkout();
+			
 //			System.out.println(bagCostError());			
 		}		
 		return bagCost;
