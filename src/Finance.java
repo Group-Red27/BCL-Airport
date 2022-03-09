@@ -126,12 +126,10 @@ public class Finance {
 	
 	
 	
-//	For all costs which has dispute - error messages
-		public String bagCostError(){
+	public String bagCostError(){
 	return ("Invalid input for number of bags checked in, please go back to bookings & enter a valid number.If there is no bags then enter zero");
 	}
 	
-	// calculation of bag cost
 	public double calBagCost(int noOfBags) {
 		
 //		Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());	
@@ -145,7 +143,7 @@ public class Finance {
 		} else if (noOfBags == 0){
 			bagCost = 0.00;
 		} else {
-			bagCost = 00000000;		
+			bagCost = 0.00;		
 //			Checkout checkout = new Checkout();
 			
 			System.out.println(bagCostError());			
@@ -210,7 +208,7 @@ public class Finance {
 //		Ticket ticketFound = data.findFinTicket(ticket.getTicketNumber());
 		Flightclass departureFlight = data.findflightByAirport(departureFlightNumber,airportDeparture,airportArrival);	
 		double travelDistDeparture = departureFlight.getDistance();
-		System.out.println(travelDistDeparture);
+//		System.out.println(travelDistDeparture);
 //		String departureSeatNumber = ticketFound.getDepartureSeatNumber();
 		
 		double classPriceRating = declarePriceRating(departureSeatNumber,departureFlight);

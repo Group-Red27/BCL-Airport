@@ -22,7 +22,7 @@ public class Data {
 		users = new ArrayList<Object>();
 		
 		Ticket ticket1 = new Ticket();
-		ticket1.setFirstName("Aaron"); ticket1.setLastName("Samuels"); ticket1.setTicketNumber(83746578);ticket1.setDateOfBirth("01/01/1990");ticket1.setNoOfBags(5);
+		ticket1.setFirstName("Aaron"); ticket1.setLastName("Samuels"); ticket1.setTicketNumber(83746578);ticket1.setDateOfBirth("01/01/1990");ticket1.setNoOfBags(-5);
 		ticket1.setDelaysInDeparture(179);ticket1.setDepartureFlightNumber("TS4977");ticket1.setDepartureSeatNumber("1A");ticket1.setDepartureairport("HND");
 		ticket1.setReturnFlightNumber("ST4138");ticket1.setReturnSeatNumber("1A");ticket1.setReturnairport("SYD");
 		
@@ -81,52 +81,39 @@ public class Data {
 //	} // finds a specific ticket object given a ticket number,
 	
 	}
+	
+	
+	//using this method in Finance to find a ticket object with ticket number
 	public Ticket findFinTicket(long ticketNumber) {
 		Ticket ticketF = new Ticket();
-//		System.out.println(flights);
-//		System.out.println(ticketNumber);
-//		System.out.println(tickets.get(0));
+		System.out.println(ticketNumber);
+		System.out.println(tickets.get(0));
 		for (int i = 0; i < tickets.size(); i++ ) {
 			long currentTicketNumber = tickets.get(i).getTicketNumber();
 					if (ticketNumber == currentTicketNumber)   {
 						return tickets.get(i);
-					}
-					
+					}					
 		}return ticketF;
 	}
 	
-////	This is for finance class 
-//	public Flightclass findflight(String flightNumber) {
-//		Flightclass flight = new Flightclass();
-////		System.out.println(flights.size());
-////		System.out.println(flightNumber);
-//		for (int i = 0; i < flights.size(); i++ ) {
-//			String currentFlightNumber = flights.get(i).getFlightnumber();
-//					if (flightNumber.equals(currentFlightNumber)) {
-//												return flights.get(i);
-//					}
-//		}return flight;
-//	}		
-
-	
-	public Flightclass findflightByAirport(String flightNumber, String airportNameDep, String airportNameRet) {
-		System.out.println(flightNumber + " " + airportNameDep + airportNameRet);
+	//This is for finance class to find a flight object - flightNumber only will result in 1st data on csv file, every flight travels to 2 destination
+	//departure & return airport needed to find the right flight object
+	public Flightclass findflightByAirport(String flightNumber, String departureAirport, String returnAirport) {
+//		System.out.println(flightNumber + " " + departureAirport + " " + returnAirport);
 		Flightclass flight = new Flightclass();
 //		System.out.println(flights.size());
-//		System.out.println(flightNumber);
 		for (int i = 0; i < flights.size(); i++ ) {
 			String currentFlightNumber = flights.get(i).getFlightnumber();
 			String currentDepartureAirport = flights.get(i).getDepartureairport();
-			String currentArrivalAirport = flights.get(i).getArivalairport();
-//					
-			if (flightNumber.equals(currentFlightNumber) && airportNameDep.equals(currentDepartureAirport) &&
-					airportNameRet.equals(currentArrivalAirport)){
-				
-//								System.out.println(flights.get(i).getArivalairport());
+			String currentArrivalAirport = flights.get(i).getArivalairport();		
+			if (flightNumber.equals(currentFlightNumber) && departureAirport.equals(currentDepartureAirport) &&
+					returnAirport.equals(currentArrivalAirport)){
 						return flights.get(i);
 					}
 		}return flight;
 	}		
+	
+	
 //Read CSV	
 	  public void main(String[] args) throws Exception {
 	    try {
