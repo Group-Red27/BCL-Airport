@@ -19,6 +19,7 @@ import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.MouseMotionAdapter;
+import javax.swing.JTabbedPane;
 
 public class FlightArrivalMap_UI extends JFrame {
 
@@ -53,39 +54,82 @@ public class FlightArrivalMap_UI extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1000, 650);
 		ImageIcon Image= new ImageIcon(this.getClass().getResource("map.png"));
-		JLabel lblNewLabel=new JLabel(Image);
-		lblNewLabel.setBounds(5, 28, 978, 582);
-		lblNewLabel.setBackground(Color.BLUE);
-		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
 	
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
-		
-		JButton btnNewButton_1 = new JButton("DEL");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		
-		JLabel label = new JLabel("CAI");
-		label.addMouseMotionListener(new MouseMotionAdapter() {
-		@Override
-			public void mouseMoved(MouseEvent e) {
-			label.setForeground(Color.red);
-			}
-		});
-		label.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-			}
-		});
-		label.setBounds(714, 300, 48, 14);
-		contentPane.add(label);
-		btnNewButton_1.setBounds(619, 274, 63, 40);
-		contentPane.add(btnNewButton_1);
-		contentPane.add(lblNewLabel);
 		setContentPane(contentPane);
+		
+		JPanel toppanel = new JPanel();
+		toppanel.setBackground(new Color(25, 25, 112));
+		toppanel.setBounds(0, 0, 1000, 60);
+		contentPane.add(toppanel);
+		toppanel.setLayout(null);
+		
+		JButton btnNewButton = new JButton("Departure");
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnNewButton.setBounds(847, 0, 143, 60);
+		toppanel.add(btnNewButton);
+		
+		JButton btnArrivals = new JButton("Arrivals");
+		btnArrivals.setForeground(new Color(248, 248, 255));
+		btnArrivals.setBackground(new Color(0, 0, 205));
+		btnArrivals.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnArrivals.setBounds(700, 0, 143, 60);
+		toppanel.add(btnArrivals);
+		
+		JButton btnFinance = new JButton("Finance");
+		btnFinance.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Checkout Finance = new Checkout();
+				Finance.setVisible(true);
+				setVisible (false);
+			}
+		});
+		btnFinance.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnFinance.setBounds(553, 0, 143, 60);
+		toppanel.add(btnFinance);
+		
+		JButton btnRestaurant = new JButton("Restaurant");
+		btnRestaurant.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RestaurantSelectionScreen RSSpage= new RestaurantSelectionScreen();
+				RSSpage.setVisible(true);
+				setVisible (false);
+			}
+		});
+		btnRestaurant.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnRestaurant.setBounds(405, 0, 143, 60);
+		toppanel.add(btnRestaurant);
+		
+		JButton btnFlights = new JButton("Flights");
+		btnFlights.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				FlightUI Flightpage = new FlightUI();
+				Flightpage.setVisible(true);
+				setVisible(false);
+			}
+		});
+		btnFlights.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnFlights.setBounds(258, 0, 143, 60);
+		toppanel.add(btnFlights);
+		
+		JPanel bottompanel = new JPanel();
+		bottompanel.setBackground(Color.WHITE);
+		bottompanel.setBounds(0, 60, 1000, 590);
+		contentPane.add(bottompanel);
+		bottompanel.setLayout(null);
+		
+		JLabel DEL = new JLabel("DEL");
+		DEL.setFont(new Font("Tahoma", Font.BOLD, 12));
+		DEL.setForeground(new Color(25, 25, 112));
+		DEL.setBounds(646, 239, 31, 14);
+		bottompanel.add(DEL);
+		
+		JLabel MapLabel = new JLabel("");
+		MapLabel.setIcon(new ImageIcon("C:\\Users\\sweet\\git\\BCL-Airport\\src\\map.png"));
+		MapLabel.setBounds(0, 0, 1000, 561);
+		bottompanel.add(MapLabel);
 		
 //		JComponent buttonPanel = null;
 //		buttonPanel.setForeground(new Color(0, 0, 128));
