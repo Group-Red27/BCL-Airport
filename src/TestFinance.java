@@ -5,13 +5,31 @@ import org.junit.jupiter.api.Test;
 class TestFinance {
 	
 	@Test
-	void testCalTicketCostDeparture() {
-		
+	void testDeclarePriceRating() {
 		Finance testFinance = new Finance(null);
-		double output = testFinance.calTicketCostDeparture("1A", "TS4977","HND","SYD");
-		System.out.println(output);
-		assertEquals(10531.56,output);
+		Flightclass flightclass = new Flightclass();
+		double output = testFinance.declarePriceRating("5A", flightclass );
+		assertEquals(1.5,output);
 	}
+	
+	
+	
+//	@Test
+//	void testCalTicketCostReturn() {
+//		Finance testFinance = new Finance(null);
+//		double output = testFinance.calTicketCostReturn("1A", "ST4138", "HND", "SYD");
+//		assertEquals(17531.775, output);
+//	}
+	
+	
+//	@Test
+//	void testCalTicketCostDeparture() {
+//		
+//		Finance testFinance = new Finance(null);
+//		double output = testFinance.calTicketCostDeparture("11A","TS4977","HND","SYD");
+//		assertEquals(3510.52,output);
+//	}
+	
 	
 //	@Test
 //	void testCalCompensation() {
@@ -33,4 +51,5 @@ class TestFinance {
 //		assertEquals(00000000, output);
 //	}
 
+	
 }
