@@ -36,6 +36,8 @@ public class Data {
 //		ticket3.setDelaysInDeparture(179);ticket3.setDepartureFlightNumber("TS4977");ticket3.setDepartureSeatNumber("11A");ticket3.setDepartureairport("HND");
 //		ticket3.setReturnFlightNumber("ST4138");ticket3.setReturnSeatNumber("11A");ticket3.setReturnairport("SYD");
 		
+		
+		
 //		this.addTicketToData(ticket1); this.addTicketToData(ticket2); this.addTicketToData(ticket3);
 		this.addTicketToData(ticket1);
 		
