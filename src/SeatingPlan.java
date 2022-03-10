@@ -1,22 +1,36 @@
 
+
 public class SeatingPlan {
 
-	     Flightclass flight; 
+	     HardCodedFlightclass flight;
 	     private int numOfTickets;
-		 private String planeType;
+	     private String planeType;
 		 private String[] seatNumber;
 		 private String[] selectedSeats;
-		 private boolean[] seatAvailability;
+		 public boolean[] seatAvailability;
 		 private String[][] seatClass;
-		 
+		 HardCodedData data;
+			
+		
 
-		 public SeatingPlan(String planeType, Flightclass flight) {
+
+			
+		 public SeatingPlan(String planeType, HardCodedFlightclass flight) //constructor 
+		 { 
 			 this.flight = flight;
 			 this.planeType = planeType;
-			 if (this.planeType=="airbus")
+			 if (this.planeType=="AirbusA318")
 				{
+			this.seatAvailability = new boolean[]  {true,true,true,true,true,true,true,true,
+													true,true,true,true,true,true,true,true,
+													true,true,true,true,true,true,true,true,
+													true,true,true,true,true,true,true,true,
+													true,true,true,true,true,true,true,true,
+													true,true,true,true,true,true,true,true,
+													true,true,true,true,true,true,true,true,
+													true,true,true,true,true,true,true,true};
 				
-					this.seatClass = new String[][] {{"Business class","Economy"}, 
+					this.seatClass = new String[][] {{"Business class","Economy"}, //assigning seat to a class Airbus
 											  					{"1A","6A"}, 
 											  					{"2A","7A"},
 											  					{"3A","8A"},
@@ -68,7 +82,19 @@ public class SeatingPlan {
 				}
 				else
 				{
-					this.seatClass= new String[][] {{"First Class", "Business Class","Economy"},
+					this.seatAvailability = new boolean[]  {true,true,true,true,true,true,true,true,
+															true,true,true,true,true,true,true,true,
+															true,true,true,true,true,true,true,true,
+															true,true,true,true,true,true,true,true,
+															true,true,true,true,true,true,true,true,
+															true,true,true,true,true,true,true,true,
+															true,true,true,true,true,true,true,true,
+															true,true,true,true,true,true,true,true,
+															true,true,true,true,true,true,true,true,
+															true,true,true,true,true,true,true,true,
+															true,true,true,true};
+					
+					this.seatClass= new String[][] {{"First Class", "Business class","Economy"}, //assigning seat to a class Boeing
 																	{"1A","6A","11A"},
 																	{"2A","7A","12A"},
 																	{"3A","8A","13A"},
@@ -127,29 +153,35 @@ public class SeatingPlan {
 				}
 		}		
 		 
-		 public String[] getSelectedSeats() {
+		 public String[] getSelectedSeats() 
+		 {
 			return selectedSeats;
-		}
+		 }
 
-		public void setSelectedSeats(String[] selectedSeats) {
+		public void setSelectedSeats(String[] selectedSeats) 
+		{
 			this.selectedSeats = selectedSeats;
 		}
 
 		 
 		
-		public int getNumOfTickets() {
+		public int getNumOfTickets() 
+		{
 			return numOfTickets;
 		}
 		
-		public void setNumOfTickets(int numOfTickets) {
+		public void setNumOfTickets(int numOfTickets) 
+		{
 			this.numOfTickets = numOfTickets;
 		}
 		
-		public String getPlaneType() {
+		public String getPlaneType() 
+		{
 			return planeType;
 		}
 		
-		public void setPlaneType(String planeType) {
+		public void setPlaneType(String planeType) 
+		{
 			this.planeType = planeType;
 		}
 		
@@ -157,51 +189,71 @@ public class SeatingPlan {
 			return seatNumber;
 		}
 		
-		public void setSeatNumber(String[] seatNumber) {
+		public void setSeatNumber(String[] seatNumber) 
+		{
 			this.seatNumber = seatNumber;
 		}
-		public boolean[] getSeatAvailability() {
+		public boolean[] getSeatAvailability() 
+		{
 			return seatAvailability;
 		}
 		
-		public void setSeatAvailability(boolean[] seatAvailability) {
+		public void setSeatAvailability(boolean[] seatAvailability) 
+		{
 			this.seatAvailability = seatAvailability;
 		}
 		
-		public String[][] getSeatClass() {
+		public String[][] getSeatClass() 
+		{
 			return seatClass;
 		}
 		
-		public void setSeatClass(String[][] seatClass) {
+		public void setSeatClass(String[][] seatClass) 
+		{
 			this.seatClass = seatClass;
 		}
 		
-	
+		
+		
 		
 		//PlaneType
-		public boolean planeSeatingPlan() {//Which one it displays, either airbus or boeing. 
+		public boolean planeSeatingPlan(HardCodedFlightclass flight)//Which one it displays, either airbus or boeing.  
+		{															
+		
+			
+			 String time = flight.getFlightduration().split(":")[0];
+			 Integer hour = Integer.parseInt(time);
+			 
 			
 			boolean valid=true;
-			if(flight.getFlightduration()<=120)
+			
+			
+			if(hour>2)
 			{
-				valid=true;//frame change to airbus
+				
+				valid=true;//frame change to boeing
+				planeType="Boeing747";
 				
 				
 			}
-			if(flight.getFlightduration()>120)
+			else
 			{
-				valid=false;//frame change to boeing
+				valid=false;//frame change to airbus
+				planeType="AirbusA318";
+
 			}
 			
 			return valid;
 		}
 		
 		
-		public boolean numberOfSeats() { //validate number of seats compared to number of ticktes.
+		
+		public boolean numberOfSeats() //validate number of seats compared to number of ticktes.
+		{ 
 			
 			boolean valid;
 			
-		if (seatNumber.length!=numOfTickets)
+		if (selectedSeats.length!=numOfTickets)
 		{
 			valid=false;
 		}
@@ -212,7 +264,7 @@ public class SeatingPlan {
 		return valid;
 }
 		
-		public int Index(String selectedSeats,String[] seatNumber ) //Index for Selected seats and seatNumber. 
+		public int getIndex(String selectedSeats,String[] seatNumber) //Index for Selected seats and seatNumber. 
 		{
 			int index=0;
 			for(int i=0;i<=seatNumber.length;i++)
@@ -225,16 +277,34 @@ public class SeatingPlan {
 		}
 		
 		
-//		public boolean selectSeats(String selectedSeats)
-//		{
-//			for(int i=0;i<=selectedSeats.length();i++)
-//			{
-//				Index = getIndex(seatNumber,selectedSeats[i]);
-//				
-//			}
-//		}
+		public void selectSeats() //Checks selected seats
+		{
+			for(int i=0;i<=selectedSeats.length;i++)
+			{
+				int Index = getIndex(selectedSeats[i],seatNumber);
+				seatAvailability[Index]=true;
+			}
+		}
 		
-		public String getSeatClass(String seatNumber) throws Exception {
+		
+		public boolean isSeatNumberAvailable(String[] seatNumber) //Check if seatNumber is available. 
+		{
+			boolean valid=true;
+			
+			for (int i=0;i<=selectedSeats.length;i++)
+			{
+				int Index = getIndex(selectedSeats[i],seatNumber);
+					if(seatAvailability[Index]=false)
+					{
+						valid=false;
+					}
+			}
+			return valid;
+		}
+		
+
+		public String getSeatClass(String seatNumber) throws Exception 
+		{
 			
 			String seatNumberClass = null; 
 			for (int i=0;i<this.seatClass.length;i++)
@@ -247,9 +317,10 @@ public class SeatingPlan {
 					}
 					
 				}
-				}
+			}
 			
-			if (seatNumberClass==null) {
+			if (seatNumberClass==null) 
+			{
 				throw new Exception("The seat is not found!");
 			}
 			
@@ -257,9 +328,10 @@ public class SeatingPlan {
 			
 		}
 		
+		
+		
 			
 }
 		
 
 	
-

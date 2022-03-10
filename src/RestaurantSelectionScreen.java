@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
@@ -24,10 +26,14 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.border.LineBorder;
+
+//import tutorials.RestaurantSelectionScreen;
+
 import javax.swing.JTextPane;
 
 public class RestaurantSelectionScreen extends JFrame {
 
+	//private static RestaurantSelectionScreen instance = new RestaurantSelectionScreen(); // new
 	private JPanel contentPane;
 	private JTextField entry1;
 	private JTextField entry2;
@@ -62,6 +68,11 @@ public class RestaurantSelectionScreen extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	
+//	public static RestaurantSelectionScreen getInstance() {
+//		return instance;
+//    } // new
+	
 	public RestaurantSelectionScreen() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 850, 650);
@@ -81,9 +92,13 @@ public class RestaurantSelectionScreen extends JFrame {
 		flightsButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				FlightUI flightScreen = new FlightUI();
+				setVisible(false);
+				flightScreen.setVisible(true);
 			}
 		});
+		
+
 		buttonPanel.add(flightsButton);
 		flightsButton.setForeground(Color.BLACK);
 		flightsButton.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -103,9 +118,9 @@ public class RestaurantSelectionScreen extends JFrame {
 		JButton financeButton = new JButton("Finance");
 		financeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//Finance_GUI financeScreen = new Finance_GUI();
+				Checkout financeScreen = new Checkout();
 				setVisible(false);
-				//financeScreen.main(null);
+				financeScreen.setVisible(true);
 				// might need to delete main after this 
 			}
 		});
@@ -342,23 +357,23 @@ public class RestaurantSelectionScreen extends JFrame {
 		price8.setBounds(17, 439, 53, 19);
 		snacksPanel.add(price8);
 		
-		JTextPane description5 = new JTextPane();
-		description5.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		description5.setEditable(false);
-		description5.setBounds(10, 144, 176, 50);
-		snacksPanel.add(description5);
-		
 		JTextPane description6 = new JTextPane();
 		description6.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		description6.setEditable(false);
-		description6.setBounds(10, 258, 176, 50);
+		description6.setBounds(10, 144, 176, 50);
 		snacksPanel.add(description6);
 		
 		JTextPane description7 = new JTextPane();
-		description7.setBounds(10, 32, 176, 50);
-		snacksPanel.add(description7);
 		description7.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		description7.setEditable(false);
+		description7.setBounds(10, 258, 176, 50);
+		snacksPanel.add(description7);
+		
+		JTextPane description5 = new JTextPane();
+		description5.setBounds(10, 32, 176, 50);
+		snacksPanel.add(description5);
+		description5.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		description5.setEditable(false);
 		
 		JTextPane description8 = new JTextPane();
 		description8.setFont(new Font("Tahoma", Font.PLAIN, 11));
@@ -474,26 +489,28 @@ public class RestaurantSelectionScreen extends JFrame {
 		drinksPanel.add(description12);
 
 		Data data = Data.getInstance();
-		// price test
-		// using a loop to assign the prices from foodItem rather than setting them constant
+		System.out.println(" ");
+		// using a loop to assign the prices, labels + desc. from foodItem rather than setting them constant
+		// after putting all component into coresponding arrays
 		JLabel[] itemNames = {label1,label2,label3,label4,label5,label6,label7,label8,label9,label10,label11,label12};
 		JLabel[] priceLabels = {price1,price2,price3,price4,price5,price6,price7,price8,price9,price10,price11,price12};
 		JTextPane[] descriptionText = {description1,description2,description3,description4,description5,description6,description7,description8,description9,description10,description11,description12};
 		JTextField[] entryList = {entry1,entry2,entry3,entry4,entry5,entry6,entry7,entry8,entry9,entry10,entry11,entry12};
 		for (int i = 0; i < 12; i ++) {
+			System.out.println(data.getItemsAvailable()[i].getItemName()+" "+data.getItemsAvailable()[i].getStockLevel());
 			priceLabels[i].setText(String.format("£%.2f", data.getItemsAvailable()[i].getPrice()));
 			descriptionText[i].setText(data.getItemsAvailable()[i].getDescription());
 			itemNames[i].setText(data.getItemsAvailable()[i].getItemName());
-			// entry markOutOfStock test, restock not run from here
+			// checks the stock level for every item and sets that entry enables = false and grey, restock not run here
 			if (data.getItemsAvailable()[i].getStockLevel() == 0) {
 				entryList[i].enable(false);
 				entryList[i].setBackground(Color.GRAY);
-			} 
+			} // sets the entry to invalid and gray to show out of stock
 		}
 		
 		JPanel infoPanel = new JPanel();
 		infoPanel.setBackground(SystemColor.menu);
-		infoPanel.setBounds(641, 32, 151, 485);
+		infoPanel.setBounds(640, 76, 151, 468);
 		mainPanel.add(infoPanel);
 		infoPanel.setLayout(null);
 		
@@ -510,7 +527,7 @@ public class RestaurantSelectionScreen extends JFrame {
 		infoPanel.add(lblNewLabel_2_1_1);
 		
 		JButton purchaseButton = new JButton("Purchase");
-		purchaseButton.setBounds(20, 424, 109, 29);
+		purchaseButton.setBounds(20, 411, 109, 29);
 		infoPanel.add(purchaseButton);
 		purchaseButton.setForeground(new Color(255, 255, 255));
 		purchaseButton.setBackground(new Color(0, 0, 128));
@@ -526,18 +543,20 @@ public class RestaurantSelectionScreen extends JFrame {
 		
 		purchaseButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// move screens
+				// determines if moving screens is needed based on valid inputs
 				FoodOrder order = new FoodOrder();
 				boolean moveFrame = order.selectItems(entryList);
 				if (moveFrame == true) {
 					int rows = 0;
+					// each food item will have a row in the jtable, the index is the index of that specific item in the data class []
+					// eg, chicken noodles is the 0th item, this index is used to get the right data for the right items 
 					ArrayList<Integer> index = new ArrayList<Integer>();
 					for (int i = 0; i < 12; i++) {
 						if (order.itemsSelected[i] == true) {
 							rows += 1;
 							index.add(i);
-						}
-					} // calc num of rows needed based on items selected and the index of selected items
+						} // all of the indexes are added to an array for below use
+					} // calc num of rows needed for JTable based on items selected and the index of selected items
 					
 					Object[][] tableData = new Object[rows][4];
 					for (int i = 0; i < rows; i++ ) {
@@ -545,7 +564,7 @@ public class RestaurantSelectionScreen extends JFrame {
 						tableData[i][1] = String.format("£%.2f",data.getItemsAvailable()[index.get(i)].getPrice());
 						tableData[i][2] = order.getQuantity()[index.get(i)];
 						tableData[i][3] = String.format("£%.2f",order.getNetPrices()[index.get(i)]); 
-					}  //create data for table 
+					}  //create data for table on confirmationScreen
 					
 					RestaurantConfirmationScreen confirmationScreen = new RestaurantConfirmationScreen(order,tableData,entryList);
 					setVisible(false);
@@ -579,5 +598,19 @@ public class RestaurantSelectionScreen extends JFrame {
 		drinksLabel.setForeground(new Color(0, 0, 128));
 		drinksLabel.setBounds(405, 0, 185, 41);
 		titlePanel.add(drinksLabel);
+		
+		JButton refreshButton = new JButton("Refresh");
+		refreshButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RestaurantSelectionScreen screen = new RestaurantSelectionScreen();
+				screen.setVisible(true);
+				dispose();
+			}
+		});
+		refreshButton.setForeground(new Color(128, 128, 128));
+		refreshButton.setFont(new Font("Tahoma", Font.BOLD, 16));
+		refreshButton.setBackground(SystemColor.menu);
+		refreshButton.setBounds(660, 30, 109, 29);
+		mainPanel.add(refreshButton);
 	}
 }

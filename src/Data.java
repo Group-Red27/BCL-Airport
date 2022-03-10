@@ -2,8 +2,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
+//import Flightclass;
 
 public class Data {
 	private static Data instance = new Data();
@@ -18,7 +20,26 @@ public class Data {
 		flights = new ArrayList<Flightclass>();
 		tickets = new ArrayList<Ticket>();
 		users = new ArrayList<Object>();
-				
+		
+		Ticket ticket1 = new Ticket();
+		ticket1.setFirstName("Aaron"); ticket1.setLastName("Samuels"); ticket1.setTicketNumber(83746578);ticket1.setDateOfBirth("01/01/1990");ticket1.setNoOfBags(-5);
+		ticket1.setDelaysInDeparture(179);ticket1.setDepartureFlightNumber("TS4977");ticket1.setDepartureSeatNumber("1A");ticket1.setDepartureairport("HND");
+		ticket1.setReturnFlightNumber("ST4138");ticket1.setReturnSeatNumber("1A");ticket1.setReturnairport("SYD");
+		
+//		Ticket ticket2 = new Ticket();
+//		ticket2.setFirstName("Regina"); ticket2.setLastName("George"); ticket2.setTicketNumber(27475839);ticket2.setDateOfBirth("28/02/1995");ticket2.setNoOfBags(3);
+//		ticket2.setDelaysInDeparture(179);ticket2.setDepartureFlightNumber("TS4977");ticket2.setDepartureSeatNumber("6A");ticket2.setDepartureairport("HND");
+//		ticket2.setReturnFlightNumber("ST4138");ticket2.setReturnSeatNumber("6A");ticket2.setReturnairport("SYD");
+//		
+//		Ticket ticket3 = new Ticket();
+//		ticket3.setFirstName("Cady"); ticket3.setLastName("Heron"); ticket3.setTicketNumber(95738494);ticket3.setDateOfBirth("21/08/1997");ticket3.setNoOfBags(4);
+//		ticket3.setDelaysInDeparture(179);ticket3.setDepartureFlightNumber("TS4977");ticket3.setDepartureSeatNumber("11A");ticket3.setDepartureairport("HND");
+//		ticket3.setReturnFlightNumber("ST4138");ticket3.setReturnSeatNumber("11A");ticket3.setReturnairport("SYD");
+		
+//		this.addTicketToData(ticket1); this.addTicketToData(ticket2); this.addTicketToData(ticket3);
+		this.addTicketToData(ticket1);
+		
+		
 		Fooditem item1 = new Fooditem("Chicken Noodles","Marinated chicken with seasonal greens, menma, spring onion, rich chicken broth with miso",100,10.99);
 		Fooditem item2 = new Fooditem("Rice & Beef","Beef brisket in teriyaki sauce shredded carrots. seasonal greens spring onion sesame seeds",100,8.99);
 		Fooditem item3 = new Fooditem("Tofu Stir Fry","Bold + fiery tofu, mangetout, red + green peppers, onion, hot red chillies, sesame seeds stir fry",100,9.99);
@@ -57,9 +78,40 @@ public class Data {
 			}
 		} // if statement in case tickets array has no tickets in it yet.
 		return ticket;
-	} // finds a specific ticket object given a ticket number
+//	} // finds a specific ticket object given a ticket number,
 	
-
+	}
+	
+	
+	//using this method in Finance class to find a ticket object with ticket number
+	public Ticket findFinTicket(long ticketNumber) {
+		Ticket ticketF = new Ticket();
+		for (int i = 0; i < tickets.size(); i++ ) {
+			long currentTicketNumber = tickets.get(i).getTicketNumber();
+					if (ticketNumber == currentTicketNumber)   {
+						return tickets.get(i);
+					}					
+		}return ticketF;
+	}
+	
+	//This is for finance class to find a flight object - flightNumber only will result in 1st instance of data on csv file, every flight travels to 2 different destination
+	//departure & return airport needed to find the right flight object
+	public Flightclass findflightByAirport(String flightNumber, String departureAirport, String returnAirport) {
+//		System.out.println(flightNumber + " " + departureAirport + " " + returnAirport);
+		Flightclass flight = new Flightclass();
+//		System.out.println(flights.size());
+		for (int i = 0; i < flights.size(); i++ ) {
+			String currentFlightNumber = flights.get(i).getFlightnumber();
+			String currentDepartureAirport = flights.get(i).getDepartureairport();
+			String currentArrivalAirport = flights.get(i).getArivalairport();		
+			if (flightNumber.equals(currentFlightNumber) && departureAirport.equals(currentDepartureAirport) &&
+					returnAirport.equals(currentArrivalAirport)){
+						return flights.get(i);
+					}
+		}return flight;
+	}		
+	
+	
 //Read CSV	
 	  public void main(String[] args) throws Exception {
 	    try {
@@ -69,11 +121,13 @@ public class Data {
 	      while (myReader.hasNextLine()) {
 	        String[] data = myReader.nextLine().split(",");
 	        Flightclass flightC = new Flightclass();
+	        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	        DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm");
 	        
-	        flightC.setDateofflight(LocalDate.parse(data[0]));
-	        flightC.setDeparturetime(LocalTime.parse(data[1]));
-	        flightC.setArrivaltime(LocalTime.parse(data[2]));
-	        flightC.setFlightduration(Integer.parseInt(data[3]));
+	        flightC.setDateofflight(LocalDate.parse(data[0],dateFormat));
+	        flightC.setDeparturetime(LocalTime.parse(data[1],timeFormat));
+	        flightC.setArrivaltime(LocalTime.parse(data[2],timeFormat));
+	        flightC.setFlightduration(String(data[3],timeFormat));
 	        flightC.setDistance(Double.parseDouble(data[4]));
 	        flightC.setDelay(Integer.parseInt(data[5]));
 	        flightC.setDepartureairport(data[6]);
@@ -94,22 +148,30 @@ public class Data {
 	  }
 	 
 
+	private String String(String string, DateTimeFormatter timeFormat) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public void addTicketToData(Ticket ticket) {
 		tickets.add(ticket);
 	}
 	
-	public void addTicketToData(Object user) {
-		users.add(user);
-	}
+//	public void addTicketToData(Object user) {
+//		users.add(user);
+//	}
 
-	public ArrayList<Flightclass> getFlights() {
-		
+	public ArrayList<Flightclass> getFlights() {		
 		return this.flights;
 	}
 	
 	public Fooditem[] getItemsAvailable() {
 		return this.itemsAvailable;
 	}
-
+		
+	public ArrayList<Ticket> getTickets() {
+		return this.tickets;
+	}
+	
 
 }
