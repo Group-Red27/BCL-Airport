@@ -127,12 +127,12 @@ public class Finance {
 		} else if (noOfBags == 0){
 			bagCost = 0.00;
 		} else {
-			bagCost = 0.00;						
-			System.out.println(bagCostError());			
+			bagCost = 0.00;								
+//			System.out.println(bagCostError());
 		}		
 		return bagCost;		
 	}
-	// above method else is not required as no of bags on passenger component is not entry , its a drop list from zero onwards
+	// On the above method ,else statement is not required as no of bags on passenger component is not passenger entry , its a drop list from zero onwards
 	
 	
 	public double calCompensation(int delaysInDeparture) {		

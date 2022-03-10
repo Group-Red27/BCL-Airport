@@ -8,8 +8,8 @@ class TestFinance {
 	void testDeclarePriceRating() {
 		Finance testFinance = new Finance(null);
 		Flightclass flightclass = new Flightclass();
-		double output = testFinance.declarePriceRating("5A", flightclass );
-		assertEquals(1.5,output);
+		double output = testFinance.declarePriceRating("7A", flightclass );
+		assertEquals(1.0,output);
 	}
 	
 	
