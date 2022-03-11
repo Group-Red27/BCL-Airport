@@ -190,7 +190,7 @@ public class Finance {
 //		String departureSeatNumber = ticketFound.getDepartureSeatNumber();		
 		double classPriceRating = declarePriceRating(departureSeatNumber,departureFlight);
 		
-		ticketCostDeparture = travelDistDeparture * classPriceRating;		
+		ticketCostDeparture = travelDistDeparture * classPriceRating;	
 		return ticketCostDeparture;		
 	}
 		
