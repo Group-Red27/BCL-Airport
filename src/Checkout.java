@@ -215,13 +215,7 @@ public class Checkout extends JFrame {
 		table.getTableHeader().setForeground(Color.WHITE);
 		scrollPane.setViewportView(table);
 		
-		JLabel bagErrorText = new JLabel(finance.bagCostError());
-		bagErrorText.setHorizontalAlignment(SwingConstants.CENTER);
-		bagErrorText.setFont(new Font("Tahoma", Font.BOLD, 11));
-		bagErrorText.setBounds(65, 340, 1100, 40);
-		mainContentpanel.add(bagErrorText);
-		bagErrorText.setVisible(false);
-			
+		
 	}
 	
 	}
