@@ -19,7 +19,12 @@ import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.MouseMotionAdapter;
+import java.util.ArrayList;
+
 import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.JScrollBar;
+import javax.swing.JTextPane;
 
 public class FlightArrivalMap_UI extends JFrame {
 
@@ -28,6 +33,7 @@ public class FlightArrivalMap_UI extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private static final JComponent Button = null;
+	protected static final String JLabel = null;
 	private JPanel contentPane;
 
 	/**
@@ -52,7 +58,7 @@ public class FlightArrivalMap_UI extends JFrame {
 	@SuppressWarnings("null")
 	public FlightArrivalMap_UI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1000, 650);
+		setBounds(100, 100, 1424, 650);
 		ImageIcon Image= new ImageIcon(this.getClass().getResource("map.png"));
 	
 		contentPane = new JPanel();
@@ -120,16 +126,208 @@ public class FlightArrivalMap_UI extends JFrame {
 		contentPane.add(bottompanel);
 		bottompanel.setLayout(null);
 		
+		JLabel lblDub = new JLabel("DUB");
+		lblDub.setForeground(new Color(25, 25, 112));
+		lblDub.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblDub.setBounds(378, 139, 31, 15);
+		bottompanel.add(lblDub);
+		
+		JLabel lblLos = new JLabel("LOS");
+		lblLos.setForeground(new Color(25, 25, 112));
+		lblLos.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblLos.setBounds(432, 288, 31, 14);
+		bottompanel.add(lblLos);
+		
+		JLabel lblJNB = new JLabel("JNB");
+		lblJNB.setForeground(new Color(25, 25, 112));
+		lblJNB.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblJNB.setBounds(469, 418, 31, 14);
+		bottompanel.add(lblJNB);
+		
+		JLabel lblDfw = new JLabel("DFW");
+		lblDfw.setForeground(new Color(25, 25, 112));
+		lblDfw.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblDfw.setBounds(118, 206, 31, 15);
+		bottompanel.add(lblDfw);
+		
+		JLabel lblLvs = new JLabel("LVS");
+		lblLvs.setForeground(new Color(25, 25, 112));
+		lblLvs.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblLvs.setBounds(77, 192, 31, 15);
+		bottompanel.add(lblLvs);
+		
+		JLabel lblMex = new JLabel("MEX");
+		lblMex.setForeground(new Color(25, 25, 112));
+		lblMex.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblMex.setBounds(98, 229, 31, 15);
+		bottompanel.add(lblMex);
+		
+		JLabel lblJfk = new JLabel("JFK");
+		lblJfk.setForeground(new Color(25, 25, 112));
+		lblJfk.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblJfk.setBounds(198, 180, 31, 15);
+		bottompanel.add(lblJfk);
+		
+		JLabel lblYyz = new JLabel("YYZ");
+		lblYyz.setForeground(new Color(25, 25, 112));
+		lblYyz.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblYyz.setBounds(174, 156, 31, 15);
+		bottompanel.add(lblYyz);
+		
+		JLabel lblGru = new JLabel("GRU");
+		lblGru.setForeground(new Color(25, 25, 112));
+		lblGru.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblGru.setBounds(261, 384, 31, 15);
+		bottompanel.add(lblGru);
+		
+		JLabel lblRak = new JLabel("RAK");
+		lblRak.setForeground(new Color(25, 25, 112));
+		lblRak.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblRak.setBounds(388, 205, 31, 15);
+		bottompanel.add(lblRak);
+		
+		JLabel lblLis = new JLabel("LIS");
+		lblLis.setForeground(new Color(25, 25, 112));
+		lblLis.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblLis.setBounds(378, 179, 31, 15);
+		bottompanel.add(lblLis);
+		
+		JLabel lblMad = new JLabel("MAD");
+		lblMad.setForeground(new Color(25, 25, 112));
+		lblMad.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblMad.setBounds(404, 179, 31, 15);
+		bottompanel.add(lblMad);
+		
+		JLabel lblCdg = new JLabel("CDG");
+		lblCdg.setForeground(new Color(25, 25, 112));
+		lblCdg.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblCdg.setBounds(412, 156, 31, 15);
+		bottompanel.add(lblCdg);
+		
+		JLabel lblAms = new JLabel("AMS");
+		lblAms.setForeground(new Color(25, 25, 112));
+		lblAms.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblAms.setBounds(445, 140, 31, 15);
+		bottompanel.add(lblAms);
+		
+		JLabel lblArn = new JLabel("ARN");
+		lblArn.setForeground(new Color(25, 25, 112));
+		lblArn.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblArn.setBounds(469, 118, 31, 15);
+		bottompanel.add(lblArn);
+		
+		JLabel lblFco = new JLabel("FCO");
+		lblFco.setForeground(new Color(25, 25, 112));
+		lblFco.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblFco.setBounds(455, 179, 31, 15);
+		bottompanel.add(lblFco);
+		
+		JLabel lblAth = new JLabel("ATH");
+		lblAth.setForeground(new Color(25, 25, 112));
+		lblAth.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblAth.setBounds(486, 192, 31, 15);
+		bottompanel.add(lblAth);
+		
+		JLabel lblSvo = new JLabel("SVO");
+		lblSvo.setForeground(new Color(25, 25, 112));
+		lblSvo.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblSvo.setBounds(534, 155, 31, 15);
+		bottompanel.add(lblSvo);
+		
+		JLabel lblDxb = new JLabel("DXB");
+		lblDxb.setForeground(new Color(25, 25, 112));
+		lblDxb.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblDxb.setBounds(547, 240, 31, 14);
+		bottompanel.add(lblDxb);
+		
+		JLabel lblCai = new JLabel("CAI");
+		lblCai.setForeground(new Color(25, 25, 112));
+		lblCai.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblCai.setBounds(498, 229, 31, 14);
+		bottompanel.add(lblCai);
+		
+		JLabel lblHnd = new JLabel("HND");
+		lblHnd.setForeground(new Color(25, 25, 112));
+		lblHnd.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblHnd.setBounds(814, 191, 31, 14);
+		bottompanel.add(lblHnd);
+		
+		JLabel lblHkg = new JLabel("HKG");
+		lblHkg.setForeground(new Color(25, 25, 112));
+		lblHkg.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblHkg.setBounds(754, 228, 31, 14);
+		bottompanel.add(lblHkg);
+		
+		JLabel lblSyd = new JLabel("SYD");
+		lblSyd.setForeground(new Color(25, 25, 112));
+		lblSyd.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblSyd.setBounds(854, 400, 31, 14);
+		bottompanel.add(lblSyd);
+		
+		JLabel lblBkk = new JLabel("BKK");
+		lblBkk.setForeground(new Color(25, 25, 112));
+		lblBkk.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblBkk.setBounds(721, 261, 31, 14);
+		bottompanel.add(lblBkk);
+		
+		JLabel BCL = new JLabel("BCL");
+		BCL.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//Object m = new FlightArrivalMap(((JLabel)e.getSource()).getText());
+				airportFlight frame = new airportFlight();
+				frame.setVisible(true);
+				System.out.println("working");
+				
+			}
+		});
+		BCL.setForeground(new Color(25, 25, 112));
+		BCL.setFont(new Font("Tahoma", Font.BOLD, 12));
+		BCL.setBounds(412, 139, 23, 14);
+		bottompanel.add(BCL);
+		
 		JLabel DEL = new JLabel("DEL");
 		DEL.setFont(new Font("Tahoma", Font.BOLD, 12));
 		DEL.setForeground(new Color(25, 25, 112));
 		DEL.setBounds(646, 239, 31, 14);
 		bottompanel.add(DEL);
 		
+	
+		
+		
+		
 		JLabel MapLabel = new JLabel("");
 		MapLabel.setIcon(new ImageIcon("C:\\Users\\sweet\\git\\BCL-Airport\\src\\map.png"));
 		MapLabel.setBounds(0, 0, 1000, 561);
 		bottompanel.add(MapLabel);
+		
+		JTextPane textPane = new JTextPane();
+		textPane.setBounds(1087, 174, 260, 345);
+		contentPane.add(textPane);
+		
+		JScrollBar scrollBar = new JScrollBar();
+		scrollBar.setBounds(1087, 174, 260, 345);
+		
+		contentPane.add(scrollBar);
+		
+		// delay box goes here
+		Data data = Data.getInstance();
+		ArrayList<Flightclass> flights = data.getFlights();
+		for (int i = 0; i < flights.size(); i++) {
+			
+			int delay = flights.get(i).getDelay();
+			flights.get(i).getDepartureairport();
+			if (delay >= 30) { 
+				
+			}
+				
+			// display the flight in the box thingy
+			// get the delay for flight[i] 
+			// if the delay is ... then setText = red
+			
+			
+		}
+		
 		
 //		JComponent buttonPanel = null;
 //		buttonPanel.setForeground(new Color(0, 0, 128));
