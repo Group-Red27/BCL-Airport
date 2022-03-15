@@ -92,6 +92,20 @@ public class AirbusA318_JDiolog extends JDialog {
 	        	for (int i=0;i<seatNumber.length;i++) 
 	        	{
 	        		
+	        		SeatingPlan seatingP = new SeatingPlan(null, null);
+
+	        		if(seatingP.seatAvailability[i]==false) 
+	        		{
+	        			seatNumber[i].setEnabled(false);
+
+
+	        		}
+	        		
+	        		else
+	        		{
+	        			seatNumber[i].setEnabled(true);
+	        			
+	        		}	
         			        		
 	        		if(seatNumber[i].isSelected()) 
 	        		{

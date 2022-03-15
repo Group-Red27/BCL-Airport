@@ -248,59 +248,6 @@ public class SeatingPlan {
 		
 		
 		
-		public boolean numberOfSeats() //validate number of seats compared to number of ticktes.
-		{ 
-			
-			boolean valid;
-			
-		if (selectedSeats.length!=numOfTickets)
-		{
-			valid=false;
-		}
-		else
-		{
-			valid=true; 
-		}
-		return valid;
-}
-		
-		public int getIndex(String selectedSeats,String[] seatNumber) //Index for Selected seats and seatNumber. 
-		{
-			int index=0;
-			for(int i=0;i<=seatNumber.length;i++)
-			{
-				if(seatNumber[i]==selectedSeats)
-					index=i;
-				
-			}
-			return index;
-		}
-		
-		
-		public void selectSeats() //Checks selected seats
-		{
-			for(int i=0;i<=selectedSeats.length;i++)
-			{
-				int Index = getIndex(selectedSeats[i],seatNumber);
-				seatAvailability[Index]=true;
-			}
-		}
-		
-		
-		public boolean isSeatNumberAvailable(String[] seatNumber) //Check if seatNumber is available. 
-		{
-			boolean valid=true;
-			
-			for (int i=0;i<=selectedSeats.length;i++)
-			{
-				int Index = getIndex(selectedSeats[i],seatNumber);
-					if(seatAvailability[Index]=false)
-					{
-						valid=false;
-					}
-			}
-			return valid;
-		}
 		
 
 		public String getSeatClass(String seatNumber) throws Exception 
@@ -329,9 +276,80 @@ public class SeatingPlan {
 		}
 		
 		
+}	
 		
-			
-}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//		public int getIndex(String selectedSeats,String[] seatNumber) //Index for Selected seats and seatNumber. 
+//		{
+//			int index=0;
+//			for(int i=0;i<=seatNumber.length;i++)
+//			{
+//				if(seatNumber[i]==selectedSeats)
+//					index=i;
+//				
+//			}
+//			return index;
+//		}
+//		
+//		
+//		public void selectSeats() //Checks selected seats
+//		{
+//			for(int i=0;i<=selectedSeats.length;i++)
+//			{
+//				int Index = getIndex(selectedSeats[i],seatNumber);
+//				seatAvailability[Index]=true;
+//			}
+//		}
+//		
+//		
+//		public boolean isSeatNumberAvailable(String[] seatNumber) //Check if seatNumber is available. 
+//		{
+//			boolean valid=true;
+//			
+//			for (int i=0;i<=selectedSeats.length;i++)
+//			{
+//				int Index = getIndex(selectedSeats[i],seatNumber);
+//					if(seatAvailability[Index]=false)
+//					{
+//						valid=false;
+//					}
+//			}
+//			return valid;
+//		}	
+		
+		
+//public boolean numberOfSeats() //validate number of seats compared to number of ticktes.
+//{ 
+//	
+//	boolean valid;
+//	
+//if (selectedSeats.length!=numOfTickets)
+//{
+//	valid=false;
+//}
+//else
+//{
+//	valid=true; 
+//}
+//return valid;
+//}
+
 		
 
 	
