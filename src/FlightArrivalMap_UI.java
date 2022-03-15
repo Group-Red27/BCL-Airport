@@ -19,12 +19,17 @@ import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.MouseMotionAdapter;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JScrollBar;
 import javax.swing.JTextPane;
+import javax.swing.JScrollPane;
 
 public class FlightArrivalMap_UI extends JFrame {
 
@@ -35,6 +40,8 @@ public class FlightArrivalMap_UI extends JFrame {
 	private static final JComponent Button = null;
 	protected static final String JLabel = null;
 	private JPanel contentPane;
+	public static String airportName;
+	
 
 	/**
 	 * Launch the application.
@@ -274,10 +281,11 @@ public class FlightArrivalMap_UI extends JFrame {
 		BCL.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//Object m = new FlightArrivalMap(((JLabel)e.getSource()).getText());
-				airportFlight frame = new airportFlight();
-				frame.setVisible(true);
-				System.out.println("working");
+				
+				airportName = ((JLabel) e.getSource()).getText(); // will get the airport name from JLabel
+				airportFlight frame = new airportFlight(); // makes a new frame
+				frame.setVisible(true); //show.
+				
 				
 			}
 		});
@@ -301,32 +309,148 @@ public class FlightArrivalMap_UI extends JFrame {
 		MapLabel.setBounds(0, 0, 1000, 561);
 		bottompanel.add(MapLabel);
 		
-		JTextPane textPane = new JTextPane();
-		textPane.setBounds(1087, 174, 260, 345);
-		contentPane.add(textPane);
+	
+		
+	
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(1087, 58, 260, 546);
+		contentPane.add(scrollPane);
 		
 		JScrollBar scrollBar = new JScrollBar();
 		scrollBar.setBounds(1087, 174, 260, 345);
 		
 		contentPane.add(scrollBar);
 		
-		// delay box goes here
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(1087, 174, 260, 345);
+		scrollPane.setViewportView(textArea);
+		
 		Data data = Data.getInstance();
-		ArrayList<Flightclass> flights = data.getFlights();
-		for (int i = 0; i < flights.size(); i++) {
-			
-			int delay = flights.get(i).getDelay();
-			flights.get(i).getDepartureairport();
-			if (delay >= 30) { 
+		ArrayList<Flightclass> flights;
+		ArrayList<Flightclass> curFlights;
+		flights = data.flights;
+		
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		DateTimeFormatter dtf1 = DateTimeFormatter.ofPattern("HH:mm");
+		String curDate = sdf.format(date);
+		
+		for(int i = 0;i < flights.size(); i++) {
+			String flDate = dtf.format(flights.get(i).getdateofflight())+"";
+			if (curDate.equals(flDate)) {
+				
+					String arrivalAir = flights.get(i).getArivalairport();
+					String arrivTime = dtf1.format(flights.get(i).getArrivaltime());
+					String depAir = flights.get(i).getDepartureairport();
+					String depTime = dtf1.format(flights.get(i).getDeparturetime());
+					String newArriv = calcDelay(flights.get(i));
+					
+					String row = flDate + " " + arrivalAir + " " + arrivTime + " " + depAir + " " + depTime + " " + newArriv;
+					
+					textArea.append(row);
+					textArea.append("\n");
+					
+					
+				
 				
 			}
+		}
+		
+	}
+	
+
+		
+		public static String calcDelay(Flightclass Flight) {
+			
+			// grab the value of the delay of the flight
+			String newArrival = null;
+			int i;
+			int delay = Flight.getDelay();
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
+			// if the delay is more than 30 minutes
+			if (delay >= 30) {
 				
-			// display the flight in the box thingy
+				// get the arrival time and split it by :
+				String arrivTime = dtf.format(Flight.getArrivaltime());
+				String[] arrivTimeAr = arrivTime.split(":");
+				
+				// convert the arrival time to minyes
+				int minutes = (Integer.valueOf(arrivTimeAr[0]) * 100) + Integer.valueOf(arrivTimeAr[1]);
+				int newArriv = delay + minutes;
+				
+				// convert he mintes into hours and minutes
+				int hr = Integer.valueOf(newArriv) / 100;
+				int min = Integer.valueOf(newArriv) % 100;
+				
+				String minutes1 = null;
+				
+				// formatting the time in the correct values
+				if (hr >= 24) {
+					hr = hr - 24;
+				
+				}		
+				
+				if(min >= 60) {
+					hr += 1;
+					min = min - 60;
+					if(min < 10) {
+						minutes1 = "0" + min;
+						
+					}
+					else {
+						minutes1 = String.valueOf(min);
+					}
+					
+				}
+				else {
+					if(min < 10) {
+						minutes1 = "0" + min;
+						
+					}
+					else {
+						minutes1 = String.valueOf(min);
+					}
+				}
+				System.out.println(minutes1);
+				
+				// set the new arrival time to a varuable
+				if (hr < 10) {
+					newArrival = "0" + hr + ":" + minutes1;
+				}
+			
+				else {
+					newArrival = hr + ":" + minutes1;
+				}
+				
+				
+				}
+			// if the delay is less than 30 minutes do not change the arrival time
+			else {
+				newArrival = dtf.format(Flight.getArrivaltime());
+			}
+			// returns the new arrival time
+			return newArrival;
+
+			
+		
+		// delay box goes here
+//		Data data = Data.getInstance();
+//		ArrayList<Flightclass> flights = data.getFlights();
+//		for (int i = 0; i < flights.size(); i++) {
+//			
+//			int delay = flights.get(i).getDelay();
+//			flights.get(i).getDepartureairport();
+//			if (delay >= 30) { 
+//				
+			//}
+				
 			// get the delay for flight[i] 
 			// if the delay is ... then setText = red
 			
 			
-		}
+		//}
 		
 		
 //		JComponent buttonPanel = null;
