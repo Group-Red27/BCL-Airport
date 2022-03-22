@@ -15,19 +15,7 @@ public class Flightclass {
 	private String arrivalcity;
 	private String flightnumber;
 	private String airline;
-	private String returnflight[];
-	private String departureflight[];
-	SeatingPlan seatingPlan= null;
-	public String flightTypes[]= {"DepartureFlights","ReturnFlights"};
-
 	
-		
- public String[] getFlightTypes() {
-		return flightTypes;
-	}
-	public void setFlightTypes(String[] flightTypes) {
-		this.flightTypes = flightTypes;
-	}
 	
 public LocalDate getdateofflight() {
 	 return dateofflight;
@@ -94,18 +82,8 @@ public String getAirline() {
 public void setAirline(String airline) {
 	this.airline = airline;
 }
-public String[] getReturnflight() {
-	return returnflight;
-}
-public void setReturnflight(String[] returnflight) {
-	this.returnflight = returnflight;
-}
-public String[] getDepartureflight() {
-	return departureflight;
-}
-public void setDepartureflight(String[] departureflight) {
-	this.departureflight = departureflight;
-}
+
+
 public void setDateofflight(LocalDate dateofflight) {
 	this.dateofflight = dateofflight;
 }

@@ -133,7 +133,7 @@ public class SeatingPlanDesign extends JFrame {
 					else 
 					{
 						String selectedTicketNum = numOfTicketsComboBox.getSelectedItem().toString();
-						Title += " AirbusA137";
+						Title += " AirbusA138";
 						AirbusA318_JDiolog a = new AirbusA318_JDiolog(selectedTicketNum,Title);
 						a.setVisible(true);
 						setVisible(false);
@@ -170,33 +170,34 @@ public class SeatingPlanDesign extends JFrame {
 		completeTicketDetailsPlanButton.setForeground(Color.WHITE);
 		completeTicketDetailsPlanButton.setBackground(new Color(0, 0, 128));
 		completeTicketDetailsPlanButton.setBounds(169, 163, 179, 23);
-		completeTicketDetailsPlanButton.addActionListener(new ActionListener()  
-		{
-			public void actionPerformed(ActionEvent e) 
-			{
-				if(SelectedSeatsLabel==null)
-				{
-					Popup popup = new Popup();
-					popup.showErrorMessage("Must select seats");
-				}
-				
-				else
-				{
-					PassengerUI passenger = new PassengerUI(); //Passengers is not working, so I can not link
-					passenger.setVisible(true);
-					
-				}
-				
-			}
-					
-				
-			
-			
-		});
+//		completeTicketDetailsPlanButton.addActionListener(new ActionListener() 
+//		{
+//			public void actionPerformed(ActionEvent e) 
+//			{
+//				if(SelectedSeatsLabel==null)
+//				{
+//					pop_plane popup = new pop_plane();
+//					popup.showErrorMessage("Must select seats");
+//				}
+//				
+//				else
+//				{
+//					PassengerUI passenger = new PassengerUI();   //Not needed because passengers has not completed his component
+//					passenger.setVisible(true);
+//					
+//				}
+//				
+//			}
+//					
+//				
+//			
+//			
+//		});
 		
 		contentPane.add(completeTicketDetailsPlanButton);
 		
 		
 	}
 }
+
 

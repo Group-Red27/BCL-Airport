@@ -107,7 +107,7 @@ public class Boeing747_JDiolog extends JDialog {
 	        		
 	        		SeatingPlan seatingP = new SeatingPlan(null, null);
 
-	        		if(seatingP.seatAvailability[i]==false) 
+	        		if(seatingP.getSeatAvailability()[i]==false) 
 	        		{
 	        			seatNumber[i].setEnabled(false);
 
@@ -316,7 +316,6 @@ public class Boeing747_JDiolog extends JDialog {
 
 		        							seatNumbersSelected.add(seatNumber[i].getText());
 		    		        				seatNumber[i].setEnabled(false);
-		    		        			
 		    		        				
 		    		        				
 		    		    	        		SeatingPlan seatingP = new SeatingPlan(null, null);
@@ -346,5 +345,6 @@ public class Boeing747_JDiolog extends JDialog {
 
 	
 }
+
 
 

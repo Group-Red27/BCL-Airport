@@ -41,6 +41,7 @@ public HardCodedFlightclass(LocalDate dateofflight, LocalTime departuretime, Loc
 	this.arrivalcity=arrivalcity;
 	this.flightnumber=flightnumber;
 	this.airline=airline;
+	
 
 }
 
