@@ -17,7 +17,7 @@ public class HardCodedData
 	      HardCodedFlightclass departureFlight = new HardCodedFlightclass(
 					LocalDate.parse("08/03/2022",dateFormat),
 					LocalTime.parse("06:20:00",timeFormat),LocalTime.parse("11:57:00",timeFormat),
-					"01:37:00", 7021.04, 179, "HND","Tokyo", "SYD", "Sydney", "TS4977", "Easyplane");
+					"05:37:00", 7021.04, 179, "HND","Tokyo", "SYD", "Sydney", "TS4977", "Easyplane");
 					
 	      HardCodedFlightclass returnFlight = new HardCodedFlightclass(
 					LocalDate.of(27,03,22), 
