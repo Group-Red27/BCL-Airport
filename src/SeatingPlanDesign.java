@@ -45,8 +45,8 @@ public class SeatingPlanDesign extends JFrame {
 					ArrayList<String> SeatsSelected = new ArrayList<String>();
 					
 					HardCodedData data = new HardCodedData();
-					HardCodedFlightclass arrival = data.flights[0];
-					HardCodedFlightclass departure = data.flights[1];
+					Flightclass arrival = data.flights[0];
+					Flightclass departure = data.flights[1];
 					
 					
 
@@ -61,7 +61,7 @@ public class SeatingPlanDesign extends JFrame {
 		});
 	}
 	
-	public SeatingPlanDesign(ArrayList<String> SeatNumber,HardCodedFlightclass departureflight, HardCodedFlightclass returnFlight) {
+	public SeatingPlanDesign(ArrayList<String> SeatNumber,Flightclass departureflight, Flightclass returnFlight) {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -106,7 +106,7 @@ public class SeatingPlanDesign extends JFrame {
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
-				HardCodedFlightclass[] flights = {departureflight, returnFlight};
+				Flightclass[] flights = {departureflight, returnFlight};
 				
 				for (int i=0; i<2;i++) 
 				{

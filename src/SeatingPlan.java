@@ -2,7 +2,7 @@
 
 public class SeatingPlan {
 
-	     HardCodedFlightclass flight;
+	     Flightclass flight;
 	     private int numOfTickets;
 	     private String planeType;
 		 private String[] seatNumber;
@@ -15,9 +15,9 @@ public class SeatingPlan {
 
 
 			
-		 public SeatingPlan(String planeType, HardCodedFlightclass flight) //constructor 
+		 public SeatingPlan(String planeType, Flightclass temp) //constructor 
 		 { 
-			 this.flight = flight;
+			 this.flight = temp;
 			 this.planeType = planeType;
 			 if (this.planeType=="AirbusA318")
 				{
@@ -217,11 +217,11 @@ public class SeatingPlan {
 		
 		
 		//PlaneType
-		public boolean planeSeatingPlan(HardCodedFlightclass flight)//Which one it displays, either airbus or boeing.  
+		public boolean planeSeatingPlan(Flightclass flights)//Which one it displays, either airbus or boeing.  
 		{															
 		
 			
-			 String time = flight.getFlightduration().split(":")[0];
+			 String time = flights.getFlightduration().split(":")[0];
 			 Integer hour = Integer.parseInt(time);
 			 
 			

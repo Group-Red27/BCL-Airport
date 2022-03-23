@@ -99,7 +99,7 @@ public class Data {
 	//departure & return airport needed to find the right flight object
 	public Flightclass findflightByAirport(String flightNumber, String departureAirport, String returnAirport) {
 //		System.out.println(flightNumber + " " + departureAirport + " " + returnAirport);
-		Flightclass flight = new Flightclass();
+		Flightclass flight = new Flightclass(null, null, null, returnAirport, 0, 0, returnAirport, returnAirport, returnAirport, returnAirport, returnAirport, returnAirport);
 //		System.out.println(flights.size());
 		for (int i = 0; i < flights.size(); i++ ) {
 			String currentFlightNumber = flights.get(i).getFlightnumber();
@@ -121,7 +121,7 @@ public class Data {
 	      
 	      while (myReader.hasNextLine()) {
 	        String[] data = myReader.nextLine().split(",");
-	        Flightclass flightC = new Flightclass();
+	        Flightclass flightC = new Flightclass(null, null, null, null, 0, 0, null, null, null, null, null, null);
 	        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	        DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm");
 	        

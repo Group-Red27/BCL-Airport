@@ -4,7 +4,7 @@ public class Finance {
 	Data data = Data.getInstance();
 	Ticket ticket;
 	SeatingPlan seatingPlan; 
-	HardCodedFlightclass hardcodedFlightclass;
+	Flightclass Flightclass;
 	
 	
 	double bagCost;
@@ -159,7 +159,7 @@ public class Finance {
 	public double declarePriceRating(String seatNumber,Flightclass flightclass) {				
 		String seatClass = "";
 		
-		HardCodedFlightclass temp = new HardCodedFlightclass(flightclass.getdateofflight(),flightclass.getDeparturetime(),flightclass.getArrivaltime(),flightclass.getFlightduration(),
+		Flightclass temp = new Flightclass(flightclass.getdateofflight(),flightclass.getDeparturetime(),flightclass.getArrivaltime(),flightclass.getFlightduration(),
 				flightclass.getDistance(),flightclass.getDelay(),flightclass.getDepartureairport(),flightclass.getDeparturecity(),flightclass.getArivalairport(),flightclass.getArrivalcity(),
 				flightclass.getFlightnumber(),flightclass.getAirline());
 		try {
