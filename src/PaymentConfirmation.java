@@ -66,6 +66,8 @@ public class PaymentConfirmation extends JFrame {
 		txtpnImportantInformation.setText("\t**** Important Information ****\r\n\r\nYou are about to make your payment. Your total payment includes departure & return ticket prices, bag cost, restaurant order & shop spendings. Any delays in your departures will be compensate towards your payment automatically. If you have not make your order in restaurant or shop, do not proceed to the payment. Once you have completed the payment you cannot make more orders in restaurant or shop.\r\nIf you are ready, please make your payment now.");
 		txtpnImportantInformation.setBounds(100, 120, 436, 190);
 		contentPane.add(txtpnImportantInformation);
+		txtpnImportantInformation.setEditable(false);
+		
 		
 		JButton btnMakePayment = new JButton("Make Payment");
 		btnMakePayment.setFont(new Font("Tahoma", Font.BOLD, 14));
