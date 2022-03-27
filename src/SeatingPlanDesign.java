@@ -45,8 +45,8 @@ public class SeatingPlanDesign extends JFrame {
 					ArrayList<String> SeatsSelected = new ArrayList<String>();
 					
 					HardCodedData data = new HardCodedData();
-					HardCodedFlightclass arrival = data.flights[0];
-					HardCodedFlightclass departure = data.flights[1];
+					Flightclass arrival = data.flights[0];
+					Flightclass departure = data.flights[1];
 					
 					
 
@@ -61,7 +61,7 @@ public class SeatingPlanDesign extends JFrame {
 		});
 	}
 	
-	public SeatingPlanDesign(ArrayList<String> SeatNumber,HardCodedFlightclass departureflight, HardCodedFlightclass returnFlight) {
+	public SeatingPlanDesign(ArrayList<String> SeatNumber,Flightclass departureflight, Flightclass returnFlight) {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -106,7 +106,7 @@ public class SeatingPlanDesign extends JFrame {
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
-				HardCodedFlightclass[] flights = {departureflight, returnFlight};
+				Flightclass[] flights = {departureflight, returnFlight};
 				
 				for (int i=0; i<2;i++) 
 				{
@@ -170,29 +170,29 @@ public class SeatingPlanDesign extends JFrame {
 		completeTicketDetailsPlanButton.setForeground(Color.WHITE);
 		completeTicketDetailsPlanButton.setBackground(new Color(0, 0, 128));
 		completeTicketDetailsPlanButton.setBounds(169, 163, 179, 23);
-//		completeTicketDetailsPlanButton.addActionListener(new ActionListener() 
-//		{
-//			public void actionPerformed(ActionEvent e) 
-//			{
-//				if(SelectedSeatsLabel==null)
-//				{
-//					pop_plane popup = new pop_plane();
-//					popup.showErrorMessage("Must select seats");
-//				}
-//				
-//				else
-//				{
-//					PassengerUI passenger = new PassengerUI();   //Not needed because passengers has not completed his component
-//					passenger.setVisible(true);
-//					
-//				}
-//				
-//			}
-//					
-//				
-//			
-//			
-//		});
+		completeTicketDetailsPlanButton.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(SelectedSeatsLabel==null)
+				{
+					pop_plane popup = new pop_plane();
+					popup.showErrorMessage("Must select seats");
+				}
+				
+				else
+				{
+					PassengerUI passenger = new PassengerUI();   //Not needed because passengers has not completed his component
+					passenger.setVisible(true);
+					
+				}
+				
+			}
+					
+				
+			
+			
+		});
 		
 		contentPane.add(completeTicketDetailsPlanButton);
 		

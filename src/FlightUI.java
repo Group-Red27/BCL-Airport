@@ -27,6 +27,9 @@ import java.awt.Label;
 import javax.swing.JMenuItem;
 import javax.swing.JComboBox;
 import javax.swing.JCheckBox;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 public class FlightUI extends JFrame {
@@ -93,23 +96,54 @@ public class FlightUI extends JFrame {
 		textField_3.setBounds(358, 257, 64, 27);
 		contentPane.add(textField_3);
 		
-		JLabel textField_4 = new JLabel();
-		textField_4.setFont(new Font("Dialog", Font.PLAIN, 16));
-		textField_4.setText("Shop");
-		textField_4.setBounds(358, 0, 64, 27);
-		contentPane.add(textField_4);
+		JButton Shop = new JButton();
+		Shop.setFont(new Font("Dialog", Font.PLAIN, 16));
+		Shop.setText("Shop");
+		Shop.setBounds(328, 0, 100, 27);
+		contentPane.add(Shop);
 		
-		JLabel textField_5 = new JLabel();
-		textField_5.setFont(new Font("Dialog", Font.PLAIN, 16));
-		textField_5.setText("Restaurant");
-		textField_5.setBounds(464, 0, 142, 27);
-		contentPane.add(textField_5);
 		
-		JLabel textField_6 = new JLabel();
-		textField_6.setFont(new Font("Dialog", Font.BOLD, 16));
-		textField_6.setText("Finance");
-		textField_6.setBounds(643, 0, 95, 27);
-		contentPane.add(textField_6);
+		JButton restaraunt = new JButton();
+		restaraunt.setFont(new Font("Dialog", Font.PLAIN, 16));
+		restaraunt.setText("Restaurant");
+		restaraunt.setBounds(464, 0, 110, 27);
+		restaraunt.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				
+					RestaurantSelectionScreen restaurant = new RestaurantSelectionScreen(); 
+					restaurant.setVisible(true);
+					setVisible(false);
+					
+			}	
+				
+			
+			
+		});
+		
+		contentPane.add(restaraunt);
+		
+		JButton Finance = new JButton();
+		Finance.setFont(new Font("Dialog", Font.PLAIN, 16));
+		Finance.setText("Finance");
+		Finance.setBounds(600, 0, 100, 27);
+		Finance.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				
+					Checkout finance = new Checkout();   
+					finance.setVisible(true);
+					setVisible(false);
+					
+			}	
+				
+			
+			
+		});
+		contentPane.add(Finance);
+		
 		
 		List list = new List();
 		list.setBounds(81, 178, 135, 21);
@@ -176,6 +210,8 @@ public class FlightUI extends JFrame {
 		    contentPane.add(comboBox_1);
 		
 	}
+		
+		
 	}
 
 	

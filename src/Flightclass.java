@@ -16,6 +16,30 @@ public class Flightclass {
 	private String flightnumber;
 	private String airline;
 	
+	public Flightclass(LocalDate dateofflight, LocalTime departuretime, LocalTime arrivaltime, 
+			String flightduration, 
+			double distance, int delay,
+			String departureairport, String departurecity,
+			String arivalairport, String arrivalcity, 
+			String flightnumber, String airline) 
+	{
+		
+		this.dateofflight=dateofflight;
+		this.departuretime=departuretime;
+		this.arrivaltime=arrivaltime;
+		this.flightduration=flightduration;
+		this.distance=distance;
+		this.delay=delay;
+		this.departureairport=departureairport;
+		this.departurecity = departurecity;
+		this.arivalairport = arivalairport;
+		this.arrivalcity=arrivalcity;
+		this.flightnumber=flightnumber;
+		this.airline=airline;
+		
+
+	}
+	
 	
 public LocalDate getdateofflight() {
 	 return dateofflight;
