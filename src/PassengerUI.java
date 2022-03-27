@@ -166,7 +166,6 @@ public class PassengerUI extends JFrame {
 					validTicket = false;
 				}
 				String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
-<<<<<<< HEAD
 			      //Matching the given phone number with regular expression
 			      boolean result = Email.getText().matches(regex);
 			      if(result) {
@@ -176,14 +175,13 @@ public class PassengerUI extends JFrame {
 			         
 			      }
 				
-=======
 			    //Matching the given phone number with regular expression
 			    boolean result = Email.getText().matches(regex);
 			    if(result == false) {
 			       JOptionPane.showMessageDialog(contentPane, "Enter valid Email address");
 			       validTicket = false;
 			    }
->>>>>>> edb5f60974bf906b53356371e91b29d004002305
+
 				
 				if(Tele.getText().length()==0) {
 					JOptionPane.showMessageDialog(null, "Enter the Telephone number");
@@ -194,17 +192,17 @@ public class PassengerUI extends JFrame {
 				
 				
 				if (validTicket == true) {
-<<<<<<< HEAD
+
 				Random rand = new Random();
 				System.out.println(rand.nextInt(99999999));
 				JOptionPane.showMessageDialog(contentPane, "Your ticket no. is " + rand.nextInt(99999999));
 				setVisible(false);
-=======
+
 					Random rand = new Random();
 					System.out.println(rand.nextInt(99999999));
 					JOptionPane.showMessageDialog(contentPane, "Your ticket no. is " + rand.nextInt(999999999));
 					setVisible(false);
->>>>>>> edb5f60974bf906b53356371e91b29d004002305
+
 				}
 				
 				

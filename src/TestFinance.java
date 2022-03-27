@@ -3,7 +3,16 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class TestFinance {	
+	
+	@Test
+	void testCalTicketPrice() {
+		Finance testFinance = new Finance(null);
+		Data data = Data.getInstance();
+		double output = testFinance.calTicketPrice(data.getTickets().get(i));
+		assertEquals (28063.34,output);
+	}
 		
+	
 
 //	@Test
 //	void testCalTicketCostReturn() {

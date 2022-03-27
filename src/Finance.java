@@ -1,4 +1,4 @@
-
+ 
 public class Finance {
 	
 	Data data = Data.getInstance();
@@ -228,6 +228,7 @@ public class Finance {
 		return overallTotalCost;
 	}
 	
+	//this method will be called to set rows in financial table
 	public int defineNoTableRows() {			
 		int purchasedTickets = data.tickets.size();
 		return purchasedTickets;
