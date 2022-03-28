@@ -62,15 +62,15 @@ public class AirbusA318_JDiolog extends JDialog {
 		economyClassLabel.setBounds(22, 241, 86, 28);
 		getContentPane().add(economyClassLabel);
 		
-		JToggleButton[] seatNumber = new JToggleButton[58];
+		JToggleButton[] seatNumber = new JToggleButton[64];
 		String[] Label= {"1A","2A","3A","4A","5A","1B","2B","3B","4B","5B",//Business
 				
-				"6A","7A","8A","9A","10A","11A","12A","13A",//Economy
-				"6B","7B","8B","9B","10B","11B","12B","13B",
-				"6C","7C","8C","9C","10C","11C","12C","13C",
-				"6D","7D","8D","9D","10D","11D","12D","13D",
-				"6E","7E","8E","9E","10E","11E","12E","13E",
-				"6F","7F","8F","9F","10F","11F","12F","13F"};
+				"6A","7A","8A","9A","10A","11A","12A","13A","14A",//Economy
+				"6B","7B","8B","9B","10B","11B","12B","13B","14B",
+				"6C","7C","8C","9C","10C","11C","12C","13C","14C",
+				"6D","7D","8D","9D","10D","11D","12D","13D","14D",
+				"6E","7E","8E","9E","10E","11E","12E","13E","14E",
+				"6F","7F","8F","9F","10F","11F","12F","13F","14F",};
 		
 		int yCounter =106;
 		int yCounter2 =106;
@@ -141,7 +141,7 @@ public class AirbusA318_JDiolog extends JDialog {
 			
 		//Economy Class
 			
-			for(int i=10;i<18;i++) 
+			for(int i=10;i<19;i++) 
 			{
 				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
@@ -152,7 +152,7 @@ public class AirbusA318_JDiolog extends JDialog {
 				getContentPane().add(seatNumber[i]);
 			}
 			
-			for(int i=18;i<26;i++) 
+			for(int i=19;i<28;i++) 
 			{
 				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
@@ -163,7 +163,7 @@ public class AirbusA318_JDiolog extends JDialog {
 				getContentPane().add(seatNumber[i]);
 			}
 			
-			for(int i=26;i<34;i++) 
+			for(int i=28;i<37;i++) 
 			{
 				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
@@ -174,7 +174,7 @@ public class AirbusA318_JDiolog extends JDialog {
 				getContentPane().add(seatNumber[i]);
 			}
 			
-			for(int i=34;i<42;i++) 
+			for(int i=37;i<46;i++) 
 			{
 				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
@@ -185,7 +185,7 @@ public class AirbusA318_JDiolog extends JDialog {
 				getContentPane().add(seatNumber[i]);
 			}
 			
-			for(int i=42;i<50;i++) 
+			for(int i=46;i<55;i++) 
 			{
 				seatNumber[i]= new JToggleButton(Label[i]);
 				seatNumber[i].setBackground(new Color(126, 192, 236));
@@ -196,7 +196,7 @@ public class AirbusA318_JDiolog extends JDialog {
 				getContentPane().add(seatNumber[i]);
 			}
 			
-			for(int i=50;i<58;i++) 
+			for(int i=55;i<64;i++) 
 			{
 				
 				seatNumber[i]= new JToggleButton(Label[i]);
