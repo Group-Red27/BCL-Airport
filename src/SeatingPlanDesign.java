@@ -184,6 +184,9 @@ public class SeatingPlanDesign extends JFrame {
 				{
 					PassengerUI passenger = new PassengerUI();   //Not needed because passengers has not completed his component
 					passenger.setVisible(true);
+					setVisible(false);
+
+					
 					
 				}
 				

@@ -205,11 +205,6 @@ public class PassengerUI extends JFrame {
 				setVisible(false);
 
 
-					Random rand = new Random();
-					System.out.println(rand.nextInt(99999999));
-					JOptionPane.showMessageDialog(contentPane, "Your ticket no. is " + rand.nextInt(999999999));
-					setVisible(false);
-
 
 				}
 				
