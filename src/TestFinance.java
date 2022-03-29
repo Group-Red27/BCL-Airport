@@ -18,7 +18,7 @@ class TestFinance {
 //	void testCalTicketCostReturn() {
 //		Finance testFinance = new Finance(null);
 //		double output = testFinance.calTicketCostReturn("1A", "ST4138", "HND", "SYD");
-//		assertEquals(17531.775, output);
+//		assertEquals(17531.775, output);it
 //	}
 	
 	

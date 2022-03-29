@@ -96,11 +96,25 @@ public class FlightUI extends JFrame {
 		textField_3.setBounds(358, 257, 64, 27);
 		contentPane.add(textField_3);
 		
-		JButton Shop = new JButton();
-		Shop.setFont(new Font("Dialog", Font.PLAIN, 16));
-		Shop.setText("Shop");
-		Shop.setBounds(328, 0, 100, 27);
-		contentPane.add(Shop);
+		JButton SeatingPlan = new JButton();
+		SeatingPlan.setFont(new Font("Dialog", Font.PLAIN, 16));
+		SeatingPlan.setText("Seating Plan");
+		SeatingPlan.setBounds(300, 0, 130, 27);
+		SeatingPlan.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				
+					SeatingPlanDesign seatingPlan = new SeatingPlanDesign(null, null, null); 
+					seatingPlan.setVisible(true);
+					setVisible(false);
+					
+			}	
+				
+			
+			
+		});
+		contentPane.add(SeatingPlan);
 		
 		
 		JButton restaraunt = new JButton();
