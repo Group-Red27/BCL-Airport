@@ -122,12 +122,12 @@ public class PassengerUI extends JFrame {
 		contentPane.add(comboBox);
 		
 		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"", "1A", "6A", "11A"}));
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"", "1A", "2A", "3A"}));
 		comboBox_1.setBounds(226, 433, 47, 22);
 		contentPane.add(comboBox_1);
 		
 		JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"", "1A", "6A", "11A"}));
+		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"", "14A", "14B", "14C"}));
 		comboBox_2.setBounds(226, 470, 47, 22);
 		contentPane.add(comboBox_2);
 		

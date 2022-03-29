@@ -182,7 +182,7 @@ public class SeatingPlanDesign extends JFrame {
 				
 				else
 				{
-					PassengerUI passenger = new PassengerUI();   //Not needed because passengers has not completed his component
+					PassengerUI passenger = new PassengerUI();  
 					passenger.setVisible(true);
 					setVisible(false);
 
@@ -190,11 +190,7 @@ public class SeatingPlanDesign extends JFrame {
 					
 				}
 				
-			}
-					
-				
-			
-			
+			}			
 		});
 		
 		contentPane.add(completeTicketDetailsPlanButton);
